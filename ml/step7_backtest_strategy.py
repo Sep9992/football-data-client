@@ -1,9 +1,10 @@
-# ml/step8_backtest_strategy.py
-# Simulace sázkové strategie: DOUBLE CHANCE (Vyladěná verze)
-# Filtr: Kurz > 1.20
+# ml/step7_backtest_strategy.py
+# Simulace sázkové strategie: DOUBLE CHANCE (Sjednocená logika se Step 4)
+# Thresholds: 1X > 0.78 | X2 > 0.55 | Odds > 1.20
 
 import os
 import pandas as pd
+import numpy as np
 from sqlalchemy import create_engine
 from dotenv import load_dotenv
 from sklearn.preprocessing import StandardScaler
@@ -21,7 +22,7 @@ from ml.shared_features import performance_features
 
 
 def backtest():
-    print("⏳ Načítám data pro Finální Backtest...")
+    print("⏳ Načítám data pro Finální Backtest (Sjednocená logika)...")
     df = pd.read_sql("SELECT * FROM prepared_datasets ORDER BY match_date ASC", engine)
     df = df.dropna(subset=["match_date"]).reset_index(drop=True)
 
@@ -32,7 +33,7 @@ def backtest():
     BANKROLL = 10000
     BET_SIZE = 100
 
-    # Model Setup
+    # Používáme stejný základní model jako při tréninku
     rf = RandomForestClassifier(n_estimators=100, max_depth=5, min_samples_leaf=5, random_state=42,
                                 class_weight="balanced")
     calibrated_clf = CalibratedClassifierCV(rf, method='isotonic', cv=3)
@@ -50,7 +51,7 @@ def backtest():
     balance = BANKROLL
     bets_log = []
 
-    print(f"🚀 Startuji Backtest (Strategie: DC + Filtr kurzů < 1.20)...")
+    print(f"🚀 Startuji Backtest...")
 
     for i in range(start_index, len(df), retrain_step):
         train_data = df.iloc[:i]
@@ -79,31 +80,51 @@ def backtest():
             bet_type = None
             prob_dc = 0
 
-            # --- STRATEGIE DOUBLE CHANCE V2.0 ---
+            # --- SJEDNOCENÁ LOGIKA (PODLE STEP 4) ---
 
-            # X2 (Hosté neprohrají) - Naše silná stránka
-            if (p_away + p_draw) > 0.55 and p_away > p_home:
-                bet_type = "X2"
-                prob_dc = p_away + p_draw
-                won = (actual != 0)
+            # 1. VĚTEV: DOMÁCÍ (Favorit nebo Safe)
+            if p_home > p_away:
+                if p_home > 0.60:
+                    # Model křičí "Favorit 1".
+                    # V backtestu DC strategie to bereme jako "Extrémně silnou 1X"
+                    bet_type = "1X"
+                    prob_dc = p_home + p_draw
+                    won = (actual != 2)
+                elif (p_home + p_draw) > 0.78:  # Změněno z 0.75 na 0.78 (dle step4)
+                    # "Safe 1X"
+                    bet_type = "1X"
+                    prob_dc = p_home + p_draw
+                    won = (actual != 2)
 
-            # 1X (Domácí neprohrají) - Přísnější filtr jistoty
-            elif (p_home + p_draw) > 0.75 and p_home > p_away:
-                bet_type = "1X"
-                prob_dc = p_home + p_draw
-                won = (actual != 2)
+            # 2. VĚTEV: HOSTÉ (Favorit nebo Value)
+            elif p_away > p_home:
+                if p_away > 0.60:
+                    # Model křičí "Favorit 2".
+                    # Bereme jako silnou X2
+                    bet_type = "X2"
+                    prob_dc = p_away + p_draw
+                    won = (actual != 0)
+                elif (p_away + p_draw) > 0.55:  # Zůstává 0.55 (dle step4)
+                    # "Value X2"
+                    bet_type = "X2"
+                    prob_dc = p_away + p_draw
+                    won = (actual != 0)
+
+            # 3. VĚTEV: REMÍZA (Ignorujeme, step4 dává "Risk Remíza")
+            else:
+                pass
 
             if bet_type is None: continue
 
-            # Výpočet kurzu
+            # --- SIMULACE KURZU A FILTR ---
             margin = 0.90
             simulated_odds = (1 / prob_dc) * margin
 
-            # --- HLAVNÍ FILTR: OŘÍZNUTÍ ODPADU ---
+            # Filtr "Anti-Odpad" (Ochrana proti kurzům 1.15 a méně)
             if simulated_odds < 1.20:
                 continue
-            # -------------------------------------
 
+            # Vyhodnocení sázky
             if won:
                 profit = (BET_SIZE * simulated_odds) - BET_SIZE
                 res_str = "WIN"
@@ -130,16 +151,16 @@ def backtest():
     win_rate = (wins / total * 100) if total > 0 else 0
     roi = ((balance - BANKROLL) / (total * BET_SIZE) * 100) if total > 0 else 0
 
-    print("\n📊 VÝSLEDKY FINÁLNÍ STRATEGIE")
-    print("=" * 30)
+    print("\n📊 VÝSLEDKY BACKTESTU (LOGIKA STEP 4)")
+    print("=" * 40)
     print(f"Sázky: {total} | Výhry: {wins}")
     print(f"Win Rate: {win_rate:.1f} %")
     print(f"ROI:      {roi:.2f} %")
     print(f"Zisk:     {balance - BANKROLL:.2f}")
-    print("=" * 30)
+    print("=" * 40)
 
     if bets_log:
-        pd.DataFrame(bets_log).to_csv(os.path.join(DATA_DIR, "backtest_final.csv"), index=False)
+        pd.DataFrame(bets_log).to_csv(os.path.join(DATA_DIR, "backtest_final_unified.csv"), index=False)
 
 
 if __name__ == "__main__":

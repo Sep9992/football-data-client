@@ -5,24 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5be190c3-e2de-4cd4-998b-04133b9cf4b1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/football-data-client.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/etl/step0_download_abseits_PL_schedule.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/etl/step1_match_stats_from_html.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/etl/step2_prepare_dataset.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ml/debug_system.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ml/shared_features.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ml/step3_train_and_evaluate.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ml/step3b_poison_model.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ml/step4_predict_next_round.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ml/step5_prediction_report.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ml/step6_analyze_features.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ml/step7_calculate_fair_odds.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ml/step8_backtest_strategy.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notebook/exploration.ipynb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ml/step3_train_model.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ml/step4_predict_and_report.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ml/step5_analyze_features.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ml/step6_show_console_tips.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/model_poisson.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/data/model_poisson.pkl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/safe_features.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ml/debug_system.py" beforeDir="false" afterPath="$PROJECT_DIR$/ml/debug_system.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ml/step3_train_and_evaluate.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ml/step3b_poison_model.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ml/step4_predict_next_round.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ml/step5_prediction_report.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ml/step6_analyze_features.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ml/step7_calculate_fair_odds.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ml/step8_backtest_strategy.py" beforeDir="false" afterPath="$PROJECT_DIR$/ml/step7_backtest_strategy.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,69 +48,71 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;Python.debug_system.executor&quot;: &quot;Run&quot;,
-    &quot;Python.drop_fixtures_only.executor&quot;: &quot;Run&quot;,
-    &quot;Python.importCsvFile.executor&quot;: &quot;Run&quot;,
-    &quot;Python.load_data.executor&quot;: &quot;Run&quot;,
-    &quot;Python.scrypt1.executor&quot;: &quot;Run&quot;,
-    &quot;Python.step0_download_abseits_PL_schedule (1).executor&quot;: &quot;Run&quot;,
-    &quot;Python.step0_download_abseits_PL_schedule.executor&quot;: &quot;Run&quot;,
-    &quot;Python.step0_download_data.executor&quot;: &quot;Run&quot;,
-    &quot;Python.step0_download_data_abseits_PL.executor&quot;: &quot;Run&quot;,
-    &quot;Python.step0_download_data_playwright (1).executor&quot;: &quot;Run&quot;,
-    &quot;Python.step0_download_data_selenium (1).executor&quot;: &quot;Run&quot;,
-    &quot;Python.step0_download_data_sofascore_PL.executor&quot;: &quot;Run&quot;,
-    &quot;Python.step0_download_data_upw (1).executor&quot;: &quot;Run&quot;,
-    &quot;Python.step1_load_data.executor&quot;: &quot;Run&quot;,
-    &quot;Python.step1_match_stats_from_html (1).executor&quot;: &quot;Run&quot;,
-    &quot;Python.step1_match_stats_from_html.executor&quot;: &quot;Run&quot;,
-    &quot;Python.step1_test_match_stats.executor&quot;: &quot;Run&quot;,
-    &quot;Python.step1_test_save_match_stats_to_html.executor&quot;: &quot;Run&quot;,
-    &quot;Python.step2_prepare_dataset.executor&quot;: &quot;Run&quot;,
-    &quot;Python.step3_import_csv.executor&quot;: &quot;Run&quot;,
-    &quot;Python.step3_train_and_evaluate.executor&quot;: &quot;Run&quot;,
-    &quot;Python.step3b_poison_model.executor&quot;: &quot;Run&quot;,
-    &quot;Python.step4_0_train_baseline.executor&quot;: &quot;Run&quot;,
-    &quot;Python.step4_1_cross_validation.executor&quot;: &quot;Run&quot;,
-    &quot;Python.step4_2_compare_models.executor&quot;: &quot;Run&quot;,
-    &quot;Python.step4_3_evulate_predictions.executor&quot;: &quot;Run&quot;,
-    &quot;Python.step4_4_prepare_fixtures (1).executor&quot;: &quot;Run&quot;,
-    &quot;Python.step4_4_prepare_fixtures.executor&quot;: &quot;Run&quot;,
-    &quot;Python.step4_predict_next_round.executor&quot;: &quot;Run&quot;,
-    &quot;Python.step4_prepare_fixtures.executor&quot;: &quot;Run&quot;,
-    &quot;Python.step4_train_baseline.executor&quot;: &quot;Run&quot;,
-    &quot;Python.step5_0_train_ml (1).executor&quot;: &quot;Run&quot;,
-    &quot;Python.step5_0_train_ml.executor&quot;: &quot;Run&quot;,
-    &quot;Python.step5_1_predict_next_round.executor&quot;: &quot;Run&quot;,
-    &quot;Python.step5_2_crossval_check.executor&quot;: &quot;Run&quot;,
-    &quot;Python.step5_3_learning_curves.executor&quot;: &quot;Run&quot;,
-    &quot;Python.step5_5_features_inventory.executor&quot;: &quot;Run&quot;,
-    &quot;Python.step5_6_predict_next_round (1).executor&quot;: &quot;Run&quot;,
-    &quot;Python.step5_6_predict_next_round.executor&quot;: &quot;Run&quot;,
-    &quot;Python.step5_cross_validation.executor&quot;: &quot;Run&quot;,
-    &quot;Python.step5_predict_next_round.executor&quot;: &quot;Run&quot;,
-    &quot;Python.step5_prediction_report.executor&quot;: &quot;Run&quot;,
-    &quot;Python.step5_train_ml.executor&quot;: &quot;Run&quot;,
-    &quot;Python.step6_0_predictions_report.executor&quot;: &quot;Run&quot;,
-    &quot;Python.step6_analyze_features.executor&quot;: &quot;Run&quot;,
-    &quot;Python.step6_predictions_report.executor&quot;: &quot;Run&quot;,
-    &quot;Python.step7_calculate_fair_odds.executor&quot;: &quot;Run&quot;,
-    &quot;Python.step7_evulate_predictions.executor&quot;: &quot;Run&quot;,
-    &quot;Python.step8_backtest_strategy.executor&quot;: &quot;Run&quot;,
-    &quot;Python.update_cards_fauls_form_processed.executor&quot;: &quot;Run&quot;,
-    &quot;Python.update_corners_form_processed.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Python.debug_system.executor": "Run",
+    "Python.drop_fixtures_only.executor": "Run",
+    "Python.importCsvFile.executor": "Run",
+    "Python.load_data.executor": "Run",
+    "Python.scrypt1.executor": "Run",
+    "Python.step0_download_abseits_PL_schedule (1).executor": "Run",
+    "Python.step0_download_abseits_PL_schedule.executor": "Run",
+    "Python.step0_download_data.executor": "Run",
+    "Python.step0_download_data_abseits_PL.executor": "Run",
+    "Python.step0_download_data_playwright (1).executor": "Run",
+    "Python.step0_download_data_selenium (1).executor": "Run",
+    "Python.step0_download_data_sofascore_PL.executor": "Run",
+    "Python.step0_download_data_upw (1).executor": "Run",
+    "Python.step1_load_data.executor": "Run",
+    "Python.step1_match_stats_from_html (1).executor": "Run",
+    "Python.step1_match_stats_from_html.executor": "Run",
+    "Python.step1_test_match_stats.executor": "Run",
+    "Python.step1_test_save_match_stats_to_html.executor": "Run",
+    "Python.step2_prepare_dataset.executor": "Run",
+    "Python.step3_import_csv.executor": "Run",
+    "Python.step3_train_and_evaluate.executor": "Run",
+    "Python.step3_train_model.executor": "Run",
+    "Python.step3b_poison_model.executor": "Run",
+    "Python.step4_0_train_baseline.executor": "Run",
+    "Python.step4_1_cross_validation.executor": "Run",
+    "Python.step4_2_compare_models.executor": "Run",
+    "Python.step4_3_evulate_predictions.executor": "Run",
+    "Python.step4_4_prepare_fixtures (1).executor": "Run",
+    "Python.step4_4_prepare_fixtures.executor": "Run",
+    "Python.step4_predict_and_report.executor": "Run",
+    "Python.step4_predict_next_round.executor": "Run",
+    "Python.step4_prepare_fixtures.executor": "Run",
+    "Python.step4_train_baseline.executor": "Run",
+    "Python.step5_0_train_ml (1).executor": "Run",
+    "Python.step5_0_train_ml.executor": "Run",
+    "Python.step5_1_predict_next_round.executor": "Run",
+    "Python.step5_2_crossval_check.executor": "Run",
+    "Python.step5_3_learning_curves.executor": "Run",
+    "Python.step5_5_features_inventory.executor": "Run",
+    "Python.step5_6_predict_next_round (1).executor": "Run",
+    "Python.step5_6_predict_next_round.executor": "Run",
+    "Python.step5_cross_validation.executor": "Run",
+    "Python.step5_predict_next_round.executor": "Run",
+    "Python.step5_prediction_report.executor": "Run",
+    "Python.step5_train_ml.executor": "Run",
+    "Python.step6_0_predictions_report.executor": "Run",
+    "Python.step6_analyze_features.executor": "Run",
+    "Python.step6_predictions_report.executor": "Run",
+    "Python.step7_calculate_fair_odds.executor": "Run",
+    "Python.step7_evulate_predictions.executor": "Run",
+    "Python.step8_backtest_strategy.executor": "Run",
+    "Python.update_cards_fauls_form_processed.executor": "Run",
+    "Python.update_corners_form_processed.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "settings.editor.selected.configurable": "preferences.lookFeel"
   }
-}</component>
-  <component name="RunManager" selected="Python.step3_train_and_evaluate">
-    <configuration name="debug_system" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+}]]></component>
+  <component name="RunManager" selected="Python.step7_backtest_strategy">
+    <configuration name="step3_train_model" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="football-data-client" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -127,7 +126,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="RUN_TOOL" value="" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ml/debug_system.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ml/step3_train_model.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -136,30 +135,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="step2_prepare_dataset" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="football-data-client" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/etl" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="RUN_TOOL" value="" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/etl/step2_prepare_dataset.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="step3_train_and_evaluate" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="step4_predict_and_report" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="football-data-client" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -173,7 +149,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="RUN_TOOL" value="" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ml/step3_train_and_evaluate.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ml/step4_predict_and_report.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -182,7 +158,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="step3b_poison_model" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="step5_analyze_features" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="football-data-client" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -196,7 +172,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="RUN_TOOL" value="" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ml/step3b_poison_model.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\Jiri\Documents\python\football-data-client\ml\step5_analyze_features.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -205,7 +181,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="step4_predict_next_round" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="step6_show_console_tips" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="football-data-client" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -219,7 +195,30 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="RUN_TOOL" value="" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ml/step4_predict_next_round.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\Jiri\Documents\python\football-data-client\ml\step6_show_console_tips.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="step7_backtest_strategy" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="football-data-client" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ml" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="RUN_TOOL" value="" />
+      <option name="SCRIPT_NAME" value="C:\Users\Jiri\Documents\python\football-data-client\ml\step7_backtest_strategy.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -230,11 +229,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.step3_train_and_evaluate" />
-        <item itemvalue="Python.step4_predict_next_round" />
-        <item itemvalue="Python.step3b_poison_model" />
-        <item itemvalue="Python.debug_system" />
-        <item itemvalue="Python.step2_prepare_dataset" />
+        <item itemvalue="Python.step7_backtest_strategy" />
+        <item itemvalue="Python.step6_show_console_tips" />
+        <item itemvalue="Python.step5_analyze_features" />
+        <item itemvalue="Python.step4_predict_and_report" />
+        <item itemvalue="Python.step3_train_model" />
       </list>
     </recent_temporary>
   </component>

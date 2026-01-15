@@ -1,0 +1,162 @@
+
+    <html>
+    <head>
+        <meta charset="utf-8">
+        <title>Football Predictions</title>
+        <style>
+            body { font-family: sans-serif; margin: 20px; background: #f4f4f9; }
+            h1 { text-align: center; color: #333; }
+            table { width: 100%; border-collapse: collapse; background: white; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+            th { background: #2c3e50; color: white; padding: 12px; text-align: center; }
+            td { border-bottom: 1px solid #ddd; padding: 10px; text-align: center; color: #333; }
+            tr:hover { background: #f1f1f1; }
+
+            /* Barvy pro signály */
+            td:nth-child(2) { font-weight: bold; }
+        </style>
+    </head>
+    <body>
+        <h1>⚽ Predikce na další kolo</h1>
+        <table class="dataframe table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Zápas</th>
+      <th>DOPORUČENÍ</th>
+      <th>Home %</th>
+      <th>Draw %</th>
+      <th>Away %</th>
+      <th>Fair 1</th>
+      <th>Fair 0</th>
+      <th>Fair 2</th>
+      <th>xG</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Aston Villa vs Everton FC</td>
+      <td></td>
+      <td>40.9</td>
+      <td>35.3</td>
+      <td>23.8</td>
+      <td>2.45</td>
+      <td>2.83</td>
+      <td>4.20</td>
+      <td>1.54:1.21</td>
+    </tr>
+    <tr>
+      <td>Nottingham Forest vs Arsenal FC</td>
+      <td><span style='color:blue'>✨ X2 (Value)</td>
+      <td>23.0</td>
+      <td>23.9</td>
+      <td>53.1</td>
+      <td>4.35</td>
+      <td>4.18</td>
+      <td>1.88</td>
+      <td>1.2:2.41</td>
+    </tr>
+    <tr>
+      <td>Leeds United vs Fulham FC</td>
+      <td></td>
+      <td>46.6</td>
+      <td>25.0</td>
+      <td>28.4</td>
+      <td>2.14</td>
+      <td>4.00</td>
+      <td>3.52</td>
+      <td>1.64:1.37</td>
+    </tr>
+    <tr>
+      <td>Brighton &amp; Hove Albion vs AFC Bournemouth</td>
+      <td><span style='color:green'>✅ 1X (Safe)</td>
+      <td>50.8</td>
+      <td>31.4</td>
+      <td>17.8</td>
+      <td>1.97</td>
+      <td>3.19</td>
+      <td>5.63</td>
+      <td>2.89:1.59</td>
+    </tr>
+    <tr>
+      <td>Chelsea FC vs Brentford</td>
+      <td></td>
+      <td>53.8</td>
+      <td>20.4</td>
+      <td>25.9</td>
+      <td>1.86</td>
+      <td>4.91</td>
+      <td>3.86</td>
+      <td>1.72:0.91</td>
+    </tr>
+    <tr>
+      <td>Tottenham Hotspur vs West Ham United</td>
+      <td><span style='color:green'>✅ 1X (Safe)</td>
+      <td>58.5</td>
+      <td>26.4</td>
+      <td>15.1</td>
+      <td>1.71</td>
+      <td>3.79</td>
+      <td>6.62</td>
+      <td>1.91:0.75</td>
+    </tr>
+    <tr>
+      <td>Liverpool FC vs Burnley FC</td>
+      <td><span style='color:red'>🔥 1 (Favorit)</td>
+      <td>63.5</td>
+      <td>26.9</td>
+      <td>9.6</td>
+      <td>1.57</td>
+      <td>3.72</td>
+      <td>10.38</td>
+      <td>2.8:0.9</td>
+    </tr>
+    <tr>
+      <td>Manchester United vs Manchester City</td>
+      <td><span style='color:blue'>✨ X2 (Value)</td>
+      <td>29.5</td>
+      <td>31.0</td>
+      <td>39.5</td>
+      <td>3.39</td>
+      <td>3.22</td>
+      <td>2.53</td>
+      <td>1.45:1.64</td>
+    </tr>
+    <tr>
+      <td>Wolverhampton Wanderers vs Newcastle United</td>
+      <td><span style='color:blue'>✨ X2 (Value)</td>
+      <td>26.8</td>
+      <td>24.7</td>
+      <td>48.5</td>
+      <td>3.72</td>
+      <td>4.05</td>
+      <td>2.06</td>
+      <td>1.62:2.13</td>
+    </tr>
+    <tr>
+      <td>AFC Sunderland vs Crystal Palace</td>
+      <td></td>
+      <td>44.1</td>
+      <td>30.3</td>
+      <td>25.6</td>
+      <td>2.27</td>
+      <td>3.30</td>
+      <td>3.90</td>
+      <td>1.73:1.23</td>
+    </tr>
+  </tbody>
+</table>
+        <div style="margin-top: 30px; background: white; padding: 15px; border-radius: 5px;">
+            <h3>ℹ️ Legenda a Vysvětlivky</h3>
+            <ul>
+                <li><b>Fair 1 / 0 / 2:</b> Tzv. "Fér Kurz". Je to převrácená hodnota pravděpodobnosti (1 / %). 
+                    <br><i>Příklad: Pokud je Fair 1 = 1.50 a sázkovka nabízí 1.70, je to výhodná sázka (Value Bet). Pokud nabízí 1.30, nebrat.</i>
+                </li>
+                <li><b>🔥 1 (Favorit):</b> Model věří domácím na více než 60 %. Doporučena čistá výhra (1).</li>
+                <li><b>✅ 1X (Safe):</b> Domácí nejsou tak silní, ale prohra je nepravděpodobná (Součet 1+X > 80 %).</li>
+                <li><b>🔥 2 (Favorit):</b> Model věří hostům na více než 60 %. Doporučena čistá výhra (2).</li>
+                <li><b>✨ X2 (Value):</b> Naše speciální strategie. Hosté jsou podceňovaní, ale mají šanci neprohrát > 55 %.</li>
+                <li><b>xG:</b> Očekávaný výsledek na góly (např. 1.45:0.90).</li>
+            </ul>
+        </div>
+    </body>
+    </html>
+    
