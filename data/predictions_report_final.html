@@ -2,161 +2,400 @@
     <html>
     <head>
         <meta charset="utf-8">
-        <title>Football Predictions</title>
+        <title>Football Predictions v4.0</title>
         <style>
-            body { font-family: sans-serif; margin: 20px; background: #f4f4f9; }
+            body { font-family: 'Segoe UI', sans-serif; margin: 20px; background: #f4f4f9; }
             h1 { text-align: center; color: #333; }
-            table { width: 100%; border-collapse: collapse; background: white; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-            th { background: #2c3e50; color: white; padding: 12px; text-align: center; }
-            td { border-bottom: 1px solid #ddd; padding: 10px; text-align: center; color: #333; }
-            tr:hover { background: #f1f1f1; }
+            .match-card {
+                background: white; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+                margin-bottom: 20px; padding: 20px; display: flex; flex-wrap: wrap; align-items: flex-start;
+                border-left: 5px solid transparent;
+            }
+            .card-priority-1 { border-left-color: #e74c3c; } /* Favorit */
+            .card-priority-2 { border-left-color: #27ae60; } /* Safe */
+            .card-priority-3 { border-left-color: #2980b9; } /* Value */
+            .card-priority-4 { border-left-color: #bdc3c7; opacity: 0.9; } /* Ostatní */
 
-            /* Barvy pro signály */
-            td:nth-child(2) { font-weight: bold; }
+            .match-info { flex: 1; min-width: 300px; padding-right: 20px; }
+            .match-shap { flex: 0 0 450px; text-align: center; border-left: 1px solid #eee; padding-left: 20px; }
+
+            .match-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 5px;}
+            .match-title { font-size: 1.3em; font-weight: bold; color: #2c3e50; }
+            .match-date { font-size: 0.9em; color: #7f8c8d; font-weight: bold; }
+
+            .probs { display: flex; margin: 10px 0; border: 1px solid #ddd; border-radius: 5px; overflow: hidden; height: 25px; line-height: 25px;}
+            .prob-box { text-align: center; color: white; font-size: 0.85em; }
+            .prob-1 { background-color: #3498db; width: var(--p1); }
+            .prob-x { background-color: #95a5a6; width: var(--px); }
+            .prob-2 { background-color: #e74c3c; width: var(--p2); }
+
+            .signal { font-weight: bold; display: inline-block; padding: 6px 12px; border-radius: 4px; background: #eee; margin-bottom: 10px; }
+            table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 0.9em; }
+            td, th { padding: 6px; border-bottom: 1px solid #eee; text-align: left; }
+            img { max-width: 100%; height: auto; border: 1px solid #ddd; padding: 5px; border-radius: 5px; }
+            .dc-row { background-color: #e8f6f3; font-weight: bold; color: #27ae60; }
         </style>
     </head>
     <body>
-        <h1>⚽ Predikce na další kolo</h1>
-        <table class="dataframe table">
-  <thead>
-    <tr style="text-align: right;">
-      <th>Zápas</th>
-      <th>DOPORUČENÍ</th>
-      <th>Home %</th>
-      <th>Draw %</th>
-      <th>Away %</th>
-      <th>Fair 1</th>
-      <th>Fair 0</th>
-      <th>Fair 2</th>
-      <th>xG</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Aston Villa vs Everton FC</td>
-      <td></td>
-      <td>40.9</td>
-      <td>35.3</td>
-      <td>23.8</td>
-      <td>2.45</td>
-      <td>2.83</td>
-      <td>4.20</td>
-      <td>1.54:1.21</td>
-    </tr>
-    <tr>
-      <td>Nottingham Forest vs Arsenal FC</td>
-      <td><span style='color:blue'>✨ X2 (Value)</td>
-      <td>23.0</td>
-      <td>23.9</td>
-      <td>53.1</td>
-      <td>4.35</td>
-      <td>4.18</td>
-      <td>1.88</td>
-      <td>1.2:2.41</td>
-    </tr>
-    <tr>
-      <td>Leeds United vs Fulham FC</td>
-      <td></td>
-      <td>46.6</td>
-      <td>25.0</td>
-      <td>28.4</td>
-      <td>2.14</td>
-      <td>4.00</td>
-      <td>3.52</td>
-      <td>1.64:1.37</td>
-    </tr>
-    <tr>
-      <td>Brighton &amp; Hove Albion vs AFC Bournemouth</td>
-      <td><span style='color:green'>✅ 1X (Safe)</td>
-      <td>50.8</td>
-      <td>31.4</td>
-      <td>17.8</td>
-      <td>1.97</td>
-      <td>3.19</td>
-      <td>5.63</td>
-      <td>2.89:1.59</td>
-    </tr>
-    <tr>
-      <td>Chelsea FC vs Brentford</td>
-      <td></td>
-      <td>53.8</td>
-      <td>20.4</td>
-      <td>25.9</td>
-      <td>1.86</td>
-      <td>4.91</td>
-      <td>3.86</td>
-      <td>1.72:0.91</td>
-    </tr>
-    <tr>
-      <td>Tottenham Hotspur vs West Ham United</td>
-      <td><span style='color:green'>✅ 1X (Safe)</td>
-      <td>58.5</td>
-      <td>26.4</td>
-      <td>15.1</td>
-      <td>1.71</td>
-      <td>3.79</td>
-      <td>6.62</td>
-      <td>1.91:0.75</td>
-    </tr>
-    <tr>
-      <td>Liverpool FC vs Burnley FC</td>
-      <td><span style='color:red'>🔥 1 (Favorit)</td>
-      <td>63.5</td>
-      <td>26.9</td>
-      <td>9.6</td>
-      <td>1.57</td>
-      <td>3.72</td>
-      <td>10.38</td>
-      <td>2.8:0.9</td>
-    </tr>
-    <tr>
-      <td>Manchester United vs Manchester City</td>
-      <td><span style='color:blue'>✨ X2 (Value)</td>
-      <td>29.5</td>
-      <td>31.0</td>
-      <td>39.5</td>
-      <td>3.39</td>
-      <td>3.22</td>
-      <td>2.53</td>
-      <td>1.45:1.64</td>
-    </tr>
-    <tr>
-      <td>Wolverhampton Wanderers vs Newcastle United</td>
-      <td><span style='color:blue'>✨ X2 (Value)</td>
-      <td>26.8</td>
-      <td>24.7</td>
-      <td>48.5</td>
-      <td>3.72</td>
-      <td>4.05</td>
-      <td>2.06</td>
-      <td>1.62:2.13</td>
-    </tr>
-    <tr>
-      <td>AFC Sunderland vs Crystal Palace</td>
-      <td></td>
-      <td>44.1</td>
-      <td>30.3</td>
-      <td>25.6</td>
-      <td>2.27</td>
-      <td>3.30</td>
-      <td>3.90</td>
-      <td>1.73:1.23</td>
-    </tr>
-  </tbody>
-</table>
-        <div style="margin-top: 30px; background: white; padding: 15px; border-radius: 5px;">
-            <h3>ℹ️ Legenda a Vysvětlivky</h3>
-            <ul>
-                <li><b>Fair 1 / 0 / 2:</b> Tzv. "Fér Kurz". Je to převrácená hodnota pravděpodobnosti (1 / %). 
-                    <br><i>Příklad: Pokud je Fair 1 = 1.50 a sázkovka nabízí 1.70, je to výhodná sázka (Value Bet). Pokud nabízí 1.30, nebrat.</i>
-                </li>
-                <li><b>🔥 1 (Favorit):</b> Model věří domácím na více než 60 %. Doporučena čistá výhra (1).</li>
-                <li><b>✅ 1X (Safe):</b> Domácí nejsou tak silní, ale prohra je nepravděpodobná (Součet 1+X > 80 %).</li>
-                <li><b>🔥 2 (Favorit):</b> Model věří hostům na více než 60 %. Doporučena čistá výhra (2).</li>
-                <li><b>✨ X2 (Value):</b> Naše speciální strategie. Hosté jsou podceňovaní, ale mají šanci neprohrát > 55 %.</li>
-                <li><b>xG:</b> Očekávaný výsledek na góly (např. 1.45:0.90).</li>
-            </ul>
-        </div>
-    </body>
-    </html>
+        <h1>⚽ Predikce & Analýza</h1>
     
+        <div class="match-card card-priority-1">
+            <div class="match-info">
+                <div class="match-header">
+                    <div class="match-title">Liverpool FC vs Burnley FC</div>
+                    <div class="match-date">📅 17.01. 00:00</div>
+                </div>
+                <span class='signal' style='color:#e74c3c; border: 1px solid #e74c3c'>🔥 1 (Favorit)</span>
+                <div class="probs" style="--p1: 63.5%; --px: 26.9%; --p2: 9.6%;">
+                    <div class="prob-box prob-1" style="width:63.5%">1: 63.5%</div>
+                    <div class="prob-box prob-x" style="width:26.9%">X: 26.9%</div>
+                    <div class="prob-box prob-2" style="width:9.6%">2: 9.6%</div>
+                </div>
+                <table>
+                    <tr><th>Tip modelu:</th><td><b>1</b></td></tr>
+                    <tr><th>Očekávané skóre (xG):</th><td>2.8:0.9</td></tr>
+                    <tr><th>Fér kurzy (1 | X | 2):</th><td>1.57 | 3.72 | 10.38</td></tr>
+                    
+                </table>
+            </div>
+            <div class="match-shap">
+                <img src='../data/shap_images/shap_163.png' alt='SHAP Analysis'><br><small>Vliv faktorů</small>
+            </div>
+        </div>
+        
+        <div class="match-card card-priority-1">
+            <div class="match-info">
+                <div class="match-header">
+                    <div class="match-title">Manchester City vs Wolverhampton Wanderers</div>
+                    <div class="match-date">📅 24.01. 00:00</div>
+                </div>
+                <span class='signal' style='color:#e74c3c; border: 1px solid #e74c3c'>🔥 1 (Favorit)</span>
+                <div class="probs" style="--p1: 66.1%; --px: 20.6%; --p2: 13.3%;">
+                    <div class="prob-box prob-1" style="width:66.1%">1: 66.1%</div>
+                    <div class="prob-box prob-x" style="width:20.6%">X: 20.6%</div>
+                    <div class="prob-box prob-2" style="width:13.3%">2: 13.3%</div>
+                </div>
+                <table>
+                    <tr><th>Tip modelu:</th><td><b>1</b></td></tr>
+                    <tr><th>Očekávané skóre (xG):</th><td>1.6:0.49</td></tr>
+                    <tr><th>Fér kurzy (1 | X | 2):</th><td>1.51 | 4.86 | 7.52</td></tr>
+                    
+                </table>
+            </div>
+            <div class="match-shap">
+                <img src='../data/shap_images/shap_158.png' alt='SHAP Analysis'><br><small>Vliv faktorů</small>
+            </div>
+        </div>
+        
+        <div class="match-card card-priority-2">
+            <div class="match-info">
+                <div class="match-header">
+                    <div class="match-title">Tottenham Hotspur vs West Ham United</div>
+                    <div class="match-date">📅 17.01. 00:00</div>
+                </div>
+                <span class='signal' style='color:#27ae60; border: 1px solid #27ae60'>✅ 1X (Safe)</span>
+                <div class="probs" style="--p1: 58.5%; --px: 26.4%; --p2: 15.1%;">
+                    <div class="prob-box prob-1" style="width:58.5%">1: 58.5%</div>
+                    <div class="prob-box prob-x" style="width:26.4%">X: 26.4%</div>
+                    <div class="prob-box prob-2" style="width:15.1%">2: 15.1%</div>
+                </div>
+                <table>
+                    <tr><th>Tip modelu:</th><td><b>1</b></td></tr>
+                    <tr><th>Očekávané skóre (xG):</th><td>1.91:0.75</td></tr>
+                    <tr><th>Fér kurzy (1 | X | 2):</th><td>1.71 | 3.79 | 6.62</td></tr>
+                    <tr class='dc-row'><th>FÉR DC (1X):</th><td>1.18</td></tr>
+                </table>
+            </div>
+            <div class="match-shap">
+                <img src='../data/shap_images/shap_164.png' alt='SHAP Analysis'><br><small>Vliv faktorů</small>
+            </div>
+        </div>
+        
+        <div class="match-card card-priority-2">
+            <div class="match-info">
+                <div class="match-header">
+                    <div class="match-title">Brighton & Hove Albion vs AFC Bournemouth</div>
+                    <div class="match-date">📅 17.01. 00:00</div>
+                </div>
+                <span class='signal' style='color:#27ae60; border: 1px solid #27ae60'>✅ 1X (Safe)</span>
+                <div class="probs" style="--p1: 50.8%; --px: 31.4%; --p2: 17.8%;">
+                    <div class="prob-box prob-1" style="width:50.8%">1: 50.8%</div>
+                    <div class="prob-box prob-x" style="width:31.4%">X: 31.4%</div>
+                    <div class="prob-box prob-2" style="width:17.8%">2: 17.8%</div>
+                </div>
+                <table>
+                    <tr><th>Tip modelu:</th><td><b>1</b></td></tr>
+                    <tr><th>Očekávané skóre (xG):</th><td>2.89:1.59</td></tr>
+                    <tr><th>Fér kurzy (1 | X | 2):</th><td>1.97 | 3.19 | 5.63</td></tr>
+                    <tr class='dc-row'><th>FÉR DC (1X):</th><td>1.22</td></tr>
+                </table>
+            </div>
+            <div class="match-shap">
+                <img src='../data/shap_images/shap_166.png' alt='SHAP Analysis'><br><small>Vliv faktorů</small>
+            </div>
+        </div>
+        
+        <div class="match-card card-priority-2">
+            <div class="match-info">
+                <div class="match-header">
+                    <div class="match-title">Brentford vs Nottingham Forest</div>
+                    <div class="match-date">📅 24.01. 00:00</div>
+                </div>
+                <span class='signal' style='color:#27ae60; border: 1px solid #27ae60'>✅ 1X (Safe)</span>
+                <div class="probs" style="--p1: 47.3%; --px: 34.0%; --p2: 18.7%;">
+                    <div class="prob-box prob-1" style="width:47.3%">1: 47.3%</div>
+                    <div class="prob-box prob-x" style="width:34.0%">X: 34.0%</div>
+                    <div class="prob-box prob-2" style="width:18.7%">2: 18.7%</div>
+                </div>
+                <table>
+                    <tr><th>Tip modelu:</th><td><b>1</b></td></tr>
+                    <tr><th>Očekávané skóre (xG):</th><td>1.08:0.9</td></tr>
+                    <tr><th>Fér kurzy (1 | X | 2):</th><td>2.12 | 2.94 | 5.34</td></tr>
+                    <tr class='dc-row'><th>FÉR DC (1X):</th><td>1.23</td></tr>
+                </table>
+            </div>
+            <div class="match-shap">
+                <img src='../data/shap_images/shap_160.png' alt='SHAP Analysis'><br><small>Vliv faktorů</small>
+            </div>
+        </div>
+        
+        <div class="match-card card-priority-3">
+            <div class="match-info">
+                <div class="match-header">
+                    <div class="match-title">Nottingham Forest vs Arsenal FC</div>
+                    <div class="match-date">📅 17.01. 00:00</div>
+                </div>
+                <span class='signal' style='color:#2980b9; border: 1px solid #2980b9'>✨ X2 (Value)</span>
+                <div class="probs" style="--p1: 23.0%; --px: 23.9%; --p2: 53.1%;">
+                    <div class="prob-box prob-1" style="width:23.0%">1: 23.0%</div>
+                    <div class="prob-box prob-x" style="width:23.9%">X: 23.9%</div>
+                    <div class="prob-box prob-2" style="width:53.1%">2: 53.1%</div>
+                </div>
+                <table>
+                    <tr><th>Tip modelu:</th><td><b>2</b></td></tr>
+                    <tr><th>Očekávané skóre (xG):</th><td>1.2:2.41</td></tr>
+                    <tr><th>Fér kurzy (1 | X | 2):</th><td>4.35 | 4.18 | 1.88</td></tr>
+                    <tr class='dc-row'><th>FÉR DC (X2):</th><td>1.3</td></tr>
+                </table>
+            </div>
+            <div class="match-shap">
+                <img src='../data/shap_images/shap_168.png' alt='SHAP Analysis'><br><small>Vliv faktorů</small>
+            </div>
+        </div>
+        
+        <div class="match-card card-priority-3">
+            <div class="match-info">
+                <div class="match-header">
+                    <div class="match-title">Manchester United vs Manchester City</div>
+                    <div class="match-date">📅 17.01. 00:00</div>
+                </div>
+                <span class='signal' style='color:#2980b9; border: 1px solid #2980b9'>✨ X2 (Value)</span>
+                <div class="probs" style="--p1: 29.5%; --px: 31.1%; --p2: 39.5%;">
+                    <div class="prob-box prob-1" style="width:29.5%">1: 29.5%</div>
+                    <div class="prob-box prob-x" style="width:31.1%">X: 31.1%</div>
+                    <div class="prob-box prob-2" style="width:39.5%">2: 39.5%</div>
+                </div>
+                <table>
+                    <tr><th>Tip modelu:</th><td><b>2</b></td></tr>
+                    <tr><th>Očekávané skóre (xG):</th><td>1.45:1.64</td></tr>
+                    <tr><th>Fér kurzy (1 | X | 2):</th><td>3.39 | 3.22 | 2.53</td></tr>
+                    <tr class='dc-row'><th>FÉR DC (X2):</th><td>1.42</td></tr>
+                </table>
+            </div>
+            <div class="match-shap">
+                <img src='../data/shap_images/shap_161.png' alt='SHAP Analysis'><br><small>Vliv faktorů</small>
+            </div>
+        </div>
+        
+        <div class="match-card card-priority-3">
+            <div class="match-info">
+                <div class="match-header">
+                    <div class="match-title">Wolverhampton Wanderers vs Newcastle United</div>
+                    <div class="match-date">📅 17.01. 00:00</div>
+                </div>
+                <span class='signal' style='color:#2980b9; border: 1px solid #2980b9'>✨ X2 (Value)</span>
+                <div class="probs" style="--p1: 26.9%; --px: 24.7%; --p2: 48.5%;">
+                    <div class="prob-box prob-1" style="width:26.9%">1: 26.9%</div>
+                    <div class="prob-box prob-x" style="width:24.7%">X: 24.7%</div>
+                    <div class="prob-box prob-2" style="width:48.5%">2: 48.5%</div>
+                </div>
+                <table>
+                    <tr><th>Tip modelu:</th><td><b>2</b></td></tr>
+                    <tr><th>Očekávané skóre (xG):</th><td>1.62:2.13</td></tr>
+                    <tr><th>Fér kurzy (1 | X | 2):</th><td>3.72 | 4.05 | 2.06</td></tr>
+                    <tr class='dc-row'><th>FÉR DC (X2):</th><td>1.37</td></tr>
+                </table>
+            </div>
+            <div class="match-shap">
+                <img src='../data/shap_images/shap_162.png' alt='SHAP Analysis'><br><small>Vliv faktorů</small>
+            </div>
+        </div>
+        
+        <div class="match-card card-priority-3">
+            <div class="match-info">
+                <div class="match-header">
+                    <div class="match-title">Crystal Palace vs Chelsea FC</div>
+                    <div class="match-date">📅 24.01. 00:00</div>
+                </div>
+                <span class='signal' style='color:#2980b9; border: 1px solid #2980b9'>✨ X2 (Value)</span>
+                <div class="probs" style="--p1: 33.9%; --px: 24.2%; --p2: 41.9%;">
+                    <div class="prob-box prob-1" style="width:33.9%">1: 33.9%</div>
+                    <div class="prob-box prob-x" style="width:24.2%">X: 24.2%</div>
+                    <div class="prob-box prob-2" style="width:41.9%">2: 41.9%</div>
+                </div>
+                <table>
+                    <tr><th>Tip modelu:</th><td><b>2</b></td></tr>
+                    <tr><th>Očekávané skóre (xG):</th><td>1.51:1.55</td></tr>
+                    <tr><th>Fér kurzy (1 | X | 2):</th><td>2.95 | 4.13 | 2.39</td></tr>
+                    <tr class='dc-row'><th>FÉR DC (X2):</th><td>1.51</td></tr>
+                </table>
+            </div>
+            <div class="match-shap">
+                <img src='../data/shap_images/shap_159.png' alt='SHAP Analysis'><br><small>Vliv faktorů</small>
+            </div>
+        </div>
+        
+        <div class="match-card card-priority-4">
+            <div class="match-info">
+                <div class="match-header">
+                    <div class="match-title">AFC Sunderland vs Crystal Palace</div>
+                    <div class="match-date">📅 17.01. 00:00</div>
+                </div>
+                
+                <div class="probs" style="--p1: 44.1%; --px: 30.3%; --p2: 25.6%;">
+                    <div class="prob-box prob-1" style="width:44.1%">1: 44.1%</div>
+                    <div class="prob-box prob-x" style="width:30.3%">X: 30.3%</div>
+                    <div class="prob-box prob-2" style="width:25.6%">2: 25.6%</div>
+                </div>
+                <table>
+                    <tr><th>Tip modelu:</th><td><b>1</b></td></tr>
+                    <tr><th>Očekávané skóre (xG):</th><td>1.73:1.23</td></tr>
+                    <tr><th>Fér kurzy (1 | X | 2):</th><td>2.27 | 3.3 | 3.9</td></tr>
+                    
+                </table>
+            </div>
+            <div class="match-shap">
+                <img src='../data/shap_images/shap_170.png' alt='SHAP Analysis'><br><small>Vliv faktorů</small>
+            </div>
+        </div>
+        
+        <div class="match-card card-priority-4">
+            <div class="match-info">
+                <div class="match-header">
+                    <div class="match-title">Chelsea FC vs Brentford</div>
+                    <div class="match-date">📅 17.01. 00:00</div>
+                </div>
+                
+                <div class="probs" style="--p1: 53.8%; --px: 20.4%; --p2: 25.9%;">
+                    <div class="prob-box prob-1" style="width:53.8%">1: 53.8%</div>
+                    <div class="prob-box prob-x" style="width:20.4%">X: 20.4%</div>
+                    <div class="prob-box prob-2" style="width:25.9%">2: 25.9%</div>
+                </div>
+                <table>
+                    <tr><th>Tip modelu:</th><td><b>1</b></td></tr>
+                    <tr><th>Očekávané skóre (xG):</th><td>1.72:0.91</td></tr>
+                    <tr><th>Fér kurzy (1 | X | 2):</th><td>1.86 | 4.91 | 3.86</td></tr>
+                    
+                </table>
+            </div>
+            <div class="match-shap">
+                <img src='../data/shap_images/shap_165.png' alt='SHAP Analysis'><br><small>Vliv faktorů</small>
+            </div>
+        </div>
+        
+        <div class="match-card card-priority-4">
+            <div class="match-info">
+                <div class="match-header">
+                    <div class="match-title">Leeds United vs Fulham FC</div>
+                    <div class="match-date">📅 17.01. 00:00</div>
+                </div>
+                
+                <div class="probs" style="--p1: 46.6%; --px: 25.0%; --p2: 28.4%;">
+                    <div class="prob-box prob-1" style="width:46.6%">1: 46.6%</div>
+                    <div class="prob-box prob-x" style="width:25.0%">X: 25.0%</div>
+                    <div class="prob-box prob-2" style="width:28.4%">2: 28.4%</div>
+                </div>
+                <table>
+                    <tr><th>Tip modelu:</th><td><b>1</b></td></tr>
+                    <tr><th>Očekávané skóre (xG):</th><td>1.64:1.37</td></tr>
+                    <tr><th>Fér kurzy (1 | X | 2):</th><td>2.14 | 4.0 | 3.52</td></tr>
+                    
+                </table>
+            </div>
+            <div class="match-shap">
+                <img src='../data/shap_images/shap_167.png' alt='SHAP Analysis'><br><small>Vliv faktorů</small>
+            </div>
+        </div>
+        
+        <div class="match-card card-priority-4">
+            <div class="match-info">
+                <div class="match-header">
+                    <div class="match-title">Aston Villa vs Everton FC</div>
+                    <div class="match-date">📅 17.01. 00:00</div>
+                </div>
+                
+                <div class="probs" style="--p1: 40.9%; --px: 35.3%; --p2: 23.8%;">
+                    <div class="prob-box prob-1" style="width:40.9%">1: 40.9%</div>
+                    <div class="prob-box prob-x" style="width:35.3%">X: 35.3%</div>
+                    <div class="prob-box prob-2" style="width:23.8%">2: 23.8%</div>
+                </div>
+                <table>
+                    <tr><th>Tip modelu:</th><td><b>1</b></td></tr>
+                    <tr><th>Očekávané skóre (xG):</th><td>1.54:1.21</td></tr>
+                    <tr><th>Fér kurzy (1 | X | 2):</th><td>2.45 | 2.83 | 4.2</td></tr>
+                    
+                </table>
+            </div>
+            <div class="match-shap">
+                <img src='../data/shap_images/shap_169.png' alt='SHAP Analysis'><br><small>Vliv faktorů</small>
+            </div>
+        </div>
+        
+        <div class="match-card card-priority-4">
+            <div class="match-info">
+                <div class="match-header">
+                    <div class="match-title">Newcastle United vs Aston Villa</div>
+                    <div class="match-date">📅 24.01. 00:00</div>
+                </div>
+                
+                <div class="probs" style="--p1: 43.3%; --px: 20.4%; --p2: 36.3%;">
+                    <div class="prob-box prob-1" style="width:43.3%">1: 43.3%</div>
+                    <div class="prob-box prob-x" style="width:20.4%">X: 20.4%</div>
+                    <div class="prob-box prob-2" style="width:36.3%">2: 36.3%</div>
+                </div>
+                <table>
+                    <tr><th>Tip modelu:</th><td><b>1</b></td></tr>
+                    <tr><th>Očekávané skóre (xG):</th><td>1.21:1.04</td></tr>
+                    <tr><th>Fér kurzy (1 | X | 2):</th><td>2.31 | 4.91 | 2.75</td></tr>
+                    
+                </table>
+            </div>
+            <div class="match-shap">
+                <img src='../data/shap_images/shap_151.png' alt='SHAP Analysis'><br><small>Vliv faktorů</small>
+            </div>
+        </div>
+        
+        <div class="match-card card-priority-4">
+            <div class="match-info">
+                <div class="match-header">
+                    <div class="match-title">Fulham FC vs Brighton & Hove Albion</div>
+                    <div class="match-date">📅 24.01. 00:00</div>
+                </div>
+                
+                <div class="probs" style="--p1: 46.9%; --px: 23.9%; --p2: 29.2%;">
+                    <div class="prob-box prob-1" style="width:46.9%">1: 46.9%</div>
+                    <div class="prob-box prob-x" style="width:23.9%">X: 23.9%</div>
+                    <div class="prob-box prob-2" style="width:29.2%">2: 29.2%</div>
+                </div>
+                <table>
+                    <tr><th>Tip modelu:</th><td><b>1</b></td></tr>
+                    <tr><th>Očekávané skóre (xG):</th><td>1.43:1.09</td></tr>
+                    <tr><th>Fér kurzy (1 | X | 2):</th><td>2.13 | 4.19 | 3.42</td></tr>
+                    
+                </table>
+            </div>
+            <div class="match-shap">
+                <img src='../data/shap_images/shap_153.png' alt='SHAP Analysis'><br><small>Vliv faktorů</small>
+            </div>
+        </div>
+        </body></html>

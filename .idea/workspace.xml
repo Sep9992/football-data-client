@@ -5,21 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5be190c3-e2de-4cd4-998b-04133b9cf4b1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/ml/step3_train_model.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ml/step4_predict_and_report.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ml/step5_analyze_features.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ml/step6_show_console_tips.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ml/update_kickoff.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/model_poisson.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/data/model_poisson.pkl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/safe_features.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ml/debug_system.py" beforeDir="false" afterPath="$PROJECT_DIR$/ml/debug_system.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ml/step3_train_and_evaluate.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ml/step3b_poison_model.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ml/step4_predict_next_round.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ml/step5_prediction_report.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ml/step6_analyze_features.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ml/step7_calculate_fair_odds.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ml/step8_backtest_strategy.py" beforeDir="false" afterPath="$PROJECT_DIR$/ml/step7_backtest_strategy.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/predictions_report_final.html" beforeDir="false" afterPath="$PROJECT_DIR$/data/predictions_report_final.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/step4_0_train_baseline.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/step4_1_cross_validation.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/step4_2_compare_models.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/step4_3_evulate_predictions.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/step4_4_prepare_fixtures.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/step5_0_train_ml.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/step5_2_crossval_check.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/step5_3_learning_curves.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/step5_5_features_inventory.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/step5_6_predict_next_round.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/step6_0_predictions_report.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ml/step4_predict_and_report.py" beforeDir="false" afterPath="$PROJECT_DIR$/ml/step4_predict_and_report.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,7 +111,7 @@
     "settings.editor.selected.configurable": "preferences.lookFeel"
   }
 }]]></component>
-  <component name="RunManager" selected="Python.step7_backtest_strategy">
+  <component name="RunManager" selected="Python.step4_predict_and_report">
     <configuration name="step3_train_model" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="football-data-client" />
       <option name="ENV_FILES" value="" />
@@ -229,10 +229,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.step4_predict_and_report" />
         <item itemvalue="Python.step7_backtest_strategy" />
         <item itemvalue="Python.step6_show_console_tips" />
         <item itemvalue="Python.step5_analyze_features" />
-        <item itemvalue="Python.step4_predict_and_report" />
         <item itemvalue="Python.step3_train_model" />
       </list>
     </recent_temporary>
