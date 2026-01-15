@@ -1,0 +1,13 @@
+psycopg2-binary
+SQLAlchemy~=2.0.44
+pandas~=2.3.3
+streamlit
+python-dotenv~=1.1.1
+scikit-learn
+joblib
+numpy
+xgboost
+matplotlib
+seaborn
+requests
+bs4

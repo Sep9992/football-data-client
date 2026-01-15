@@ -1,0 +1,1402 @@
+
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Predictions Report</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: center; }
+    th { background-color: #f2f2f2; }
+    h1 { color: #333; }
+    h3 { margin-top: 30px; }
+  </style>
+</head>
+<body>
+<h1>Predictions Report</h1>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>model</th>
+      <th>fixture_id</th>
+      <th>home_team</th>
+      <th>away_team</th>
+      <th>league</th>
+      <th>season</th>
+      <th>match_date</th>
+      <th>prediction</th>
+      <th>proba_home_win</th>
+      <th>proba_draw</th>
+      <th>proba_away_win</th>
+      <th>max_val</th>
+      <th>diff</th>
+      <th>interpretation</th>
+      <th>is_best_model</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>gradientboost</td>
+      <td>170</td>
+      <td>AFC Sunderland</td>
+      <td>Crystal Palace</td>
+      <td>PL</td>
+      <td>2025-26</td>
+      <td>2026-01-17</td>
+      <td>0</td>
+      <td>61.0</td>
+      <td>16.2</td>
+      <td>22.8</td>
+      <td>61.0</td>
+      <td>NaN</td>
+      <td>✅ Mírná preference: Home Win (61.0 %)</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>gradientboost</td>
+      <td>169</td>
+      <td>Aston Villa</td>
+      <td>Everton FC</td>
+      <td>PL</td>
+      <td>2025-26</td>
+      <td>2026-01-17</td>
+      <td>0</td>
+      <td>60.0</td>
+      <td>18.0</td>
+      <td>22.0</td>
+      <td>60.0</td>
+      <td>NaN</td>
+      <td>✅ Mírná preference: Home Win (60.0 %)</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>gradientboost</td>
+      <td>166</td>
+      <td>Brighton &amp; Hove Albion</td>
+      <td>AFC Bournemouth</td>
+      <td>PL</td>
+      <td>2025-26</td>
+      <td>2026-01-17</td>
+      <td>0</td>
+      <td>69.3</td>
+      <td>20.7</td>
+      <td>10.0</td>
+      <td>69.3</td>
+      <td>NaN</td>
+      <td>✅ Mírná preference: Home Win (69.3 %)</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>gradientboost</td>
+      <td>165</td>
+      <td>Chelsea FC</td>
+      <td>Brentford</td>
+      <td>PL</td>
+      <td>2025-26</td>
+      <td>2026-01-17</td>
+      <td>0</td>
+      <td>58.0</td>
+      <td>8.9</td>
+      <td>33.1</td>
+      <td>58.0</td>
+      <td>NaN</td>
+      <td>✅ Mírná preference: Home Win (58.0 %)</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>gradientboost</td>
+      <td>167</td>
+      <td>Leeds United</td>
+      <td>Fulham FC</td>
+      <td>PL</td>
+      <td>2025-26</td>
+      <td>2026-01-17</td>
+      <td>0</td>
+      <td>62.0</td>
+      <td>14.1</td>
+      <td>23.9</td>
+      <td>62.0</td>
+      <td>NaN</td>
+      <td>✅ Mírná preference: Home Win (62.0 %)</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>gradientboost</td>
+      <td>163</td>
+      <td>Liverpool FC</td>
+      <td>Burnley FC</td>
+      <td>PL</td>
+      <td>2025-26</td>
+      <td>2026-01-17</td>
+      <td>0</td>
+      <td>51.6</td>
+      <td>30.1</td>
+      <td>18.3</td>
+      <td>51.6</td>
+      <td>NaN</td>
+      <td>❓ Nejisté: Home Win (51.6 %)</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>gradientboost</td>
+      <td>161</td>
+      <td>Manchester United</td>
+      <td>Manchester City</td>
+      <td>PL</td>
+      <td>2025-26</td>
+      <td>2026-01-17</td>
+      <td>2</td>
+      <td>26.7</td>
+      <td>24.2</td>
+      <td>49.1</td>
+      <td>49.1</td>
+      <td>NaN</td>
+      <td>❓ Nejisté: Away Win (49.1 %)</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>gradientboost</td>
+      <td>168</td>
+      <td>Nottingham Forest</td>
+      <td>Arsenal FC</td>
+      <td>PL</td>
+      <td>2025-26</td>
+      <td>2026-01-17</td>
+      <td>2</td>
+      <td>23.8</td>
+      <td>14.0</td>
+      <td>62.2</td>
+      <td>62.2</td>
+      <td>NaN</td>
+      <td>✅ Mírná preference: Away Win (62.2 %)</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>gradientboost</td>
+      <td>164</td>
+      <td>Tottenham Hotspur</td>
+      <td>West Ham United</td>
+      <td>PL</td>
+      <td>2025-26</td>
+      <td>2026-01-17</td>
+      <td>0</td>
+      <td>73.2</td>
+      <td>16.2</td>
+      <td>10.6</td>
+      <td>73.2</td>
+      <td>NaN</td>
+      <td>✅ Mírná preference: Home Win (73.2 %)</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>gradientboost</td>
+      <td>162</td>
+      <td>Wolverhampton Wanderers</td>
+      <td>Newcastle United</td>
+      <td>PL</td>
+      <td>2025-26</td>
+      <td>2026-01-17</td>
+      <td>2</td>
+      <td>31.7</td>
+      <td>31.8</td>
+      <td>36.5</td>
+      <td>36.5</td>
+      <td>NaN</td>
+      <td>🎲: Away Win (36.5 %)</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>knn</td>
+      <td>170</td>
+      <td>AFC Sunderland</td>
+      <td>Crystal Palace</td>
+      <td>PL</td>
+      <td>2025-26</td>
+      <td>2026-01-17</td>
+      <td>0</td>
+      <td>52.2</td>
+      <td>19.5</td>
+      <td>28.3</td>
+      <td>52.2</td>
+      <td>NaN</td>
+      <td>❓ Nejisté: Home Win (52.2 %)</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>knn</td>
+      <td>169</td>
+      <td>Aston Villa</td>
+      <td>Everton FC</td>
+      <td>PL</td>
+      <td>2025-26</td>
+      <td>2026-01-17</td>
+      <td>0</td>
+      <td>51.2</td>
+      <td>18.6</td>
+      <td>30.2</td>
+      <td>51.2</td>
+      <td>NaN</td>
+      <td>❓ Nejisté: Home Win (51.2 %)</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>knn</td>
+      <td>166</td>
+      <td>Brighton &amp; Hove Albion</td>
+      <td>AFC Bournemouth</td>
+      <td>PL</td>
+      <td>2025-26</td>
+      <td>2026-01-17</td>
+      <td>0</td>
+      <td>48.4</td>
+      <td>23.0</td>
+      <td>28.6</td>
+      <td>48.4</td>
+      <td>NaN</td>
+      <td>❓ Nejisté: Home Win (48.4 %)</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>knn</td>
+      <td>165</td>
+      <td>Chelsea FC</td>
+      <td>Brentford</td>
+      <td>PL</td>
+      <td>2025-26</td>
+      <td>2026-01-17</td>
+      <td>0</td>
+      <td>48.1</td>
+      <td>21.4</td>
+      <td>30.5</td>
+      <td>48.1</td>
+      <td>NaN</td>
+      <td>❓ Nejisté: Home Win (48.1 %)</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>knn</td>
+      <td>167</td>
+      <td>Leeds United</td>
+      <td>Fulham FC</td>
+      <td>PL</td>
+      <td>2025-26</td>
+      <td>2026-01-17</td>
+      <td>0</td>
+      <td>46.0</td>
+      <td>22.2</td>
+      <td>31.7</td>
+      <td>46.0</td>
+      <td>NaN</td>
+      <td>❓ Nejisté: Home Win (46.0 %)</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>knn</td>
+      <td>163</td>
+      <td>Liverpool FC</td>
+      <td>Burnley FC</td>
+      <td>PL</td>
+      <td>2025-26</td>
+      <td>2026-01-17</td>
+      <td>0</td>
+      <td>57.1</td>
+      <td>20.4</td>
+      <td>22.5</td>
+      <td>57.1</td>
+      <td>NaN</td>
+      <td>✅ Mírná preference: Home Win (57.1 %)</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>knn</td>
+      <td>161</td>
+      <td>Manchester United</td>
+      <td>Manchester City</td>
+      <td>PL</td>
+      <td>2025-26</td>
+      <td>2026-01-17</td>
+      <td>2</td>
+      <td>38.2</td>
+      <td>20.0</td>
+      <td>41.8</td>
+      <td>41.8</td>
+      <td>NaN</td>
+      <td>❓ Nejisté: Away Win (41.8 %)</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>knn</td>
+      <td>168</td>
+      <td>Nottingham Forest</td>
+      <td>Arsenal FC</td>
+      <td>PL</td>
+      <td>2025-26</td>
+      <td>2026-01-17</td>
+      <td>2</td>
+      <td>37.1</td>
+      <td>20.0</td>
+      <td>42.8</td>
+      <td>42.8</td>
+      <td>NaN</td>
+      <td>❓ Nejisté: Away Win (42.8 %)</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>knn</td>
+      <td>164</td>
+      <td>Tottenham Hotspur</td>
+      <td>West Ham United</td>
+      <td>PL</td>
+      <td>2025-26</td>
+      <td>2026-01-17</td>
+      <td>0</td>
+      <td>52.5</td>
+      <td>25.1</td>
+      <td>22.4</td>
+      <td>52.5</td>
+      <td>NaN</td>
+      <td>❓ Nejisté: Home Win (52.5 %)</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>knn</td>
+      <td>162</td>
+      <td>Wolverhampton Wanderers</td>
+      <td>Newcastle United</td>
+      <td>PL</td>
+      <td>2025-26</td>
+      <td>2026-01-17</td>
+      <td>0</td>
+      <td>40.7</td>
+      <td>20.3</td>
+      <td>39.0</td>
+      <td>40.7</td>
+      <td>NaN</td>
+      <td>❓ Nejisté: Home Win (40.7 %)</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>logreg</td>
+      <td>170</td>
+      <td>AFC Sunderland</td>
+      <td>Crystal Palace</td>
+      <td>PL</td>
+      <td>2025-26</td>
+      <td>2026-01-17</td>
+      <td>0</td>
+      <td>53.4</td>
+      <td>17.3</td>
+      <td>29.3</td>
+      <td>53.4</td>
+      <td>NaN</td>
+      <td>❓ Nejisté: Home Win (53.4 %)</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>logreg</td>
+      <td>169</td>
+      <td>Aston Villa</td>
+      <td>Everton FC</td>
+      <td>PL</td>
+      <td>2025-26</td>
+      <td>2026-01-17</td>
+      <td>1</td>
+      <td>19.0</td>
+      <td>72.9</td>
+      <td>8.1</td>
+      <td>72.9</td>
+      <td>NaN</td>
+      <td>✅ Mírná preference: Draw (72.9 %)</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>logreg</td>
+      <td>166</td>
+      <td>Brighton &amp; Hove Albion</td>
+      <td>AFC Bournemouth</td>
+      <td>PL</td>
+      <td>2025-26</td>
+      <td>2026-01-17</td>
+      <td>1</td>
+      <td>41.8</td>
+      <td>52.6</td>
+      <td>5.6</td>
+      <td>52.6</td>
+      <td>NaN</td>
+      <td>❓ Nejisté: Draw (52.6 %)</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>logreg</td>
+      <td>165</td>
+      <td>Chelsea FC</td>
+      <td>Brentford</td>
+      <td>PL</td>
+      <td>2025-26</td>
+      <td>2026-01-17</td>
+      <td>0</td>
+      <td>60.4</td>
+      <td>6.4</td>
+      <td>33.1</td>
+      <td>60.4</td>
+      <td>NaN</td>
+      <td>✅ Mírná preference: Home Win (60.4 %)</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>logreg</td>
+      <td>167</td>
+      <td>Leeds United</td>
+      <td>Fulham FC</td>
+      <td>PL</td>
+      <td>2025-26</td>
+      <td>2026-01-17</td>
+      <td>0</td>
+      <td>60.8</td>
+      <td>7.6</td>
+      <td>31.7</td>
+      <td>60.8</td>
+      <td>NaN</td>
+      <td>✅ Mírná preference: Home Win (60.8 %)</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>logreg</td>
+      <td>163</td>
+      <td>Liverpool FC</td>
+      <td>Burnley FC</td>
+      <td>PL</td>
+      <td>2025-26</td>
+      <td>2026-01-17</td>
+      <td>0</td>
+      <td>72.0</td>
+      <td>21.7</td>
+      <td>6.3</td>
+      <td>72.0</td>
+      <td>NaN</td>
+      <td>✅ Mírná preference: Home Win (72.0 %)</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>logreg</td>
+      <td>161</td>
+      <td>Manchester United</td>
+      <td>Manchester City</td>
+      <td>PL</td>
+      <td>2025-26</td>
+      <td>2026-01-17</td>
+      <td>0</td>
+      <td>42.3</td>
+      <td>28.2</td>
+      <td>29.6</td>
+      <td>42.3</td>
+      <td>NaN</td>
+      <td>❓ Nejisté: Home Win (42.3 %)</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>logreg</td>
+      <td>168</td>
+      <td>Nottingham Forest</td>
+      <td>Arsenal FC</td>
+      <td>PL</td>
+      <td>2025-26</td>
+      <td>2026-01-17</td>
+      <td>2</td>
+      <td>24.4</td>
+      <td>18.0</td>
+      <td>57.6</td>
+      <td>57.6</td>
+      <td>NaN</td>
+      <td>✅ Mírná preference: Away Win (57.6 %)</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>logreg</td>
+      <td>164</td>
+      <td>Tottenham Hotspur</td>
+      <td>West Ham United</td>
+      <td>PL</td>
+      <td>2025-26</td>
+      <td>2026-01-17</td>
+      <td>0</td>
+      <td>73.0</td>
+      <td>5.9</td>
+      <td>21.1</td>
+      <td>73.0</td>
+      <td>NaN</td>
+      <td>✅ Mírná preference: Home Win (73.0 %)</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>logreg</td>
+      <td>162</td>
+      <td>Wolverhampton Wanderers</td>
+      <td>Newcastle United</td>
+      <td>PL</td>
+      <td>2025-26</td>
+      <td>2026-01-17</td>
+      <td>0</td>
+      <td>54.6</td>
+      <td>0.0</td>
+      <td>45.4</td>
+      <td>54.6</td>
+      <td>NaN</td>
+      <td>❓ Nejisté: Home Win (54.6 %)</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>poisson_goals</td>
+      <td>170</td>
+      <td>AFC Sunderland</td>
+      <td>Crystal Palace</td>
+      <td>PL</td>
+      <td>2025-26</td>
+      <td>2026-01-17</td>
+      <td>0</td>
+      <td>51.4</td>
+      <td>22.8</td>
+      <td>25.7</td>
+      <td>51.4</td>
+      <td>NaN</td>
+      <td>❓ Nejisté: Home Win (51.4 %) [xG 1.84:1.24]</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>poisson_goals</td>
+      <td>169</td>
+      <td>Aston Villa</td>
+      <td>Everton FC</td>
+      <td>PL</td>
+      <td>2025-26</td>
+      <td>2026-01-17</td>
+      <td>0</td>
+      <td>44.3</td>
+      <td>25.4</td>
+      <td>30.2</td>
+      <td>44.3</td>
+      <td>NaN</td>
+      <td>❓ Nejisté: Home Win (44.3 %) [xG 1.51:1.20]</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>poisson_goals</td>
+      <td>166</td>
+      <td>Brighton &amp; Hove Albion</td>
+      <td>AFC Bournemouth</td>
+      <td>PL</td>
+      <td>2025-26</td>
+      <td>2026-01-17</td>
+      <td>0</td>
+      <td>65.7</td>
+      <td>16.0</td>
+      <td>18.3</td>
+      <td>65.7</td>
+      <td>NaN</td>
+      <td>✅ Mírná preference: Home Win (65.7 %) [xG 2.97:1.59]</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>poisson_goals</td>
+      <td>165</td>
+      <td>Chelsea FC</td>
+      <td>Brentford</td>
+      <td>PL</td>
+      <td>2025-26</td>
+      <td>2026-01-17</td>
+      <td>0</td>
+      <td>54.0</td>
+      <td>24.5</td>
+      <td>21.5</td>
+      <td>54.0</td>
+      <td>NaN</td>
+      <td>❓ Nejisté: Home Win (54.0 %) [xG 1.65:0.95]</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>poisson_goals</td>
+      <td>167</td>
+      <td>Leeds United</td>
+      <td>Fulham FC</td>
+      <td>PL</td>
+      <td>2025-26</td>
+      <td>2026-01-17</td>
+      <td>0</td>
+      <td>42.7</td>
+      <td>24.1</td>
+      <td>33.2</td>
+      <td>42.7</td>
+      <td>NaN</td>
+      <td>❓ Nejisté: Home Win (42.7 %) [xG 1.61:1.40]</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>poisson_goals</td>
+      <td>163</td>
+      <td>Liverpool FC</td>
+      <td>Burnley FC</td>
+      <td>PL</td>
+      <td>2025-26</td>
+      <td>2026-01-17</td>
+      <td>0</td>
+      <td>79.4</td>
+      <td>12.4</td>
+      <td>8.1</td>
+      <td>79.4</td>
+      <td>NaN</td>
+      <td>🔥 Silná sázka: Home Win (79.4 %) [xG 3.02:0.91]</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>poisson_goals</td>
+      <td>161</td>
+      <td>Manchester United</td>
+      <td>Manchester City</td>
+      <td>PL</td>
+      <td>2025-26</td>
+      <td>2026-01-17</td>
+      <td>2</td>
+      <td>30.2</td>
+      <td>23.9</td>
+      <td>45.9</td>
+      <td>45.9</td>
+      <td>NaN</td>
+      <td>❓ Nejisté: Away Win (45.9 %) [xG 1.32:1.68]</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>poisson_goals</td>
+      <td>168</td>
+      <td>Nottingham Forest</td>
+      <td>Arsenal FC</td>
+      <td>PL</td>
+      <td>2025-26</td>
+      <td>2026-01-17</td>
+      <td>2</td>
+      <td>13.8</td>
+      <td>15.5</td>
+      <td>70.7</td>
+      <td>70.7</td>
+      <td>NaN</td>
+      <td>✅ Mírná preference: Away Win (70.7 %) [xG 1.22:2.82]</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>poisson_goals</td>
+      <td>164</td>
+      <td>Tottenham Hotspur</td>
+      <td>West Ham United</td>
+      <td>PL</td>
+      <td>2025-26</td>
+      <td>2026-01-17</td>
+      <td>0</td>
+      <td>65.9</td>
+      <td>20.6</td>
+      <td>13.5</td>
+      <td>65.9</td>
+      <td>NaN</td>
+      <td>✅ Mírná preference: Home Win (65.9 %) [xG 1.97:0.75]</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>poisson_goals</td>
+      <td>162</td>
+      <td>Wolverhampton Wanderers</td>
+      <td>Newcastle United</td>
+      <td>PL</td>
+      <td>2025-26</td>
+      <td>2026-01-17</td>
+      <td>2</td>
+      <td>27.0</td>
+      <td>20.1</td>
+      <td>52.9</td>
+      <td>52.9</td>
+      <td>NaN</td>
+      <td>❓ Nejisté: Away Win (52.9 %) [xG 1.59:2.26]</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>randomforest</td>
+      <td>170</td>
+      <td>AFC Sunderland</td>
+      <td>Crystal Palace</td>
+      <td>PL</td>
+      <td>2025-26</td>
+      <td>2026-01-17</td>
+      <td>0</td>
+      <td>57.9</td>
+      <td>28.9</td>
+      <td>13.2</td>
+      <td>57.9</td>
+      <td>NaN</td>
+      <td>✅ Mírná preference: Home Win (57.9 %)</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>randomforest</td>
+      <td>169</td>
+      <td>Aston Villa</td>
+      <td>Everton FC</td>
+      <td>PL</td>
+      <td>2025-26</td>
+      <td>2026-01-17</td>
+      <td>0</td>
+      <td>52.5</td>
+      <td>40.3</td>
+      <td>7.2</td>
+      <td>52.5</td>
+      <td>NaN</td>
+      <td>❓ Nejisté: Home Win (52.5 %)</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>randomforest</td>
+      <td>166</td>
+      <td>Brighton &amp; Hove Albion</td>
+      <td>AFC Bournemouth</td>
+      <td>PL</td>
+      <td>2025-26</td>
+      <td>2026-01-17</td>
+      <td>1</td>
+      <td>41.2</td>
+      <td>41.8</td>
+      <td>17.0</td>
+      <td>41.8</td>
+      <td>NaN</td>
+      <td>❓ Nejisté: Draw (41.8 %)</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>randomforest</td>
+      <td>165</td>
+      <td>Chelsea FC</td>
+      <td>Brentford</td>
+      <td>PL</td>
+      <td>2025-26</td>
+      <td>2026-01-17</td>
+      <td>0</td>
+      <td>60.4</td>
+      <td>13.0</td>
+      <td>26.6</td>
+      <td>60.4</td>
+      <td>NaN</td>
+      <td>✅ Mírná preference: Home Win (60.4 %)</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>randomforest</td>
+      <td>167</td>
+      <td>Leeds United</td>
+      <td>Fulham FC</td>
+      <td>PL</td>
+      <td>2025-26</td>
+      <td>2026-01-17</td>
+      <td>0</td>
+      <td>51.8</td>
+      <td>18.1</td>
+      <td>30.1</td>
+      <td>51.8</td>
+      <td>NaN</td>
+      <td>❓ Nejisté: Home Win (51.8 %)</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>randomforest</td>
+      <td>163</td>
+      <td>Liverpool FC</td>
+      <td>Burnley FC</td>
+      <td>PL</td>
+      <td>2025-26</td>
+      <td>2026-01-17</td>
+      <td>0</td>
+      <td>54.5</td>
+      <td>41.1</td>
+      <td>4.4</td>
+      <td>54.5</td>
+      <td>NaN</td>
+      <td>❓ Nejisté: Home Win (54.5 %)</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>randomforest</td>
+      <td>161</td>
+      <td>Manchester United</td>
+      <td>Manchester City</td>
+      <td>PL</td>
+      <td>2025-26</td>
+      <td>2026-01-17</td>
+      <td>2</td>
+      <td>25.7</td>
+      <td>15.6</td>
+      <td>58.6</td>
+      <td>58.6</td>
+      <td>NaN</td>
+      <td>✅ Mírná preference: Away Win (58.6 %)</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>randomforest</td>
+      <td>168</td>
+      <td>Nottingham Forest</td>
+      <td>Arsenal FC</td>
+      <td>PL</td>
+      <td>2025-26</td>
+      <td>2026-01-17</td>
+      <td>2</td>
+      <td>23.4</td>
+      <td>12.3</td>
+      <td>64.2</td>
+      <td>64.2</td>
+      <td>NaN</td>
+      <td>✅ Mírná preference: Away Win (64.2 %)</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>randomforest</td>
+      <td>164</td>
+      <td>Tottenham Hotspur</td>
+      <td>West Ham United</td>
+      <td>PL</td>
+      <td>2025-26</td>
+      <td>2026-01-17</td>
+      <td>0</td>
+      <td>54.4</td>
+      <td>27.4</td>
+      <td>18.2</td>
+      <td>54.4</td>
+      <td>NaN</td>
+      <td>❓ Nejisté: Home Win (54.4 %)</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>randomforest</td>
+      <td>162</td>
+      <td>Wolverhampton Wanderers</td>
+      <td>Newcastle United</td>
+      <td>PL</td>
+      <td>2025-26</td>
+      <td>2026-01-17</td>
+      <td>2</td>
+      <td>24.9</td>
+      <td>13.7</td>
+      <td>61.5</td>
+      <td>61.5</td>
+      <td>NaN</td>
+      <td>✅ Mírná preference: Away Win (61.5 %)</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>svc</td>
+      <td>170</td>
+      <td>AFC Sunderland</td>
+      <td>Crystal Palace</td>
+      <td>PL</td>
+      <td>2025-26</td>
+      <td>2026-01-17</td>
+      <td>0</td>
+      <td>54.9</td>
+      <td>20.0</td>
+      <td>25.2</td>
+      <td>54.9</td>
+      <td>NaN</td>
+      <td>❓ Nejisté: Home Win (54.9 %)</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>svc</td>
+      <td>169</td>
+      <td>Aston Villa</td>
+      <td>Everton FC</td>
+      <td>PL</td>
+      <td>2025-26</td>
+      <td>2026-01-17</td>
+      <td>0</td>
+      <td>57.8</td>
+      <td>20.3</td>
+      <td>21.9</td>
+      <td>57.8</td>
+      <td>NaN</td>
+      <td>✅ Mírná preference: Home Win (57.8 %)</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>svc</td>
+      <td>166</td>
+      <td>Brighton &amp; Hove Albion</td>
+      <td>AFC Bournemouth</td>
+      <td>PL</td>
+      <td>2025-26</td>
+      <td>2026-01-17</td>
+      <td>0</td>
+      <td>53.5</td>
+      <td>21.5</td>
+      <td>25.1</td>
+      <td>53.5</td>
+      <td>NaN</td>
+      <td>❓ Nejisté: Home Win (53.5 %)</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>svc</td>
+      <td>165</td>
+      <td>Chelsea FC</td>
+      <td>Brentford</td>
+      <td>PL</td>
+      <td>2025-26</td>
+      <td>2026-01-17</td>
+      <td>0</td>
+      <td>45.2</td>
+      <td>20.9</td>
+      <td>34.0</td>
+      <td>45.2</td>
+      <td>NaN</td>
+      <td>❓ Nejisté: Home Win (45.2 %)</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>svc</td>
+      <td>167</td>
+      <td>Leeds United</td>
+      <td>Fulham FC</td>
+      <td>PL</td>
+      <td>2025-26</td>
+      <td>2026-01-17</td>
+      <td>0</td>
+      <td>42.6</td>
+      <td>19.5</td>
+      <td>37.9</td>
+      <td>42.6</td>
+      <td>NaN</td>
+      <td>❓ Nejisté: Home Win (42.6 %)</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>svc</td>
+      <td>163</td>
+      <td>Liverpool FC</td>
+      <td>Burnley FC</td>
+      <td>PL</td>
+      <td>2025-26</td>
+      <td>2026-01-17</td>
+      <td>0</td>
+      <td>57.8</td>
+      <td>21.6</td>
+      <td>20.7</td>
+      <td>57.8</td>
+      <td>NaN</td>
+      <td>✅ Mírná preference: Home Win (57.8 %)</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>svc</td>
+      <td>161</td>
+      <td>Manchester United</td>
+      <td>Manchester City</td>
+      <td>PL</td>
+      <td>2025-26</td>
+      <td>2026-01-17</td>
+      <td>0</td>
+      <td>39.5</td>
+      <td>21.3</td>
+      <td>39.2</td>
+      <td>39.5</td>
+      <td>NaN</td>
+      <td>🎲: Home Win (39.5 %)</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>svc</td>
+      <td>168</td>
+      <td>Nottingham Forest</td>
+      <td>Arsenal FC</td>
+      <td>PL</td>
+      <td>2025-26</td>
+      <td>2026-01-17</td>
+      <td>0</td>
+      <td>39.6</td>
+      <td>21.2</td>
+      <td>39.1</td>
+      <td>39.6</td>
+      <td>NaN</td>
+      <td>🎲: Home Win (39.6 %)</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>svc</td>
+      <td>164</td>
+      <td>Tottenham Hotspur</td>
+      <td>West Ham United</td>
+      <td>PL</td>
+      <td>2025-26</td>
+      <td>2026-01-17</td>
+      <td>0</td>
+      <td>49.0</td>
+      <td>22.7</td>
+      <td>28.3</td>
+      <td>49.0</td>
+      <td>NaN</td>
+      <td>❓ Nejisté: Home Win (49.0 %)</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>svc</td>
+      <td>162</td>
+      <td>Wolverhampton Wanderers</td>
+      <td>Newcastle United</td>
+      <td>PL</td>
+      <td>2025-26</td>
+      <td>2026-01-17</td>
+      <td>0</td>
+      <td>39.4</td>
+      <td>21.2</td>
+      <td>39.4</td>
+      <td>39.4</td>
+      <td>NaN</td>
+      <td>🎲: Home Win (39.4 %)</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>voting_ensemble</td>
+      <td>170</td>
+      <td>AFC Sunderland</td>
+      <td>Crystal Palace</td>
+      <td>PL</td>
+      <td>2025-26</td>
+      <td>2026-01-17</td>
+      <td>0</td>
+      <td>47.2</td>
+      <td>30.2</td>
+      <td>22.6</td>
+      <td>47.2</td>
+      <td>NaN</td>
+      <td>❓ Nejisté: Home Win (47.2 %)</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>voting_ensemble</td>
+      <td>169</td>
+      <td>Aston Villa</td>
+      <td>Everton FC</td>
+      <td>PL</td>
+      <td>2025-26</td>
+      <td>2026-01-17</td>
+      <td>1</td>
+      <td>39.5</td>
+      <td>45.9</td>
+      <td>14.6</td>
+      <td>45.9</td>
+      <td>NaN</td>
+      <td>❓ Nejisté: Draw (45.9 %)</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>voting_ensemble</td>
+      <td>166</td>
+      <td>Brighton &amp; Hove Albion</td>
+      <td>AFC Bournemouth</td>
+      <td>PL</td>
+      <td>2025-26</td>
+      <td>2026-01-17</td>
+      <td>1</td>
+      <td>37.6</td>
+      <td>45.9</td>
+      <td>16.5</td>
+      <td>45.9</td>
+      <td>NaN</td>
+      <td>❓ Nejisté: Draw (45.9 %)</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>voting_ensemble</td>
+      <td>165</td>
+      <td>Chelsea FC</td>
+      <td>Brentford</td>
+      <td>PL</td>
+      <td>2025-26</td>
+      <td>2026-01-17</td>
+      <td>0</td>
+      <td>69.9</td>
+      <td>12.3</td>
+      <td>17.8</td>
+      <td>69.9</td>
+      <td>NaN</td>
+      <td>✅ Mírná preference: Home Win (69.9 %)</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>voting_ensemble</td>
+      <td>167</td>
+      <td>Leeds United</td>
+      <td>Fulham FC</td>
+      <td>PL</td>
+      <td>2025-26</td>
+      <td>2026-01-17</td>
+      <td>0</td>
+      <td>65.8</td>
+      <td>11.4</td>
+      <td>22.8</td>
+      <td>65.8</td>
+      <td>NaN</td>
+      <td>✅ Mírná preference: Home Win (65.8 %)</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>voting_ensemble</td>
+      <td>163</td>
+      <td>Liverpool FC</td>
+      <td>Burnley FC</td>
+      <td>PL</td>
+      <td>2025-26</td>
+      <td>2026-01-17</td>
+      <td>0</td>
+      <td>59.6</td>
+      <td>31.1</td>
+      <td>9.4</td>
+      <td>59.6</td>
+      <td>NaN</td>
+      <td>✅ Mírná preference: Home Win (59.6 %)</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>voting_ensemble</td>
+      <td>161</td>
+      <td>Manchester United</td>
+      <td>Manchester City</td>
+      <td>PL</td>
+      <td>2025-26</td>
+      <td>2026-01-17</td>
+      <td>2</td>
+      <td>14.6</td>
+      <td>40.0</td>
+      <td>45.4</td>
+      <td>45.4</td>
+      <td>NaN</td>
+      <td>❓ Nejisté: Away Win (45.4 %)</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>voting_ensemble</td>
+      <td>168</td>
+      <td>Nottingham Forest</td>
+      <td>Arsenal FC</td>
+      <td>PL</td>
+      <td>2025-26</td>
+      <td>2026-01-17</td>
+      <td>2</td>
+      <td>13.4</td>
+      <td>10.7</td>
+      <td>75.9</td>
+      <td>75.9</td>
+      <td>NaN</td>
+      <td>🔥 Silná sázka: Away Win (75.9 %)</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>voting_ensemble</td>
+      <td>164</td>
+      <td>Tottenham Hotspur</td>
+      <td>West Ham United</td>
+      <td>PL</td>
+      <td>2025-26</td>
+      <td>2026-01-17</td>
+      <td>0</td>
+      <td>67.1</td>
+      <td>21.3</td>
+      <td>11.7</td>
+      <td>67.1</td>
+      <td>NaN</td>
+      <td>✅ Mírná preference: Home Win (67.1 %)</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>voting_ensemble</td>
+      <td>162</td>
+      <td>Wolverhampton Wanderers</td>
+      <td>Newcastle United</td>
+      <td>PL</td>
+      <td>2025-26</td>
+      <td>2026-01-17</td>
+      <td>2</td>
+      <td>18.8</td>
+      <td>20.9</td>
+      <td>60.4</td>
+      <td>60.4</td>
+      <td>NaN</td>
+      <td>✅ Mírná preference: Away Win (60.4 %)</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>xgboost</td>
+      <td>170</td>
+      <td>AFC Sunderland</td>
+      <td>Crystal Palace</td>
+      <td>PL</td>
+      <td>2025-26</td>
+      <td>2026-01-17</td>
+      <td>0</td>
+      <td>54.3</td>
+      <td>17.6</td>
+      <td>28.1</td>
+      <td>54.3</td>
+      <td>NaN</td>
+      <td>❓ Nejisté: Home Win (54.3 %)</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>xgboost</td>
+      <td>169</td>
+      <td>Aston Villa</td>
+      <td>Everton FC</td>
+      <td>PL</td>
+      <td>2025-26</td>
+      <td>2026-01-17</td>
+      <td>0</td>
+      <td>45.0</td>
+      <td>30.3</td>
+      <td>24.7</td>
+      <td>45.0</td>
+      <td>NaN</td>
+      <td>❓ Nejisté: Home Win (45.0 %)</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>xgboost</td>
+      <td>166</td>
+      <td>Brighton &amp; Hove Albion</td>
+      <td>AFC Bournemouth</td>
+      <td>PL</td>
+      <td>2025-26</td>
+      <td>2026-01-17</td>
+      <td>0</td>
+      <td>65.8</td>
+      <td>24.5</td>
+      <td>9.8</td>
+      <td>65.8</td>
+      <td>NaN</td>
+      <td>✅ Mírná preference: Home Win (65.8 %)</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>xgboost</td>
+      <td>165</td>
+      <td>Chelsea FC</td>
+      <td>Brentford</td>
+      <td>PL</td>
+      <td>2025-26</td>
+      <td>2026-01-17</td>
+      <td>0</td>
+      <td>57.2</td>
+      <td>12.5</td>
+      <td>30.3</td>
+      <td>57.2</td>
+      <td>NaN</td>
+      <td>✅ Mírná preference: Home Win (57.2 %)</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>xgboost</td>
+      <td>167</td>
+      <td>Leeds United</td>
+      <td>Fulham FC</td>
+      <td>PL</td>
+      <td>2025-26</td>
+      <td>2026-01-17</td>
+      <td>0</td>
+      <td>57.0</td>
+      <td>18.2</td>
+      <td>24.7</td>
+      <td>57.0</td>
+      <td>NaN</td>
+      <td>✅ Mírná preference: Home Win (57.0 %)</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>xgboost</td>
+      <td>163</td>
+      <td>Liverpool FC</td>
+      <td>Burnley FC</td>
+      <td>PL</td>
+      <td>2025-26</td>
+      <td>2026-01-17</td>
+      <td>0</td>
+      <td>59.6</td>
+      <td>31.8</td>
+      <td>8.6</td>
+      <td>59.6</td>
+      <td>NaN</td>
+      <td>✅ Mírná preference: Home Win (59.6 %)</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>xgboost</td>
+      <td>161</td>
+      <td>Manchester United</td>
+      <td>Manchester City</td>
+      <td>PL</td>
+      <td>2025-26</td>
+      <td>2026-01-17</td>
+      <td>0</td>
+      <td>39.7</td>
+      <td>27.2</td>
+      <td>33.1</td>
+      <td>39.7</td>
+      <td>NaN</td>
+      <td>🎲: Home Win (39.7 %)</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>xgboost</td>
+      <td>168</td>
+      <td>Nottingham Forest</td>
+      <td>Arsenal FC</td>
+      <td>PL</td>
+      <td>2025-26</td>
+      <td>2026-01-17</td>
+      <td>2</td>
+      <td>34.4</td>
+      <td>13.7</td>
+      <td>51.9</td>
+      <td>51.9</td>
+      <td>NaN</td>
+      <td>❓ Nejisté: Away Win (51.9 %)</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>xgboost</td>
+      <td>164</td>
+      <td>Tottenham Hotspur</td>
+      <td>West Ham United</td>
+      <td>PL</td>
+      <td>2025-26</td>
+      <td>2026-01-17</td>
+      <td>0</td>
+      <td>70.1</td>
+      <td>22.1</td>
+      <td>7.8</td>
+      <td>70.1</td>
+      <td>NaN</td>
+      <td>✅ Mírná preference: Home Win (70.1 %)</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>xgboost</td>
+      <td>162</td>
+      <td>Wolverhampton Wanderers</td>
+      <td>Newcastle United</td>
+      <td>PL</td>
+      <td>2025-26</td>
+      <td>2026-01-17</td>
+      <td>2</td>
+      <td>28.7</td>
+      <td>16.8</td>
+      <td>54.5</td>
+      <td>54.5</td>
+      <td>NaN</td>
+      <td>❓ Nejisté: Away Win (54.5 %)</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+<h3>Model gradientboost</h3><img src='../data/report_gradientboost.png' alt='Graf gradientboost'><br><h3>Model knn</h3><img src='../data/report_knn.png' alt='Graf knn'><br><h3>Model logreg</h3><img src='../data/report_logreg.png' alt='Graf logreg'><br><h3>Model poisson_goals</h3><img src='../data/report_poisson_goals.png' alt='Graf poisson_goals'><br><h3>Model randomforest</h3><img src='../data/report_randomforest.png' alt='Graf randomforest'><br><h3>Model svc</h3><img src='../data/report_svc.png' alt='Graf svc'><br><h3>Model voting_ensemble</h3><img src='../data/report_voting_ensemble.png' alt='Graf voting_ensemble'><br><h3>Model xgboost</h3><img src='../data/report_xgboost.png' alt='Graf xgboost'><br>
+</body>
+</html>

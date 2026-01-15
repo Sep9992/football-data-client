@@ -1,0 +1,28 @@
+model,match_date,home_team,away_team,predicted_result,prob_home,prob_draw,prob_away,actual_result,correct
+Logistic Regression,2025-11-01,Brighton,Leeds,H,0.523,0.331,0.146,0,True
+Logistic Regression,2025-11-01,Burnley,Arsenal,H,0.598,0.051,0.351,2,False
+Logistic Regression,2025-11-01,Crystal Palace,Brentford,D,0.245,0.565,0.19,0,False
+Logistic Regression,2025-11-01,Fulham,Wolves,D,0.212,0.629,0.159,0,False
+Logistic Regression,2025-11-01,Nott'm Forest,Man United,H,0.575,0.241,0.184,1,False
+Logistic Regression,2025-11-01,Tottenham,Chelsea,A,0.028,0.232,0.741,2,True
+Logistic Regression,2025-11-01,Liverpool,Aston Villa,H,0.889,0.078,0.033,0,True
+Logistic Regression,2025-11-02,West Ham,Newcastle,D,0.094,0.654,0.252,0,False
+Logistic Regression,2025-11-02,Man City,Bournemouth,H,0.949,0.039,0.013,0,True
+Random Forest,2025-11-01,Brighton,Leeds,D,0.357,0.473,0.17,0,False
+Random Forest,2025-11-01,Burnley,Arsenal,A,0.217,0.063,0.72,2,True
+Random Forest,2025-11-01,Crystal Palace,Brentford,A,0.163,0.407,0.43,0,False
+Random Forest,2025-11-01,Fulham,Wolves,D,0.397,0.55,0.053,0,False
+Random Forest,2025-11-01,Nott'm Forest,Man United,D,0.153,0.43,0.417,1,True
+Random Forest,2025-11-01,Tottenham,Chelsea,A,0.077,0.103,0.82,2,True
+Random Forest,2025-11-01,Liverpool,Aston Villa,H,0.797,0.143,0.06,0,True
+Random Forest,2025-11-02,West Ham,Newcastle,D,0.123,0.52,0.357,0,False
+Random Forest,2025-11-02,Man City,Bournemouth,H,0.707,0.207,0.087,0,True
+XGBoost,2025-11-01,Brighton,Leeds,H,0.6909999847412109,0.2070000022649765,0.1019999980926513,0,True
+XGBoost,2025-11-01,Burnley,Arsenal,A,0.0089999996125698,0.0010000000474974,0.9900000095367432,2,True
+XGBoost,2025-11-01,Crystal Palace,Brentford,A,0.3310000002384186,0.2870000004768371,0.3819999992847442,0,False
+XGBoost,2025-11-01,Fulham,Wolves,H,0.6740000247955322,0.2750000059604645,0.0520000010728836,0,True
+XGBoost,2025-11-01,Nott'm Forest,Man United,D,0.1400000005960464,0.6650000214576721,0.1949999928474426,1,True
+XGBoost,2025-11-01,Tottenham,Chelsea,A,0.0040000001899898,0.0089999996125698,0.9860000014305116,2,True
+XGBoost,2025-11-01,Liverpool,Aston Villa,H,0.959999978542328,0.0370000004768371,0.003000000026077,0,True
+XGBoost,2025-11-02,West Ham,Newcastle,D,0.2249999940395355,0.7229999899864197,0.0520000010728836,0,False
+XGBoost,2025-11-02,Man City,Bournemouth,H,0.9710000157356262,0.0280000008642673,0.0010000000474974,0,True

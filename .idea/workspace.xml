@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="5be190c3-e2de-4cd4-998b-04133b9cf4b1" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/football-data-client.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/etl/step0_download_abseits_PL_schedule.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/etl/step1_match_stats_from_html.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/etl/step2_prepare_dataset.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ml/debug_system.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ml/shared_features.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ml/step3_train_and_evaluate.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ml/step3b_poison_model.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ml/step4_predict_next_round.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ml/step5_prediction_report.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ml/step6_analyze_features.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ml/step7_calculate_fair_odds.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ml/step8_backtest_strategy.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notebook/exploration.ipynb" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Jupyter Notebook" />
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="348h3yBJHURHEpiCkQ8BNdOE8Lg" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Python.debug_system.executor&quot;: &quot;Run&quot;,
+    &quot;Python.drop_fixtures_only.executor&quot;: &quot;Run&quot;,
+    &quot;Python.importCsvFile.executor&quot;: &quot;Run&quot;,
+    &quot;Python.load_data.executor&quot;: &quot;Run&quot;,
+    &quot;Python.scrypt1.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step0_download_abseits_PL_schedule (1).executor&quot;: &quot;Run&quot;,
+    &quot;Python.step0_download_abseits_PL_schedule.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step0_download_data.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step0_download_data_abseits_PL.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step0_download_data_playwright (1).executor&quot;: &quot;Run&quot;,
+    &quot;Python.step0_download_data_selenium (1).executor&quot;: &quot;Run&quot;,
+    &quot;Python.step0_download_data_sofascore_PL.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step0_download_data_upw (1).executor&quot;: &quot;Run&quot;,
+    &quot;Python.step1_load_data.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step1_match_stats_from_html (1).executor&quot;: &quot;Run&quot;,
+    &quot;Python.step1_match_stats_from_html.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step1_test_match_stats.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step1_test_save_match_stats_to_html.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step2_prepare_dataset.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step3_import_csv.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step3_train_and_evaluate.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step3b_poison_model.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step4_0_train_baseline.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step4_1_cross_validation.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step4_2_compare_models.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step4_3_evulate_predictions.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step4_4_prepare_fixtures (1).executor&quot;: &quot;Run&quot;,
+    &quot;Python.step4_4_prepare_fixtures.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step4_predict_next_round.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step4_prepare_fixtures.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step4_train_baseline.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step5_0_train_ml (1).executor&quot;: &quot;Run&quot;,
+    &quot;Python.step5_0_train_ml.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step5_1_predict_next_round.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step5_2_crossval_check.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step5_3_learning_curves.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step5_5_features_inventory.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step5_6_predict_next_round (1).executor&quot;: &quot;Run&quot;,
+    &quot;Python.step5_6_predict_next_round.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step5_cross_validation.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step5_predict_next_round.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step5_prediction_report.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step5_train_ml.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step6_0_predictions_report.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step6_analyze_features.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step6_predictions_report.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step7_calculate_fair_odds.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step7_evulate_predictions.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step8_backtest_strategy.executor&quot;: &quot;Run&quot;,
+    &quot;Python.update_cards_fauls_form_processed.executor&quot;: &quot;Run&quot;,
+    &quot;Python.update_corners_form_processed.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
+  }
+}</component>
+  <component name="RunManager" selected="Python.step3_train_and_evaluate">
+    <configuration name="debug_system" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="football-data-client" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ml" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="RUN_TOOL" value="" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ml/debug_system.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="step2_prepare_dataset" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="football-data-client" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/etl" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="RUN_TOOL" value="" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/etl/step2_prepare_dataset.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="step3_train_and_evaluate" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="football-data-client" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ml" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="RUN_TOOL" value="" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ml/step3_train_and_evaluate.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="step3b_poison_model" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="football-data-client" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ml" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="RUN_TOOL" value="" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ml/step3b_poison_model.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="step4_predict_next_round" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="football-data-client" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ml" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="RUN_TOOL" value="" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ml/step4_predict_next_round.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.step3_train_and_evaluate" />
+        <item itemvalue="Python.step4_predict_next_round" />
+        <item itemvalue="Python.step3b_poison_model" />
+        <item itemvalue="Python.debug_system" />
+        <item itemvalue="Python.step2_prepare_dataset" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-python-sdk-ca5e2b39c7df-6e1f45a539f7-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-253.29346.308" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5be190c3-e2de-4cd4-998b-04133b9cf4b1" name="Changes" comment="" />
+      <created>1760600910456</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1760600910456</updated>
+    </task>
+    <servers />
+  </component>
+</project>
