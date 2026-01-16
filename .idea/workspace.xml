@@ -6,24 +6,19 @@
   <component name="ChangeListManager">
     <list default="true" id="5be190c3-e2de-4cd4-998b-04133b9cf4b1" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.~lock.Jak dál.odt#" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/csvFiles/E0.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/csvFiles/fixtures_dataset_test.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/csvFiles/fixtures_dataset_train.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/csvFiles/fixtures_prepared.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/csvFiles/predictions_evaluation.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/csvFiles/predictions_evaluation_detailed.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/csvFiles/predictions_next_round.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/csvFiles/premier_league_2025_26_match_stats.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/csvFiles/premier_league_2025_26_match_stats_week1.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/csvFiles/premier_league_2025_26_matches.csv" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/data/predictions_report_final.html" beforeDir="false" afterPath="$PROJECT_DIR$/data/predictions_report_final.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/debug_fbref.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htmlFiles/predictions_next_round.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/htmlFiles/predictions_report.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_161.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/shap_images/shap_161.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_162.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/shap_images/shap_162.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_163.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/shap_images/shap_163.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_164.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/shap_images/shap_164.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_165.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/shap_images/shap_165.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_166.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/shap_images/shap_166.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_167.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/shap_images/shap_167.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_168.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/shap_images/shap_168.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_169.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/shap_images/shap_169.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_170.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/shap_images/shap_170.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ml/step4_predict_and_report.py" beforeDir="false" afterPath="$PROJECT_DIR$/ml/step4_predict_and_report.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ml/update_kickoff.py" beforeDir="false" afterPath="$PROJECT_DIR$/ml/update_kickoff.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notebook/exploration.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ml/step7_backtest_strategy.py" beforeDir="false" afterPath="$PROJECT_DIR$/ml/step7_backtest_strategy.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,6 +99,7 @@
     "Python.step6_0_predictions_report.executor": "Run",
     "Python.step6_analyze_features.executor": "Run",
     "Python.step6_predictions_report.executor": "Run",
+    "Python.step7_backtest_strategy (1).executor": "Run",
     "Python.step7_calculate_fair_odds.executor": "Run",
     "Python.step7_evulate_predictions.executor": "Run",
     "Python.step8_backtest_strategy.executor": "Run",
@@ -118,7 +114,7 @@
     "settings.editor.selected.configurable": "preferences.lookFeel"
   }
 }]]></component>
-  <component name="RunManager" selected="Python.step4_predict_and_report">
+  <component name="RunManager" selected="Python.step7_backtest_strategy (1)">
     <configuration name="fix_schedule" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="football-data-client" />
       <option name="ENV_FILES" value="" />
@@ -165,7 +161,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="step7_backtest_strategy" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="step7_backtest_strategy (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="football-data-client" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -179,7 +175,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="RUN_TOOL" value="" />
-      <option name="SCRIPT_NAME" value="C:\Users\Jiri\Documents\python\football-data-client\ml\step7_backtest_strategy.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ml/step7_backtest_strategy.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -236,11 +232,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.step7_backtest_strategy (1)" />
         <item itemvalue="Python.step4_predict_and_report" />
         <item itemvalue="Python.update_kickoff" />
         <item itemvalue="Python.upgrade_db_schema" />
         <item itemvalue="Python.fix_schedule" />
-        <item itemvalue="Python.step7_backtest_strategy" />
       </list>
     </recent_temporary>
   </component>
