@@ -1,6 +1,6 @@
 # ml/step4_predict_and_report.py
 # KOMPLETNÍ PROCES: Predikce -> SHAP -> Report
-# VERZE 4.0: Řazení dle síly signálu + Datum zápasu
+# VERZE 4.1: Řazení primárně dle ČASU (Timeline view)
 
 import os
 import pandas as pd
@@ -91,17 +91,25 @@ def generate_shap_plot(explainer, X_row, feature_names, fixture_id, predicted_cl
 
 
 def run_pipeline():
-    print("🚀 Startuji Step 4 (Predikce + SHAP + Report)...")
+    print("🚀 Startuji Step 4 (Timeline Report)...")
 
-    # 1. NAČTENÍ DAT
-    query = "SELECT * FROM prepared_fixtures ORDER BY match_date ASC LIMIT 10"
+    # 1. NAČTENÍ DAT (JEN S PLATNÝM DATUMEM)
+    query = """
+    SELECT * FROM prepared_fixtures 
+    WHERE match_date IS NOT NULL 
+    ORDER BY match_date ASC
+    """
     try:
         df_fixt = pd.read_sql(query, engine)
     except Exception as e:
         print(f"❌ Chyba DB: {e}");
         return
 
-    if df_fixt.empty: return
+    if df_fixt.empty:
+        print("⚠️ Žádné zápasy s nastaveným datem.");
+        return
+
+    print(f"📅 Zpracovávám {len(df_fixt)} zápasů...")
 
     # 2. NAČTENÍ MODELŮ
     voting_path = os.path.join(DATA_DIR, "model_voting_ensemble.pkl")
@@ -191,8 +199,8 @@ def run_pipeline():
         new_rows.append({
             "fixture_id": row["fixture_id"],
             "match_name": f"{row['home_team']} vs {row['away_team']}",
-            "match_date_str": match_date_str,  # Pro HTML
-            "match_date_obj": row["match_date"],  # Pro třídění
+            "match_date_str": match_date_str,
+            "match_date_obj": row["match_date"],
             "predicted_winner": predicted_winner,
             "signal_note": signal_note,
             "proba_home_win": ph,
@@ -206,12 +214,11 @@ def run_pipeline():
             "shap_image": shap_img
         })
 
-    # Uložení do DB (bez pomocných sloupců pro HTML)
+    # Uložení do DB
     df_out = pd.DataFrame(new_rows)
     db_cols = ["fixture_id", "predicted_winner", "proba_home_win", "proba_draw", "proba_away_win",
                "expected_goals_home", "expected_goals_away", "fair_odd_home", "fair_odd_draw", "fair_odd_away"]
     df_out["model_name"] = "hybrid_shap"
-    # Ukládáme jen data, která patří do DB tabulky
     df_out[db_cols + ["model_name"]].to_sql("predictions", engine, if_exists="append", index=False)
     print("✅ Data uložena do DB.")
 
@@ -219,29 +226,29 @@ def run_pipeline():
 
 
 def generate_html_report(df):
-    # Příprava dat
     df["Home %"] = (df["proba_home_win"] * 100).round(1)
     df["Draw %"] = (df["proba_draw"] * 100).round(1)
     df["Away %"] = (df["proba_away_win"] * 100).round(1)
     df["xG"] = df["expected_goals_home"].round(2).astype(str) + ":" + df["expected_goals_away"].round(2).astype(str)
 
     # --- ŘAZENÍ (SORTING) ---
-    # 1. Priorita signálu (Favorit > Safe > Value > Nic)
-    # 2. Datum zápasu
+    # Priorita pro sekundární řazení (v rámci stejného času chceme signály nahoře)
     def get_priority(signal):
         if "Favorit" in str(signal): return 1
         if "Safe" in str(signal): return 2
         if "Value" in str(signal): return 3
-        return 4  # Ostatní
+        return 4
 
     df["priority"] = df["signal_note"].apply(get_priority)
-    df = df.sort_values(by=["priority", "match_date_obj"])
+
+    # HLAVNÍ ZMĚNA: Řadíme primárně podle ČASU (match_date_obj), sekundárně podle PRIORITY
+    df = df.sort_values(by=["match_date_obj", "priority"])
 
     html = """
     <html>
     <head>
         <meta charset="utf-8">
-        <title>Football Predictions v4.0</title>
+        <title>Football Predictions v4.1 (Timeline)</title>
         <style>
             body { font-family: 'Segoe UI', sans-serif; margin: 20px; background: #f4f4f9; }
             h1 { text-align: center; color: #333; }
@@ -250,17 +257,18 @@ def generate_html_report(df):
                 margin-bottom: 20px; padding: 20px; display: flex; flex-wrap: wrap; align-items: flex-start;
                 border-left: 5px solid transparent;
             }
+            /* Barevné okraje podle typu signálu */
             .card-priority-1 { border-left-color: #e74c3c; } /* Favorit */
             .card-priority-2 { border-left-color: #27ae60; } /* Safe */
             .card-priority-3 { border-left-color: #2980b9; } /* Value */
-            .card-priority-4 { border-left-color: #bdc3c7; opacity: 0.9; } /* Ostatní */
+            .card-priority-4 { border-left-color: #bdc3c7; opacity: 0.8; } /* Ostatní */
 
             .match-info { flex: 1; min-width: 300px; padding-right: 20px; }
             .match-shap { flex: 0 0 450px; text-align: center; border-left: 1px solid #eee; padding-left: 20px; }
 
             .match-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 5px;}
             .match-title { font-size: 1.3em; font-weight: bold; color: #2c3e50; }
-            .match-date { font-size: 0.9em; color: #7f8c8d; font-weight: bold; }
+            .match-date { font-size: 1.1em; color: #34495e; font-weight: bold; background: #ecf0f1; padding: 2px 8px; border-radius: 4px; }
 
             .probs { display: flex; margin: 10px 0; border: 1px solid #ddd; border-radius: 5px; overflow: hidden; height: 25px; line-height: 25px;}
             .prob-box { text-align: center; color: white; font-size: 0.85em; }
@@ -276,13 +284,20 @@ def generate_html_report(df):
         </style>
     </head>
     <body>
-        <h1>⚽ Predikce & Analýza</h1>
+        <h1>⚽ Rozpis a Predikce</h1>
     """
+
+    current_date = None
 
     for _, row in df.iterrows():
         p1, px, p2 = row["Home %"], row["Draw %"], row["Away %"]
 
-        # Barvy a Signál
+        # Vložení hlavičky pro nový den (volitelné vylepšení)
+        date_only = row["match_date_str"].split(" ")[0]
+        if date_only != current_date:
+            html += f"<h2 style='color:#7f8c8d; margin-top:30px; border-bottom:2px solid #ddd; padding-bottom:5px;'>📅 {date_only}</h2>"
+            current_date = date_only
+
         signal_html = ""
         priority_class = f"card-priority-{row['priority']}"
 
@@ -293,7 +308,6 @@ def generate_html_report(df):
             if "Value" in row['signal_note']: color = "#2980b9"
             signal_html = f"<span class='signal' style='color:{color}; border: 1px solid {color}'>{row['signal_note']}</span>"
 
-        # Double Chance řádek
         dc_html_row = ""
         if "1X" in row['signal_note']:
             prob_dc = row["proba_home_win"] + row["proba_draw"]
@@ -304,18 +318,20 @@ def generate_html_report(df):
             fair_dc = round(1 / prob_dc, 2)
             dc_html_row = f"<tr class='dc-row'><th>FÉR DC (X2):</th><td>{fair_dc}</td></tr>"
 
-        # Obrázek SHAP
         img_tag = "<div style='color:#ccc; margin-top:50px;'>Bez grafu</div>"
         if row["shap_image"]:
             img_src = f"../data/shap_images/{row['shap_image']}"
             img_tag = f"<img src='{img_src}' alt='SHAP Analysis'><br><small>Vliv faktorů</small>"
+
+        # Zobrazení pouze času v kartě (datum je v nadpisu sekce)
+        time_only = row["match_date_str"].split(" ")[1]
 
         card = f"""
         <div class="match-card {priority_class}">
             <div class="match-info">
                 <div class="match-header">
                     <div class="match-title">{row['match_name']}</div>
-                    <div class="match-date">📅 {row['match_date_str']}</div>
+                    <div class="match-date">⏰ {time_only}</div>
                 </div>
                 {signal_html}
                 <div class="probs" style="--p1: {p1}%; --px: {px}%; --p2: {p2}%;">
@@ -343,7 +359,7 @@ def generate_html_report(df):
     with open(report_path, "w", encoding="utf-8") as f:
         f.write(html)
 
-    print(f"📄 Report (Seřazený + Datum): {report_path}")
+    print(f"📄 Report (Timeline View): {report_path}")
 
 
 if __name__ == "__main__":
