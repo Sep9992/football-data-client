@@ -1,0 +1,84 @@
+Date,Match,Type,Bet,Edge,Odds,Stake,Result,Profit,Bankroll
+02.12.,Newcastle United vs Tottenham Hotspur,🧮 DC Value,2,198.9,6.28,376.68,❌ LOSS,-376.68,9623.32
+02.12.,Fulham FC vs Manchester City,🧮 DC Value,X,62.7,5.75,127.11,❌ LOSS,-127.11,9496.21
+03.12.,Arsenal FC vs Brentford,🧮 DC Value,X,39.0,7.9,53.6,❌ LOSS,-53.6,9442.61
+03.12.,Brighton & Hove Albion vs Aston Villa,🧮 DC Value,1,14.2,1.82,164.59,❌ LOSS,-164.59,9278.02
+03.12.,Burnley FC vs Crystal Palace,🧮 DC Value,X,60.5,5.08,137.5,❌ LOSS,-137.5,9140.52
+03.12.,Wolverhampton Wanderers vs Nottingham Forest,🧮 DC Value,X,73.7,4.89,173.03,❌ LOSS,-173.03,8967.5
+03.12.,Leeds United vs Chelsea FC,🧮 DC Value,1,51.8,8.52,61.8,✅ WIN,464.48,9431.98
+03.12.,Liverpool FC vs AFC Sunderland,🧮 DC Value,X,343.2,16.38,210.46,✅ WIN,3237.0,12668.98
+04.12.,Manchester United vs West Ham United,🧮 DC Value,2,138.9,10.41,186.96,❌ LOSS,-186.96,12482.02
+06.12.,Manchester City vs AFC Sunderland,🧮 DC Value,X,154.9,18.79,108.68,❌ LOSS,-108.68,12373.34
+06.12.,AFC Bournemouth vs Chelsea FC,🧮 DC Value,X,199.7,12.67,211.68,✅ WIN,2471.35,14844.69
+06.12.,Aston Villa vs Arsenal FC,🧮 DC Value,2,45.4,4.95,170.49,❌ LOSS,-170.49,14674.2
+06.12.,Everton FC vs Nottingham Forest,🧮 DC Value,2,6.8,3.99,50.0,❌ LOSS,-50.0,14624.2
+06.12.,Leeds United vs Liverpool FC,🧮 DC Value,X,174.6,9.88,287.76,✅ WIN,2554.09,17178.29
+06.12.,Tottenham Hotspur vs Brentford,🧮 DC Value,X,48.1,4.32,248.91,❌ LOSS,-248.91,16929.39
+07.12.,Fulham FC vs Crystal Palace,🧮 DC Value,X,118.0,8.8,256.03,❌ LOSS,-256.03,16673.35
+07.12.,Brighton & Hove Albion vs West Ham United,🧮 DC Value,2,18.6,6.64,55.08,❌ LOSS,-55.08,16618.28
+08.12.,Wolverhampton Wanderers vs Manchester United,🧮 DC Value,1,105.3,10.57,182.9,❌ LOSS,-182.9,16435.38
+13.12.,Burnley FC vs Fulham FC,🧮 DC Value,X,161.2,6.69,465.43,❌ LOSS,-465.43,15969.95
+13.12.,Chelsea FC vs Everton FC,🧮 DC Value,X,44.5,4.88,182.91,❌ LOSS,-182.91,15787.04
+13.12.,Arsenal FC vs Wolverhampton Wanderers,🧮 DC Value,X,97.2,19.29,83.93,❌ LOSS,-83.93,15703.11
+13.12.,Liverpool FC vs Brighton & Hove Albion,🧮 DC Value,X,27.2,4.5,122.02,❌ LOSS,-122.02,15581.09
+14.12.,Crystal Palace vs Manchester City,🧮 DC Value,2,31.2,2.62,300.15,✅ WIN,486.64,16067.72
+14.12.,AFC Sunderland vs Newcastle United,🧮 DC Value,1,17.5,2.07,261.52,✅ WIN,280.88,16348.61
+14.12.,Nottingham Forest vs Tottenham Hotspur,🧮 DC Value,X,38.3,6.04,124.13,❌ LOSS,-124.13,16224.47
+14.12.,West Ham United vs Aston Villa,🧮 DC Value,X,41.9,4.8,179.13,❌ LOSS,-179.13,16045.35
+14.12.,Brentford vs Leeds United,🧮 DC Value,X,27.5,6.01,87.92,✅ WIN,440.66,16486.0
+20.12.,Brighton & Hove Albion vs AFC Sunderland,🧮 DC Value,1,20.8,1.68,507.5,❌ LOSS,-507.5,15978.51
+20.12.,Newcastle United vs Chelsea FC,🧮 DC Value,2,13.9,3.07,107.2,❌ LOSS,-107.2,15871.3
+20.12.,Wolverhampton Wanderers vs Brentford,🧮 DC Value,X,308.0,10.46,516.72,❌ LOSS,-516.72,15354.58
+20.12.,AFC Bournemouth vs Burnley FC,🧮 DC Value,X,161.7,8.88,315.33,✅ WIN,2483.53,17838.11
+20.12.,Tottenham Hotspur vs Liverpool FC,🧮 DC Value,2,50.8,3.35,384.55,✅ WIN,905.52,18743.63
+20.12.,Leeds United vs Crystal Palace,🧮 DC Value,1,108.6,4.74,543.62,✅ WIN,2035.52,20779.15
+20.12.,Everton FC vs Arsenal FC,🧮 DC Value,1,112.4,5.44,526.01,❌ LOSS,-526.01,20253.14
+21.12.,Aston Villa vs Manchester United,🧮 DC Value,2,85.0,4.48,495.34,❌ LOSS,-495.34,19757.8
+22.12.,Fulham FC vs Nottingham Forest,🧮 DC Value,X,83.3,7.21,265.14,❌ LOSS,-265.14,19492.66
+26.12.,Manchester United vs Newcastle United,🧮 DC Value,1,13.5,1.85,310.89,✅ WIN,263.01,19755.68
+27.12.,Nottingham Forest vs Manchester City,🧮 DC Value,X,99.0,8.39,264.61,❌ LOSS,-264.61,19491.07
+27.12.,Chelsea FC vs Aston Villa,🧮 DC Value,X,12.4,4.29,73.5,❌ LOSS,-73.5,19417.56
+27.12.,Burnley FC vs Everton FC,🧮 DC Value,X,171.1,7.24,531.93,✅ WIN,3321.52,22739.08
+27.12.,Brentford vs AFC Bournemouth,🧮 DC Value,2,608.1,19.42,750.9,❌ LOSS,-750.9,21988.18
+27.12.,Arsenal FC vs Brighton & Hove Albion,🧮 DC Value,2,223.0,22.17,231.6,❌ LOSS,-231.6,21756.59
+27.12.,Liverpool FC vs Wolverhampton Wanderers,🧮 DC Value,X,74.0,6.93,271.38,❌ LOSS,-271.38,21485.21
+27.12.,West Ham United vs Fulham FC,🧮 DC Value,X,60.3,5.29,302.06,❌ LOSS,-302.06,21183.15
+28.12.,AFC Sunderland vs Leeds United,🧮 DC Value,2,5.7,6.33,50.0,❌ LOSS,-50.0,21133.15
+28.12.,Crystal Palace vs Tottenham Hotspur,🧮 DC Value,2,72.5,3.28,672.57,✅ WIN,1531.87,22665.02
+30.12.,Burnley FC vs Newcastle United,🧮 DC Value,X,228.2,8.39,699.56,❌ LOSS,-699.56,21965.46
+30.12.,Chelsea FC vs AFC Bournemouth,🧮 DC Value,2,676.9,17.66,892.59,❌ LOSS,-892.59,21072.88
+30.12.,Arsenal FC vs Aston Villa,🧮 DC Value,X,79.2,8.44,224.49,❌ LOSS,-224.49,20848.39
+30.12.,West Ham United vs Brighton & Hove Albion,🧮 DC Value,X,117.1,6.69,428.94,✅ WIN,2441.85,23290.23
+30.12.,Nottingham Forest vs Everton FC,🧮 DC Value,X,119.8,7.03,462.75,❌ LOSS,-462.75,22827.48
+30.12.,Manchester United vs Wolverhampton Wanderers,🧮 DC Value,X,88.8,9.1,250.22,✅ WIN,2027.5,24854.98
+01.01.,Liverpool FC vs Leeds United,🧮 DC Value,X,7.7,3.87,66.81,✅ WIN,191.97,25046.95
+01.01.,Brentford vs Tottenham Hotspur,🧮 DC Value,2,18.6,4.29,141.69,❌ LOSS,-141.69,24905.26
+01.01.,Crystal Palace vs Fulham FC,🧮 DC Value,X,59.4,4.82,387.07,✅ WIN,1480.03,26385.3
+03.01.,Aston Villa vs Nottingham Forest,🧮 DC Value,X,15.5,4.49,116.84,❌ LOSS,-116.84,26268.45
+03.01.,Brighton & Hove Albion vs Burnley FC,🧮 DC Value,2,91.9,6.8,416.54,❌ LOSS,-416.54,25851.92
+03.01.,AFC Bournemouth vs Arsenal FC,🧮 DC Value,1,88.8,5.68,490.55,❌ LOSS,-490.55,25361.37
+03.01.,Wolverhampton Wanderers vs West Ham United,🧮 DC Value,X,21.6,3.3,238.64,❌ LOSS,-238.64,25122.73
+04.01.,Newcastle United vs Crystal Palace,🧮 DC Value,2,172.3,10.08,476.86,❌ LOSS,-476.86,24645.87
+04.01.,Leeds United vs Manchester United,🧮 DC Value,1,10.2,2.51,166.49,❌ LOSS,-166.49,24479.38
+04.01.,Manchester City vs Chelsea FC,🧮 DC Value,2,265.7,16.28,425.67,❌ LOSS,-425.67,24053.71
+04.01.,Fulham FC vs Liverpool FC,🧮 DC Value,2,71.2,4.56,480.45,❌ LOSS,-480.45,23573.25
+04.01.,Everton FC vs Brentford,🧮 DC Value,X,26.9,3.88,220.17,❌ LOSS,-220.17,23353.08
+04.01.,Tottenham Hotspur vs AFC Sunderland,🧮 DC Value,X,59.1,4.77,366.04,✅ WIN,1380.38,24733.46
+06.01.,West Ham United vs Nottingham Forest,🧮 DC Value,1,48.7,3.14,563.1,❌ LOSS,-563.1,24170.37
+07.01.,Manchester City vs Brighton & Hove Albion,🧮 DC Value,2,62.8,10.95,152.56,❌ LOSS,-152.56,24017.8
+07.01.,Burnley FC vs Manchester United,🧮 DC Value,X,177.8,10.2,464.51,✅ WIN,4271.45,28289.25
+07.01.,Everton FC vs Wolverhampton Wanderers,🧮 DC Value,X,46.4,4.68,356.83,✅ WIN,1314.03,29603.29
+07.01.,Fulham FC vs Chelsea FC,🧮 DC Value,2,38.0,3.76,407.56,❌ LOSS,-407.56,29195.73
+07.01.,AFC Bournemouth vs Tottenham Hotspur,🧮 DC Value,X,144.0,8.58,554.64,❌ LOSS,-554.64,28641.09
+07.01.,Brentford vs AFC Sunderland,🧮 DC Value,1,34.6,1.87,1134.19,✅ WIN,992.21,29633.3
+07.01.,Crystal Palace vs Aston Villa,🧮 DC Value,X,62.1,5.77,385.84,✅ WIN,1841.02,31474.32
+08.01.,Arsenal FC vs Liverpool FC,🧮 DC Value,2,274.1,15.36,601.01,❌ LOSS,-601.01,30873.31
+17.01.,Leeds United vs Fulham FC,🧮 DC Value,1,20.9,2.26,512.47,✅ WIN,646.56,31519.87
+17.01.,Liverpool FC vs Burnley FC,🧮 DC Value,2,396.1,16.83,788.58,❌ LOSS,-788.58,30731.29
+17.01.,Nottingham Forest vs Arsenal FC,🧮 DC Value,X,17.3,4.04,175.63,✅ WIN,533.06,31264.35
+17.01.,Manchester United vs Manchester City,🧮 DC Value,X,14.1,4.69,119.43,❌ LOSS,-119.43,31144.92
+17.01.,Tottenham Hotspur vs West Ham United,🧮 DC Value,X,16.4,3.5,204.63,❌ LOSS,-204.63,30940.29
+17.01.,AFC Sunderland vs Crystal Palace,🧮 DC Value,2,9.2,3.96,95.96,❌ LOSS,-95.96,30844.34
+17.01.,Chelsea FC vs Brentford,🧮 DC Value,X,42.4,5.08,320.89,❌ LOSS,-320.89,30523.44
+18.01.,Aston Villa vs Everton FC,🧮 DC Value,2,517.6,39.12,414.51,✅ WIN,15799.64,46323.08
+18.01.,Wolverhampton Wanderers vs Newcastle United,🧮 DC Value,1,64.3,5.2,709.04,❌ LOSS,-709.04,45614.04

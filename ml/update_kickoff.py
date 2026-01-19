@@ -56,7 +56,7 @@ def update_times():
                 count_fail += 1
 
     print(f"\n🏁 Hotovo. Úspěšně: {count_ok}, Chyby: {count_fail}")
-    print("👉 Nyní spusťte 'ml/step4_predict_and_report.py', report by měl být čistý.")
+    print("👉 Nyní spusťte 'ml/step4_1_predict_and_report.py', report by měl být čistý.")
 
 
 if __name__ == "__main__":

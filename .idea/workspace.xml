@@ -5,20 +5,48 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5be190c3-e2de-4cd4-998b-04133b9cf4b1" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/ml/step4_2_predict_and_report.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ml/step6_2_show_console_tips.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ml/step7_2_backtest_strategy.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ml/step7_3_backtest_dixon_coles_strategy.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/predictions_report_final.html" beforeDir="false" afterPath="$PROJECT_DIR$/data/predictions_report_final.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_161.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/shap_images/shap_161.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_162.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/shap_images/shap_162.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_163.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/shap_images/shap_163.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_164.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/shap_images/shap_164.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_165.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/shap_images/shap_165.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Jak dál verze 3.0.odt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/backtest_ako.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/backtest_dynamic.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/backtest_dynamic_final.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/backtest_experiment.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/backtest_final.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/backtest_final.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/backtest_final_unified.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/backtest_tiered.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/feature_importance.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/feature_importance.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/model_gradientboost.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/data/model_gradientboost.pkl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/model_knn.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/data/model_knn.pkl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/model_logreg.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/data/model_logreg.pkl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/model_poisson.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/data/model_poisson.pkl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/model_randomforest.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/data/model_randomforest.pkl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/model_svc.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/data/model_svc.pkl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/model_voting_ensemble.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/data/model_voting_ensemble.pkl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/model_xgboost.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/data/model_xgboost.pkl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/predictions_report_final.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/predictions_report_final_old.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_106.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/shap_images/shap_106.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_136.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/shap_images/shap_136.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_143.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/shap_images/shap_143.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_151.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/shap_images/shap_151.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_153.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/shap_images/shap_153.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_158.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/shap_images/shap_158.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_159.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/shap_images/shap_159.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_160.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/shap_images/shap_160.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/shap_images/shap_166.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/shap_images/shap_166.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_167.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/shap_images/shap_167.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_168.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/shap_images/shap_168.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_169.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/shap_images/shap_169.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_170.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/shap_images/shap_170.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ml/step4_predict_and_report.py" beforeDir="false" afterPath="$PROJECT_DIR$/ml/step4_predict_and_report.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ml/step7_backtest_strategy.py" beforeDir="false" afterPath="$PROJECT_DIR$/ml/step7_backtest_strategy.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/shap_images/shap_2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_22.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/shap_images/shap_22.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_45.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/shap_images/shap_45.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_62.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/shap_images/shap_62.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_82.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/shap_images/shap_82.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ml/step4_predict_and_report.py" beforeDir="false" afterPath="$PROJECT_DIR$/ml/step4_1_predict_and_report.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ml/step6_show_console_tips.py" beforeDir="false" afterPath="$PROJECT_DIR$/ml/step6_1_show_console_tips.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ml/step7_backtest_strategy.py" beforeDir="false" afterPath="$PROJECT_DIR$/ml/step7_1_backtest_strategy.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ml/update_kickoff.py" beforeDir="false" afterPath="$PROJECT_DIR$/ml/update_kickoff.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,6 +105,7 @@
     "Python.step4_0_train_baseline.executor": "Run",
     "Python.step4_1_cross_validation.executor": "Run",
     "Python.step4_2_compare_models.executor": "Run",
+    "Python.step4_2_predict_and_report.executor": "Run",
     "Python.step4_3_evulate_predictions.executor": "Run",
     "Python.step4_4_prepare_fixtures (1).executor": "Run",
     "Python.step4_4_prepare_fixtures.executor": "Run",
@@ -92,14 +121,20 @@
     "Python.step5_5_features_inventory.executor": "Run",
     "Python.step5_6_predict_next_round (1).executor": "Run",
     "Python.step5_6_predict_next_round.executor": "Run",
+    "Python.step5_analyze_features.executor": "Run",
     "Python.step5_cross_validation.executor": "Run",
     "Python.step5_predict_next_round.executor": "Run",
     "Python.step5_prediction_report.executor": "Run",
     "Python.step5_train_ml.executor": "Run",
     "Python.step6_0_predictions_report.executor": "Run",
+    "Python.step6_2_show_console_tips.executor": "Run",
     "Python.step6_analyze_features.executor": "Run",
     "Python.step6_predictions_report.executor": "Run",
+    "Python.step6_show_console_tips.executor": "Run",
+    "Python.step7_2_backtest_strategy.executor": "Run",
+    "Python.step7_3_backtest_dixon_coles_strategy.executor": "Run",
     "Python.step7_backtest_strategy (1).executor": "Run",
+    "Python.step7_backtest_strategy.executor": "Run",
     "Python.step7_calculate_fair_odds.executor": "Run",
     "Python.step7_evulate_predictions.executor": "Run",
     "Python.step8_backtest_strategy.executor": "Run",
@@ -114,8 +149,8 @@
     "settings.editor.selected.configurable": "preferences.lookFeel"
   }
 }]]></component>
-  <component name="RunManager" selected="Python.step7_backtest_strategy (1)">
-    <configuration name="fix_schedule" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.step7_3_backtest_dixon_coles_strategy">
+    <configuration name="step4_2_predict_and_report" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="football-data-client" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -129,7 +164,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="RUN_TOOL" value="" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ml/fix_schedule.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ml/step4_2_predict_and_report.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -138,7 +173,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="step4_predict_and_report" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="step6_2_show_console_tips" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="football-data-client" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -152,7 +187,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="RUN_TOOL" value="" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ml/step4_predict_and_report.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ml/step6_2_show_console_tips.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -161,7 +196,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="step7_backtest_strategy (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="step7_1_backtest_strategy" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="football-data-client" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -175,7 +210,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="RUN_TOOL" value="" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ml/step7_backtest_strategy.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\Jiri\Documents\python\football-data-client\ml\step7_1_backtest_strategy.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -184,7 +219,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="update_kickoff" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="step7_2_backtest_strategy" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="football-data-client" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -198,7 +233,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="RUN_TOOL" value="" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ml/update_kickoff.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ml/step7_2_backtest_strategy.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -207,7 +242,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="upgrade_db_schema" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="step7_3_backtest_dixon_coles_strategy" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="football-data-client" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -221,7 +256,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="RUN_TOOL" value="" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ml/upgrade_db_schema.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ml/step7_3_backtest_dixon_coles_strategy.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -232,11 +267,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.step7_backtest_strategy (1)" />
-        <item itemvalue="Python.step4_predict_and_report" />
-        <item itemvalue="Python.update_kickoff" />
-        <item itemvalue="Python.upgrade_db_schema" />
-        <item itemvalue="Python.fix_schedule" />
+        <item itemvalue="Python.step7_3_backtest_dixon_coles_strategy" />
+        <item itemvalue="Python.step7_2_backtest_strategy" />
+        <item itemvalue="Python.step6_2_show_console_tips" />
+        <item itemvalue="Python.step4_2_predict_and_report" />
+        <item itemvalue="Python.step7_1_backtest_strategy" />
       </list>
     </recent_temporary>
   </component>
