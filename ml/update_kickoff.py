@@ -17,21 +17,19 @@ def update_times():
     # ZDE SI UPRAVTE SEZNAM ZÁPASŮ PRO TOTO KOLO
     # Formát: [Domácí, Hosté, Nový Čas]
     matches_to_update = [
-        # Sobota 17.01.
-        ("Manchester United", "Manchester City", "2026-01-17 13:30:00"),
-        ("Chelsea FC", "Brentford", "2026-01-17 16:00:00"),
-        ("Leeds United", "Fulham FC", "2026-01-17 16:00:00"),
-        ("Liverpool FC", "Burnley FC", "2026-01-17 16:00:00"),
-        ("AFC Sunderland", "Crystal Palace", "2026-01-17 16:00:00"),
-        ("Tottenham Hotspur", "West Ham United", "2026-01-17 16:00:00"),
-        ("Nottingham Forest", "Arsenal FC", "2026-01-17 18:30:00"),
-
-        # Neděle 18.01.
-        ("Wolverhampton Wanderers", "Newcastle United", "2026-01-18 15:00:00"),
-        ("Aston Villa", "Everton FC", "2026-01-18 17:30:00"),
-
-        # Pondělí 19.01.
-        ("Brighton & Hove Albion", "AFC Bournemouth", "2026-01-19 21:00:00"),
+        # Sobota 24.01.
+        ("West Ham United", "AFC Sunderland", "2026-01-24 13:30:00"),
+        ("Fulham FC", "Brighton & Hove Albion", "2026-01-24 16:00:00"),
+        ("Burnley FC", "Tottenham Hotspur", "2026-01-24 16:00:00"),
+        ("Manchester City", "Wolverhampton Wanderers", "2026-01-24 16:00:00"),
+        ("AFC Bournemouth", "Liverpool FC", "2026-01-24 18:30:00"),
+        # Neděle 25.01.
+        ("Newcastle United", "Aston Villa", "2026-01-25 15:00:00"),
+        ("Crystal Palace", "Chelsea FC", "2026-01-25 15:00:00"),
+        ("Brentford", "Nottingham Forest", "2026-01-25 15:00:00"),
+        ("Arsenal FC", "Manchester United", "2026-01-25 17:30:00"),
+        # Pondělí 26.01.
+        ("Everton FC", "Leeds United", "2026-01-26 21:00:00"),
     ]
 
     with engine.begin() as conn:

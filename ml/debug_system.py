@@ -90,7 +90,7 @@ def check_system():
             print("   Systém je připraven na predikce.")
         else:
             print(f"❌ NESHOODA! Voting chce {voting_feats}, ale Poisson chce {poisson_feats}.")
-            print("   -> Spusťte 'ml/step3_train_model.py' pro sjednocení.")
+            print("   -> Spusťte 'ml/step3_1_train_model.py' pro sjednocení.")
     else:
         print("❌ Kritická chyba: Jeden nebo oba modely chybí.")
 

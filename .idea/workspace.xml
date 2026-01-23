@@ -5,20 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5be190c3-e2de-4cd4-998b-04133b9cf4b1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/ml/step4_2_predict_and_report.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ml/step6_2_show_console_tips.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ml/step7_2_backtest_strategy.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ml/step7_3_backtest_dixon_coles_strategy.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ml/debug_data.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ml/step3_2_train_xgboost.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ml/step4_3_predict_xgboost.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ml/step6_3_show_console_tips.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ml/step7_3_backtest_xgboost.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Jak dál verze 3.0.odt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/backtest_ako.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/backtest_dynamic.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/backtest_dynamic_final.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/backtest_experiment.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.~lock.Jak dál.odt#" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/backtest_dc_value.csv" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/data/backtest_final.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/backtest_final.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/backtest_final_unified.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/backtest_tiered.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/feature_importance.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/feature_importance.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/feature_importance.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/data/model_gradientboost.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/data/model_gradientboost.pkl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/model_knn.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/data/model_knn.pkl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/model_logreg.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/data/model_logreg.pkl" afterDir="false" />
@@ -27,25 +23,180 @@
       <change beforePath="$PROJECT_DIR$/data/model_svc.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/data/model_svc.pkl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/model_voting_ensemble.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/data/model_voting_ensemble.pkl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/model_xgboost.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/data/model_xgboost.pkl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/predictions_report_final.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/predictions_report_final_old.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_106.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/shap_images/shap_106.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_136.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/shap_images/shap_136.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_143.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/shap_images/shap_143.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/predictions_report_4_2_final.html" beforeDir="false" afterPath="$PROJECT_DIR$/data/predictions_report_4_2_final.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_10.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_101.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_102.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_103.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_104.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_105.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_106.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_107.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_108.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_109.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_11.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_110.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_111.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_112.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_113.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_114.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_115.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_116.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_117.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_118.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_119.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_12.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_120.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_121.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_122.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_123.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_124.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_125.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_126.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_127.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_128.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_129.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_13.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_130.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_131.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_132.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_133.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_134.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_135.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_136.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_137.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_138.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_139.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_14.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_140.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_141.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_142.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_143.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_144.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/shap_images/shap_144.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_145.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_146.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_147.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_148.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_149.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_15.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_150.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/data/shap_images/shap_151.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/shap_images/shap_151.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_152.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/shap_images/shap_152.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/shap_images/shap_153.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/shap_images/shap_153.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_154.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/shap_images/shap_154.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_155.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/shap_images/shap_155.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_156.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/shap_images/shap_156.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_157.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/shap_images/shap_157.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/shap_images/shap_158.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/shap_images/shap_158.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/shap_images/shap_159.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/shap_images/shap_159.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_16.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/data/shap_images/shap_160.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/shap_images/shap_160.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_166.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/shap_images/shap_166.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/shap_images/shap_2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_22.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/shap_images/shap_22.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_45.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/shap_images/shap_45.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_62.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/shap_images/shap_62.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_82.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/shap_images/shap_82.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ml/step4_predict_and_report.py" beforeDir="false" afterPath="$PROJECT_DIR$/ml/step4_1_predict_and_report.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ml/step6_show_console_tips.py" beforeDir="false" afterPath="$PROJECT_DIR$/ml/step6_1_show_console_tips.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ml/step7_backtest_strategy.py" beforeDir="false" afterPath="$PROJECT_DIR$/ml/step7_1_backtest_strategy.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_161.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_162.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_163.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_164.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_165.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_166.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_167.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_168.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_169.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_17.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_170.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_18.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_19.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_20.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_21.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_22.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_23.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_24.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_25.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_26.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_27.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_28.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_29.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_30.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_31.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_32.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_33.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_34.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_35.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_36.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_37.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_38.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_39.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_40.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_41.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_42.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_43.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_44.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_45.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_46.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_47.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_48.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_49.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_50.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_51.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_52.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_53.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_54.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_55.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_56.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_57.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_58.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_59.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_60.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_61.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_62.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_63.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_64.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_65.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_66.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_67.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_68.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_69.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_7.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_70.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_71.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_72.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_73.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_74.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_75.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_76.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_77.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_78.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_79.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_8.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_80.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_81.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_82.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_83.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_84.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_85.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_86.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_87.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_88.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_89.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_9.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_90.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_91.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_92.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_93.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_94.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_95.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_96.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_97.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_98.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_99.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/etl/step2_prepare_dataset.py" beforeDir="false" afterPath="$PROJECT_DIR$/etl/step2_prepare_dataset.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ml/debug_system.py" beforeDir="false" afterPath="$PROJECT_DIR$/ml/debug_system.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ml/step3_train_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/ml/step3_1_train_model.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ml/update_kickoff.py" beforeDir="false" afterPath="$PROJECT_DIR$/ml/update_kickoff.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -78,6 +229,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Python.debug_data.executor": "Run",
     "Python.debug_system.executor": "Run",
     "Python.drop_fixtures_only.executor": "Run",
     "Python.fix_schedule.executor": "Run",
@@ -98,15 +250,19 @@
     "Python.step1_test_match_stats.executor": "Run",
     "Python.step1_test_save_match_stats_to_html.executor": "Run",
     "Python.step2_prepare_dataset.executor": "Run",
+    "Python.step3_1_train_model.executor": "Run",
+    "Python.step3_2_train_xgboost.executor": "Run",
     "Python.step3_import_csv.executor": "Run",
     "Python.step3_train_and_evaluate.executor": "Run",
     "Python.step3_train_model.executor": "Run",
     "Python.step3b_poison_model.executor": "Run",
     "Python.step4_0_train_baseline.executor": "Run",
     "Python.step4_1_cross_validation.executor": "Run",
+    "Python.step4_1_predict_and_report.executor": "Run",
     "Python.step4_2_compare_models.executor": "Run",
     "Python.step4_2_predict_and_report.executor": "Run",
     "Python.step4_3_evulate_predictions.executor": "Run",
+    "Python.step4_3_predict_xgboost.executor": "Run",
     "Python.step4_4_prepare_fixtures (1).executor": "Run",
     "Python.step4_4_prepare_fixtures.executor": "Run",
     "Python.step4_predict_and_report.executor": "Run",
@@ -127,12 +283,15 @@
     "Python.step5_prediction_report.executor": "Run",
     "Python.step5_train_ml.executor": "Run",
     "Python.step6_0_predictions_report.executor": "Run",
+    "Python.step6_1_show_console_tips.executor": "Run",
     "Python.step6_2_show_console_tips.executor": "Run",
     "Python.step6_analyze_features.executor": "Run",
     "Python.step6_predictions_report.executor": "Run",
     "Python.step6_show_console_tips.executor": "Run",
+    "Python.step7_1_backtest_strategy.executor": "Run",
     "Python.step7_2_backtest_strategy.executor": "Run",
     "Python.step7_3_backtest_dixon_coles_strategy.executor": "Run",
+    "Python.step7_3_backtest_xgboost.executor": "Run",
     "Python.step7_backtest_strategy (1).executor": "Run",
     "Python.step7_backtest_strategy.executor": "Run",
     "Python.step7_calculate_fair_odds.executor": "Run",
@@ -149,7 +308,7 @@
     "settings.editor.selected.configurable": "preferences.lookFeel"
   }
 }]]></component>
-  <component name="RunManager" selected="Python.step7_3_backtest_dixon_coles_strategy">
+  <component name="RunManager" selected="Python.step4_3_predict_xgboost">
     <configuration name="step4_2_predict_and_report" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="football-data-client" />
       <option name="ENV_FILES" value="" />
@@ -165,6 +324,29 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="RUN_TOOL" value="" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ml/step4_2_predict_and_report.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="step4_3_predict_xgboost" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="football-data-client" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ml" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="RUN_TOOL" value="" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ml/step4_3_predict_xgboost.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -196,29 +378,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="step7_1_backtest_strategy" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="football-data-client" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ml" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="RUN_TOOL" value="" />
-      <option name="SCRIPT_NAME" value="C:\Users\Jiri\Documents\python\football-data-client\ml\step7_1_backtest_strategy.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="step7_2_backtest_strategy" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="football-data-client" />
       <option name="ENV_FILES" value="" />
@@ -242,7 +401,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="step7_3_backtest_dixon_coles_strategy" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="step7_3_backtest_xgboost" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="football-data-client" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -256,7 +415,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="RUN_TOOL" value="" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ml/step7_3_backtest_dixon_coles_strategy.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ml/step7_3_backtest_xgboost.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -267,11 +426,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.step7_3_backtest_dixon_coles_strategy" />
+        <item itemvalue="Python.step4_3_predict_xgboost" />
+        <item itemvalue="Python.step7_3_backtest_xgboost" />
         <item itemvalue="Python.step7_2_backtest_strategy" />
         <item itemvalue="Python.step6_2_show_console_tips" />
         <item itemvalue="Python.step4_2_predict_and_report" />
-        <item itemvalue="Python.step7_1_backtest_strategy" />
       </list>
     </recent_temporary>
   </component>
