@@ -1,69 +1,41 @@
 # ml/shared_features.py
-# Sjednocený set featur pro trénink i predikci
-# VERZE: BEZ DATA LEAKAGE (pouze pre-match features)
 
+def get_performance_features(df_columns):
+    """
+    Dynamicky generuje seznam featur a striktně filtruje DATA LEAKAGE.
+    """
+
+    # 1. DEFINICE ZAKÁZANÝCH SLOUPCŮ (Aktuální statistiky zápasu)
+    # Tyto sloupce model nesmí nikdy vidět jako vstup (X).
+    forbidden_prefixes = [
+        "goals_", "expected_goals_", "shots_", "possession_", "passes_",
+        "corners_", "yellow_cards_", "red_cards_", "fouls_", "offsides_",
+        "saves_", "xgot_", "big_chances_", "box_touches_", "tackles_",
+        "interceptions_", "clearances_", "duels_", "crosses_"
+    ]
+
+    # 2. SBĚR LEGÁLNÍCH FEATUR (To, co známe před zápasem)
+    all_features = []
+
+    for col in df_columns:
+        # Povolíme pouze průměry z historie (avg), ELO a statické údaje
+        is_avg = col.startswith("home_avg_") or col.startswith("away_avg_")
+        is_elo = "elo" in col.lower()
+        is_static = col in ["market_value_diff", "home_rest_days", "away_rest_days"]
+
+        if is_avg or is_elo or is_static:
+            # Kontrola, zda to náhodou není základní statistika (pro jistotu)
+            # Např. 'home_avg_goals_last5' projde, ale 'goals_home' ne.
+            if not any(col.startswith(p) for p in forbidden_prefixes):
+                all_features.append(col)
+
+    # Odstraníme targety, pokud by se tam náhodou vloudily
+    final_features = [f for f in all_features if f not in ["home_win", "target", "fixture_id"]]
+
+    return sorted(list(set(final_features)))
+
+
+# Ponecháme i původní seznam pro starší verze skriptů
 performance_features = [
-    # --- ELO Metriky (Známé před zápasem) ---
-    "elo_home", "elo_away", "elo_diff",
-    "opponent_strength_home", "opponent_strength_away",
-
-    # ELO trendy
-    "elo_trend_home", "elo_trend_away", "elo_trend_diff",
-    "elo_slope_home_last5", "elo_slope_away_last5", "elo_slope_diff_last5",
-
-    # --- Forma a Trendy (Známé z historie) ---
-    "form_home", "form_away", "form_diff",
-    "home_form_last5", "away_form_last5",
-    "home_form_trend", "away_form_trend", "form_trend_diff",
-    "win_streak_diff",
-
-    # --- Dlouhodobé Výkonnostní Průměry (Shiftnuté o 1 zápas) ---
-    # Win Rates
-    "home_win_rate", "away_win_rate", "win_rate_diff",
-    "home_win_rate_last5", "away_win_rate_last5", "win_rate_last5_diff",
-
-    # Goals (Průměry vstřelených gólů z minula)
-    "home_avg_goals", "away_avg_goals",
-    "home_avg_goals_last5", "away_avg_goals_last5", "avg_goals_last5_diff",
-
-    # --- Head-to-Head (Historie vzájemných zápasů) ---
-    "h2h_home_win_rate", "h2h_away_win_rate", "h2h_draw_rate", "h2h_goal_diff",
-
-    # --- Kontext Zápasu ---
-    "home_advantage",
-    "rest_days_diff",  # Rozdíl dnů odpočinku
-
-    # NOVÉ FEATURES (Legální statistiky z historie)
-    "shots_diff_last5",
-    "shots_on_target_diff_last5",
-    "corners_diff_last5",
-    "fouls_diff_last5",
-
-    # === NOVÉ FEATURY (Volatilita & Únava) ===
-    "home_goals_volatility",
-    "away_goals_volatility",
-    "home_fatigue_index",
-    "away_fatigue_index",
-    "market_value_diff"
-
-    # ---------------------------------------------------------
-    # ❌ ZAKÁZANÉ FEATURE (DATA LEAKAGE) ❌
-    # Tyto sloupce obsahují data z aktuálního zápasu.
-    # Model je nesmí vidět, jinak bude podvádět (100% accuracy).
-    # ---------------------------------------------------------
-
-    # "goal_difference", "xg_diff",
-    # "saves_diff", "fouls_diff", "cards_diff", "corners_diff",
-    # "pass_accuracy_diff", "passes_diff", "passes_completed_diff",
-    # "shots_diff", "shots_on_target_diff",
-    # "shots_inside_box_diff", "shots_outside_box_diff", "blocked_shots_diff",
-    # "possession_diff",
-
-    # "shooting_accuracy_home", "shooting_accuracy_away", "shooting_accuracy_diff",
-    # "passing_efficiency_home", "passing_efficiency_away", "passing_efficiency_diff",
-    # "inside_shot_ratio_home", "inside_shot_ratio_away", "inside_shot_ratio_diff",
-    # "outside_shot_ratio_home", "outside_shot_ratio_away", "outside_shot_ratio_diff",
-
-    # "attack_index", "defense_index", "discipline_index", # Počítáno z aktuálních střel/karet
-    # "elo_change_home", "elo_change_away", # Změna ELO až po zápase
+    "home_elo", "away_elo", "market_value_diff", "home_rest_days", "away_rest_days"
 ]

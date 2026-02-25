@@ -1,0 +1,106 @@
+[
+  {
+    "timestamp": "2026-02-23T14:24:07.385883",
+    "version": "v4_symmetric",
+    "results": {
+      "n_samples": 1030,
+      "n_features_all": 86,
+      "n_features_sel": 20,
+      "n_pairs": 8,
+      "n_neutral": 4,
+      "selected": [
+        "elo_diff",
+        "home_x_elo",
+        "home_elo",
+        "home_goal_diff_avg",
+        "home_avg_shots_last5",
+        "away_avg_shots_last5",
+        "home_avg_points_last5",
+        "away_avg_points_last5",
+        "home_avg_goals_last5",
+        "away_avg_goals_last5",
+        "home_avg_shots_on_target_last5",
+        "away_avg_shots_on_target_last5",
+        "home_avg_expected_goals_conceded_last5",
+        "away_avg_expected_goals_conceded_last5",
+        "home_avg_corners_last5",
+        "away_avg_corners_last5",
+        "home_avg_passes_total_last5",
+        "away_avg_passes_total_last5",
+        "home_avg_expected_goals_last5",
+        "away_avg_expected_goals_last5"
+      ],
+      "voting": {
+        "accuracy": 0.4819,
+        "f1": 0.4297,
+        "draw_thr": 0.35
+      },
+      "xgboost": {
+        "accuracy": 0.4667,
+        "f1": 0.4236,
+        "draw_thr": 0.27
+      },
+      "best_classifier": "Voting",
+      "draw_threshold": 0.35,
+      "regressors": {
+        "poisson_h": 1.025,
+        "poisson_a": 0.904,
+        "xgb_h": 1.051,
+        "xgb_a": 0.957
+      },
+      "best_regressor": "Poisson"
+    }
+  },
+  {
+    "timestamp": "2026-02-23T14:37:30.792653",
+    "version": "v4_symmetric",
+    "results": {
+      "n_samples": 1030,
+      "n_features_all": 84,
+      "n_features_sel": 20,
+      "n_pairs": 8,
+      "n_neutral": 4,
+      "selected": [
+        "elo_diff",
+        "home_x_elo",
+        "home_elo",
+        "market_value_diff_scaled",
+        "home_avg_shots_last5",
+        "away_avg_shots_last5",
+        "home_avg_points_last5",
+        "away_avg_points_last5",
+        "home_avg_goals_last5",
+        "away_avg_goals_last5",
+        "home_avg_shots_on_target_last5",
+        "away_avg_shots_on_target_last5",
+        "home_avg_expected_goals_conceded_last5",
+        "away_avg_expected_goals_conceded_last5",
+        "home_avg_saves_last5",
+        "away_avg_saves_last5",
+        "home_avg_expected_goals_last5",
+        "away_avg_expected_goals_last5",
+        "home_avg_shots_off_target_last5",
+        "away_avg_shots_off_target_last5"
+      ],
+      "voting": {
+        "accuracy": 0.4936,
+        "f1": 0.4387,
+        "draw_thr": 0.37
+      },
+      "xgboost": {
+        "accuracy": 0.469,
+        "f1": 0.4279,
+        "draw_thr": 0.33
+      },
+      "best_classifier": "Voting",
+      "draw_threshold": 0.37,
+      "regressors": {
+        "poisson_h": 1.015,
+        "poisson_a": 0.899,
+        "xgb_h": 1.058,
+        "xgb_a": 0.963
+      },
+      "best_regressor": "Poisson"
+    }
+  }
+]

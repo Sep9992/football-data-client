@@ -5,198 +5,57 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5be190c3-e2de-4cd4-998b-04133b9cf4b1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/ml/debug_data.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ml/step3_2_train_xgboost.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ml/step4_3_predict_xgboost.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ml/step6_3_show_console_tips.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ml/step7_3_backtest_xgboost.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/etl/step0_harvest_links.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/etl/step1_match_stats_from_livesport.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/etl/step1_match_stats_from_odt.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ml/import_external_matches.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ml/import_injuries_to_db.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ml/step3_train_models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ml/step4_final_prediction.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ml/step6_show_console_tips.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ml/step7_backtest_strategy.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.~lock.Jak dál.odt#" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/backtest_dc_value.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/backtest_final.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/backtest_final.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/feature_importance.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/model_gradientboost.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/data/model_gradientboost.pkl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/model_knn.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/data/model_knn.pkl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/model_logreg.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/data/model_logreg.pkl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/model_poisson.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/data/model_poisson.pkl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/model_randomforest.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/data/model_randomforest.pkl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/model_svc.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/data/model_svc.pkl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/model_voting_ensemble.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/data/model_voting_ensemble.pkl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/model_xgboost.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/data/model_xgboost.pkl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/predictions_report_4_2_final.html" beforeDir="false" afterPath="$PROJECT_DIR$/data/predictions_report_4_2_final.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_10.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_100.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_101.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_102.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_103.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_104.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_105.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_106.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_107.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_108.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_109.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_11.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_110.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_111.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_112.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_113.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_114.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_115.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_116.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_117.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_118.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_119.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_12.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_120.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_121.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_122.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_123.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_124.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_125.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_126.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_127.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_128.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_129.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_13.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_130.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_131.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_132.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_133.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_134.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_135.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_136.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_137.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_138.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_139.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_14.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_140.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_141.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_142.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_143.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_144.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/shap_images/shap_144.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_145.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_146.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_147.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_148.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_149.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_15.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_150.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_151.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/shap_images/shap_151.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_152.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/shap_images/shap_152.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_153.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/shap_images/shap_153.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_154.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/shap_images/shap_154.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_155.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/shap_images/shap_155.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_156.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/shap_images/shap_156.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_157.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/shap_images/shap_157.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_158.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/shap_images/shap_158.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_159.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/shap_images/shap_159.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_16.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_160.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/shap_images/shap_160.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_161.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_162.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_163.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_164.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_165.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_166.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_167.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_168.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_169.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_17.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_170.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_18.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_19.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_20.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_21.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_22.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_23.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_24.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_25.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_26.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_27.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_28.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_29.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_30.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_31.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_32.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_33.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_34.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_35.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_36.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_37.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_38.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_39.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_40.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_41.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_42.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_43.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_44.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_45.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_46.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_47.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_48.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_49.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_50.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_51.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_52.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_53.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_54.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_55.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_56.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_57.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_58.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_59.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_60.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_61.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_62.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_63.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_64.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_65.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_66.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_67.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_68.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_69.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_7.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_70.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_71.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_72.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_73.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_74.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_75.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_76.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_77.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_78.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_79.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_8.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_80.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_81.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_82.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_83.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_84.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_85.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_86.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_87.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_88.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_89.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_90.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_91.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_92.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_93.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_94.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_95.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_96.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_97.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_98.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_99.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Sniper Predictions v5.2.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/model_gradientboost.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/model_knn.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/model_logreg.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/model_poisson.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/model_randomforest.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/model_svc.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/model_voting_ensemble.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/model_xgboost.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/model_xgboost_ferrari.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/predictions_report_4_2_final.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/predictions_report_xgboost.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_144.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_151.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_152.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_153.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_154.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_155.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_156.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_157.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_158.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_159.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_160.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/etl/step0_download_abseits_PL_schedule.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/etl/step1_match_stats_from_html.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/etl/step2_prepare_dataset.py" beforeDir="false" afterPath="$PROJECT_DIR$/etl/step2_prepare_dataset.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ml/debug_system.py" beforeDir="false" afterPath="$PROJECT_DIR$/ml/debug_system.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ml/step3_train_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/ml/step3_1_train_model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ml/data_info.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ml/data_info.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ml/data_sample.csv" beforeDir="false" afterPath="$PROJECT_DIR$/ml/data_sample.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ml/shared_features.py" beforeDir="false" afterPath="$PROJECT_DIR$/ml/shared_features.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ml/step3_1_train_model.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ml/step3_2_train_xgboost.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ml/step4_1_predict_and_report.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ml/step4_2_predict_and_report.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ml/step4_3_predict_xgboost.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ml/step5_analyze_features.py" beforeDir="false" afterPath="$PROJECT_DIR$/ml/step5_analyze_features.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ml/step6_1_show_console_tips.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ml/step6_2_show_console_tips.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ml/step6_3_show_console_tips.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ml/step7_1_backtest_strategy.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ml/step7_2_backtest_strategy.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ml/step7_3_backtest_xgboost.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/ml/update_kickoff.py" beforeDir="false" afterPath="$PROJECT_DIR$/ml/update_kickoff.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -215,6 +74,10 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="McpProjectServerCommands">
+    <commands />
+    <urls />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
 }</component>
@@ -226,90 +89,118 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "Python.debug_data.executor": "Run",
-    "Python.debug_system.executor": "Run",
-    "Python.drop_fixtures_only.executor": "Run",
-    "Python.fix_schedule.executor": "Run",
-    "Python.importCsvFile.executor": "Run",
-    "Python.load_data.executor": "Run",
-    "Python.scrypt1.executor": "Run",
-    "Python.step0_download_abseits_PL_schedule (1).executor": "Run",
-    "Python.step0_download_abseits_PL_schedule.executor": "Run",
-    "Python.step0_download_data.executor": "Run",
-    "Python.step0_download_data_abseits_PL.executor": "Run",
-    "Python.step0_download_data_playwright (1).executor": "Run",
-    "Python.step0_download_data_selenium (1).executor": "Run",
-    "Python.step0_download_data_sofascore_PL.executor": "Run",
-    "Python.step0_download_data_upw (1).executor": "Run",
-    "Python.step1_load_data.executor": "Run",
-    "Python.step1_match_stats_from_html (1).executor": "Run",
-    "Python.step1_match_stats_from_html.executor": "Run",
-    "Python.step1_test_match_stats.executor": "Run",
-    "Python.step1_test_save_match_stats_to_html.executor": "Run",
-    "Python.step2_prepare_dataset.executor": "Run",
-    "Python.step3_1_train_model.executor": "Run",
-    "Python.step3_2_train_xgboost.executor": "Run",
-    "Python.step3_import_csv.executor": "Run",
-    "Python.step3_train_and_evaluate.executor": "Run",
-    "Python.step3_train_model.executor": "Run",
-    "Python.step3b_poison_model.executor": "Run",
-    "Python.step4_0_train_baseline.executor": "Run",
-    "Python.step4_1_cross_validation.executor": "Run",
-    "Python.step4_1_predict_and_report.executor": "Run",
-    "Python.step4_2_compare_models.executor": "Run",
-    "Python.step4_2_predict_and_report.executor": "Run",
-    "Python.step4_3_evulate_predictions.executor": "Run",
-    "Python.step4_3_predict_xgboost.executor": "Run",
-    "Python.step4_4_prepare_fixtures (1).executor": "Run",
-    "Python.step4_4_prepare_fixtures.executor": "Run",
-    "Python.step4_predict_and_report.executor": "Run",
-    "Python.step4_predict_next_round.executor": "Run",
-    "Python.step4_prepare_fixtures.executor": "Run",
-    "Python.step4_train_baseline.executor": "Run",
-    "Python.step5_0_train_ml (1).executor": "Run",
-    "Python.step5_0_train_ml.executor": "Run",
-    "Python.step5_1_predict_next_round.executor": "Run",
-    "Python.step5_2_crossval_check.executor": "Run",
-    "Python.step5_3_learning_curves.executor": "Run",
-    "Python.step5_5_features_inventory.executor": "Run",
-    "Python.step5_6_predict_next_round (1).executor": "Run",
-    "Python.step5_6_predict_next_round.executor": "Run",
-    "Python.step5_analyze_features.executor": "Run",
-    "Python.step5_cross_validation.executor": "Run",
-    "Python.step5_predict_next_round.executor": "Run",
-    "Python.step5_prediction_report.executor": "Run",
-    "Python.step5_train_ml.executor": "Run",
-    "Python.step6_0_predictions_report.executor": "Run",
-    "Python.step6_1_show_console_tips.executor": "Run",
-    "Python.step6_2_show_console_tips.executor": "Run",
-    "Python.step6_analyze_features.executor": "Run",
-    "Python.step6_predictions_report.executor": "Run",
-    "Python.step6_show_console_tips.executor": "Run",
-    "Python.step7_1_backtest_strategy.executor": "Run",
-    "Python.step7_2_backtest_strategy.executor": "Run",
-    "Python.step7_3_backtest_dixon_coles_strategy.executor": "Run",
-    "Python.step7_3_backtest_xgboost.executor": "Run",
-    "Python.step7_backtest_strategy (1).executor": "Run",
-    "Python.step7_backtest_strategy.executor": "Run",
-    "Python.step7_calculate_fair_odds.executor": "Run",
-    "Python.step7_evulate_predictions.executor": "Run",
-    "Python.step8_backtest_strategy.executor": "Run",
-    "Python.update_cards_fauls_form_processed.executor": "Run",
-    "Python.update_corners_form_processed.executor": "Run",
-    "Python.update_kickoff.executor": "Run",
-    "Python.upgrade_db_schema.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "settings.editor.selected.configurable": "preferences.lookFeel"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Python.debug_data.executor&quot;: &quot;Run&quot;,
+    &quot;Python.debug_livesport_structure.executor&quot;: &quot;Run&quot;,
+    &quot;Python.debug_system.executor&quot;: &quot;Run&quot;,
+    &quot;Python.drop_fixtures_only.executor&quot;: &quot;Run&quot;,
+    &quot;Python.fix_schedule.executor&quot;: &quot;Run&quot;,
+    &quot;Python.importCsvFile.executor&quot;: &quot;Run&quot;,
+    &quot;Python.import_external_matches.executor&quot;: &quot;Run&quot;,
+    &quot;Python.import_injuries_to_db.executor&quot;: &quot;Run&quot;,
+    &quot;Python.load_data.executor&quot;: &quot;Run&quot;,
+    &quot;Python.match_stats_from_livesport.executor&quot;: &quot;Run&quot;,
+    &quot;Python.scrypt1.executor&quot;: &quot;Run&quot;,
+    &quot;Python.selenium_stats_scraper.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step0_download_abseits_PL_schedule (1).executor&quot;: &quot;Run&quot;,
+    &quot;Python.step0_download_abseits_PL_schedule.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step0_download_data.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step0_download_data_abseits_PL.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step0_download_data_playwright (1).executor&quot;: &quot;Run&quot;,
+    &quot;Python.step0_download_data_selenium (1).executor&quot;: &quot;Run&quot;,
+    &quot;Python.step0_download_data_sofascore_PL.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step0_download_data_upw (1).executor&quot;: &quot;Run&quot;,
+    &quot;Python.step0_harvest_links.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step0_harvest_links_final.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step0_harvest_links_improved.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step1_load_data.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step1_match_stats_from_html (1).executor&quot;: &quot;Run&quot;,
+    &quot;Python.step1_match_stats_from_html.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step1_match_stats_from_livesport (1).executor&quot;: &quot;Run&quot;,
+    &quot;Python.step1_match_stats_from_livesport.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step1_match_stats_from_odt.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step1_test_match_stats.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step1_test_save_match_stats_to_html.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step2_prepare_dataset.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step3_1_train_model.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step3_2_train_xgboost.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step3_import_csv.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step3_train_and_evaluate.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step3_train_model.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step3_train_models.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step3b_poison_model.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step4_0_train_baseline.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step4_1_cross_validation.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step4_1_predict_and_report.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step4_2_compare_models.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step4_2_predict_and_report.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step4_3_evulate_predictions.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step4_3_predict_xgboost.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step4_4_prepare_fixtures (1).executor&quot;: &quot;Run&quot;,
+    &quot;Python.step4_4_prepare_fixtures.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step4_final_prediction.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step4_predict_and_report.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step4_predict_next_round.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step4_prepare_fixtures.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step4_train_baseline.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step5_0_train_ml (1).executor&quot;: &quot;Run&quot;,
+    &quot;Python.step5_0_train_ml.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step5_1_predict_next_round.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step5_2_crossval_check.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step5_3_learning_curves.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step5_5_features_inventory.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step5_6_predict_next_round (1).executor&quot;: &quot;Run&quot;,
+    &quot;Python.step5_6_predict_next_round.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step5_analyze_features.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step5_cross_validation.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step5_predict_next_round.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step5_prediction_report.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step5_train_ml.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step6_0_predictions_report.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step6_1_show_console_tips.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step6_2_show_console_tips.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step6_3_show_console_tips.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step6_analyze_features.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step6_predictions_report.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step6_show_console_tips.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step7_1_backtest_strategy.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step7_2_backtest_strategy.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step7_3_backtest_dixon_coles_strategy.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step7_3_backtest_xgboost.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step7_backtest_strategy (1).executor&quot;: &quot;Run&quot;,
+    &quot;Python.step7_backtest_strategy.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step7_calculate_fair_odds.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step7_evulate_predictions.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step8_backtest_strategy.executor&quot;: &quot;Run&quot;,
+    &quot;Python.update_cards_fauls_form_processed.executor&quot;: &quot;Run&quot;,
+    &quot;Python.update_corners_form_processed.executor&quot;: &quot;Run&quot;,
+    &quot;Python.update_kickoff.executor&quot;: &quot;Run&quot;,
+    &quot;Python.upgrade_db_schema.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;ai.playground.ignore.import.keys.banner.in.settings&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
-  <component name="RunManager" selected="Python.step4_3_predict_xgboost">
-    <configuration name="step4_2_predict_and_report" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Jiri\Documents\python\football-data-client\etl" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.step7_backtest_strategy">
+    <configuration name="step3_train_models" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="football-data-client" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -322,8 +213,9 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="RUN_TOOL" value="" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ml/step4_2_predict_and_report.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ml/step3_train_models.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -332,7 +224,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="step4_3_predict_xgboost" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="step4_final_prediction" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="football-data-client" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -345,8 +237,9 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="RUN_TOOL" value="" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ml/step4_3_predict_xgboost.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ml/step4_final_prediction.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -355,7 +248,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="step6_2_show_console_tips" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="step5_analyze_features" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="football-data-client" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -368,8 +261,9 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="RUN_TOOL" value="" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ml/step6_2_show_console_tips.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ml/step5_analyze_features.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -378,7 +272,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="step7_2_backtest_strategy" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="step6_show_console_tips" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="football-data-client" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -391,8 +285,9 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="RUN_TOOL" value="" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ml/step7_2_backtest_strategy.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ml/step6_show_console_tips.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -401,7 +296,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="step7_3_backtest_xgboost" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="step7_backtest_strategy" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="football-data-client" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -414,8 +309,9 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="RUN_TOOL" value="" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ml/step7_3_backtest_xgboost.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ml/step7_backtest_strategy.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -426,18 +322,19 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.step4_3_predict_xgboost" />
-        <item itemvalue="Python.step7_3_backtest_xgboost" />
-        <item itemvalue="Python.step7_2_backtest_strategy" />
-        <item itemvalue="Python.step6_2_show_console_tips" />
-        <item itemvalue="Python.step4_2_predict_and_report" />
+        <item itemvalue="Python.step7_backtest_strategy" />
+        <item itemvalue="Python.step6_show_console_tips" />
+        <item itemvalue="Python.step5_analyze_features" />
+        <item itemvalue="Python.step4_final_prediction" />
+        <item itemvalue="Python.step3_train_models" />
       </list>
     </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-ca5e2b39c7df-6e1f45a539f7-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-253.29346.308" />
+        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-PY-253.31033.139" />
+        <option value="bundled-python-sdk-2653e85de345-6d6dccd035ac-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-253.31033.139" />
       </set>
     </attachedChunks>
   </component>
@@ -448,7 +345,69 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1760600910456</updated>
+      <workItem from="1769518825174" duration="292000" />
+      <workItem from="1769519828191" duration="242000" />
+      <workItem from="1769520192674" duration="427000" />
+      <workItem from="1769520631915" duration="1197000" />
+      <workItem from="1769521849406" duration="165000" />
+      <workItem from="1769602084555" duration="129000" />
+      <workItem from="1769602222586" duration="279000" />
+      <workItem from="1769602517243" duration="517000" />
+      <workItem from="1769603051155" duration="4245000" />
+      <workItem from="1769689417830" duration="271000" />
+      <workItem from="1769689750173" duration="4486000" />
+      <workItem from="1769758256137" duration="19173000" />
+      <workItem from="1770021332993" duration="8035000" />
+      <workItem from="1770103958851" duration="4467000" />
+      <workItem from="1770111084959" duration="10866000" />
+      <workItem from="1770189031112" duration="13798000" />
+      <workItem from="1770633914570" duration="54000" />
+      <workItem from="1770633982568" duration="8842000" />
+      <workItem from="1770730824364" duration="541000" />
+      <workItem from="1770731378757" duration="214000" />
+      <workItem from="1770795727384" duration="17957000" />
+      <workItem from="1770884361760" duration="180000" />
+      <workItem from="1770985615110" duration="2492000" />
+      <workItem from="1771228506683" duration="17000" />
+      <workItem from="1771228532437" duration="15143000" />
+      <workItem from="1771312174948" duration="3670000" />
+      <workItem from="1771316369406" duration="7376000" />
+      <workItem from="1771399464281" duration="3840000" />
+      <workItem from="1771403946722" duration="153000" />
+      <workItem from="1771405663523" duration="7243000" />
+      <workItem from="1771489739664" duration="5777000" />
+      <workItem from="1771573404303" duration="6922000" />
+      <workItem from="1771830555169" duration="97000" />
+      <workItem from="1771830709132" duration="15671000" />
+      <workItem from="1771920988577" duration="7126000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/football_data_client$debug_system.coverage" NAME="debug_system Coverage Results" MODIFIED="1770797680702" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ml" />
+    <SUITE FILE_PATH="coverage/football_data_client$debug_data.coverage" NAME="debug_data Coverage Results" MODIFIED="1770797704160" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ml" />
+    <SUITE FILE_PATH="coverage/football_data_client$step3_train_models.coverage" NAME="step3_train_models Coverage Results" MODIFIED="1771853834110" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ml" />
+    <SUITE FILE_PATH="coverage/football_data_client$step3_1_train_model.coverage" NAME="step3_1_train_model Coverage Results" MODIFIED="1771228736220" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ml" />
+    <SUITE FILE_PATH="coverage/football_data_client$update_kickoff.coverage" NAME="update_kickoff Coverage Results" MODIFIED="1770797112564" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ml" />
+    <SUITE FILE_PATH="coverage/football_data_client$debug_livesport_structure.coverage" NAME="debug_livesport_structure Coverage Results" MODIFIED="1769766391524" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/etl" />
+    <SUITE FILE_PATH="coverage/football_data_client$import_external_matches.coverage" NAME="import_external_matches Coverage Results" MODIFIED="1770212092796" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ml" />
+    <SUITE FILE_PATH="coverage/football_data_client$step0_harvest_links_improved.coverage" NAME="step0_harvest_links_improved Coverage Results" MODIFIED="1771230869576" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/etl" />
+    <SUITE FILE_PATH="coverage/football_data_client$selenium_stats_scraper.coverage" NAME="selenium_stats_scraper Coverage Results" MODIFIED="1769607333178" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/football_data_client$step5_analyze_features.coverage" NAME="step5_analyze_features Coverage Results" MODIFIED="1771922207959" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ml" />
+    <SUITE FILE_PATH="coverage/football_data_client$step7_backtest_strategy.coverage" NAME="step7_backtest_strategy Coverage Results" MODIFIED="1771928232464" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ml" />
+    <SUITE FILE_PATH="coverage/football_data_client$step2_prepare_dataset.coverage" NAME="step2_prepare_dataset Coverage Results" MODIFIED="1771853762271" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/etl" />
+    <SUITE FILE_PATH="coverage/football_data_client$step1_match_stats_from_html.coverage" NAME="step1_match_stats_from_html Coverage Results" MODIFIED="1770114917686" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/etl" />
+    <SUITE FILE_PATH="coverage/football_data_client$step3_2_train_xgboost.coverage" NAME="step3_2_train_xgboost Coverage Results" MODIFIED="1770988466433" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ml" />
+    <SUITE FILE_PATH="coverage/football_data_client$match_stats_from_livesport.coverage" NAME="match_stats_from_livesport Coverage Results" MODIFIED="1770106659443" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/etl" />
+    <SUITE FILE_PATH="coverage/football_data_client$step0_harvest_links_final.coverage" NAME="step0_harvest_links_final Coverage Results" MODIFIED="1771236734022" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/etl" />
+    <SUITE FILE_PATH="coverage/football_data_client$step4_final_prediction.coverage" NAME="step4_final_prediction Coverage Results" MODIFIED="1771853905017" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ml" />
+    <SUITE FILE_PATH="coverage/football_data_client$step6_show_console_tips.coverage" NAME="step6_show_console_tips Coverage Results" MODIFIED="1771925337621" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ml" />
+    <SUITE FILE_PATH="coverage/football_data_client$step1_match_stats_from_livesport__1_.coverage" NAME="step1_match_stats_from_livesport (1) Coverage Results" MODIFIED="1770193607658" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/etl" />
+    <SUITE FILE_PATH="coverage/football_data_client$import_injuries_to_db.coverage" NAME="import_injuries_to_db Coverage Results" MODIFIED="1770212102612" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ml" />
+    <SUITE FILE_PATH="coverage/football_data_client$step0_harvest_links.coverage" NAME="step0_harvest_links Coverage Results" MODIFIED="1771842215765" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/etl" />
+    <SUITE FILE_PATH="coverage/football_data_client$step1_match_stats_from_livesport.coverage" NAME="step1_match_stats_from_livesport Coverage Results" MODIFIED="1771842435657" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/etl" />
   </component>
 </project>
