@@ -19,13 +19,23 @@ MODEL_DIR = os.path.join(os.path.dirname(__file__), "../models")
 os.makedirs(MODEL_DIR, exist_ok=True)
 
 MARKET_VALUES = {
+    # --- PREMIER LEAGUE ---
     "Manchester City": 1290.0, "Arsenal FC": 1270.0, "Chelsea FC": 1160.0,
     "Liverpool FC": 1040.0, "Manchester United": 719.0, "Tottenham Hotspur": 877.0,
     "Newcastle United": 710.0, "Aston Villa": 532.0, "Brighton & Hove Albion": 510.0,
     "West Ham United": 339.0, "Nottingham Forest": 592.0, "Brentford": 434.0,
     "Crystal Palace": 536.0, "Wolverhampton Wanderers": 278.0, "Everton FC": 424.0,
     "Fulham FC": 373.0, "AFC Bournemouth": 447.0,
-    "Leeds United": 321.0, "Burnley FC": 252.0, "AFC Sunderland": 327.0
+    "Leeds United": 321.0, "Burnley FC": 252.0, "AFC Sunderland": 327.0,
+
+    # --- CHANCE LIGA (přibližné hodnoty dle Transfermarkt, mil. EUR) ---
+    "Sparta Praha": 82.0, "Slavia Praha": 75.0, "Viktoria Plzeň": 38.0,
+    "Baník Ostrava": 22.0, "Mladá Boleslav": 18.0, "Bohemians": 14.0,
+    "Slovácko": 13.0, "Sigma Olomouc": 14.0, "Hradec Králové": 12.0,
+    "Slovan Liberec": 16.0, "Teplice": 11.0, "Jablonec": 12.0,
+    "Pardubice": 15.0, "Zlín": 9.0, "Karviná": 10.0,
+    "České Budějovice": 10.0, "Dukla Praha": 8.0,
+    "Zbrojovka Brno": 9.0,
 }
 
 # CORE STATS (robustní, 0-5% NULL) - VŽDY použít
@@ -45,10 +55,14 @@ OPTIONAL_STATS = [
     'box_touches',         # 29% NULL
     'shots_inside_box',    # 29% NULL
     'shots_outside_box',   # 32% NULL
+    'passes_accuracy',     # pouze nové sezóny, v archivech NULL
+    'errors_shot',         # pouze nové sezóny (přidáno 2026-03)
+    'errors_goal',         # pouze nové sezóny (přidáno 2026-03)
 ]
 
-# Kombinace pro kompatibilitu (zachová původní logiku)
-STATS_TO_ROLL = CORE_STATS  # Nejdřív použij jen CORE, optional přidáme později
+# STATS_TO_ROLL: CORE stats pro hlavní rolling pipeline
+# OPTIONAL stats jsou zpracovány separátně v compute_optional_stats (NULL-aware)
+STATS_TO_ROLL = CORE_STATS
 
 # Conceded stats
 CORE_CONCEDED = ['expected_goals', 'shots', 'shots_on_target', 'goals']
@@ -60,10 +74,27 @@ OPTIONAL_CONCEDED = ['xgot', 'big_chances', 'box_touches']
 # pass_accuracy (100%), clearances (29%), tackles_* (29%),
 # crosses_* (29%), passes_final_third_* (29%)
 
+# Sezóny vyloučené z tréninku modelu (zachovány v DB pro ELO výpočet)
+# Důvod: příliš málo statistik → fillna(0) kazí rolling průměry
+# FL 2022-23: jen ~24 stat/zápas, chybí xG, passes, blocked_shots atd.
+EXCLUDE_FROM_TRAINING = [
+    ("FL", "2022-23"),
+]
+
+
 def load_data(conn):
-    """Načte VŠECHNY fixtures a propojí je se statistikami."""
+    """Načte VŠECHNY fixtures a propojí je se statistikami.
+
+    Načítá CORE i OPTIONAL stats — optional sloupce budou mít NULL
+    kde data nebyla dostupná (starší sezóny). compute_optional_stats
+    pak tyto NULL správně ignoruje při rolling průměru.
+    """
     stats_columns = []
-    for stat in STATS_TO_ROLL:
+    # Všechny unikátní statistiky (CORE + OPTIONAL, bez duplikátů)
+    all_stats = list(dict.fromkeys(CORE_STATS + OPTIONAL_STATS))
+    for stat in all_stats:
+        if stat == 'goals':
+            continue  # goals jsou již načteny jako goals_home/goals_away zvlášť
         stats_columns.append(f"s.{stat}_home")
         stats_columns.append(f"s.{stat}_away")
 
@@ -264,7 +295,7 @@ def compute_features(df):
         new_cols[f"home_avg_{col}_last5"] = pd.Series(dtype=float, index=df.index)
         new_cols[f"away_avg_{col}_last5"] = pd.Series(dtype=float, index=df.index)
 
-        if col in ['expected_goals', 'shots', 'shots_on_target', 'goals', 'xgot', 'big_chances', 'box_touches']:
+        if col in ['expected_goals', 'shots', 'shots_on_target', 'goals']:
             new_cols[f"home_avg_{col}_conceded_last5"] = pd.Series(dtype=float, index=df.index)
             new_cols[f"away_avg_{col}_conceded_last5"] = pd.Series(dtype=float, index=df.index)
 
@@ -294,17 +325,21 @@ def compute_features(df):
 
             elo_weights = (opponent_elo / 1500).clip(0.8, 1.2)
 
-            team_stats_filled = team_stats.fillna(0)
-            weighted_stats = team_stats_filled * elo_weights
+            # OPRAVA: NULL nahrazuj až PO weighted, ne před.
+            # Původní fillna(0) PŘED weightingem způsoboval podhodnocení týmů
+            # s chybějícími historickými stats (FL archivní sezóny).
+            # Příklad: [NULL, NULL, NULL, 1.5, 1.8] → old: 0.66, new: 1.65
+            weighted_stats = team_stats * elo_weights  # NULL * weight = NULL → ignorováno
+            weighted_stats_filled = weighted_stats.fillna(0)  # fillna AŽ pro rolling
 
-            roll_5 = weighted_stats.shift(1).rolling(window=5, min_periods=1).mean()
+            roll_5 = weighted_stats_filled.shift(1).rolling(window=5, min_periods=1).mean()
 
             new_cols[f"home_avg_{col}_last5"].update(roll_5[mask_h])
             new_cols[f"away_avg_{col}_last5"].update(roll_5[mask_a])
 
-            # Conceded stats
+            # Conceded stats (jen pro klíčové útočné metriky)
+            # xgot/big_chances/box_touches conceded jsou v compute_optional_stats
             if col in ['expected_goals', 'shots', 'shots_on_target', 'goals']:
-                # ❌ Odstraněno: xgot, big_chances, box_touches (chybí v archivech)
                 conceded_stats = pd.Series(index=team_matches.index, dtype=float)
                 conceded_stats.loc[mask_h] = team_matches.loc[mask_h, col_a]
                 conceded_stats.loc[mask_a] = team_matches.loc[mask_a, col_h]
@@ -462,6 +497,8 @@ def create_enhanced_features(df):
         df['form_x_attack_away'] = df['away_avg_points_last5'] * df['away_avg_xgot_last5']
         print(f"  ✅ form_x_attack (home/away)")
 
+    df['is_premier_league'] = (df['league'] == 'PL').astype(float)
+
     print("  ✅ Optimalizované features vytvořeny")
 
     return df
@@ -494,9 +531,21 @@ def remove_low_variance_features(df, threshold=0.005):
 
 def save_dataset(conn, df):
     """Rozdělí dataset na historická data a budoucí predikce."""
-    today = pd.Timestamp.now().date()
+    today = pd.Timestamp.now().normalize()  # datetime, ne date → konzistentní porovnání
 
     df_historical = df[df['match_date'] < today].copy()
+
+    # Vyloučit sezóny s chudými statistikami z tréninku
+    # (zůstávají v DB a přispívají k ELO výpočtu, ale model je nevidí)
+    if EXCLUDE_FROM_TRAINING:
+        exclude_mask = pd.Series(False, index=df_historical.index)
+        for league, season in EXCLUDE_FROM_TRAINING:
+            mask = (df_historical['league'] == league) & (df_historical['season'] == season)
+            exclude_mask |= mask
+            n = mask.sum()
+            if n > 0:
+                print(f"   ⚠️  Vyloučeno z tréninku: {league} {season} ({n} zápasů) — chudé statistiky")
+        df_historical = df_historical[~exclude_mask].copy()
 
     played_count = df_historical['goals_home'].notna().sum()
     total_historical = len(df_historical)
@@ -560,6 +609,9 @@ def main():
         df = load_data(conn)
         df = df.loc[:, ~df.columns.duplicated()].copy()
 
+        # Zajisti datetime typ — nutné pro .dt.days a porovnání s today
+        df['match_date'] = pd.to_datetime(df['match_date'])
+
         if df.empty:
             print("❌ Žádná data")
             return
@@ -578,6 +630,9 @@ def main():
         df = compute_features(df)
         df = create_enhanced_features(df)
         df = remove_low_variance_features(df, threshold=0.005)
+
+        const_cols = [c for c in df.columns if df[c].nunique() <= 1]
+        print(f"⚠️  Konstantní sloupce ({len(const_cols)}): {const_cols}")
 
         save_dataset(conn, df)
 

@@ -102,5 +102,923 @@
       },
       "best_regressor": "Poisson"
     }
+  },
+  {
+    "timestamp": "2026-02-26T14:14:26.406812",
+    "version": "v4_symmetric",
+    "results": {
+      "n_samples": 1785,
+      "n_features_all": 84,
+      "n_features_sel": 20,
+      "n_pairs": 8,
+      "n_neutral": 4,
+      "selected": [
+        "elo_diff",
+        "home_x_elo",
+        "home_elo",
+        "away_elo",
+        "home_avg_shots_last5",
+        "away_avg_shots_last5",
+        "home_avg_points_last5",
+        "away_avg_points_last5",
+        "home_avg_shots_on_target_last5",
+        "away_avg_shots_on_target_last5",
+        "home_avg_goals_last5",
+        "away_avg_goals_last5",
+        "home_avg_possession_last5",
+        "away_avg_possession_last5",
+        "home_avg_saves_last5",
+        "away_avg_saves_last5",
+        "home_avg_shots_conceded_last5",
+        "away_avg_shots_conceded_last5",
+        "home_avg_corners_last5",
+        "away_avg_corners_last5"
+      ],
+      "voting": {
+        "accuracy": 0.5044,
+        "f1": 0.4378,
+        "draw_thr": 0.33
+      },
+      "xgboost": {
+        "accuracy": 0.4761,
+        "f1": 0.427,
+        "draw_thr": 0.35
+      },
+      "best_classifier": "Voting",
+      "draw_threshold": 0.33,
+      "regressors": {
+        "poisson_h": 0.983,
+        "poisson_a": 0.905,
+        "xgb_h": 1.022,
+        "xgb_a": 0.942
+      },
+      "best_regressor": "Poisson"
+    }
+  },
+  {
+    "timestamp": "2026-02-27T08:09:45.860500",
+    "version": "v4_symmetric",
+    "results": {
+      "n_samples": 1785,
+      "n_features_all": 84,
+      "n_features_sel": 20,
+      "n_pairs": 8,
+      "n_neutral": 4,
+      "selected": [
+        "home_x_elo",
+        "elo_diff",
+        "home_elo",
+        "away_elo",
+        "home_avg_points_last5",
+        "away_avg_points_last5",
+        "home_avg_shots_last5",
+        "away_avg_shots_last5",
+        "home_avg_shots_on_target_last5",
+        "away_avg_shots_on_target_last5",
+        "home_avg_goals_last5",
+        "away_avg_goals_last5",
+        "home_avg_shots_on_target_conceded_last5",
+        "away_avg_shots_on_target_conceded_last5",
+        "home_avg_saves_last5",
+        "away_avg_saves_last5",
+        "home_avg_possession_last5",
+        "away_avg_possession_last5",
+        "home_avg_shots_conceded_last5",
+        "away_avg_shots_conceded_last5"
+      ],
+      "voting": {
+        "accuracy": 0.5071,
+        "f1": 0.442,
+        "draw_thr": 0.33
+      },
+      "xgboost": {
+        "accuracy": 0.4707,
+        "f1": 0.4239,
+        "draw_thr": 0.33
+      },
+      "best_classifier": "Voting",
+      "draw_threshold": 0.33,
+      "regressors": {
+        "poisson_h": 0.982,
+        "poisson_a": 0.905,
+        "xgb_h": 1.019,
+        "xgb_a": 0.939
+      },
+      "best_regressor": "Poisson"
+    }
+  },
+  {
+    "timestamp": "2026-02-27T08:16:26.577277",
+    "version": "v4_symmetric",
+    "results": {
+      "n_samples": 1785,
+      "n_features_all": 84,
+      "n_features_sel": 20,
+      "n_pairs": 8,
+      "n_neutral": 4,
+      "selected": [
+        "elo_diff",
+        "home_x_elo",
+        "home_elo",
+        "away_elo",
+        "home_avg_shots_last5",
+        "away_avg_shots_last5",
+        "home_avg_shots_on_target_last5",
+        "away_avg_shots_on_target_last5",
+        "home_avg_points_last5",
+        "away_avg_points_last5",
+        "home_avg_goals_last5",
+        "away_avg_goals_last5",
+        "home_avg_possession_last5",
+        "away_avg_possession_last5",
+        "home_avg_saves_last5",
+        "away_avg_saves_last5",
+        "home_avg_shots_conceded_last5",
+        "away_avg_shots_conceded_last5",
+        "home_avg_corners_last5",
+        "away_avg_corners_last5"
+      ],
+      "voting": {
+        "accuracy": 0.5104,
+        "f1": 0.4436,
+        "draw_thr": 0.33
+      },
+      "xgboost": {
+        "accuracy": 0.4781,
+        "f1": 0.4292,
+        "draw_thr": 0.35
+      },
+      "best_classifier": "Voting",
+      "draw_threshold": 0.33,
+      "regressors": {
+        "poisson_h": 0.983,
+        "poisson_a": 0.905,
+        "xgb_h": 1.023,
+        "xgb_a": 0.943
+      },
+      "best_regressor": "Poisson"
+    }
+  },
+  {
+    "timestamp": "2026-02-27T08:22:12.798341",
+    "version": "v4_symmetric",
+    "results": {
+      "n_samples": 1785,
+      "n_features_all": 84,
+      "n_features_sel": 28,
+      "n_pairs": 12,
+      "n_neutral": 4,
+      "selected": [
+        "elo_diff",
+        "home_x_elo",
+        "home_elo",
+        "away_elo",
+        "home_avg_shots_last5",
+        "away_avg_shots_last5",
+        "home_avg_shots_on_target_last5",
+        "away_avg_shots_on_target_last5",
+        "home_avg_points_last5",
+        "away_avg_points_last5",
+        "home_avg_goals_last5",
+        "away_avg_goals_last5",
+        "home_avg_possession_last5",
+        "away_avg_possession_last5",
+        "home_avg_saves_last5",
+        "away_avg_saves_last5",
+        "home_avg_shots_conceded_last5",
+        "away_avg_shots_conceded_last5",
+        "home_avg_corners_last5",
+        "away_avg_corners_last5",
+        "home_avg_expected_goals_conceded_last5",
+        "away_avg_expected_goals_conceded_last5",
+        "home_avg_fouls_last5",
+        "away_avg_fouls_last5",
+        "home_avg_shots_off_target_last5",
+        "away_avg_shots_off_target_last5",
+        "home_avg_yellow_cards_last5",
+        "away_avg_yellow_cards_last5"
+      ],
+      "voting": {
+        "accuracy": 0.5145,
+        "f1": 0.4469,
+        "draw_thr": 0.31
+      },
+      "xgboost": {
+        "accuracy": 0.4862,
+        "f1": 0.4312,
+        "draw_thr": 0.39
+      },
+      "best_classifier": "Voting",
+      "draw_threshold": 0.31,
+      "regressors": {
+        "poisson_h": 0.979,
+        "poisson_a": 0.907,
+        "xgb_h": 1.003,
+        "xgb_a": 0.941
+      },
+      "best_regressor": "Poisson"
+    }
+  },
+  {
+    "timestamp": "2026-02-27T08:26:55.136395",
+    "version": "v4_symmetric",
+    "results": {
+      "n_samples": 1785,
+      "n_features_all": 84,
+      "n_features_sel": 36,
+      "n_pairs": 16,
+      "n_neutral": 4,
+      "selected": [
+        "elo_diff",
+        "home_x_elo",
+        "home_elo",
+        "away_elo",
+        "home_avg_shots_last5",
+        "away_avg_shots_last5",
+        "home_avg_shots_on_target_last5",
+        "away_avg_shots_on_target_last5",
+        "home_avg_points_last5",
+        "away_avg_points_last5",
+        "home_avg_goals_last5",
+        "away_avg_goals_last5",
+        "home_avg_possession_last5",
+        "away_avg_possession_last5",
+        "home_avg_saves_last5",
+        "away_avg_saves_last5",
+        "home_avg_shots_conceded_last5",
+        "away_avg_shots_conceded_last5",
+        "home_avg_corners_last5",
+        "away_avg_corners_last5",
+        "home_avg_expected_goals_conceded_last5",
+        "away_avg_expected_goals_conceded_last5",
+        "home_avg_fouls_last5",
+        "away_avg_fouls_last5",
+        "home_avg_shots_off_target_last5",
+        "away_avg_shots_off_target_last5",
+        "home_avg_yellow_cards_last5",
+        "away_avg_yellow_cards_last5",
+        "home_avg_shots_on_target_conceded_last5",
+        "away_avg_shots_on_target_conceded_last5",
+        "home_avg_passes_total_last5",
+        "away_avg_passes_total_last5",
+        "home_avg_goals_conceded_last5",
+        "away_avg_goals_conceded_last5",
+        "home_avg_expected_goals_last5",
+        "away_avg_expected_goals_last5"
+      ],
+      "voting": {
+        "accuracy": 0.5037,
+        "f1": 0.4386,
+        "draw_thr": 0.35
+      },
+      "xgboost": {
+        "accuracy": 0.4795,
+        "f1": 0.4268,
+        "draw_thr": 0.35
+      },
+      "best_classifier": "Voting",
+      "draw_threshold": 0.35,
+      "regressors": {
+        "poisson_h": 0.982,
+        "poisson_a": 0.91,
+        "xgb_h": 1.002,
+        "xgb_a": 0.949
+      },
+      "best_regressor": "Poisson"
+    }
+  },
+  {
+    "timestamp": "2026-02-27T09:57:08.759686",
+    "version": "v4_symmetric",
+    "results": {
+      "n_samples": 2065,
+      "n_features_all": 84,
+      "n_features_sel": 28,
+      "n_pairs": 12,
+      "n_neutral": 4,
+      "selected": [
+        "elo_diff",
+        "home_x_elo",
+        "home_elo",
+        "away_elo",
+        "home_avg_shots_last5",
+        "away_avg_shots_last5",
+        "home_avg_points_last5",
+        "away_avg_points_last5",
+        "home_avg_goals_last5",
+        "away_avg_goals_last5",
+        "home_avg_possession_last5",
+        "away_avg_possession_last5",
+        "home_avg_shots_on_target_last5",
+        "away_avg_shots_on_target_last5",
+        "home_avg_shots_conceded_last5",
+        "away_avg_shots_conceded_last5",
+        "home_avg_corners_last5",
+        "away_avg_corners_last5",
+        "home_avg_shots_on_target_conceded_last5",
+        "away_avg_shots_on_target_conceded_last5",
+        "home_avg_saves_last5",
+        "away_avg_saves_last5",
+        "home_avg_expected_goals_last5",
+        "away_avg_expected_goals_last5",
+        "home_avg_yellow_cards_last5",
+        "away_avg_yellow_cards_last5",
+        "home_avg_expected_goals_conceded_last5",
+        "away_avg_expected_goals_conceded_last5"
+      ],
+      "voting": {
+        "accuracy": 0.4971,
+        "f1": 0.4219,
+        "draw_thr": 0.29
+      },
+      "xgboost": {
+        "accuracy": 0.4692,
+        "f1": 0.4171,
+        "draw_thr": 0.27
+      },
+      "best_classifier": "Voting",
+      "draw_threshold": 0.29,
+      "regressors": {
+        "poisson_h": 0.982,
+        "poisson_a": 0.913,
+        "xgb_h": 1.021,
+        "xgb_a": 0.948
+      },
+      "best_regressor": "Poisson"
+    }
+  },
+  {
+    "timestamp": "2026-02-27T10:14:56.105344",
+    "version": "v4_symmetric",
+    "results": {
+      "n_samples": 1785,
+      "n_features_all": 84,
+      "n_features_sel": 28,
+      "n_pairs": 12,
+      "n_neutral": 4,
+      "selected": [
+        "elo_diff",
+        "home_x_elo",
+        "home_elo",
+        "away_elo",
+        "home_avg_points_last5",
+        "away_avg_points_last5",
+        "home_avg_shots_last5",
+        "away_avg_shots_last5",
+        "home_avg_goals_last5",
+        "away_avg_goals_last5",
+        "home_avg_possession_last5",
+        "away_avg_possession_last5",
+        "home_avg_shots_on_target_last5",
+        "away_avg_shots_on_target_last5",
+        "home_avg_shots_conceded_last5",
+        "away_avg_shots_conceded_last5",
+        "home_avg_corners_last5",
+        "away_avg_corners_last5",
+        "home_avg_shots_on_target_conceded_last5",
+        "away_avg_shots_on_target_conceded_last5",
+        "home_avg_shots_off_target_last5",
+        "away_avg_shots_off_target_last5",
+        "home_avg_expected_goals_conceded_last5",
+        "away_avg_expected_goals_conceded_last5",
+        "home_avg_saves_last5",
+        "away_avg_saves_last5",
+        "home_avg_goals_conceded_last5",
+        "away_avg_goals_conceded_last5"
+      ],
+      "voting": {
+        "accuracy": 0.4875,
+        "f1": 0.4252,
+        "draw_thr": 0.33
+      },
+      "xgboost": {
+        "accuracy": 0.4552,
+        "f1": 0.4123,
+        "draw_thr": 0.35
+      },
+      "best_classifier": "Voting",
+      "draw_threshold": 0.33,
+      "regressors": {
+        "poisson_h": 0.977,
+        "poisson_a": 0.909,
+        "xgb_h": 1.008,
+        "xgb_a": 0.936
+      },
+      "best_regressor": "Poisson"
+    }
+  },
+  {
+    "timestamp": "2026-02-27T10:44:32.362005",
+    "version": "v4_symmetric",
+    "results": {
+      "n_samples": 1785,
+      "n_features_all": 84,
+      "n_features_sel": 28,
+      "n_pairs": 12,
+      "n_neutral": 4,
+      "selected": [
+        "elo_diff",
+        "home_x_elo",
+        "home_elo",
+        "away_elo",
+        "home_avg_shots_last5",
+        "away_avg_shots_last5",
+        "home_avg_points_last5",
+        "away_avg_points_last5",
+        "home_avg_possession_last5",
+        "away_avg_possession_last5",
+        "home_avg_goals_last5",
+        "away_avg_goals_last5",
+        "home_avg_shots_on_target_last5",
+        "away_avg_shots_on_target_last5",
+        "home_avg_corners_last5",
+        "away_avg_corners_last5",
+        "home_avg_shots_conceded_last5",
+        "away_avg_shots_conceded_last5",
+        "home_avg_shots_on_target_conceded_last5",
+        "away_avg_shots_on_target_conceded_last5",
+        "home_avg_shots_off_target_last5",
+        "away_avg_shots_off_target_last5",
+        "home_avg_goals_conceded_last5",
+        "away_avg_goals_conceded_last5",
+        "home_avg_saves_last5",
+        "away_avg_saves_last5",
+        "home_avg_expected_goals_conceded_last5",
+        "away_avg_expected_goals_conceded_last5"
+      ],
+      "voting": {
+        "accuracy": 0.4956,
+        "f1": 0.4301,
+        "draw_thr": 0.33
+      },
+      "xgboost": {
+        "accuracy": 0.4774,
+        "f1": 0.4301,
+        "draw_thr": 0.39
+      },
+      "best_classifier": "XGBoost",
+      "draw_threshold": 0.39,
+      "regressors": {
+        "poisson_h": 0.977,
+        "poisson_a": 0.909,
+        "xgb_h": 1.007,
+        "xgb_a": 0.94
+      },
+      "best_regressor": "Poisson"
+    }
+  },
+  {
+    "timestamp": "2026-02-27T11:10:15.869789",
+    "version": "v4_symmetric",
+    "results": {
+      "n_samples": 1785,
+      "n_features_all": 85,
+      "n_features_sel": 28,
+      "n_pairs": 12,
+      "n_neutral": 4,
+      "selected": [
+        "elo_diff",
+        "home_x_elo",
+        "home_elo",
+        "away_elo",
+        "home_avg_shots_last5",
+        "away_avg_shots_last5",
+        "home_avg_points_last5",
+        "away_avg_points_last5",
+        "home_avg_possession_last5",
+        "away_avg_possession_last5",
+        "home_avg_goals_last5",
+        "away_avg_goals_last5",
+        "home_avg_shots_on_target_last5",
+        "away_avg_shots_on_target_last5",
+        "home_avg_shots_conceded_last5",
+        "away_avg_shots_conceded_last5",
+        "home_avg_corners_last5",
+        "away_avg_corners_last5",
+        "home_avg_shots_on_target_conceded_last5",
+        "away_avg_shots_on_target_conceded_last5",
+        "home_avg_shots_off_target_last5",
+        "away_avg_shots_off_target_last5",
+        "home_avg_saves_last5",
+        "away_avg_saves_last5",
+        "home_avg_goals_conceded_last5",
+        "away_avg_goals_conceded_last5",
+        "home_avg_expected_goals_conceded_last5",
+        "away_avg_expected_goals_conceded_last5"
+      ],
+      "voting": {
+        "accuracy": 0.4949,
+        "f1": 0.4327,
+        "draw_thr": 0.33
+      },
+      "xgboost": {
+        "accuracy": 0.4734,
+        "f1": 0.4296,
+        "draw_thr": 0.39
+      },
+      "best_classifier": "Voting",
+      "draw_threshold": 0.33,
+      "regressors": {
+        "poisson_h": 0.977,
+        "poisson_a": 0.909,
+        "xgb_h": 1.007,
+        "xgb_a": 0.94
+      },
+      "best_regressor": "Poisson"
+    }
+  },
+  {
+    "timestamp": "2026-02-27T11:15:53.358064",
+    "version": "v4_symmetric",
+    "results": {
+      "n_samples": 1785,
+      "n_features_all": 85,
+      "n_features_sel": 28,
+      "n_pairs": 12,
+      "n_neutral": 4,
+      "selected": [
+        "elo_diff",
+        "home_x_elo",
+        "home_elo",
+        "away_elo",
+        "home_avg_shots_last5",
+        "away_avg_shots_last5",
+        "home_avg_points_last5",
+        "away_avg_points_last5",
+        "home_avg_possession_last5",
+        "away_avg_possession_last5",
+        "home_avg_goals_last5",
+        "away_avg_goals_last5",
+        "home_avg_shots_on_target_last5",
+        "away_avg_shots_on_target_last5",
+        "home_avg_shots_conceded_last5",
+        "away_avg_shots_conceded_last5",
+        "home_avg_corners_last5",
+        "away_avg_corners_last5",
+        "home_avg_shots_on_target_conceded_last5",
+        "away_avg_shots_on_target_conceded_last5",
+        "home_avg_shots_off_target_last5",
+        "away_avg_shots_off_target_last5",
+        "home_avg_saves_last5",
+        "away_avg_saves_last5",
+        "home_avg_goals_conceded_last5",
+        "away_avg_goals_conceded_last5",
+        "home_avg_expected_goals_conceded_last5",
+        "away_avg_expected_goals_conceded_last5"
+      ],
+      "voting": {
+        "accuracy": 0.4949,
+        "f1": 0.4327,
+        "draw_thr": 0.33
+      },
+      "xgboost": {
+        "accuracy": 0.4734,
+        "f1": 0.4296,
+        "draw_thr": 0.39
+      },
+      "best_classifier": "Voting",
+      "draw_threshold": 0.33,
+      "regressors": {
+        "poisson_h": 0.977,
+        "poisson_a": 0.909,
+        "xgb_h": 1.007,
+        "xgb_a": 0.94
+      },
+      "best_regressor": "Poisson"
+    }
+  },
+  {
+    "timestamp": "2026-03-02T14:49:05.866304",
+    "version": "v4_symmetric",
+    "results": {
+      "n_samples": 1803,
+      "n_features_all": 89,
+      "n_features_sel": 28,
+      "n_pairs": 12,
+      "n_neutral": 4,
+      "selected": [
+        "elo_diff",
+        "home_x_elo",
+        "home_elo",
+        "away_elo",
+        "home_avg_shots_last5",
+        "away_avg_shots_last5",
+        "home_avg_goals_last5",
+        "away_avg_goals_last5",
+        "home_avg_points_last5",
+        "away_avg_points_last5",
+        "home_avg_possession_last5",
+        "away_avg_possession_last5",
+        "home_avg_shots_on_target_last5",
+        "away_avg_shots_on_target_last5",
+        "home_avg_shots_conceded_last5",
+        "away_avg_shots_conceded_last5",
+        "home_avg_corners_last5",
+        "away_avg_corners_last5",
+        "home_avg_expected_goals_conceded_last5",
+        "away_avg_expected_goals_conceded_last5",
+        "home_avg_shots_off_target_last5",
+        "away_avg_shots_off_target_last5",
+        "home_avg_shots_on_target_conceded_last5",
+        "away_avg_shots_on_target_conceded_last5",
+        "home_avg_saves_last5",
+        "away_avg_saves_last5",
+        "home_avg_expected_goals_last5",
+        "away_avg_expected_goals_last5"
+      ],
+      "voting": {
+        "accuracy": 0.4927,
+        "f1": 0.4309,
+        "draw_thr": 0.35
+      },
+      "xgboost": {
+        "accuracy": 0.4693,
+        "f1": 0.4269,
+        "draw_thr": 0.39
+      },
+      "best_classifier": "Voting",
+      "draw_threshold": 0.35,
+      "regressors": {
+        "poisson_h": 0.98,
+        "poisson_a": 0.911,
+        "xgb_h": 1.011,
+        "xgb_a": 0.942
+      },
+      "best_regressor": "Poisson"
+    }
+  },
+  {
+    "timestamp": "2026-03-03T10:26:25.638314",
+    "version": "v4_symmetric",
+    "results": {
+      "n_samples": 1803,
+      "n_features_all": 88,
+      "n_features_sel": 20,
+      "n_pairs": 8,
+      "n_neutral": 4,
+      "selected": [
+        "elo_diff",
+        "home_x_elo",
+        "home_elo",
+        "away_elo",
+        "home_avg_shots_last5",
+        "away_avg_shots_last5",
+        "home_avg_points_last5",
+        "away_avg_points_last5",
+        "home_avg_possession_last5",
+        "away_avg_possession_last5",
+        "home_avg_goals_last5",
+        "away_avg_goals_last5",
+        "home_avg_shots_conceded_last5",
+        "away_avg_shots_conceded_last5",
+        "home_avg_shots_on_target_last5",
+        "away_avg_shots_on_target_last5",
+        "home_avg_shots_on_target_conceded_last5",
+        "away_avg_shots_on_target_conceded_last5",
+        "home_avg_corners_last5",
+        "away_avg_corners_last5"
+      ],
+      "baseline": 0.431,
+      "voting": {
+        "accuracy": 0.4993,
+        "f1": 0.4343,
+        "draw_thr": 0.33,
+        "folds": [
+          {
+            "fold": 1,
+            "train": 303,
+            "test": 300,
+            "accuracy": 0.513,
+            "f1": 0.419
+          },
+          {
+            "fold": 2,
+            "train": 603,
+            "test": 300,
+            "accuracy": 0.483,
+            "f1": 0.424
+          },
+          {
+            "fold": 3,
+            "train": 903,
+            "test": 300,
+            "accuracy": 0.55,
+            "f1": 0.484
+          },
+          {
+            "fold": 4,
+            "train": 1203,
+            "test": 300,
+            "accuracy": 0.48,
+            "f1": 0.418
+          },
+          {
+            "fold": 5,
+            "train": 1503,
+            "test": 300,
+            "accuracy": 0.47,
+            "f1": 0.426
+          }
+        ],
+        "per_class_recall": {
+          "away": "56%",
+          "draw": "12%",
+          "home": "69%"
+        }
+      },
+      "xgboost": {
+        "accuracy": 0.462,
+        "f1": 0.4157,
+        "draw_thr": 0.35,
+        "folds": [
+          {
+            "fold": 1,
+            "train": 303,
+            "test": 300,
+            "accuracy": 0.503,
+            "f1": 0.43
+          },
+          {
+            "fold": 2,
+            "train": 603,
+            "test": 300,
+            "accuracy": 0.44,
+            "f1": 0.388
+          },
+          {
+            "fold": 3,
+            "train": 903,
+            "test": 300,
+            "accuracy": 0.497,
+            "f1": 0.448
+          },
+          {
+            "fold": 4,
+            "train": 1203,
+            "test": 300,
+            "accuracy": 0.46,
+            "f1": 0.425
+          },
+          {
+            "fold": 5,
+            "train": 1503,
+            "test": 300,
+            "accuracy": 0.41,
+            "f1": 0.388
+          }
+        ],
+        "per_class_recall": {
+          "away": "52%",
+          "draw": "16%",
+          "home": "60%"
+        }
+      },
+      "best_classifier": "Voting",
+      "draw_threshold": 0.33,
+      "regressors": {
+        "poisson_h": 0.979,
+        "poisson_a": 0.906,
+        "xgb_h": 1.02,
+        "xgb_a": 0.938
+      },
+      "best_regressor": "Poisson"
+    }
+  },
+  {
+    "timestamp": "2026-03-03T10:36:35.318862",
+    "version": "v4_symmetric",
+    "results": {
+      "n_samples": 1803,
+      "n_features_all": 88,
+      "n_features_sel": 20,
+      "n_pairs": 8,
+      "n_neutral": 4,
+      "selected": [
+        "elo_diff",
+        "home_x_elo",
+        "home_elo",
+        "away_elo",
+        "home_avg_shots_last5",
+        "away_avg_shots_last5",
+        "home_avg_points_last5",
+        "away_avg_points_last5",
+        "home_avg_possession_last5",
+        "away_avg_possession_last5",
+        "home_avg_goals_last5",
+        "away_avg_goals_last5",
+        "home_avg_shots_conceded_last5",
+        "away_avg_shots_conceded_last5",
+        "home_avg_shots_on_target_last5",
+        "away_avg_shots_on_target_last5",
+        "home_avg_shots_on_target_conceded_last5",
+        "away_avg_shots_on_target_conceded_last5",
+        "home_avg_corners_last5",
+        "away_avg_corners_last5"
+      ],
+      "baseline": 0.431,
+      "voting": {
+        "accuracy": 0.4993,
+        "f1": 0.4343,
+        "draw_thr": 0.33,
+        "folds": [
+          {
+            "fold": 1,
+            "train": 303,
+            "test": 300,
+            "accuracy": 0.513,
+            "f1": 0.419
+          },
+          {
+            "fold": 2,
+            "train": 603,
+            "test": 300,
+            "accuracy": 0.483,
+            "f1": 0.424
+          },
+          {
+            "fold": 3,
+            "train": 903,
+            "test": 300,
+            "accuracy": 0.55,
+            "f1": 0.484
+          },
+          {
+            "fold": 4,
+            "train": 1203,
+            "test": 300,
+            "accuracy": 0.48,
+            "f1": 0.418
+          },
+          {
+            "fold": 5,
+            "train": 1503,
+            "test": 300,
+            "accuracy": 0.47,
+            "f1": 0.426
+          }
+        ],
+        "per_class_recall": {
+          "away": "56%",
+          "draw": "12%",
+          "home": "69%"
+        }
+      },
+      "xgboost": {
+        "accuracy": 0.462,
+        "f1": 0.4157,
+        "draw_thr": 0.35,
+        "folds": [
+          {
+            "fold": 1,
+            "train": 303,
+            "test": 300,
+            "accuracy": 0.503,
+            "f1": 0.43
+          },
+          {
+            "fold": 2,
+            "train": 603,
+            "test": 300,
+            "accuracy": 0.44,
+            "f1": 0.388
+          },
+          {
+            "fold": 3,
+            "train": 903,
+            "test": 300,
+            "accuracy": 0.497,
+            "f1": 0.448
+          },
+          {
+            "fold": 4,
+            "train": 1203,
+            "test": 300,
+            "accuracy": 0.46,
+            "f1": 0.425
+          },
+          {
+            "fold": 5,
+            "train": 1503,
+            "test": 300,
+            "accuracy": 0.41,
+            "f1": 0.388
+          }
+        ],
+        "per_class_recall": {
+          "away": "52%",
+          "draw": "16%",
+          "home": "60%"
+        }
+      },
+      "best_classifier": "Voting",
+      "draw_threshold": 0.33,
+      "regressors": {
+        "poisson_h": 0.979,
+        "poisson_a": 0.906,
+        "xgb_h": 1.02,
+        "xgb_a": 0.938
+      },
+      "best_regressor": "Poisson"
+    }
   }
 ]

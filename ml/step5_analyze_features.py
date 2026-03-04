@@ -47,13 +47,21 @@ os.makedirs(SHAP_DIR, exist_ok=True)
 
 # Tržní hodnoty (záloha pokud market_value_diff_scaled chybí v DB)
 MARKET_VALUES = {
+    # --- PREMIER LEAGUE ---
     "Manchester City": 1290.0, "Arsenal FC": 1270.0, "Chelsea FC": 1160.0,
     "Liverpool FC": 1040.0, "Manchester United": 719.0, "Tottenham Hotspur": 877.0,
     "Newcastle United": 710.0, "Aston Villa": 532.0, "Brighton & Hove Albion": 510.0,
     "West Ham United": 339.0, "Nottingham Forest": 592.0, "Brentford": 434.0,
     "Crystal Palace": 536.0, "Wolverhampton Wanderers": 278.0, "Everton FC": 424.0,
     "Fulham FC": 373.0, "AFC Bournemouth": 447.0,
-    "Leeds United": 321.0, "Burnley FC": 252.0, "AFC Sunderland": 327.0
+    "Leeds United": 321.0, "Burnley FC": 252.0, "AFC Sunderland": 327.0,
+    # --- CHANCE LIGA ---
+    "Sparta Praha": 82.0, "Slavia Praha": 75.0, "Viktoria Plzeň": 38.0,
+    "Baník Ostrava": 22.0, "Mladá Boleslav": 18.0, "Bohemians": 14.0,
+    "Slovácko": 13.0, "Sigma Olomouc": 14.0, "Hradec Králové": 12.0,
+    "Slovan Liberec": 16.0, "Teplice": 11.0, "Jablonec": 12.0,
+    "Pardubice": 15.0, "Zlín": 9.0, "Karviná": 10.0,
+    "České Budějovice": 10.0, "Dukla Praha": 8.0, "Zbrojovka Brno": 9.0,
 }
 
 
@@ -181,10 +189,11 @@ def prepare_features(row, feature_cols, mv_scaler):
     X = pd.DataFrame([row])
 
     # Doplň odvozené features pokud nejsou v DB (step2 je ukládá, ale záloha)
+    # OPRAVA: home_x_elo = home_advantage * elo_diff = elo_diff (step2 definice)
+    # Původní fallback (h_elo * pts/3.0) byl špatná sémantika i rozsah
     if 'home_x_elo' not in X.columns or pd.isna(X['home_x_elo'].iloc[0]):
-        h_elo = float(X.get('home_elo', pd.Series([1500.0])).iloc[0] or 1500.0)
-        h_pts = float(X.get('home_avg_points_last5', pd.Series([0.0])).iloc[0] or 0.0)
-        X['home_x_elo'] = h_elo * (h_pts / 3.0)
+        elo_diff_val = float(X.get('elo_diff', pd.Series([0.0])).iloc[0] or 0.0)
+        X['home_x_elo'] = elo_diff_val  # home_advantage=1.0, takže = elo_diff
 
     if 'market_value_diff_scaled' not in X.columns or pd.isna(X['market_value_diff_scaled'].iloc[0]):
         mv_h = MARKET_VALUES.get(row.get('home_team', ''), 200.0)
@@ -245,7 +254,10 @@ def run_analysis():
 
     # --- NAČTENÍ ZÁPASŮ ---
     df_pred = pd.read_sql(
-        "SELECT * FROM prepared_fixtures WHERE match_date >= CURRENT_DATE ORDER BY match_date ASC LIMIT 15",
+        text("""SELECT * FROM prepared_fixtures
+                WHERE match_date >= CURRENT_DATE
+                  AND match_date <= CURRENT_DATE + INTERVAL '14 days'
+                ORDER BY match_date ASC, league ASC"""),
         engine
     )
     print(f"\n📅 Načteno {len(df_pred)} nadcházejících zápasů")
@@ -273,7 +285,8 @@ def run_analysis():
     for _, row in df_pred.iterrows():
         home = row.get('home_team', '?')
         away = row.get('away_team', '?')
-        match_name = f"{home} vs {away}"
+        league = row.get('league', '?')
+        match_name = f"[{league}] {home} vs {away}"
         fixture_id = row.get('fixture_id', f"{home}_{row.get('match_date', '')}")
 
         try:
@@ -323,10 +336,14 @@ def run_analysis():
             diff_a = abs(pv_a - px_a)
             max_diff = max(diff_h, diff_x, diff_a)
 
+            # H) Confidence: P(vítěz) / baseline(0.333) — kolikrát silnější než náhoda
+            max_blended = max(p1, px_b, p2)
+            confidence = max_blended / (1/3)
+
             # Tisk řádku
-            print(f"{match_name:<40} | {pv_h*100:>4.0f}% {pv_x*100:>4.0f}% {pv_a*100:>4.0f}% |"
+            print(f"{match_name:<45} | {pv_h*100:>4.0f}% {pv_x*100:>4.0f}% {pv_a*100:>4.0f}% |"
                   f" {px_h*100:>4.0f}% {px_x*100:>4.0f}% {px_a*100:>4.0f}% |"
-                  f"  {shoda}   | {gh:.2f}:{ga:.2f} | {tip}")
+                  f"  {shoda}   | {gh:.2f}:{ga:.2f} | {tip:<4} {confidence:.2f}x")
 
             # H) SHAP analýza (jen XGBoost — má TreeExplainer)
             shap_vals, shap_file = generate_shap_plot(fixture_id, match_name, xgb_clf, X, feature_cols)
@@ -337,7 +354,7 @@ def run_analysis():
                 'match': match_name, 'tip': tip, 'shoda': shoda,
                 'p1': p1, 'px': px_b, 'p2': p2,
                 'gh': gh, 'ga': ga, 'max_diff': max_diff,
-                'shap_file': shap_file
+                'confidence': confidence, 'shap_file': shap_file
             })
 
         except Exception as e:
@@ -356,11 +373,19 @@ def run_analysis():
         print(f"  Shoda modelů:   {shody}/{len(results)} zápasů  ({shody/len(results)*100:.0f}%)")
         print(f"  Neshoda modelů: {neshody} zápasů — vyšší nejistota predikce")
 
-        # Zápasy s největší neshodou (tie-breaker: blended pravděpodobnosti)
+        # Nejistější predikce
         uncertain = sorted(results, key=lambda x: x['max_diff'], reverse=True)[:3]
         print(f"\n  ⚠️  Nejistější predikce (největší rozdíl Voting vs XGBoost):")
         for r in uncertain:
-            print(f"     {r['match']:<40} diff={r['max_diff']:.1%}  tip={r['tip']}")
+            print(f"     {r['match']:<45} diff={r['max_diff']:.1%}  tip={r['tip']}")
+
+        # Nejjistější predikce (confidence ranking)
+        confident = sorted(results, key=lambda x: x['confidence'], reverse=True)[:5]
+        print(f"\n  🎯 Nejsilnější tipy (confidence nad baseline 1.0x):")
+        for r in confident:
+            tip_label = r['tip']
+            print(f"     {r['match']:<45} tip={tip_label:<4}  conf={r['confidence']:.2f}x  "
+                  f"p=({r['p1']*100:.0f}%/{r['px']*100:.0f}%/{r['p2']*100:.0f}%)")
 
         # SHAP soubory
         shap_files = [r['shap_file'] for r in results if r['shap_file']]
@@ -368,6 +393,85 @@ def run_analysis():
             print(f"\n  💡 SHAP grafy uloženy ({len(shap_files)} souborů):")
             for f in shap_files:
                 print(f"     {os.path.join(SHAP_DIR, f)}")
+
+    # --- VÝSLEDKY TRÉNINKU Z training_log.json ---
+    print("\n" + "=" * 70)
+    print("📈 OUT-OF-SAMPLE VÝKON — TimeSeriesSplit z posledního tréninku")
+    print("=" * 70)
+    print("  ℹ️  Tato čísla jsou skutečně out-of-sample (step3 TimeSeriesSplit).")
+    print("     Evaluace na prepared_datasets = data leakage → viz poznámka níže.\n")
+    try:
+        import json
+        log_path = os.path.join(MODEL_DIR, "training_log.json")
+        if not os.path.exists(log_path):
+            print(f"  ⚠️  training_log.json nenalezen: {log_path}")
+        else:
+            with open(log_path, "r", encoding="utf-8") as f:
+                all_runs = json.load(f)
+
+            # Vezmi poslední run
+            run = all_runs[-1] if isinstance(all_runs, list) else all_runs
+            ts = run.get("timestamp", "?")
+            r  = run.get("results", run)  # fallback: results může být přímo na top-level
+
+            print(f"  Poslední trénink: {ts}")
+            print(f"  Dataset:         {r.get('n_samples','?')} zápasů  "
+                  f"|  {r.get('n_features_all','?')} → {r.get('n_features_sel','?')} features")
+            print(f"  Nejlepší model:  {r.get('best_classifier','?')}")
+            print(f"  Draw threshold:  {r.get('draw_threshold','?')}")
+
+            # Voting
+            v = r.get("voting", {})
+            x = r.get("xgboost", {})
+            print(f"\n  {'Model':<22} {'Accuracy':>10} {'F1-macro':>10} {'Draw thr':>10}")
+            print(f"  {'─'*55}")
+            if v:
+                print(f"  {'Voting (RF+GBM+LR)':<22} {v.get('accuracy','?'):>10}  "
+                      f"{v.get('f1','?'):>9}  {v.get('draw_thr','?'):>9}")
+            if x:
+                print(f"  {'XGBoost':<22} {x.get('accuracy','?'):>10}  "
+                      f"{x.get('f1','?'):>9}  {x.get('draw_thr','?'):>9}")
+
+            # Fold detaily (pokud jsou uloženy)
+            v_folds = v.get("folds", [])
+            if v_folds:
+                print(f"\n  Voting — fold detail:")
+                print(f"  {'Fold':<6} {'Train':>6} {'Test':>6} {'Acc':>7} {'F1':>7}")
+                print(f"  {'─'*38}")
+                for fd in v_folds:
+                    marker = " ← nejnovější" if fd['fold'] == len(v_folds) else ""
+                    print(f"  {fd['fold']:<6} {fd['train']:>6} {fd['test']:>6} "
+                          f"{fd['accuracy']:>6.3f}  {fd['f1']:>6.3f}{marker}")
+            else:
+                print(f"\n  ℹ️  Fold detail není v logu. Pro zobrazení foldů")
+                print(f"     aktualizuj step3 aby ukládal 'folds' do results_log.")
+
+            # Regressory
+            reg = r.get("regressors", {})
+            if reg:
+                avg_poi = (reg.get('poisson_h', 0) + reg.get('poisson_a', 0)) / 2
+                avg_xgb = (reg.get('xgb_h', 0) + reg.get('xgb_a', 0)) / 2
+                print(f"\n  ⚽ xG regressory (MAE):")
+                print(f"     Poisson:  {avg_poi:.3f} gólů/zápas")
+                print(f"     XGBoost:  {avg_xgb:.3f} gólů/zápas")
+
+            # Vybrané features
+            selected = r.get("selected", [])
+            if selected:
+                print(f"\n  📌 Vybrané features ({len(selected)}):")
+                neutral = [f for f in selected if not f.startswith(('home_avg_', 'away_avg_'))]
+                pairs_h = [f for f in selected if f.startswith('home_avg_')]
+                print(f"     Neutral ({len(neutral)}): {', '.join(neutral)}")
+                print(f"     Párové features: {len(pairs_h)} párů × 2 = {len(pairs_h)*2}")
+
+            print(f"\n  ⚠️  POZNÁMKA: Accuracy/F1 jsou průměry přes 5 TimeSeriesSplit foldů.")
+            print(f"     Fold 5 (nejnovější data, největší train) je nejlepší proxy")
+            print(f"     pro výkon na budoucích zápasech. Evaluace na celém")
+            print(f"     prepared_datasets = data leakage (dává ~87% → zavádějící).")
+
+    except Exception as e:
+        print(f"  ⚠️  Backtesting selhal: {e}")
+        import traceback; traceback.print_exc()
 
     # --- GLOBÁLNÍ SHAP SUMMARY ---
     if all_shap_vals:

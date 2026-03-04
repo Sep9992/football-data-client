@@ -186,6 +186,8 @@ STATS_DB_MAP = {
     "Přihrávky v útočné třetině":   "passes_final_third",
     "Centry":                       "crosses",
     "Obranné zákroky":              "tackles",
+    "Chyby vedoucí ke střele":      "errors_shot",
+    "Chyby vedoucí ke gólu":        "errors_goal",
 }
 
 
@@ -728,12 +730,28 @@ def main():
     options = uc.ChromeOptions()
     options.add_argument('--no-first-run')
     options.add_argument('--password-store=basic')
+    options.add_argument('--disable-blink-features=AutomationControlled')
+    options.add_argument('--no-sandbox')
+    options.add_argument('--disable-dev-shm-usage')
 
-    chrome_kwargs = {"options": options}
+    chrome_kwargs = {
+        "options":        options,
+        "use_subprocess": True,   # ← chybělo, step0 to má — fix pro Windows/antivir
+    }
     if args.chrome_version:
         chrome_kwargs["version_main"] = args.chrome_version
 
-    driver = uc.Chrome(**chrome_kwargs)
+    try:
+        driver = uc.Chrome(**chrome_kwargs)
+        print("  ✅ Chrome spuštěn")
+    except Exception as e:
+        print(f"\n❌ Chrome se nepodařilo spustit: {e}")
+        print(f"\n  Možné příčiny:")
+        print(f"  1. Antivirus blokuje chromedriver.exe — přidej výjimku pro složku .venv")
+        print(f"  2. Verze Chrome neodpovídá — zkus: python step1 --chrome-version 130")
+        print(f"  3. Chrome není nainstalován nebo je poškozený")
+        print(f"\n  Cesta k chromedriver: {uc.__file__}")
+        sys.exit(1)
 
     # ── SCRAPING ─────────────────────────────────────────────────────────────
     stats = {"ok": 0, "skip": 0, "error": 0}

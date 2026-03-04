@@ -5,58 +5,51 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5be190c3-e2de-4cd4-998b-04133b9cf4b1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/etl/step0_harvest_links.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/etl/step1_match_stats_from_livesport.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/etl/step1_match_stats_from_odt.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ml/import_external_matches.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ml/import_injuries_to_db.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ml/step3_train_models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ml/step4_final_prediction.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ml/step6_show_console_tips.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ml/step7_backtest_strategy.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/etl/diagnose_match_statistics.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/etl/step0b_harvest_future_fixtures.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ml/step6_fetch_odds.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ml/step6b_manual_odds.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ml/step7_show_console_tips.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Sniper Predictions v5.2.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/model_gradientboost.pkl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/model_knn.pkl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/model_logreg.pkl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/model_poisson.pkl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/model_randomforest.pkl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/model_svc.pkl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/model_voting_ensemble.pkl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/model_xgboost.pkl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/model_xgboost_ferrari.pkl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/predictions_report_4_2_final.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/predictions_report_xgboost.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_144.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_151.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_152.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_153.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_154.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_155.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_156.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_157.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_158.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_159.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shap_images/shap_160.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/etl/step0_download_abseits_PL_schedule.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/etl/step1_match_stats_from_html.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/backtest_sniper_v5.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/backtest_sniper_v5.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/links_premier-league.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/links_premier-league.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/etl/step0_harvest_links.py" beforeDir="false" afterPath="$PROJECT_DIR$/etl/step0_harvest_links.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/etl/step1_match_stats_from_livesport.py" beforeDir="false" afterPath="$PROJECT_DIR$/etl/step1_match_stats_from_livesport.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/etl/step2_prepare_dataset.py" beforeDir="false" afterPath="$PROJECT_DIR$/etl/step2_prepare_dataset.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ml/data_info.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ml/data_info.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ml/data_sample.csv" beforeDir="false" afterPath="$PROJECT_DIR$/ml/data_sample.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ml/shared_features.py" beforeDir="false" afterPath="$PROJECT_DIR$/ml/shared_features.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ml/step3_1_train_model.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ml/step3_2_train_xgboost.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ml/step4_1_predict_and_report.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ml/step4_2_predict_and_report.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ml/step4_3_predict_xgboost.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ml/step3_train_models.py" beforeDir="false" afterPath="$PROJECT_DIR$/ml/step3_train_models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ml/step4_final_prediction.py" beforeDir="false" afterPath="$PROJECT_DIR$/ml/step4_final_prediction.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ml/step5_analyze_features.py" beforeDir="false" afterPath="$PROJECT_DIR$/ml/step5_analyze_features.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ml/step6_1_show_console_tips.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ml/step6_2_show_console_tips.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ml/step6_3_show_console_tips.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ml/step7_1_backtest_strategy.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ml/step7_2_backtest_strategy.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ml/step7_3_backtest_xgboost.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ml/update_kickoff.py" beforeDir="false" afterPath="$PROJECT_DIR$/ml/update_kickoff.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ml/step6_show_console_tips.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ml/step7_backtest_strategy.py" beforeDir="false" afterPath="$PROJECT_DIR$/ml/step8_backtest_strategy.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/best_classifier.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/models/best_classifier.pkl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/draw_threshold.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/models/draw_threshold.pkl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/feature_cols.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/models/feature_cols.pkl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/market_value_scaler.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/models/market_value_scaler.pkl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/poisson_away_goals.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/models/poisson_away_goals.pkl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/poisson_home_goals.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/models/poisson_home_goals.pkl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/shap_reports/shap_100.png" beforeDir="false" afterPath="$PROJECT_DIR$/models/shap_reports/shap_100.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/shap_reports/shap_93.png" beforeDir="false" afterPath="$PROJECT_DIR$/models/shap_reports/shap_93.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/shap_reports/shap_95.png" beforeDir="false" afterPath="$PROJECT_DIR$/models/shap_reports/shap_95.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/shap_reports/shap_98.png" beforeDir="false" afterPath="$PROJECT_DIR$/models/shap_reports/shap_98.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/shap_reports/shap_99.png" beforeDir="false" afterPath="$PROJECT_DIR$/models/shap_reports/shap_99.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/shap_reports/shap_global_summary.png" beforeDir="false" afterPath="$PROJECT_DIR$/models/shap_reports/shap_global_summary.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/training_log.json" beforeDir="false" afterPath="$PROJECT_DIR$/models/training_log.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/voting_classifier.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/models/voting_classifier.pkl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/xgb_away_goals.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/models/xgb_away_goals.pkl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/xgb_classifier.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/models/xgb_classifier.pkl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/xgb_home_goals.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/models/xgb_home_goals.pkl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/odtFiles/PL2025-26/Arsenal_vs_Manchester Utd.odt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/odtFiles/PL2025-26/Bournemouth_vs_Liverpool.odt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/odtFiles/PL2025-26/Brentford_vs_Nottingham.odt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/odtFiles/PL2025-26/Burnley_vs_Tottenham.odt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/odtFiles/PL2025-26/Crystal Palace_vs_Chelsea.odt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/odtFiles/PL2025-26/Everton_vs_Leeds.odt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/odtFiles/PL2025-26/Fulham_vs_Brighton.odt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/odtFiles/PL2025-26/Manchester City_vs_Wolves.odt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/odtFiles/PL2025-26/Newcastle_vs_Aston Villa.odt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/odtFiles/PL2025-26/West Ham_vs_Sunderland.odt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,6 +88,7 @@
     &quot;Python.debug_data.executor&quot;: &quot;Run&quot;,
     &quot;Python.debug_livesport_structure.executor&quot;: &quot;Run&quot;,
     &quot;Python.debug_system.executor&quot;: &quot;Run&quot;,
+    &quot;Python.diagnose_match_statistics.executor&quot;: &quot;Run&quot;,
     &quot;Python.drop_fixtures_only.executor&quot;: &quot;Run&quot;,
     &quot;Python.fix_schedule.executor&quot;: &quot;Run&quot;,
     &quot;Python.importCsvFile.executor&quot;: &quot;Run&quot;,
@@ -115,6 +109,7 @@
     &quot;Python.step0_harvest_links.executor&quot;: &quot;Run&quot;,
     &quot;Python.step0_harvest_links_final.executor&quot;: &quot;Run&quot;,
     &quot;Python.step0_harvest_links_improved.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step0b_harvest_future_fixtures.executor&quot;: &quot;Run&quot;,
     &quot;Python.step1_load_data.executor&quot;: &quot;Run&quot;,
     &quot;Python.step1_match_stats_from_html (1).executor&quot;: &quot;Run&quot;,
     &quot;Python.step1_match_stats_from_html.executor&quot;: &quot;Run&quot;,
@@ -163,8 +158,10 @@
     &quot;Python.step6_2_show_console_tips.executor&quot;: &quot;Run&quot;,
     &quot;Python.step6_3_show_console_tips.executor&quot;: &quot;Run&quot;,
     &quot;Python.step6_analyze_features.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step6_fetch_odds (1).executor&quot;: &quot;Run&quot;,
     &quot;Python.step6_predictions_report.executor&quot;: &quot;Run&quot;,
     &quot;Python.step6_show_console_tips.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step6b_manual_odds.executor&quot;: &quot;Run&quot;,
     &quot;Python.step7_1_backtest_strategy.executor&quot;: &quot;Run&quot;,
     &quot;Python.step7_2_backtest_strategy.executor&quot;: &quot;Run&quot;,
     &quot;Python.step7_3_backtest_dixon_coles_strategy.executor&quot;: &quot;Run&quot;,
@@ -173,6 +170,8 @@
     &quot;Python.step7_backtest_strategy.executor&quot;: &quot;Run&quot;,
     &quot;Python.step7_calculate_fair_odds.executor&quot;: &quot;Run&quot;,
     &quot;Python.step7_evulate_predictions.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step7_fetch_odds.executor&quot;: &quot;Run&quot;,
+    &quot;Python.step7_show_console_tips (1).executor&quot;: &quot;Run&quot;,
     &quot;Python.step8_backtest_strategy.executor&quot;: &quot;Run&quot;,
     &quot;Python.update_cards_fauls_form_processed.executor&quot;: &quot;Run&quot;,
     &quot;Python.update_corners_form_processed.executor&quot;: &quot;Run&quot;,
@@ -199,8 +198,8 @@
       <recent name="C:\Users\Jiri\Documents\python\football-data-client\etl" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.step7_backtest_strategy">
-    <configuration name="step3_train_models" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.step8_backtest_strategy">
+    <configuration name="step6_fetch_odds (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="football-data-client" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -213,9 +212,8 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="RUN_TOOL" value="" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ml/step3_train_models.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ml/step6_fetch_odds.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -224,7 +222,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="step4_final_prediction" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="step6b_manual_odds" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="football-data-client" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -237,9 +235,8 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="RUN_TOOL" value="" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ml/step4_final_prediction.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ml/step6b_manual_odds.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -248,7 +245,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="step5_analyze_features" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="step7_show_console_tips (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="football-data-client" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -261,9 +258,8 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="RUN_TOOL" value="" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ml/step5_analyze_features.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ml/step7_show_console_tips.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -272,7 +268,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="step6_show_console_tips" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="step7_show_console_tips" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="football-data-client" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -285,9 +281,8 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="RUN_TOOL" value="" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ml/step6_show_console_tips.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\Jiri\Documents\python\football-data-client\ml\step7_show_console_tips.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -296,7 +291,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="step7_backtest_strategy" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="step8_backtest_strategy" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="football-data-client" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -309,9 +304,8 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="RUN_TOOL" value="" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ml/step7_backtest_strategy.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ml/step8_backtest_strategy.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -322,18 +316,17 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.step7_backtest_strategy" />
-        <item itemvalue="Python.step6_show_console_tips" />
-        <item itemvalue="Python.step5_analyze_features" />
-        <item itemvalue="Python.step4_final_prediction" />
-        <item itemvalue="Python.step3_train_models" />
+        <item itemvalue="Python.step8_backtest_strategy" />
+        <item itemvalue="Python.step7_show_console_tips (1)" />
+        <item itemvalue="Python.step6b_manual_odds" />
+        <item itemvalue="Python.step6_fetch_odds (1)" />
+        <item itemvalue="Python.step7_show_console_tips" />
       </list>
     </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-PY-253.31033.139" />
         <option value="bundled-python-sdk-2653e85de345-6d6dccd035ac-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-253.31033.139" />
       </set>
     </attachedChunks>
@@ -380,6 +373,9 @@
       <workItem from="1771830555169" duration="97000" />
       <workItem from="1771830709132" duration="15671000" />
       <workItem from="1771920988577" duration="7126000" />
+      <workItem from="1772010820567" duration="11963000" />
+      <workItem from="1772026817646" duration="23000" />
+      <workItem from="1772090536585" duration="15000" />
     </task>
     <servers />
   </component>
@@ -407,7 +403,7 @@
     <SUITE FILE_PATH="coverage/football_data_client$step6_show_console_tips.coverage" NAME="step6_show_console_tips Coverage Results" MODIFIED="1771925337621" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ml" />
     <SUITE FILE_PATH="coverage/football_data_client$step1_match_stats_from_livesport__1_.coverage" NAME="step1_match_stats_from_livesport (1) Coverage Results" MODIFIED="1770193607658" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/etl" />
     <SUITE FILE_PATH="coverage/football_data_client$import_injuries_to_db.coverage" NAME="import_injuries_to_db Coverage Results" MODIFIED="1770212102612" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ml" />
-    <SUITE FILE_PATH="coverage/football_data_client$step0_harvest_links.coverage" NAME="step0_harvest_links Coverage Results" MODIFIED="1771842215765" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/etl" />
     <SUITE FILE_PATH="coverage/football_data_client$step1_match_stats_from_livesport.coverage" NAME="step1_match_stats_from_livesport Coverage Results" MODIFIED="1771842435657" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/etl" />
+    <SUITE FILE_PATH="coverage/football_data_client$step0_harvest_links.coverage" NAME="step0_harvest_links Coverage Results" MODIFIED="1772026298448" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/etl" />
   </component>
 </project>

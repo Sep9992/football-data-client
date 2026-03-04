@@ -401,7 +401,6 @@ def validate_classifier(model, X, y_class, model_name, n_splits=5):
     away_recall = avg_cm[0, 0] / max(avg_cm[0].sum(), 1) * 100
     draw_recall = avg_cm[1, 1] / max(avg_cm[1].sum(), 1) * 100
     home_recall = avg_cm[2, 2] / max(avg_cm[2].sum(), 1) * 100
-
     print(f"\n  📊 {model_name}: Accuracy={avg_acc:.4f} ± {std_acc:.4f}  |  F1={avg_f1:.4f}")
     print(f"  Per-class recall:  Away={away_recall:.0f}%  Draw={draw_recall:.0f}%  Home={home_recall:.0f}%")
     print(f"  Confusion Matrix (predikce →):")
@@ -432,7 +431,27 @@ def validate_classifier(model, X, y_class, model_name, n_splits=5):
         print(f"\n  📈 S threshold={best_thr:.2f}:  F1={best_thr_f1:.4f}"
               f"  |  Away={thr_away:.0f}%  Draw={thr_draw:.0f}%  Home={thr_home:.0f}%")
 
-    return avg_acc, avg_f1, std_acc, best_thr
+    # Fold detaily pro training_log.json
+    n_folds = len(accs)
+    # train sizes: tscv splits — rekonstruujeme ze split sizes
+    fold_details = []
+    tscv_tmp = TimeSeriesSplit(n_splits=n_folds)
+    for i, (tr_idx, te_idx) in enumerate(tscv_tmp.split(X)):
+        fold_details.append({
+            "fold": i + 1,
+            "train": len(tr_idx),
+            "test": len(te_idx),
+            "accuracy": round(accs[i], 3),
+            "f1": round(f1s[i], 3),
+        })
+
+    recall_dict = {
+        "away": f"{away_recall:.0f}%",
+        "draw": f"{draw_recall:.0f}%",
+        "home": f"{home_recall:.0f}%",
+    }
+
+    return avg_acc, avg_f1, std_acc, best_thr, fold_details, recall_dict
 
 
 def validate_regressors(regs, X, y_goals_h, y_goals_a, n_splits=5):
@@ -569,7 +588,7 @@ def train_models():
     print("=" * 70)
 
     voting_pipe = build_voting_classifier()
-    acc_v, f1_v, std_v, thr_v = validate_classifier(voting_pipe, X, y_class, "Voting")
+    acc_v, f1_v, std_v, thr_v, folds_v, recall_v = validate_classifier(voting_pipe, X, y_class, "Voting")
     print("\n  🔥 Finální trénink...")
     voting_pipe.fit(X, y_class)  # Voting: RF+LR mají class_weight='balanced'
     print_feature_importance(voting_pipe, selected_features, "Voting (RF)")
@@ -582,7 +601,7 @@ def train_models():
     print("=" * 70)
 
     xgb_pipe = build_xgboost_classifier()
-    acc_x, f1_x, std_x, thr_x = validate_classifier(xgb_pipe, X, y_class, "XGBoost")
+    acc_x, f1_x, std_x, thr_x, folds_x, recall_x = validate_classifier(xgb_pipe, X, y_class, "XGBoost")
     print("\n  🔥 Finální trénink...")
     sw_all = compute_sample_weight('balanced', y_class)
     xgb_pipe.fit(X, y_class, xgb__sample_weight=sw_all)  # XGBoost Pipeline to podporuje
@@ -661,8 +680,17 @@ def train_models():
         "n_pairs":          N_PAIRS,
         "n_neutral":        N_NEUTRAL,
         "selected":         selected_features,
-        "voting":           {"accuracy": round(acc_v, 4), "f1": round(f1_v, 4), "draw_thr": round(thr_v, 2)},
-        "xgboost":          {"accuracy": round(acc_x, 4), "f1": round(f1_x, 4), "draw_thr": round(thr_x, 2)},
+        "baseline":         round(baseline, 4),
+        "voting": {
+            "accuracy": round(acc_v, 4), "f1": round(f1_v, 4), "draw_thr": round(thr_v, 2),
+            "folds": folds_v,
+            "per_class_recall": recall_v,
+        },
+        "xgboost": {
+            "accuracy": round(acc_x, 4), "f1": round(f1_x, 4), "draw_thr": round(thr_x, 2),
+            "folds": folds_x,
+            "per_class_recall": recall_x,
+        },
         "best_classifier":  best_clf_name,
         "draw_threshold":   round(best_thr, 2),
         "regressors":       {k: round(v, 3) for k, v in reg_results.items()},
