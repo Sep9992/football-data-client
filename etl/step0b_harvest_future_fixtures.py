@@ -46,6 +46,21 @@ LEAGUES = {
         "league_code":       "FL",
         "season_start_month": 7,
     },
+    "bundesliga": {
+        "url":               "https://www.livesport.cz/fotbal/nemecko/bundesliga/program/",
+        "league_code":       "BL",
+        "season_start_month": 8,
+    },
+    "serie-a": {
+        "url":               "https://www.livesport.cz/fotbal/italie/serie-a/program/",
+        "league_code":       "SA",
+        "season_start_month": 8,
+    },
+    "laliga": {
+        "url":               "https://www.livesport.cz/fotbal/spanelsko/laliga/program/",
+        "league_code":       "LL",
+        "season_start_month": 8,
+    },
 }
 
 # Kolik týdnů dopředu scrapovat (program stránka zobrazuje několik týdnů)
@@ -226,7 +241,7 @@ def parse_team_name(el, side):
 
 # Mapování zkrácených jmen z Livesport na jména v DB
 TEAM_NAME_MAP = {
-    # Premier League
+    # --- Premier League ---
     "Manchester Utd":    "Manchester United",
     "Brighton":          "Brighton & Hove Albion",
     "Wolves":            "Wolverhampton Wanderers",
@@ -247,11 +262,78 @@ TEAM_NAME_MAP = {
     "Crystal Palace":    "Crystal Palace",
     "Aston Villa":       "Aston Villa",
     "Manchester City":   "Manchester City",
-    # Chance Liga — jména jsou typicky plná, ale pro jistotu
+    "Ipswich":           "Ipswich Town",
+
+    # --- Chance Liga (jména jsou typicky plná) ---
     "Sigma Olomouc":     "Sigma Olomouc",
     "Sparta Praha":      "Sparta Praha",
     "Slavia Praha":      "Slavia Praha",
     "Viktoria Plzeň":    "Viktoria Plzeň",
+
+    # --- Bundesliga (české názvy z Livesportu) ---
+    # Většina jmen sedí přímo — mapujeme jen zkrácené varianty
+    "Leverkusen":        "Leverkusen",
+    "Dortmund":          "Dortmund",
+    "Bayern":            "Bayern",
+    "RB Lipsko":         "RB Lipsko",
+    "Frankfurt":         "Frankfurt",
+    "Stuttgart":         "Stuttgart",
+    "Wolfsburg":         "Wolfsburg",
+    "Freiburg":          "Freiburg",
+    "Hoffenheim":        "Hoffenheim",
+    "Heidenheim":        "Heidenheim",
+    "St. Pauli":         "St. Pauli",
+    "Hamburk":           "Hamburk",
+    "Brémy":             "Brémy",
+    "Mohuč":             "Mohuč",
+    "Augsburg":          "Augsburg",
+    "Mönchengladbach":   "Mönchengladbach",
+    "Union Berlín":      "Union Berlín",
+    "Kolín n. R.":       "Kolín n. R.",
+
+    # --- La Liga (české názvy z Livesportu) ---
+    "Real Madrid":       "Real Madrid",
+    "Barcelona":         "Barcelona",
+    "Atl. Madrid":       "Atl. Madrid",
+    "Ath. Bilbao":       "Ath. Bilbao",
+    "Real Sociedad":     "Real Sociedad",
+    "Villarreal":        "Villarreal",
+    "Betis":             "Betis",
+    "Sevilla":           "Sevilla",
+    "Valencia":          "Valencia",
+    "Celta Vigo":        "Celta Vigo",
+    "Girona":            "Girona",
+    "Osasuna":           "Osasuna",
+    "Mallorca":          "Mallorca",
+    "Vallecano":         "Vallecano",
+    "Getafe":            "Getafe",
+    "Espanyol":          "Espanyol",
+    "Alavés":            "Alavés",
+    "Levante":           "Levante",
+    "Elche":             "Elche",
+    "Oviedo":            "Oviedo",
+
+    # --- Serie A (české názvy z Livesportu) ---
+    "Inter":             "Inter",
+    "Juventus":          "Juventus",
+    "Neapol":            "Neapol",
+    "AC Milán":          "AC Milán",
+    "Atalanta":          "Atalanta",
+    "AS Řím":            "AS Řím",
+    "Lazio":             "Lazio",
+    "Fiorentina":        "Fiorentina",
+    "Bologna":           "Bologna",
+    "Turín FC":          "Turín FC",
+    "Udinese":           "Udinese",
+    "FC Janov":          "FC Janov",
+    "Cagliari":          "Cagliari",
+    "Parma":             "Parma",
+    "Como":              "Como",
+    "Verona":            "Verona",
+    "Lecce":             "Lecce",
+    "Sassuolo":          "Sassuolo",
+    "Cremonese":         "Cremonese",
+    "Pisa":              "Pisa",
 }
 
 
@@ -336,7 +418,7 @@ def scrape_future_fixtures(driver, url, league_code, season_start_month):
                 skipped_no_date += 1
                 continue
 
-            if match_date <= today:
+            if match_date < today:   # < místo <= → dnešní zápasy se zachovají
                 skipped_past += 1
                 continue
 
@@ -472,12 +554,6 @@ def main():
                 cfg["league_code"],
                 cfg["season_start_month"],
             )
-
-            # Debug: ukáž prvních 5 nalezených zápasů
-            if fixtures:
-                print(f"\n   🔍 Prvních 5 zápasů:")
-                for f in fixtures[:5]:
-                    print(f"      {f['match_date']}  {f['home_team']} vs {f['away_team']}  [{f['season']}]")
 
             n = save_fixtures(fixtures, cfg["league_code"])
             total_inserted += n

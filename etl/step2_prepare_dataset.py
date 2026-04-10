@@ -19,7 +19,7 @@ MODEL_DIR = os.path.join(os.path.dirname(__file__), "../models")
 os.makedirs(MODEL_DIR, exist_ok=True)
 
 MARKET_VALUES = {
-    # --- PREMIER LEAGUE ---
+    # --- PREMIER LEAGUE (mil. EUR) ---
     "Manchester City": 1290.0, "Arsenal FC": 1270.0, "Chelsea FC": 1160.0,
     "Liverpool FC": 1040.0, "Manchester United": 719.0, "Tottenham Hotspur": 877.0,
     "Newcastle United": 710.0, "Aston Villa": 532.0, "Brighton & Hove Albion": 510.0,
@@ -36,6 +36,70 @@ MARKET_VALUES = {
     "Pardubice": 15.0, "Zlín": 9.0, "Karviná": 10.0,
     "České Budějovice": 10.0, "Dukla Praha": 8.0,
     "Zbrojovka Brno": 9.0,
+
+    # --- BUNDESLIGA (české názvy z Livesportu, mil. EUR Transfermarkt 2025) ---
+    "Bayern":           937.0,
+    "Leverkusen":       639.0,
+    "Dortmund":         489.0,
+    "RB Lipsko":        467.0,
+    "Stuttgart":        347.0,
+    "Frankfurt":        358.0,
+    "Brémy":            197.0,
+    "Wolfsburg":        195.0,
+    "Hoffenheim":       155.0,
+    "Mohuč":            148.0,
+    "Union Berlín":     136.0,
+    "Augsburg":         134.0,
+    "Kolín n. R.":      120.0,
+    "Freiburg":         179.0,
+    "Mönchengladbach":  180.0,
+    "Heidenheim":        91.0,
+    "St. Pauli":         75.0,
+    "Hamburk":           85.0,
+
+    # --- LA LIGA (české názvy z Livesportu, mil. EUR Transfermarkt 2025) ---
+    "Real Madrid":     1540.0,
+    "Barcelona":       1180.0,
+    "Atl. Madrid":      820.0,
+    "Ath. Bilbao":      390.0,
+    "Real Sociedad":    320.0,
+    "Villarreal":       280.0,
+    "Betis":            270.0,
+    "Sevilla":          245.0,
+    "Girona":           210.0,
+    "Valencia":         180.0,
+    "Celta Vigo":       165.0,
+    "Osasuna":          120.0,
+    "Mallorca":         115.0,
+    "Vallecano":        105.0,
+    "Getafe":            95.0,
+    "Espanyol":         100.0,
+    "Alavés":            85.0,
+    "Levante":           55.0,
+    "Elche":             45.0,
+    "Oviedo":            40.0,
+
+    # --- SERIE A (české názvy z Livesportu, mil. EUR Transfermarkt 2025) ---
+    "Inter":            720.0,
+    "Juventus":         580.0,
+    "Neapol":           570.0,
+    "AC Milán":         540.0,
+    "Atalanta":         510.0,
+    "AS Řím":           390.0,
+    "Lazio":            330.0,
+    "Fiorentina":       290.0,
+    "Bologna":          270.0,
+    "Turín FC":         175.0,
+    "Udinese":          120.0,
+    "FC Janov":         115.0,
+    "Cagliari":         100.0,
+    "Parma":             95.0,
+    "Como":              90.0,
+    "Verona":            88.0,
+    "Lecce":             85.0,
+    "Sassuolo":          80.0,
+    "Cremonese":         65.0,
+    "Pisa":              55.0,
 }
 
 # CORE STATS (robustní, 0-5% NULL) - VŽDY použít
@@ -497,7 +561,9 @@ def create_enhanced_features(df):
         df['form_x_attack_away'] = df['away_avg_points_last5'] * df['away_avg_xgot_last5']
         print(f"  ✅ form_x_attack (home/away)")
 
-    df['is_premier_league'] = (df['league'] == 'PL').astype(float)
+    # Liga jako feature — rozlišuje velké ligy (PL, BL, LL, SA) od FL
+    df['is_top5_league'] = (df['league'].isin(['PL', 'BL', 'LL', 'SA'])).astype(float)
+    df['is_premier_league'] = (df['league'] == 'PL').astype(float)  # zachováno pro zpětnou kompatibilitu
 
     print("  ✅ Optimalizované features vytvořeny")
 

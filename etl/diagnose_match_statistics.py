@@ -105,25 +105,32 @@ def main():
     else:
         print("  ✅ Všechny statistiky mají pokrytí ≥ 50%")
 
-    # 5. Srovnání FL vs PL
-    if 'FL' in leagues and 'PL' in leagues:
+    # 5. Srovnání všech lig vs PL (referenční liga s nejlepším pokrytím)
+    ref_league = 'PL' if 'PL' in leagues else leagues[0]
+    other_leagues = [lg for lg in leagues if lg != ref_league]
+    if other_leagues:
         print(f"\n{'─'*70}")
-        print("🆚 SROVNÁNÍ FL vs PL (sloupce kde rozdíl > 20%)")
+        print(f"🆚 SROVNÁNÍ LIG vs {ref_league} — sloupce kde rozdíl > 20%")
         print(f"{'─'*70}")
-        print(f"  {'Statistika':<40}  {'FL':>6}  {'PL':>6}  {'Rozdíl':>8}")
-        print(f"  {'─'*62}")
-        diffs = []
-        for col, cov in coverage_data.items():
-            fl_pct = cov.get('FL')
-            pl_pct = cov.get('PL')
-            if fl_pct is not None and pl_pct is not None:
-                diff = pl_pct - fl_pct
-                if abs(diff) > 20:
-                    diffs.append((col, fl_pct, pl_pct, diff))
-        diffs.sort(key=lambda x: x[3], reverse=True)
-        for col, fl, pl, diff in diffs:
-            marker = "← FL chybí" if diff > 0 else "← PL chybí"
-            print(f"  {col:<40}  {fl:>5.0f}%  {pl:>5.0f}%  {diff:>+7.0f}%  {marker}")
+        for lg in other_leagues:
+            diffs = []
+            for col, cov in coverage_data.items():
+                ref_pct = cov.get(ref_league)
+                lg_pct  = cov.get(lg)
+                if ref_pct is not None and lg_pct is not None:
+                    diff = ref_pct - lg_pct   # kladné = lg má méně než PL
+                    if abs(diff) > 20:
+                        diffs.append((col, lg_pct, ref_pct, diff))
+            if not diffs:
+                print(f"\n  {lg} vs {ref_league}: ✅ žádný rozdíl > 20%")
+                continue
+            diffs.sort(key=lambda x: x[3], reverse=True)
+            print(f"\n  {lg} vs {ref_league}:")
+            print(f"  {'Statistika':<40}  {lg:>6}  {ref_league:>6}  {'Rozdíl':>8}")
+            print(f"  {'─'*62}")
+            for col, lg_pct, ref_pct, diff in diffs:
+                marker = f"← {lg} chybí" if diff > 0 else f"← {ref_league} chybí"
+                print(f"  {col:<40}  {lg_pct:>5.0f}%  {ref_pct:>5.0f}%  {diff:>+7.0f}%  {marker}")
 
     print(f"\n{'='*70}\n")
 

@@ -6,49 +6,81 @@ import undetected_chromedriver as uc
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from sqlalchemy import create_engine, text
+from dotenv import load_dotenv
+
+load_dotenv()
+DATABASE_URL = os.getenv("DATABASE_URL")
+engine = create_engine(DATABASE_URL) if DATABASE_URL else None
 
 # --- KONFIGURACE ---
-# Formát: "klíč": ("url", "cílová-sezóna", season_start_month)
+# Formát: "klíč": ("url", "cílová-sezóna", season_start_month, "league_code")
 #
 # season_start_month:
 #   7 = Chance Liga (začíná v červenci)
-#   8 = Premier League a většina ostatních lig (začínají v srpnu)
+#   8 = ostatní ligy (začínají v srpnu)
 #
-# Historické sezóny mají vlastní URL — odkomentuj co potřebuješ.
+# league_code: kód ligy v DB — slouží k dotazu na nejnovější datum v DB
 
 LEAGUES = {
-    # --- CHANCE LIGA ---
-    # "chance-liga": (
-    #     "https://www.livesport.cz/fotbal/cesko/chance-liga/vysledky/",
-    #     "2025/26",
-    #    7   # ← Chance Liga začíná v ČERVENCI, ne srpnu!
-    #),
-    # "chance-liga-2425": (
-    #     "https://www.livesport.cz/fotbal/cesko/chance-liga-2024-2025/vysledky/",
-    #     "2024/25",
-    #     7
-    # ),
-    # "chance-liga-2324": (
-    #     "https://www.livesport.cz/fotbal/cesko/chance-liga-2023-2024/vysledky/",
-    #     "2023/24",
-    #     7
-    # ),
-    # "chance-liga-2223": (
-    #     "https://www.livesport.cz/fotbal/cesko/chance-liga-2022-2023/vysledky/",
-    #     "2022/23",
-    #     7
-    # ),
-
-    # --- PREMIER LEAGUE ---
     "premier-league": (
         "https://www.livesport.cz/fotbal/anglie/premier-league/vysledky/",
-        "2025/26",
-        8
+        "2025/26", 8, "PL"
+    ),
+    "chance-liga": (
+        "https://www.livesport.cz/fotbal/cesko/chance-liga/vysledky/",
+        "2025/26", 7, "FL"
+    ),
+    "bundesliga": (
+        "https://www.livesport.cz/fotbal/nemecko/bundesliga/vysledky/",
+        "2025/26", 8, "BL"
+    ),
+    "serie-a": (
+        "https://www.livesport.cz/fotbal/italie/serie-a/vysledky/",
+        "2025/26", 8, "SA"
+    ),
+    "laliga": (
+        "https://www.livesport.cz/fotbal/spanelsko/laliga/vysledky/",
+        "2025/26", 8, "LL"
     ),
 }
 
 BASE_DIR = os.path.dirname(__file__)
 DATA_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), "data")
+
+
+def get_last_date_in_db(league_code):
+    """
+    Vrátí nejnovější datum odehraného zápasu dané ligy z DB.
+    Pokud DB není dostupná nebo liga nemá žádné zápasy, vrátí None.
+
+    Příklad: pro PL vrátí datetime(2026, 3, 4) pokud poslední zápas byl 4.3.2026.
+    Tento datum pak slouží jako cutoff — do txt souboru se uloží jen
+    zápasy NOVĚJŠÍ než toto datum.
+    """
+    if engine is None:
+        print("  ⚠️  DB nedostupná — ukládám všechny zápasy sezóny")
+        return None
+    try:
+        with engine.connect() as conn:
+            result = conn.execute(text("""
+                SELECT MAX(f.match_date)
+                FROM fixtures f
+                INNER JOIN match_statistics ms ON ms.fixture_id = f.id
+                WHERE f.league = :league
+            """), {"league": league_code})
+            row = result.fetchone()
+            if row and row[0]:
+                # match_date může být date nebo datetime
+                last = row[0]
+                if hasattr(last, 'date'):
+                    last = last  # datetime → ponechat
+                else:
+                    last = datetime(last.year, last.month, last.day)
+                return last
+    except Exception as e:
+        print(f"  ⚠️  Chyba při dotazu na DB: {e}")
+    return None
 
 
 def get_chrome_version():
@@ -352,16 +384,67 @@ def extract_season_from_date(date_str, season_start_month=8, target_season=None)
         return "Unknown"
 
 
-def analyze_matches(driver, target_season=None, season_start_month=8):
+def parse_date_to_datetime(date_str, season_start_month=8, target_season=None):
+    """
+    Převede datumový řetězec z Livesportu na datetime objekt.
+    Vrátí None pokud parsování selže.
+    Používá stejnou logiku jako extract_season_from_date pro určení roku.
+    """
+    if not date_str:
+        return None
+    now = datetime.now()
+    try:
+        # DD.MM.YYYY
+        m = re.search(r'(\d{1,2})\.(\d{1,2})\.(\d{4})', date_str)
+        if m:
+            d, mo, y = map(int, m.groups())
+            return datetime(y, mo, d)
+
+        # DD.MM. (bez roku) — odhadneme rok
+        m = re.search(r'(\d{1,2})\.(\d{1,2})\.', date_str)
+        if not m:
+            return None
+        d, mo = map(int, m.groups())
+
+        if target_season:
+            season_year = int(target_season.split("/")[0])
+            for yr in [season_year, season_year + 1, season_year - 1]:
+                try:
+                    dt = datetime(yr, mo, d)
+                    season_str = extract_season_from_date(
+                        f"{d:02d}.{mo:02d}.{yr}", season_start_month)
+                    if season_str == target_season:
+                        return dt
+                except ValueError:
+                    continue
+
+        # Fallback: nejbližší datum v minulosti
+        yr = now.year
+        try:
+            dt = datetime(yr, mo, d)
+            if dt > now:
+                dt = datetime(yr - 1, mo, d)
+            return dt
+        except ValueError:
+            return None
+    except Exception:
+        return None
+
+
+def analyze_matches(driver, target_season=None, season_start_month=8, since_date=None):
     """
     Analyzuje načtené zápasy a filtruje pouze cílovou sezónu.
 
     Args:
-        target_season: Pokud zadáno (např. "2025/26"), uloží jen zápasy této sezóny.
+        target_season:      Pokud zadáno (např. "2025/26"), uloží jen zápasy této sezóny.
         season_start_month: Měsíc začátku sezóny (7=Chance Liga, 8=PL).
+        since_date:         datetime — uloží jen zápasy NOVĚJŠÍ než toto datum.
+                            Pokud None, ukládá všechny zápasy cílové sezóny.
     """
     print("    🕵️  Analyzuji načtené zápasy...")
-    if target_season:
+    if since_date:
+        print(f"    📅 Cutoff z DB: zachovám pouze zápasy po {since_date.strftime('%d.%m.%Y')}")
+    elif target_season:
         print(f"    🎯 Filtr sezóny: zachovám pouze {target_season}")
 
     all_elements = driver.find_elements(By.XPATH, "//div[starts-with(@id, 'g_1_')]")
@@ -416,13 +499,26 @@ def analyze_matches(driver, target_season=None, season_start_month=8):
 
             stats['by_season'][season] = stats['by_season'].get(season, 0) + 1
 
-            # Přidej do výstupu jen pokud sezóna sedí (nebo filtr není aktivní)
-            if target_season is None or season == target_season:
+            # Rozhodnutí zda zápas uložit:
+            # 1. Musí být ve správné sezóně (nebo sezóna není filtrovaná)
+            season_ok = (target_season is None or season == target_season)
+
+            # 2. Musí být novější než cutoff z DB (pokud je zadán)
+            date_ok = True
+            match_datetime = None
+            if since_date and date_found:
+                match_datetime = parse_date_to_datetime(date_found, season_start_month,
+                                                        target_season)
+                if match_datetime is not None:
+                    date_ok = match_datetime > since_date
+                # Pokud datum nelze parsovat → ponecháme (raději stáhnout navíc)
+
+            kept = season_ok and date_ok
+            if kept:
                 stats['links'].append(full_link)
 
             # Debug vzorky (první 3 + poslední 3)
             if idx < 3 or idx >= len(all_elements) - 3:
-                kept = (target_season is None or season == target_season)
                 stats['sample_dates'].append({
                     'index': idx,
                     'date': date_found,
@@ -434,10 +530,12 @@ def analyze_matches(driver, target_season=None, season_start_month=8):
             print(f"    ⚠️  Chyba při zpracování zápasu {idx}: {e}")
 
     print(f"    ✅ Datum extrahováno u {stats['date_extraction_success']}/{stats['total']} zápasů")
-    if target_season:
-        filtered = len(stats['links'])
-        skipped = stats['total'] - filtered
-        print(f"    ✅ Filtrováno: {filtered} zachováno, {skipped} přeskočeno (jiná sezóna)")
+    filtered = len(stats['links'])
+    skipped = stats['total'] - filtered
+    if since_date:
+        print(f"    ✅ Nové zápasy po {since_date.strftime('%d.%m.%Y')}: {filtered} uloženo, {skipped} přeskočeno")
+    elif target_season:
+        print(f"    ✅ Filtrováno ({target_season}): {filtered} zachováno, {skipped} přeskočeno")
 
     if stats['sample_dates']:
         print(f"\n    🔍 DEBUG - Vzorky (první 3 + poslední 3):")
@@ -448,10 +546,10 @@ def analyze_matches(driver, target_season=None, season_start_month=8):
     return stats
 
 
-def harvest_links(league_key="chance-liga", manual_check=True, wait_time=4):
+def harvest_links(league_key="premier-league", manual_check=True, wait_time=4):
     """
     Hlavní funkce pro sběr odkazů.
-    Čte konfiguraci z LEAGUES — každý záznam je (url, target_season, season_start_month).
+    Automaticky zjistí nejnovější datum v DB a stáhne jen nové zápasy.
     """
     ensure_data_dir()
 
@@ -460,16 +558,22 @@ def harvest_links(league_key="chance-liga", manual_check=True, wait_time=4):
         print(f"   Dostupné klíče: {list(LEAGUES.keys())}")
         return
 
-    url, target_season, season_start_month = LEAGUES[league_key]
+    url, target_season, season_start_month, league_code = LEAGUES[league_key]
     output_file = os.path.join(DATA_DIR, f"links_{league_key}.txt")
     current_season = get_current_season()
 
+    # --- Zjisti cutoff datum z DB ---
+    since_date = get_last_date_in_db(league_code)
+
     print(f"\n{'=' * 60}")
-    print(f"🚀 SBĚR ODKAZŮ - {league_key.upper()}")
+    print(f"🚀 SBĚR ODKAZŮ - {league_key.upper()} ({league_code})")
     print(f"   Cílová sezóna:   {target_season}")
     print(f"   Aktuální sezóna: {current_season}")
-    print(f"   Začátek sezóny:  měsíc {season_start_month} "
-          f"({'červenec' if season_start_month == 7 else 'srpen'})")
+    if since_date:
+        print(f"   📅 Poslední zápas v DB: {since_date.strftime('%d.%m.%Y')}")
+        print(f"   🎯 Stahuji pouze zápasy PO tomto datu")
+    else:
+        print(f"   📅 DB prázdná → stahuji celou sezónu")
     print(f"{'=' * 60}")
     print(f"📍 URL: {url}")
     print(f"💾 Výstup: {output_file}\n")
@@ -479,9 +583,7 @@ def harvest_links(league_key="chance-liga", manual_check=True, wait_time=4):
     options.add_argument('--password-store=basic')
     options.add_argument('--disable-blink-features=AutomationControlled')
 
-    # Zjisti verzi Chrome a předej explicitně → spolehlivý ChromeDriver
     chrome_version = get_chrome_version()
-
     driver = None
 
     try:
@@ -490,11 +592,8 @@ def harvest_links(league_key="chance-liga", manual_check=True, wait_time=4):
             chrome_kwargs["version_main"] = chrome_version
         driver = uc.Chrome(**chrome_kwargs)
         print("✅ Chrome driver inicializován")
-
     except Exception as e:
         print(f"❌ Chyba při spuštění Chrome: {e}")
-        if chrome_version:
-            print(f"   Zkus ručně: version_main={chrome_version}")
         return
 
     try:
@@ -509,46 +608,45 @@ def harvest_links(league_key="chance-liga", manual_check=True, wait_time=4):
         clicks = load_all_matches(driver, wait_time=wait_time)
 
         if manual_check:
-            # Vypočítej nejstarší datum které hledáme
-            season_year_start = int(target_season.split("/")[0])
-            oldest_month_name = "červenci" if season_start_month == 7 else "srpnu"
-
             print("\n" + "!" * 60)
-            print("⏸️  PAUZA — NUTNÁ RUČNÍ AKCE V PROHLÍŽEČI")
+            print("⏸️  PAUZA — ZKONTROLUJ PROHLÍŽEČ")
             print("!" * 60)
-            print(f"")
-            print(f"  Cílová sezóna:  {target_season}")
-            print(f"  Hledáme zápasy: od {oldest_month_name} {season_year_start}")
-            print(f"  Automaticky kliknuto: {clicks}x")
-            print(f"")
-            print(f"  CO UDĚLAT:")
-            print(f"  1. Přepni se do okna prohlížeče")
-            print(f"  2. Scrolluj DOLŮ na stránce")
-            print(f"  3. Klikej na 'Zobrazit více zápasů' OPAKOVANĚ")
-            print(f"  4. Pokračuj dokud neuvidíš zápasy z {oldest_month_name} {season_year_start}")
-            print(f"  5. Teprve pak se vrať sem a stiskni ENTER")
-            print(f"")
-            print(f"  ⚠️  NESTISKEJ ENTER DŘÍV — jinak se uloží jen část sezóny!")
+            if since_date:
+                cutoff_str = since_date.strftime('%d.%m.%Y')
+                print(f"")
+                print(f"  Poslední zápas v DB:  {cutoff_str}")
+                print(f"  Hledáme zápasy:       novější než {cutoff_str}")
+                print(f"")
+                print(f"  CO UDĚLAT:")
+                print(f"  1. Přepni se do okna prohlížeče")
+                print(f"  2. Zkontroluj že vidíš zápasy těsně po {cutoff_str}")
+                print(f"  3. Pokud ne — scrolluj dolů a klikej 'Zobrazit více zápasů'")
+                print(f"  4. Vrať se sem a stiskni ENTER")
+            else:
+                season_year_start = int(target_season.split("/")[0])
+                oldest_month_name = "červenci" if season_start_month == 7 else "srpnu"
+                print(f"")
+                print(f"  DB prázdná — hledáme celou sezónu {target_season}")
+                print(f"  Scrolluj dolů dokud neuvidíš zápasy z {oldest_month_name} {season_year_start}")
+                print(f"  Pak stiskni ENTER")
             print("!" * 60)
-            input("\n  👉 Stiskni ENTER až vidíš zápasy z {oldest_month_name} {season_year_start}...\n".format(
-                oldest_month_name=oldest_month_name, season_year_start=season_year_start
-            ))
+            input("\n  👉 Stiskni ENTER až je vše připraveno...\n")
             print("!" * 60 + "\n")
 
         stats = analyze_matches(driver, target_season=target_season,
-                                season_start_month=season_start_month)
+                                season_start_month=season_start_month,
+                                since_date=since_date)
 
-        # Uložení do souboru — pouze filtrované linky (cílová sezóna)
+        # Uložení do souboru
         with open(output_file, "w", encoding="utf-8") as f:
             for link in stats['links']:
                 f.write(link + "\n")
 
-        # Výpis statistik
         print(f"\n{'=' * 60}")
         print(f"✅ HOTOVO!")
         print(f"{'=' * 60}")
-        print(f"📊 Celkem načteno:   {stats['total']} zápasů")
-        print(f"✅ Uloženo ({target_season}): {len(stats['links'])} zápasů")
+        print(f"📊 Celkem načteno na stránce: {stats['total']} zápasů")
+        print(f"✅ Nových zápasů uloženo:     {len(stats['links'])}")
         print(f"💾 Soubor: {output_file}")
 
         if stats['by_season']:
@@ -559,24 +657,21 @@ def harvest_links(league_key="chance-liga", manual_check=True, wait_time=4):
             )
             if "Unknown" in stats['by_season']:
                 sorted_seasons.append("Unknown")
-
             max_count = max(stats['by_season'].values()) if stats['by_season'] else 1
             for season in sorted_seasons:
                 count = stats['by_season'][season]
                 bar = "█" * int(count / max_count * 50)
-                marker = " ← ULOŽENO" if season == target_season else ""
+                marker = " ← CÍLOVÁ SEZÓNA" if season == target_season else ""
                 print(f"   {season:10s}: {count:3d} {bar}{marker}")
 
         print(f"\n🖱️  Automatických kliknutí: {clicks}")
         print(f"{'=' * 60}\n")
 
         saved = len(stats['links'])
-        if saved < 100:
-            print(f"⚠️  POZOR: Uloženo jen {saved} zápasů sezóny {target_season}.")
-            print(f"   Zkontroluj URL nebo zkus spustit znovu.\n")
-        elif saved < 300:
-            print(f"💡 TIP: Máš {saved} zápasů ze sezóny {target_season}.")
-            print(f"   Pro více dat odkomentuj historické sezóny v LEAGUES a spusť znovu.\n")
+        if saved == 0:
+            print(f"ℹ️  Žádné nové zápasy — DB je aktuální pro {league_code}.")
+        elif saved < 5:
+            print(f"✅ {saved} nový/nové zápas(y) — víkendové kolo.")
 
     except Exception as e:
         print(f"\n❌ CHYBA: {e}")
@@ -590,8 +685,41 @@ def harvest_links(league_key="chance-liga", manual_check=True, wait_time=4):
             except Exception:
                 pass
 
+    return len(stats['links']) if 'stats' in dir() else 0
+
 
 if __name__ == "__main__":
-    # Spustí sběr pro klíč definovaný v LEAGUES
-    # Pro historické sezóny odkomentuj příslušný řádek v LEAGUES výše
-    harvest_links("premier-league", manual_check=True, wait_time=4)
+    """
+    Spustí sběr nových odkazů pro VŠECH 5 lig.
+    Pro každou ligu automaticky zjistí poslední datum v DB
+    a stáhne pouze zápasy novější než toto datum.
+
+    Použití:
+      python step0_harvest_links.py           ← všech 5 lig
+      python step0_harvest_links.py premier-league  ← jen PL (pro testování)
+    """
+    import sys
+
+    # Volitelný argument: konkrétní liga pro testování
+    if len(sys.argv) > 1:
+        single_key = sys.argv[1]
+        print(f"▶️  Spouštím jen ligu: {single_key}")
+        harvest_links(single_key, manual_check=True, wait_time=4)
+    else:
+        # Všech 5 lig — každá v samostatném Chrome okně
+        print("=" * 60)
+        print("🚀 HROMADNÝ SBĚR — všech 5 lig")
+        print("=" * 60)
+        results = {}
+        for key in LEAGUES:
+            count = harvest_links(key, manual_check=True, wait_time=4)
+            results[key] = count
+
+        print("\n" + "=" * 60)
+        print("📊 SOUHRN")
+        print("=" * 60)
+        for key, count in results.items():
+            league_code = LEAGUES[key][3]
+            print(f"  {league_code:3s}  {key:20s}: {count} nových zápasů")
+        print("=" * 60)
+        print("\n💡 Další krok: spusť step1 s --skip-existing pro každou ligu s novými linky.")
