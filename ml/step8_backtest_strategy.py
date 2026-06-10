@@ -84,7 +84,7 @@ THRESH_SUPER    = 0.85
 BOOKMAKER_MARGIN = 0.10
 
 # --- MIN ODDS ---
-MIN_ODDS_1X2    = 1.50
+MIN_ODDS_1X2    = 1.60
 
 # --- ÚPRAVA 4: Sezónní filtr ---
 # Platná sezóna: září–červen (měsíce 7 a 8 = letní přestávka + předzápasové)
@@ -499,7 +499,7 @@ def main():
     try:
         feature_cols = joblib.load(os.path.join(MODEL_DIR, "feature_cols.pkl"))
         thr_path     = os.path.join(MODEL_DIR, "draw_threshold.pkl")
-        draw_threshold = joblib.load(thr_path) if os.path.exists(thr_path) else 0.37
+        draw_threshold = 0.33
         print(f"\n  ✅ feature_cols.pkl načten ({len(feature_cols)} features)")
         print(f"  ✅ Draw threshold: {draw_threshold:.2f}")
     except FileNotFoundError as e:

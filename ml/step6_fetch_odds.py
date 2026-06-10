@@ -11,8 +11,8 @@ ENV: přidej do .env:
 
 SPOTŘEBA requestů (Free tier 500/měsíc):
     1 request  = výpis dostupných lig  (--list-sports)
-    2 requesty = kurzy PL + FL za kolo
-    Rezerva:  ~240 kol/měsíc → bezpečné
+    5 requestů = kurzy PL + BL + SA + LL za kolo  (FL není v API)
+    Rezerva:  ~100 kol/měsíc → bezpečné (kola jsou 1-2x týdně)
 
 POUŽITÍ:
     python step6_fetch_odds.py              # Stáhni kurzy pro aktuální kolo
@@ -43,12 +43,11 @@ ODDS_FORMAT = "decimal"
 # Pokud liga vrací 404, spusť: python step6_fetch_odds.py --list-sports
 # ─────────────────────────────────────────────────────────────
 LEAGUES = {
-    "soccer_epl": "PL",
+    "soccer_epl":                   "PL",
+    "soccer_germany_bundesliga":    "BL",
+    "soccer_italy_serie_a":         "SA",
+    "soccer_spain_la_liga":         "LL",
     # "soccer_czech_republic_chance_liga": "FL",  # ❌ Není v The Odds API
-    # Další dostupné ligy (přidej dle potřeby):
-    # "soccer_efl_champ":              "EFL"
-    # "soccer_uefa_champs_league":     "UCL"
-    # "soccer_germany_bundesliga":     "BUN"
 }
 
 # ─────────────────────────────────────────────────────────────
@@ -116,6 +115,120 @@ TEAM_NAME_MAP = {
     "Slovacko":                         "Slovácko",
     "FC Zbrojovka Brno":                "Zbrojovka Brno",
     "SK Dynamo Ceske Budejovice":       "České Budějovice",
+    # --- Bundesliga (API → česky v DB) ---
+    "Bayern Munich":                    "Bayern",
+    "FC Bayern Munich":                 "Bayern",
+    "Bayer Leverkusen":                 "Leverkusen",
+    "Borussia Dortmund":                "Dortmund",
+    "RB Leipzig":                       "RB Lipsko",
+    "Eintracht Frankfurt":              "Frankfurt",
+    "VfB Stuttgart":                    "Stuttgart",
+    "Stuttgart":                        "Stuttgart",
+    "SC Freiburg":                      "Freiburg",
+    "Freiburg":                         "Freiburg",
+    "TSG Hoffenheim":                   "Hoffenheim",
+    "Hoffenheim":                       "Hoffenheim",
+    "1. FC Heidenheim":                 "Heidenheim",
+    "Heidenheim":                       "Heidenheim",
+    "VfL Wolfsburg":                    "Wolfsburg",
+    "Wolfsburg":                        "Wolfsburg",
+    "FC Augsburg":                      "Augsburg",
+    "Augsburg":                         "Augsburg",
+    "Borussia Monchengladbach":         "Mönchengladbach",
+    "Borussia Mönchengladbach":         "Mönchengladbach",
+    "1. FSV Mainz 05":                  "Mohuč",
+    "FSV Mainz 05":                     "Mohuč",
+    "Mainz 05":                         "Mohuč",
+    "Mainz":                            "Mohuč",
+    "1. FC Union Berlin":               "Union Berlín",
+    "Union Berlin":                     "Union Berlín",
+    "Werder Bremen":                    "Brémy",
+    "SV Werder Bremen":                 "Brémy",
+    "FC St. Pauli":                     "St. Pauli",
+    "St. Pauli":                        "St. Pauli",
+    "Hamburger SV":                     "Hamburk",
+    "HSV":                              "Hamburk",
+    "1. FC Koln":                       "Kolín n. R.",
+    "1. FC Köln":                       "Kolín n. R.",
+    # --- La Liga (API → česky v DB) ---
+    "Real Madrid":                      "Real Madrid",
+    "Barcelona":                        "Barcelona",
+    "FC Barcelona":                     "Barcelona",
+    "Atletico Madrid":                  "Atl. Madrid",
+    "Atlético Madrid":                  "Atl. Madrid",
+    "Athletic Club":                    "Ath. Bilbao",
+    "Athletic Bilbao":                  "Ath. Bilbao",
+    "Real Sociedad":                    "Real Sociedad",
+    "Villarreal":                       "Villarreal",
+    "Villarreal CF":                    "Villarreal",
+    "Real Betis":                       "Betis",
+    "Betis":                            "Betis",
+    "Sevilla":                          "Sevilla",
+    "Sevilla FC":                       "Sevilla",
+    "Valencia":                         "Valencia",
+    "Valencia CF":                      "Valencia",
+    "Celta Vigo":                       "Celta Vigo",
+    "RC Celta":                         "Celta Vigo",
+    "Girona":                           "Girona",
+    "Girona FC":                        "Girona",
+    "Osasuna":                          "Osasuna",
+    "CA Osasuna":                       "Osasuna",
+    "Mallorca":                         "Mallorca",
+    "RCD Mallorca":                     "Mallorca",
+    "Rayo Vallecano":                   "Vallecano",
+    "Vallecano":                        "Vallecano",
+    "Getafe":                           "Getafe",
+    "Getafe CF":                        "Getafe",
+    "Espanyol":                         "Espanyol",
+    "RCD Espanyol":                     "Espanyol",
+    "Deportivo Alaves":                 "Alavés",
+    "Alaves":                           "Alavés",
+    "Levante":                          "Levante",
+    "Levante UD":                       "Levante",
+    "Elche":                            "Elche",
+    "Elche CF":                         "Elche",
+    "Real Oviedo":                      "Oviedo",
+    "Oviedo":                           "Oviedo",
+    # --- Serie A (API → česky v DB) ---
+    "Inter Milan":                      "Inter",
+    "Internazionale":                   "Inter",
+    "Juventus":                         "Juventus",
+    "Napoli":                           "Neapol",
+    "SSC Napoli":                       "Neapol",
+    "AC Milan":                         "AC Milán",
+    "Milan":                            "AC Milán",
+    "Atalanta":                         "Atalanta",
+    "Atalanta BC":                      "Atalanta",
+    "AS Roma":                          "AS Řím",
+    "Roma":                             "AS Řím",
+    "SS Lazio":                         "Lazio",
+    "Lazio":                            "Lazio",
+    "Fiorentina":                       "Fiorentina",
+    "ACF Fiorentina":                   "Fiorentina",
+    "Bologna":                          "Bologna",
+    "Bologna FC":                       "Bologna",
+    "Torino":                           "Turín FC",
+    "Torino FC":                        "Turín FC",
+    "Udinese":                          "Udinese",
+    "Udinese Calcio":                   "Udinese",
+    "Genoa":                            "FC Janov",
+    "Genoa CFC":                        "FC Janov",
+    "Cagliari":                         "Cagliari",
+    "Cagliari Calcio":                  "Cagliari",
+    "Parma":                            "Parma",
+    "Parma Calcio":                     "Parma",
+    "Como":                             "Como",
+    "Como 1907":                        "Como",
+    "Hellas Verona":                    "Verona",
+    "Verona":                           "Verona",
+    "Lecce":                            "Lecce",
+    "US Lecce":                         "Lecce",
+    "Sassuolo":                         "Sassuolo",
+    "US Sassuolo":                      "Sassuolo",
+    "Cremonese":                        "Cremonese",
+    "US Cremonese":                     "Cremonese",
+    "Pisa":                             "Pisa",
+    "AC Pisa":                          "Pisa",
 }
 
 
@@ -405,7 +518,7 @@ def main():
     else:
         print(f"\n  💡 Tipy při 0 spárovaných zápasech:")
         print(f"     1. Spusť: python step6_fetch_odds.py --list-sports")
-        print(f"     2. Najdi správné sport_key pro PL a FL")
+        print(f"     2. Najdi správné sport_key pro PL, BL, SA a LL")
         print(f"     3. Aktualizuj LEAGUES dict na začátku tohoto souboru")
 
 

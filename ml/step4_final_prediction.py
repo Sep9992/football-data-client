@@ -41,7 +41,7 @@ def main():
 
     # --- NAČTENÍ MODELŮ ---
     try:
-        best_clf         = joblib.load(os.path.join(MODEL_DIR, "best_classifier.pkl"))
+        best_clf       = joblib.load(os.path.join(MODEL_DIR, "voting_classifier.pkl"))
         reg_h            = joblib.load(os.path.join(MODEL_DIR, "poisson_home_goals.pkl"))
         reg_a            = joblib.load(os.path.join(MODEL_DIR, "poisson_away_goals.pkl"))
         xgb_reg_h        = joblib.load(os.path.join(MODEL_DIR, "xgb_home_goals.pkl"))
@@ -49,7 +49,7 @@ def main():
         trained_features = joblib.load(os.path.join(MODEL_DIR, "feature_cols.pkl"))
 
         thr_path       = os.path.join(MODEL_DIR, "draw_threshold.pkl")
-        draw_threshold = joblib.load(thr_path) if os.path.exists(thr_path) else 0.35
+        draw_threshold = 0.33  # Voting threshold — vždy pevný, nezávisle na best_classifier
 
         print(f"✅ Modely načteny. Očekávají {len(trained_features)} features.")
         print(f"   Draw threshold: {draw_threshold:.2f}")

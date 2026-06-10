@@ -1,4 +1,4 @@
-"""
+""""
 step7_show_console_tips.py  v4
 ================================
 Rozšíření v4: integrace reálných bookmaker kurzů (The Odds API via step7_fetch_odds).
@@ -43,7 +43,7 @@ THRESH_FAVORIT  = 0.55   # Čistý favorit (1 nebo 2)
 THRESH_SAFE     = 0.75   # Neprohra (1X nebo X2)
 THRESH_VALUE    = 0.55   # Value na outsidera (X2)
 THRESH_SUPER    = 0.85   # Tutovka upgrade (SAFE → SAFE+)
-MIN_ODDS_LIMIT  = 1.25   # Minimální odhadovaný tržní kurz
+MIN_ODDS_LIMIT  = 1.60   # Minimální odhadovaný tržní kurz
 BOOKMAKER_MARGIN = 0.10  # Odhad marže sázkovky (10%)
 
 MARKET_VALUES = {
@@ -87,7 +87,9 @@ def predict_with_draw_boost(proba, threshold):
 def classify_signal(ph, px, pa):
     """
     Vrátí (tip_label, strength, fair_odd, original_signal, skip).
-    original_signal zachován i když skip=True (pro zobrazení v dashboardu).
+
+    Sázíme VÝHRADNĚ čisté výhry (1 nebo 2) — konzistentní se step8.
+    VALUE/SAFE (1X, X2) odstraněny — systematicky ztrátové při kurzech 1.35–1.45.
     """
     tip_label       = "-"
     strength        = 0.0
@@ -98,11 +100,7 @@ def classify_signal(ph, px, pa):
         if ph > THRESH_FAVORIT:
             tip_label       = "1"
             strength        = ph
-            original_signal = "🔥 FAVORIT"
-        elif (ph + px) > THRESH_SAFE:
-            tip_label       = "1X"
-            strength        = ph + px
-            original_signal = "💎 SAFE+" if strength > THRESH_SUPER else "✅ SAFE"
+            original_signal = "💎 FAVORIT+" if ph > THRESH_SUPER else "🔥 FAVORIT"
         elif ph > 0:
             tip_label       = "1"
             strength        = ph
@@ -110,11 +108,7 @@ def classify_signal(ph, px, pa):
         if pa > THRESH_FAVORIT:
             tip_label       = "2"
             strength        = pa
-            original_signal = "🔥 FAVORIT"
-        elif (pa + px) > THRESH_VALUE:
-            tip_label       = "X2"
-            strength        = pa + px
-            original_signal = "💎 SAFE+" if strength > THRESH_SUPER else "✨ VALUE"
+            original_signal = "💎 FAVORIT+" if pa > THRESH_SUPER else "🔥 FAVORIT"
         elif pa > 0:
             tip_label       = "2"
             strength        = pa
@@ -336,7 +330,8 @@ def display_dashboard(df: pd.DataFrame):
     has_pos_value = (
         df['has_odds'].fillna(False) &
         df['value_pct'].notna() &
-        (df['value_pct'] > 0)
+        (df['value_pct'] > 0) &
+        (pd.to_numeric(df['bm_odd'], errors='coerce').fillna(0) >= MIN_ODDS_LIMIT)  # BM kurz musí být >= MIN_ODDS_LIMIT
     ) if 'has_odds' in df.columns else pd.Series(False, index=df.index)
 
     strong_signal = df['signal'].str.startswith(('🔥', '💎', '✅', '✨'), na=False)
@@ -400,9 +395,7 @@ def display_dashboard(df: pd.DataFrame):
     # Legenda
     print(f"  ℹ️  Legenda signálů:")
     print(f"     🔥 FAVORIT  = P(výsledku) > {THRESH_FAVORIT:.0%}  →  sázej přímo")
-    print(f"     💎 SAFE+    = P(neprohra) > {THRESH_SUPER:.0%}  →  nejsilnější pojistka")
-    print(f"     ✅ SAFE     = P(neprohra) > {THRESH_SAFE:.0%}  →  sázej na jistotu")
-    print(f"     ✨ VALUE    = P(neprohra host) > {THRESH_VALUE:.0%}  →  value outsider")
+    print(f"     💎 FAVORIT+ = P(výsledku) > {THRESH_SUPER:.0%}  →  nejsilnější tip")
     print(f"     ❌ SKIP     = Odhadovaný tržní kurz < {MIN_ODDS_LIMIT}  →  nevýhodné")
     if has_odds:
         print(f"     💰          = Pozitivní value (model_prob × BM kurz > 1.0)")
@@ -413,7 +406,7 @@ def display_dashboard(df: pd.DataFrame):
     print(f"  ℹ️  FÉR = férový kurz (bez marže). Tržní kurz ≈ FÉR × {1 - BOOKMAKER_MARGIN:.2f}")
 
     # Souhrn
-    doporucene_live = df[df['signal'].str.startswith(('🔥', '💎', '✅', '✨'), na=False) & ~df['skip']]
+    doporucene_live = doporucene  # Stejná logika jako zobrazená skupina
     if not doporucene_live.empty:
         if has_odds and 'value_pct' in doporucene_live.columns:
             value_bets = doporucene_live[
@@ -564,7 +557,7 @@ def main():
         feature_cols = joblib.load(os.path.join(MODEL_DIR, "feature_cols.pkl"))
 
         thr_path       = os.path.join(MODEL_DIR, "draw_threshold.pkl")
-        draw_threshold = joblib.load(thr_path) if os.path.exists(thr_path) else 0.37
+        draw_threshold = 0.33
 
         mv_path   = os.path.join(MODEL_DIR, "market_value_scaler.pkl")
         mv_scaler = joblib.load(mv_path) if os.path.exists(mv_path) else None

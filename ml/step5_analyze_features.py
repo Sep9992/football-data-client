@@ -55,6 +55,7 @@ MARKET_VALUES = {
     "Crystal Palace": 536.0, "Wolverhampton Wanderers": 278.0, "Everton FC": 424.0,
     "Fulham FC": 373.0, "AFC Bournemouth": 447.0,
     "Leeds United": 321.0, "Burnley FC": 252.0, "AFC Sunderland": 327.0,
+    "Ipswich Town": 220.0, "Leicester City": 290.0,
     # --- CHANCE LIGA ---
     "Sparta Praha": 82.0, "Slavia Praha": 75.0, "Viktoria Plzeň": 38.0,
     "Baník Ostrava": 22.0, "Mladá Boleslav": 18.0, "Bohemians": 14.0,
@@ -62,6 +63,29 @@ MARKET_VALUES = {
     "Slovan Liberec": 16.0, "Teplice": 11.0, "Jablonec": 12.0,
     "Pardubice": 15.0, "Zlín": 9.0, "Karviná": 10.0,
     "České Budějovice": 10.0, "Dukla Praha": 8.0, "Zbrojovka Brno": 9.0,
+    # --- BUNDESLIGA (české názvy z Livesportu) ---
+    "Bayern": 937.0, "Leverkusen": 639.0, "Dortmund": 489.0,
+    "Frankfurt": 362.0, "Stuttgart": 348.0, "RB Lipsko": 340.0,
+    "Mönchengladbach": 180.0, "Hoffenheim": 175.0, "Freiburg": 170.0,
+    "Wolfsburg": 165.0, "Augsburg": 148.0, "Mohuč": 148.0,
+    "Union Berlín": 136.0, "Brémy": 197.0, "St. Pauli": 120.0,
+    "Heidenheim": 85.0, "Hamburk": 110.0, "Kolín n. R.": 120.0,
+    # --- LA LIGA (české názvy z Livesportu) ---
+    "Real Madrid": 1540.0, "Barcelona": 1180.0, "Atl. Madrid": 820.0,
+    "Ath. Bilbao": 390.0, "Real Sociedad": 320.0, "Villarreal": 280.0,
+    "Betis": 250.0, "Sevilla": 230.0, "Valencia": 190.0,
+    "Celta Vigo": 170.0, "Girona": 210.0, "Osasuna": 130.0,
+    "Mallorca": 120.0, "Vallecano": 105.0, "Getafe": 100.0,
+    "Espanyol": 115.0, "Alavés": 85.0, "Levante": 90.0,
+    "Elche": 70.0, "Oviedo": 75.0,
+    # --- SERIE A (české názvy z Livesportu) ---
+    "Inter": 720.0, "Juventus": 620.0, "Neapol": 570.0,
+    "AC Milán": 540.0, "Atalanta": 490.0, "AS Řím": 390.0,
+    "Lazio": 320.0, "Fiorentina": 290.0, "Bologna": 260.0,
+    "Turín FC": 175.0, "Udinese": 130.0, "FC Janov": 115.0,
+    "Cagliari": 110.0, "Parma": 105.0, "Como": 150.0,
+    "Verona": 95.0, "Lecce": 85.0, "Sassuolo": 120.0,
+    "Cremonese": 80.0, "Pisa": 75.0,
 }
 
 
@@ -238,7 +262,7 @@ def run_analysis():
         feature_cols = joblib.load(os.path.join(MODEL_DIR, "feature_cols.pkl"))
 
         thr_path       = os.path.join(MODEL_DIR, "draw_threshold.pkl")
-        draw_threshold = joblib.load(thr_path) if os.path.exists(thr_path) else 0.22
+        draw_threshold = 0.33
 
         mv_path   = os.path.join(MODEL_DIR, "market_value_scaler.pkl")
         mv_scaler = joblib.load(mv_path) if os.path.exists(mv_path) else None
