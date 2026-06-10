@@ -470,7 +470,10 @@ def save_to_db(fixture_id, extracted_data, goals_home, goals_away,
                     col = f"{base_col}{suffix}"
                     add_col(col, col, val)  # param = col
         else:
-            for suffix, val in [("_home", h_val or h_pct), ("_away", a_val or a_pct)]:
+            for suffix, val in [
+                ("_home", h_val if h_val is not None else h_pct),
+                ("_away", a_val if a_val is not None else a_pct)
+            ]:
                 if val is not None:
                     col = f"{base_col}{suffix}"
                     add_col(col, col, val)
