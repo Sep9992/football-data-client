@@ -9,5 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Keep database alive
+        env:
+          DATABASE_URL: ${{ secrets.postgresql+psycopg2://postgres.wzficawmmbqaftsosznm:Konikova1112%40@aws-1-eu-central-1.pooler.supabase.com:5432/postgres }}
         run: |
-          psql "${{ secrets.postgresql+psycopg2://postgres.wzficawmmbqaftsosznm:Konikova1112%40@aws-1-eu-central-1.pooler.supabase.com:5432/postgres }}" -c "SELECT 1"
+          psql "$DATABASE_URL" -c "SELECT 1"
