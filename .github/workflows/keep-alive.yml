@@ -10,4 +10,4 @@ jobs:
     steps:
       - name: Keep database alive
         run: |
-          psql "${{ secrets.DATABASE_URL }}" -c "SELECT 1"
+          psql "${{ secrets.postgresql+psycopg2://postgres.wzficawmmbqaftsosznm:Konikova1112%40@aws-1-eu-central-1.pooler.supabase.com:5432/postgres }}" -c "SELECT 1"
