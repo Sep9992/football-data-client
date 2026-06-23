@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v4
         with:
           python-version: '3.10'
       - name: Keep DB alive
@@ -19,18 +19,9 @@ jobs:
           python << 'EOF'
           import psycopg2
           import os
-          import sys
           
           db_url = os.environ.get('DB_URL')
-          if not db_url:
-              print("ERROR: DATABASE_URL not set")
-              sys.exit(1)
-          
-          try:
-              conn = psycopg2.connect(db_url)
-              conn.close()
-              print("✅ DB alive")
-          except Exception as e:
-              print(f"ERROR: {e}")
-              sys.exit(1)
+          conn = psycopg2.connect(db_url)
+          conn.close()
+          print('✅ DB alive')
           EOF
