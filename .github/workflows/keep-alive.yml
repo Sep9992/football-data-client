@@ -1,18 +1,17 @@
 name: Keep Supabase Alive
-
 on:
+  workflow_dispatch:
   schedule:
     - cron: '0 */6 * * *'
-
 jobs:
   ping:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: actions/setup-python@v4
         with:
           python-version: '3.10'
-      - name: Keep database alive
+      - name: Keep DB alive
         env:
           DB_URL: ${{ secrets.DATABASE_URL }}
         run: |
@@ -20,6 +19,9 @@ jobs:
           python << 'EOF'
           import psycopg2
           import os
-          psycopg2.connect(os.environ['DB_URL']).close()
+          
+          db_url = os.environ.get('DB_URL')
+          conn = psycopg2.connect(db_url)
+          conn.close()
           print('✅ DB alive')
           EOF
