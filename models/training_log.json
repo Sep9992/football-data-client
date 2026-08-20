@@ -1020,5 +1020,2334 @@
       },
       "best_regressor": "Poisson"
     }
+  },
+  {
+    "timestamp": "2026-03-05T14:03:57.433515",
+    "version": "v4_symmetric",
+    "results": {
+      "n_samples": 2557,
+      "n_features_all": 88,
+      "n_features_sel": 20,
+      "n_pairs": 8,
+      "n_neutral": 4,
+      "selected": [
+        "home_x_elo",
+        "elo_diff",
+        "market_value_diff_scaled",
+        "home_elo",
+        "home_avg_possession_last5",
+        "away_avg_possession_last5",
+        "home_avg_shots_on_target_last5",
+        "away_avg_shots_on_target_last5",
+        "home_avg_shots_last5",
+        "away_avg_shots_last5",
+        "home_avg_goals_last5",
+        "away_avg_goals_last5",
+        "home_avg_points_last5",
+        "away_avg_points_last5",
+        "home_avg_shots_conceded_last5",
+        "away_avg_shots_conceded_last5",
+        "home_avg_shots_on_target_conceded_last5",
+        "away_avg_shots_on_target_conceded_last5",
+        "home_avg_corners_last5",
+        "away_avg_corners_last5"
+      ],
+      "baseline": 0.431,
+      "voting": {
+        "accuracy": 0.4986,
+        "f1": 0.4383,
+        "draw_thr": 0.33,
+        "folds": [
+          {
+            "fold": 1,
+            "train": 427,
+            "test": 426,
+            "accuracy": 0.505,
+            "f1": 0.432
+          },
+          {
+            "fold": 2,
+            "train": 853,
+            "test": 426,
+            "accuracy": 0.528,
+            "f1": 0.452
+          },
+          {
+            "fold": 3,
+            "train": 1279,
+            "test": 426,
+            "accuracy": 0.477,
+            "f1": 0.441
+          },
+          {
+            "fold": 4,
+            "train": 1705,
+            "test": 426,
+            "accuracy": 0.507,
+            "f1": 0.452
+          },
+          {
+            "fold": 5,
+            "train": 2131,
+            "test": 426,
+            "accuracy": 0.477,
+            "f1": 0.414
+          }
+        ],
+        "per_class_recall": {
+          "away": "60%",
+          "draw": "13%",
+          "home": "66%"
+        }
+      },
+      "xgboost": {
+        "accuracy": 0.4582,
+        "f1": 0.4172,
+        "draw_thr": 0.35,
+        "folds": [
+          {
+            "fold": 1,
+            "train": 427,
+            "test": 426,
+            "accuracy": 0.453,
+            "f1": 0.395
+          },
+          {
+            "fold": 2,
+            "train": 853,
+            "test": 426,
+            "accuracy": 0.507,
+            "f1": 0.451
+          },
+          {
+            "fold": 3,
+            "train": 1279,
+            "test": 426,
+            "accuracy": 0.437,
+            "f1": 0.401
+          },
+          {
+            "fold": 4,
+            "train": 1705,
+            "test": 426,
+            "accuracy": 0.446,
+            "f1": 0.41
+          },
+          {
+            "fold": 5,
+            "train": 2131,
+            "test": 426,
+            "accuracy": 0.448,
+            "f1": 0.429
+          }
+        ],
+        "per_class_recall": {
+          "away": "54%",
+          "draw": "17%",
+          "home": "57%"
+        }
+      },
+      "best_classifier": "Voting",
+      "draw_threshold": 0.33,
+      "regressors": {
+        "poisson_h": 0.963,
+        "poisson_a": 0.882,
+        "xgb_h": 0.988,
+        "xgb_a": 0.91
+      },
+      "best_regressor": "Poisson"
+    }
+  },
+  {
+    "timestamp": "2026-03-06T09:44:55.814208",
+    "version": "v4_symmetric",
+    "results": {
+      "n_samples": 2559,
+      "n_features_all": 88,
+      "n_features_sel": 20,
+      "n_pairs": 8,
+      "n_neutral": 4,
+      "selected": [
+        "home_x_elo",
+        "elo_diff",
+        "market_value_diff_scaled",
+        "home_elo",
+        "home_avg_possession_last5",
+        "away_avg_possession_last5",
+        "home_avg_points_last5",
+        "away_avg_points_last5",
+        "home_avg_goals_last5",
+        "away_avg_goals_last5",
+        "home_avg_shots_on_target_last5",
+        "away_avg_shots_on_target_last5",
+        "home_avg_shots_last5",
+        "away_avg_shots_last5",
+        "home_avg_shots_conceded_last5",
+        "away_avg_shots_conceded_last5",
+        "home_avg_expected_goals_last5",
+        "away_avg_expected_goals_last5",
+        "home_avg_corners_last5",
+        "away_avg_corners_last5"
+      ],
+      "baseline": 0.431,
+      "voting": {
+        "accuracy": 0.5009,
+        "f1": 0.4398,
+        "draw_thr": 0.33,
+        "folds": [
+          {
+            "fold": 1,
+            "train": 429,
+            "test": 426,
+            "accuracy": 0.505,
+            "f1": 0.439
+          },
+          {
+            "fold": 2,
+            "train": 855,
+            "test": 426,
+            "accuracy": 0.54,
+            "f1": 0.46
+          },
+          {
+            "fold": 3,
+            "train": 1281,
+            "test": 426,
+            "accuracy": 0.488,
+            "f1": 0.446
+          },
+          {
+            "fold": 4,
+            "train": 1707,
+            "test": 426,
+            "accuracy": 0.481,
+            "f1": 0.419
+          },
+          {
+            "fold": 5,
+            "train": 2133,
+            "test": 426,
+            "accuracy": 0.491,
+            "f1": 0.435
+          }
+        ],
+        "per_class_recall": {
+          "away": "58%",
+          "draw": "13%",
+          "home": "66%"
+        }
+      },
+      "xgboost": {
+        "accuracy": 0.4587,
+        "f1": 0.4169,
+        "draw_thr": 0.39,
+        "folds": [
+          {
+            "fold": 1,
+            "train": 429,
+            "test": 426,
+            "accuracy": 0.439,
+            "f1": 0.38
+          },
+          {
+            "fold": 2,
+            "train": 855,
+            "test": 426,
+            "accuracy": 0.493,
+            "f1": 0.433
+          },
+          {
+            "fold": 3,
+            "train": 1281,
+            "test": 426,
+            "accuracy": 0.441,
+            "f1": 0.408
+          },
+          {
+            "fold": 4,
+            "train": 1707,
+            "test": 426,
+            "accuracy": 0.465,
+            "f1": 0.43
+          },
+          {
+            "fold": 5,
+            "train": 2133,
+            "test": 426,
+            "accuracy": 0.455,
+            "f1": 0.434
+          }
+        ],
+        "per_class_recall": {
+          "away": "53%",
+          "draw": "18%",
+          "home": "57%"
+        }
+      },
+      "best_classifier": "Voting",
+      "draw_threshold": 0.33,
+      "regressors": {
+        "poisson_h": 0.964,
+        "poisson_a": 0.884,
+        "xgb_h": 0.992,
+        "xgb_a": 0.904
+      },
+      "best_regressor": "Poisson"
+    }
+  },
+  {
+    "timestamp": "2026-03-13T08:14:00.978834",
+    "version": "v4_symmetric",
+    "results": {
+      "n_samples": 2596,
+      "n_features_all": 88,
+      "n_features_sel": 20,
+      "n_pairs": 8,
+      "n_neutral": 4,
+      "selected": [
+        "home_x_elo",
+        "elo_diff",
+        "market_value_diff_scaled",
+        "home_elo",
+        "home_avg_possession_last5",
+        "away_avg_possession_last5",
+        "home_avg_goals_last5",
+        "away_avg_goals_last5",
+        "home_avg_points_last5",
+        "away_avg_points_last5",
+        "home_avg_shots_last5",
+        "away_avg_shots_last5",
+        "home_avg_shots_on_target_last5",
+        "away_avg_shots_on_target_last5",
+        "home_avg_expected_goals_last5",
+        "away_avg_expected_goals_last5",
+        "home_avg_corners_last5",
+        "away_avg_corners_last5",
+        "home_avg_passes_total_last5",
+        "away_avg_passes_total_last5"
+      ],
+      "baseline": 0.431,
+      "voting": {
+        "accuracy": 0.4931,
+        "f1": 0.4318,
+        "draw_thr": 0.33,
+        "folds": [
+          {
+            "fold": 1,
+            "train": 436,
+            "test": 432,
+            "accuracy": 0.491,
+            "f1": 0.423
+          },
+          {
+            "fold": 2,
+            "train": 868,
+            "test": 432,
+            "accuracy": 0.535,
+            "f1": 0.456
+          },
+          {
+            "fold": 3,
+            "train": 1300,
+            "test": 432,
+            "accuracy": 0.458,
+            "f1": 0.421
+          },
+          {
+            "fold": 4,
+            "train": 1732,
+            "test": 432,
+            "accuracy": 0.5,
+            "f1": 0.445
+          },
+          {
+            "fold": 5,
+            "train": 2164,
+            "test": 432,
+            "accuracy": 0.481,
+            "f1": 0.413
+          }
+        ],
+        "per_class_recall": {
+          "away": "57%",
+          "draw": "13%",
+          "home": "66%"
+        }
+      },
+      "xgboost": {
+        "accuracy": 0.4708,
+        "f1": 0.4325,
+        "draw_thr": 0.39,
+        "folds": [
+          {
+            "fold": 1,
+            "train": 436,
+            "test": 432,
+            "accuracy": 0.458,
+            "f1": 0.416
+          },
+          {
+            "fold": 2,
+            "train": 868,
+            "test": 432,
+            "accuracy": 0.495,
+            "f1": 0.439
+          },
+          {
+            "fold": 3,
+            "train": 1300,
+            "test": 432,
+            "accuracy": 0.428,
+            "f1": 0.4
+          },
+          {
+            "fold": 4,
+            "train": 1732,
+            "test": 432,
+            "accuracy": 0.498,
+            "f1": 0.466
+          },
+          {
+            "fold": 5,
+            "train": 2164,
+            "test": 432,
+            "accuracy": 0.475,
+            "f1": 0.442
+          }
+        ],
+        "per_class_recall": {
+          "away": "54%",
+          "draw": "20%",
+          "home": "59%"
+        }
+      },
+      "best_classifier": "XGBoost",
+      "draw_threshold": 0.39,
+      "regressors": {
+        "poisson_h": 0.968,
+        "poisson_a": 0.886,
+        "xgb_h": 1.0,
+        "xgb_a": 0.91
+      },
+      "best_regressor": "Poisson"
+    }
+  },
+  {
+    "timestamp": "2026-03-20T08:56:33.777275",
+    "version": "v4_symmetric",
+    "results": {
+      "n_samples": 2643,
+      "n_features_all": 88,
+      "n_features_sel": 20,
+      "n_pairs": 8,
+      "n_neutral": 4,
+      "selected": [
+        "home_x_elo",
+        "elo_diff",
+        "market_value_diff_scaled",
+        "home_elo",
+        "home_avg_possession_last5",
+        "away_avg_possession_last5",
+        "home_avg_goals_last5",
+        "away_avg_goals_last5",
+        "home_avg_points_last5",
+        "away_avg_points_last5",
+        "home_avg_shots_last5",
+        "away_avg_shots_last5",
+        "home_avg_shots_on_target_last5",
+        "away_avg_shots_on_target_last5",
+        "home_avg_shots_conceded_last5",
+        "away_avg_shots_conceded_last5",
+        "home_avg_corners_last5",
+        "away_avg_corners_last5",
+        "home_avg_expected_goals_last5",
+        "away_avg_expected_goals_last5"
+      ],
+      "baseline": 0.431,
+      "voting": {
+        "accuracy": 0.4936,
+        "f1": 0.4296,
+        "draw_thr": 0.33,
+        "folds": [
+          {
+            "fold": 1,
+            "train": 443,
+            "test": 440,
+            "accuracy": 0.495,
+            "f1": 0.418
+          },
+          {
+            "fold": 2,
+            "train": 883,
+            "test": 440,
+            "accuracy": 0.536,
+            "f1": 0.458
+          },
+          {
+            "fold": 3,
+            "train": 1323,
+            "test": 440,
+            "accuracy": 0.47,
+            "f1": 0.423
+          },
+          {
+            "fold": 4,
+            "train": 1763,
+            "test": 440,
+            "accuracy": 0.482,
+            "f1": 0.435
+          },
+          {
+            "fold": 5,
+            "train": 2203,
+            "test": 440,
+            "accuracy": 0.484,
+            "f1": 0.414
+          }
+        ],
+        "per_class_recall": {
+          "away": "57%",
+          "draw": "12%",
+          "home": "66%"
+        }
+      },
+      "xgboost": {
+        "accuracy": 0.4645,
+        "f1": 0.4239,
+        "draw_thr": 0.29,
+        "folds": [
+          {
+            "fold": 1,
+            "train": 443,
+            "test": 440,
+            "accuracy": 0.461,
+            "f1": 0.394
+          },
+          {
+            "fold": 2,
+            "train": 883,
+            "test": 440,
+            "accuracy": 0.493,
+            "f1": 0.438
+          },
+          {
+            "fold": 3,
+            "train": 1323,
+            "test": 440,
+            "accuracy": 0.448,
+            "f1": 0.419
+          },
+          {
+            "fold": 4,
+            "train": 1763,
+            "test": 440,
+            "accuracy": 0.475,
+            "f1": 0.448
+          },
+          {
+            "fold": 5,
+            "train": 2203,
+            "test": 440,
+            "accuracy": 0.445,
+            "f1": 0.42
+          }
+        ],
+        "per_class_recall": {
+          "away": "51%",
+          "draw": "19%",
+          "home": "60%"
+        }
+      },
+      "best_classifier": "Voting",
+      "draw_threshold": 0.33,
+      "regressors": {
+        "poisson_h": 0.963,
+        "poisson_a": 0.881,
+        "xgb_h": 0.987,
+        "xgb_a": 0.905
+      },
+      "best_regressor": "Poisson"
+    }
+  },
+  {
+    "timestamp": "2026-03-25T13:17:17.356905",
+    "version": "v4_symmetric",
+    "results": {
+      "n_samples": 2682,
+      "n_features_all": 88,
+      "n_features_sel": 20,
+      "n_pairs": 8,
+      "n_neutral": 4,
+      "selected": [
+        "home_x_elo",
+        "elo_diff",
+        "market_value_diff_scaled",
+        "home_elo",
+        "home_avg_possession_last5",
+        "away_avg_possession_last5",
+        "home_avg_points_last5",
+        "away_avg_points_last5",
+        "home_avg_goals_last5",
+        "away_avg_goals_last5",
+        "home_avg_shots_on_target_last5",
+        "away_avg_shots_on_target_last5",
+        "home_avg_shots_last5",
+        "away_avg_shots_last5",
+        "home_avg_corners_last5",
+        "away_avg_corners_last5",
+        "home_avg_shots_conceded_last5",
+        "away_avg_shots_conceded_last5",
+        "home_avg_expected_goals_last5",
+        "away_avg_expected_goals_last5"
+      ],
+      "baseline": 0.431,
+      "voting": {
+        "accuracy": 0.4989,
+        "f1": 0.4376,
+        "draw_thr": 0.33,
+        "folds": [
+          {
+            "fold": 1,
+            "train": 447,
+            "test": 447,
+            "accuracy": 0.499,
+            "f1": 0.426
+          },
+          {
+            "fold": 2,
+            "train": 894,
+            "test": 447,
+            "accuracy": 0.537,
+            "f1": 0.468
+          },
+          {
+            "fold": 3,
+            "train": 1341,
+            "test": 447,
+            "accuracy": 0.472,
+            "f1": 0.428
+          },
+          {
+            "fold": 4,
+            "train": 1788,
+            "test": 447,
+            "accuracy": 0.506,
+            "f1": 0.455
+          },
+          {
+            "fold": 5,
+            "train": 2235,
+            "test": 447,
+            "accuracy": 0.481,
+            "f1": 0.411
+          }
+        ],
+        "per_class_recall": {
+          "away": "58%",
+          "draw": "13%",
+          "home": "67%"
+        }
+      },
+      "xgboost": {
+        "accuracy": 0.4698,
+        "f1": 0.4325,
+        "draw_thr": 0.31,
+        "folds": [
+          {
+            "fold": 1,
+            "train": 447,
+            "test": 447,
+            "accuracy": 0.465,
+            "f1": 0.41
+          },
+          {
+            "fold": 2,
+            "train": 894,
+            "test": 447,
+            "accuracy": 0.51,
+            "f1": 0.461
+          },
+          {
+            "fold": 3,
+            "train": 1341,
+            "test": 447,
+            "accuracy": 0.436,
+            "f1": 0.407
+          },
+          {
+            "fold": 4,
+            "train": 1788,
+            "test": 447,
+            "accuracy": 0.481,
+            "f1": 0.459
+          },
+          {
+            "fold": 5,
+            "train": 2235,
+            "test": 447,
+            "accuracy": 0.456,
+            "f1": 0.426
+          }
+        ],
+        "per_class_recall": {
+          "away": "52%",
+          "draw": "21%",
+          "home": "59%"
+        }
+      },
+      "best_classifier": "Voting",
+      "draw_threshold": 0.33,
+      "regressors": {
+        "poisson_h": 0.968,
+        "poisson_a": 0.882,
+        "xgb_h": 0.995,
+        "xgb_a": 0.906
+      },
+      "best_regressor": "Poisson"
+    }
+  },
+  {
+    "timestamp": "2026-04-10T08:58:50.637825",
+    "version": "v4_symmetric",
+    "results": {
+      "n_samples": 2719,
+      "n_features_all": 88,
+      "n_features_sel": 20,
+      "n_pairs": 8,
+      "n_neutral": 4,
+      "selected": [
+        "elo_diff",
+        "home_x_elo",
+        "market_value_diff_scaled",
+        "home_elo",
+        "home_avg_possession_last5",
+        "away_avg_possession_last5",
+        "home_avg_goals_last5",
+        "away_avg_goals_last5",
+        "home_avg_shots_on_target_last5",
+        "away_avg_shots_on_target_last5",
+        "home_avg_points_last5",
+        "away_avg_points_last5",
+        "home_avg_shots_last5",
+        "away_avg_shots_last5",
+        "home_avg_shots_conceded_last5",
+        "away_avg_shots_conceded_last5",
+        "home_avg_passes_total_last5",
+        "away_avg_passes_total_last5",
+        "home_avg_expected_goals_last5",
+        "away_avg_expected_goals_last5"
+      ],
+      "baseline": 0.431,
+      "voting": {
+        "accuracy": 0.5068,
+        "f1": 0.4429,
+        "draw_thr": 0.33,
+        "folds": [
+          {
+            "fold": 1,
+            "train": 454,
+            "test": 453,
+            "accuracy": 0.519,
+            "f1": 0.447
+          },
+          {
+            "fold": 2,
+            "train": 907,
+            "test": 453,
+            "accuracy": 0.539,
+            "f1": 0.473
+          },
+          {
+            "fold": 3,
+            "train": 1360,
+            "test": 453,
+            "accuracy": 0.488,
+            "f1": 0.425
+          },
+          {
+            "fold": 4,
+            "train": 1813,
+            "test": 453,
+            "accuracy": 0.49,
+            "f1": 0.433
+          },
+          {
+            "fold": 5,
+            "train": 2266,
+            "test": 453,
+            "accuracy": 0.499,
+            "f1": 0.436
+          }
+        ],
+        "per_class_recall": {
+          "away": "56%",
+          "draw": "13%",
+          "home": "70%"
+        }
+      },
+      "xgboost": {
+        "accuracy": 0.4715,
+        "f1": 0.4344,
+        "draw_thr": 0.37,
+        "folds": [
+          {
+            "fold": 1,
+            "train": 454,
+            "test": 453,
+            "accuracy": 0.477,
+            "f1": 0.428
+          },
+          {
+            "fold": 2,
+            "train": 907,
+            "test": 453,
+            "accuracy": 0.486,
+            "f1": 0.448
+          },
+          {
+            "fold": 3,
+            "train": 1360,
+            "test": 453,
+            "accuracy": 0.468,
+            "f1": 0.431
+          },
+          {
+            "fold": 4,
+            "train": 1813,
+            "test": 453,
+            "accuracy": 0.448,
+            "f1": 0.419
+          },
+          {
+            "fold": 5,
+            "train": 2266,
+            "test": 453,
+            "accuracy": 0.479,
+            "f1": 0.446
+          }
+        ],
+        "per_class_recall": {
+          "away": "51%",
+          "draw": "21%",
+          "home": "60%"
+        }
+      },
+      "best_classifier": "Voting",
+      "draw_threshold": 0.33,
+      "regressors": {
+        "poisson_h": 0.966,
+        "poisson_a": 0.884,
+        "xgb_h": 0.994,
+        "xgb_a": 0.909
+      },
+      "best_regressor": "Poisson"
+    }
+  },
+  {
+    "timestamp": "2026-04-17T09:21:57.707820",
+    "version": "v4_symmetric",
+    "results": {
+      "n_samples": 2766,
+      "n_features_all": 88,
+      "n_features_sel": 20,
+      "n_pairs": 8,
+      "n_neutral": 4,
+      "selected": [
+        "elo_diff",
+        "home_x_elo",
+        "market_value_diff_scaled",
+        "home_elo",
+        "home_avg_possession_last5",
+        "away_avg_possession_last5",
+        "home_avg_shots_on_target_last5",
+        "away_avg_shots_on_target_last5",
+        "home_avg_goals_last5",
+        "away_avg_goals_last5",
+        "home_avg_points_last5",
+        "away_avg_points_last5",
+        "home_avg_shots_last5",
+        "away_avg_shots_last5",
+        "home_avg_expected_goals_last5",
+        "away_avg_expected_goals_last5",
+        "home_avg_corners_last5",
+        "away_avg_corners_last5",
+        "home_avg_passes_total_last5",
+        "away_avg_passes_total_last5"
+      ],
+      "baseline": 0.431,
+      "voting": {
+        "accuracy": 0.4959,
+        "f1": 0.4303,
+        "draw_thr": 0.31,
+        "folds": [
+          {
+            "fold": 1,
+            "train": 461,
+            "test": 461,
+            "accuracy": 0.501,
+            "f1": 0.427
+          },
+          {
+            "fold": 2,
+            "train": 922,
+            "test": 461,
+            "accuracy": 0.531,
+            "f1": 0.473
+          },
+          {
+            "fold": 3,
+            "train": 1383,
+            "test": 461,
+            "accuracy": 0.482,
+            "f1": 0.416
+          },
+          {
+            "fold": 4,
+            "train": 1844,
+            "test": 461,
+            "accuracy": 0.484,
+            "f1": 0.413
+          },
+          {
+            "fold": 5,
+            "train": 2305,
+            "test": 461,
+            "accuracy": 0.482,
+            "f1": 0.422
+          }
+        ],
+        "per_class_recall": {
+          "away": "56%",
+          "draw": "12%",
+          "home": "68%"
+        }
+      },
+      "xgboost": {
+        "accuracy": 0.4633,
+        "f1": 0.4232,
+        "draw_thr": 0.39,
+        "folds": [
+          {
+            "fold": 1,
+            "train": 461,
+            "test": 461,
+            "accuracy": 0.464,
+            "f1": 0.415
+          },
+          {
+            "fold": 2,
+            "train": 922,
+            "test": 461,
+            "accuracy": 0.482,
+            "f1": 0.445
+          },
+          {
+            "fold": 3,
+            "train": 1383,
+            "test": 461,
+            "accuracy": 0.453,
+            "f1": 0.407
+          },
+          {
+            "fold": 4,
+            "train": 1844,
+            "test": 461,
+            "accuracy": 0.484,
+            "f1": 0.445
+          },
+          {
+            "fold": 5,
+            "train": 2305,
+            "test": 461,
+            "accuracy": 0.434,
+            "f1": 0.404
+          }
+        ],
+        "per_class_recall": {
+          "away": "51%",
+          "draw": "19%",
+          "home": "60%"
+        }
+      },
+      "best_classifier": "Voting",
+      "draw_threshold": 0.31,
+      "regressors": {
+        "poisson_h": 0.973,
+        "poisson_a": 0.886,
+        "xgb_h": 0.999,
+        "xgb_a": 0.908
+      },
+      "best_regressor": "Poisson"
+    }
+  },
+  {
+    "timestamp": "2026-04-24T09:28:38.385573",
+    "version": "v4_symmetric",
+    "results": {
+      "n_samples": 2816,
+      "n_features_all": 88,
+      "n_features_sel": 20,
+      "n_pairs": 8,
+      "n_neutral": 4,
+      "selected": [
+        "home_x_elo",
+        "elo_diff",
+        "market_value_diff_scaled",
+        "home_elo",
+        "home_avg_possession_last5",
+        "away_avg_possession_last5",
+        "home_avg_shots_on_target_last5",
+        "away_avg_shots_on_target_last5",
+        "home_avg_points_last5",
+        "away_avg_points_last5",
+        "home_avg_shots_last5",
+        "away_avg_shots_last5",
+        "home_avg_goals_last5",
+        "away_avg_goals_last5",
+        "home_avg_expected_goals_last5",
+        "away_avg_expected_goals_last5",
+        "home_avg_passes_total_last5",
+        "away_avg_passes_total_last5",
+        "home_avg_shots_conceded_last5",
+        "away_avg_shots_conceded_last5"
+      ],
+      "baseline": 0.431,
+      "voting": {
+        "accuracy": 0.4964,
+        "f1": 0.4315,
+        "draw_thr": 0.31,
+        "folds": [
+          {
+            "fold": 1,
+            "train": 471,
+            "test": 469,
+            "accuracy": 0.516,
+            "f1": 0.449
+          },
+          {
+            "fold": 2,
+            "train": 940,
+            "test": 469,
+            "accuracy": 0.514,
+            "f1": 0.458
+          },
+          {
+            "fold": 3,
+            "train": 1409,
+            "test": 469,
+            "accuracy": 0.478,
+            "f1": 0.407
+          },
+          {
+            "fold": 4,
+            "train": 1878,
+            "test": 469,
+            "accuracy": 0.503,
+            "f1": 0.439
+          },
+          {
+            "fold": 5,
+            "train": 2347,
+            "test": 469,
+            "accuracy": 0.471,
+            "f1": 0.405
+          }
+        ],
+        "per_class_recall": {
+          "away": "55%",
+          "draw": "12%",
+          "home": "68%"
+        }
+      },
+      "xgboost": {
+        "accuracy": 0.4661,
+        "f1": 0.4238,
+        "draw_thr": 0.35,
+        "folds": [
+          {
+            "fold": 1,
+            "train": 471,
+            "test": 469,
+            "accuracy": 0.482,
+            "f1": 0.424
+          },
+          {
+            "fold": 2,
+            "train": 940,
+            "test": 469,
+            "accuracy": 0.493,
+            "f1": 0.453
+          },
+          {
+            "fold": 3,
+            "train": 1409,
+            "test": 469,
+            "accuracy": 0.473,
+            "f1": 0.429
+          },
+          {
+            "fold": 4,
+            "train": 1878,
+            "test": 469,
+            "accuracy": 0.443,
+            "f1": 0.412
+          },
+          {
+            "fold": 5,
+            "train": 2347,
+            "test": 469,
+            "accuracy": 0.439,
+            "f1": 0.401
+          }
+        ],
+        "per_class_recall": {
+          "away": "50%",
+          "draw": "18%",
+          "home": "61%"
+        }
+      },
+      "best_classifier": "Voting",
+      "draw_threshold": 0.31,
+      "regressors": {
+        "poisson_h": 0.967,
+        "poisson_a": 0.88,
+        "xgb_h": 0.997,
+        "xgb_a": 0.904
+      },
+      "best_regressor": "Poisson"
+    }
+  },
+  {
+    "timestamp": "2026-04-29T08:57:14.022247",
+    "version": "v4_symmetric",
+    "results": {
+      "n_samples": 2860,
+      "n_features_all": 88,
+      "n_features_sel": 20,
+      "n_pairs": 8,
+      "n_neutral": 4,
+      "selected": [
+        "home_x_elo",
+        "elo_diff",
+        "home_elo",
+        "market_value_diff_scaled",
+        "home_avg_possession_last5",
+        "away_avg_possession_last5",
+        "home_avg_goals_last5",
+        "away_avg_goals_last5",
+        "home_avg_points_last5",
+        "away_avg_points_last5",
+        "home_avg_shots_on_target_last5",
+        "away_avg_shots_on_target_last5",
+        "home_avg_passes_total_last5",
+        "away_avg_passes_total_last5",
+        "home_avg_shots_last5",
+        "away_avg_shots_last5",
+        "home_avg_shots_conceded_last5",
+        "away_avg_shots_conceded_last5",
+        "home_avg_corners_last5",
+        "away_avg_corners_last5"
+      ],
+      "baseline": 0.431,
+      "voting": {
+        "accuracy": 0.4983,
+        "f1": 0.437,
+        "draw_thr": 0.31,
+        "folds": [
+          {
+            "fold": 1,
+            "train": 480,
+            "test": 476,
+            "accuracy": 0.508,
+            "f1": 0.447
+          },
+          {
+            "fold": 2,
+            "train": 956,
+            "test": 476,
+            "accuracy": 0.521,
+            "f1": 0.461
+          },
+          {
+            "fold": 3,
+            "train": 1432,
+            "test": 476,
+            "accuracy": 0.492,
+            "f1": 0.435
+          },
+          {
+            "fold": 4,
+            "train": 1908,
+            "test": 476,
+            "accuracy": 0.498,
+            "f1": 0.429
+          },
+          {
+            "fold": 5,
+            "train": 2384,
+            "test": 476,
+            "accuracy": 0.473,
+            "f1": 0.413
+          }
+        ],
+        "per_class_recall": {
+          "away": "56%",
+          "draw": "13%",
+          "home": "67%"
+        }
+      },
+      "xgboost": {
+        "accuracy": 0.4697,
+        "f1": 0.43,
+        "draw_thr": 0.35,
+        "folds": [
+          {
+            "fold": 1,
+            "train": 480,
+            "test": 476,
+            "accuracy": 0.498,
+            "f1": 0.445
+          },
+          {
+            "fold": 2,
+            "train": 956,
+            "test": 476,
+            "accuracy": 0.487,
+            "f1": 0.443
+          },
+          {
+            "fold": 3,
+            "train": 1432,
+            "test": 476,
+            "accuracy": 0.452,
+            "f1": 0.422
+          },
+          {
+            "fold": 4,
+            "train": 1908,
+            "test": 476,
+            "accuracy": 0.45,
+            "f1": 0.418
+          },
+          {
+            "fold": 5,
+            "train": 2384,
+            "test": 476,
+            "accuracy": 0.462,
+            "f1": 0.422
+          }
+        ],
+        "per_class_recall": {
+          "away": "53%",
+          "draw": "19%",
+          "home": "60%"
+        }
+      },
+      "best_classifier": "Voting",
+      "draw_threshold": 0.31,
+      "regressors": {
+        "poisson_h": 0.97,
+        "poisson_a": 0.878,
+        "xgb_h": 0.995,
+        "xgb_a": 0.899
+      },
+      "best_regressor": "Poisson"
+    }
+  },
+  {
+    "timestamp": "2026-05-05T09:18:27.367592",
+    "version": "v4_symmetric",
+    "results": {
+      "n_samples": 2907,
+      "n_features_all": 88,
+      "n_features_sel": 20,
+      "n_pairs": 8,
+      "n_neutral": 4,
+      "selected": [
+        "home_x_elo",
+        "elo_diff",
+        "home_elo",
+        "market_value_diff_scaled",
+        "home_avg_shots_on_target_last5",
+        "away_avg_shots_on_target_last5",
+        "home_avg_possession_last5",
+        "away_avg_possession_last5",
+        "home_avg_points_last5",
+        "away_avg_points_last5",
+        "home_avg_goals_last5",
+        "away_avg_goals_last5",
+        "home_avg_shots_last5",
+        "away_avg_shots_last5",
+        "home_avg_shots_conceded_last5",
+        "away_avg_shots_conceded_last5",
+        "home_avg_passes_total_last5",
+        "away_avg_passes_total_last5",
+        "home_avg_expected_goals_last5",
+        "away_avg_expected_goals_last5"
+      ],
+      "baseline": 0.431,
+      "voting": {
+        "accuracy": 0.4955,
+        "f1": 0.4303,
+        "draw_thr": 0.33,
+        "folds": [
+          {
+            "fold": 1,
+            "train": 487,
+            "test": 484,
+            "accuracy": 0.51,
+            "f1": 0.449
+          },
+          {
+            "fold": 2,
+            "train": 971,
+            "test": 484,
+            "accuracy": 0.514,
+            "f1": 0.455
+          },
+          {
+            "fold": 3,
+            "train": 1455,
+            "test": 484,
+            "accuracy": 0.496,
+            "f1": 0.427
+          },
+          {
+            "fold": 4,
+            "train": 1939,
+            "test": 484,
+            "accuracy": 0.494,
+            "f1": 0.431
+          },
+          {
+            "fold": 5,
+            "train": 2423,
+            "test": 484,
+            "accuracy": 0.463,
+            "f1": 0.388
+          }
+        ],
+        "per_class_recall": {
+          "away": "56%",
+          "draw": "11%",
+          "home": "68%"
+        }
+      },
+      "xgboost": {
+        "accuracy": 0.4748,
+        "f1": 0.4332,
+        "draw_thr": 0.37,
+        "folds": [
+          {
+            "fold": 1,
+            "train": 487,
+            "test": 484,
+            "accuracy": 0.49,
+            "f1": 0.433
+          },
+          {
+            "fold": 2,
+            "train": 971,
+            "test": 484,
+            "accuracy": 0.494,
+            "f1": 0.455
+          },
+          {
+            "fold": 3,
+            "train": 1455,
+            "test": 484,
+            "accuracy": 0.463,
+            "f1": 0.412
+          },
+          {
+            "fold": 4,
+            "train": 1939,
+            "test": 484,
+            "accuracy": 0.465,
+            "f1": 0.431
+          },
+          {
+            "fold": 5,
+            "train": 2423,
+            "test": 484,
+            "accuracy": 0.463,
+            "f1": 0.436
+          }
+        ],
+        "per_class_recall": {
+          "away": "53%",
+          "draw": "19%",
+          "home": "61%"
+        }
+      },
+      "best_classifier": "XGBoost",
+      "draw_threshold": 0.37,
+      "regressors": {
+        "poisson_h": 0.97,
+        "poisson_a": 0.88,
+        "xgb_h": 0.997,
+        "xgb_a": 0.899
+      },
+      "best_regressor": "Poisson"
+    }
+  },
+  {
+    "timestamp": "2026-05-15T12:03:14.611912",
+    "version": "v4_symmetric",
+    "results": {
+      "n_samples": 2973,
+      "n_features_all": 88,
+      "n_features_sel": 20,
+      "n_pairs": 8,
+      "n_neutral": 4,
+      "selected": [
+        "elo_diff",
+        "home_x_elo",
+        "market_value_diff_scaled",
+        "home_elo",
+        "home_avg_possession_last5",
+        "away_avg_possession_last5",
+        "home_avg_shots_on_target_last5",
+        "away_avg_shots_on_target_last5",
+        "home_avg_goals_last5",
+        "away_avg_goals_last5",
+        "home_avg_points_last5",
+        "away_avg_points_last5",
+        "home_avg_shots_last5",
+        "away_avg_shots_last5",
+        "home_avg_shots_conceded_last5",
+        "away_avg_shots_conceded_last5",
+        "home_avg_passes_total_last5",
+        "away_avg_passes_total_last5",
+        "home_avg_shots_on_target_conceded_last5",
+        "away_avg_shots_on_target_conceded_last5"
+      ],
+      "baseline": 0.431,
+      "voting": {
+        "accuracy": 0.4901,
+        "f1": 0.432,
+        "draw_thr": 0.33,
+        "folds": [
+          {
+            "fold": 1,
+            "train": 498,
+            "test": 495,
+            "accuracy": 0.507,
+            "f1": 0.45
+          },
+          {
+            "fold": 2,
+            "train": 993,
+            "test": 495,
+            "accuracy": 0.507,
+            "f1": 0.456
+          },
+          {
+            "fold": 3,
+            "train": 1488,
+            "test": 495,
+            "accuracy": 0.497,
+            "f1": 0.443
+          },
+          {
+            "fold": 4,
+            "train": 1983,
+            "test": 495,
+            "accuracy": 0.485,
+            "f1": 0.427
+          },
+          {
+            "fold": 5,
+            "train": 2478,
+            "test": 495,
+            "accuracy": 0.455,
+            "f1": 0.384
+          }
+        ],
+        "per_class_recall": {
+          "away": "57%",
+          "draw": "14%",
+          "home": "65%"
+        }
+      },
+      "xgboost": {
+        "accuracy": 0.4659,
+        "f1": 0.4311,
+        "draw_thr": 0.37,
+        "folds": [
+          {
+            "fold": 1,
+            "train": 498,
+            "test": 495,
+            "accuracy": 0.497,
+            "f1": 0.449
+          },
+          {
+            "fold": 2,
+            "train": 993,
+            "test": 495,
+            "accuracy": 0.477,
+            "f1": 0.44
+          },
+          {
+            "fold": 3,
+            "train": 1488,
+            "test": 495,
+            "accuracy": 0.455,
+            "f1": 0.418
+          },
+          {
+            "fold": 4,
+            "train": 1983,
+            "test": 495,
+            "accuracy": 0.434,
+            "f1": 0.409
+          },
+          {
+            "fold": 5,
+            "train": 2478,
+            "test": 495,
+            "accuracy": 0.467,
+            "f1": 0.44
+          }
+        ],
+        "per_class_recall": {
+          "away": "52%",
+          "draw": "21%",
+          "home": "58%"
+        }
+      },
+      "best_classifier": "Voting",
+      "draw_threshold": 0.33,
+      "regressors": {
+        "poisson_h": 0.965,
+        "poisson_a": 0.878,
+        "xgb_h": 0.997,
+        "xgb_a": 0.9
+      },
+      "best_regressor": "Poisson"
+    }
+  },
+  {
+    "timestamp": "2026-05-22T11:36:55.806420",
+    "version": "v4_symmetric",
+    "results": {
+      "n_samples": 3010,
+      "n_features_all": 88,
+      "n_features_sel": 20,
+      "n_pairs": 8,
+      "n_neutral": 4,
+      "selected": [
+        "home_x_elo",
+        "elo_diff",
+        "market_value_diff_scaled",
+        "home_elo",
+        "home_avg_possession_last5",
+        "away_avg_possession_last5",
+        "home_avg_points_last5",
+        "away_avg_points_last5",
+        "home_avg_shots_on_target_last5",
+        "away_avg_shots_on_target_last5",
+        "home_avg_goals_last5",
+        "away_avg_goals_last5",
+        "home_avg_shots_last5",
+        "away_avg_shots_last5",
+        "home_avg_passes_total_last5",
+        "away_avg_passes_total_last5",
+        "home_avg_shots_conceded_last5",
+        "away_avg_shots_conceded_last5",
+        "home_avg_expected_goals_last5",
+        "away_avg_expected_goals_last5"
+      ],
+      "baseline": 0.431,
+      "voting": {
+        "accuracy": 0.493,
+        "f1": 0.4309,
+        "draw_thr": 0.33,
+        "folds": [
+          {
+            "fold": 1,
+            "train": 505,
+            "test": 501,
+            "accuracy": 0.517,
+            "f1": 0.461
+          },
+          {
+            "fold": 2,
+            "train": 1006,
+            "test": 501,
+            "accuracy": 0.515,
+            "f1": 0.457
+          },
+          {
+            "fold": 3,
+            "train": 1507,
+            "test": 501,
+            "accuracy": 0.483,
+            "f1": 0.421
+          },
+          {
+            "fold": 4,
+            "train": 2008,
+            "test": 501,
+            "accuracy": 0.499,
+            "f1": 0.445
+          },
+          {
+            "fold": 5,
+            "train": 2509,
+            "test": 501,
+            "accuracy": 0.451,
+            "f1": 0.372
+          }
+        ],
+        "per_class_recall": {
+          "away": "55%",
+          "draw": "13%",
+          "home": "67%"
+        }
+      },
+      "xgboost": {
+        "accuracy": 0.4631,
+        "f1": 0.4259,
+        "draw_thr": 0.39,
+        "folds": [
+          {
+            "fold": 1,
+            "train": 505,
+            "test": 501,
+            "accuracy": 0.485,
+            "f1": 0.438
+          },
+          {
+            "fold": 2,
+            "train": 1006,
+            "test": 501,
+            "accuracy": 0.473,
+            "f1": 0.428
+          },
+          {
+            "fold": 3,
+            "train": 1507,
+            "test": 501,
+            "accuracy": 0.435,
+            "f1": 0.404
+          },
+          {
+            "fold": 4,
+            "train": 2008,
+            "test": 501,
+            "accuracy": 0.477,
+            "f1": 0.453
+          },
+          {
+            "fold": 5,
+            "train": 2509,
+            "test": 501,
+            "accuracy": 0.445,
+            "f1": 0.407
+          }
+        ],
+        "per_class_recall": {
+          "away": "50%",
+          "draw": "20%",
+          "home": "59%"
+        }
+      },
+      "best_classifier": "Voting",
+      "draw_threshold": 0.33,
+      "regressors": {
+        "poisson_h": 0.969,
+        "poisson_a": 0.877,
+        "xgb_h": 1.002,
+        "xgb_a": 0.901
+      },
+      "best_regressor": "Poisson"
+    }
+  },
+  {
+    "timestamp": "2026-05-26T14:26:08.669609",
+    "version": "v4_symmetric",
+    "results": {
+      "n_samples": 3050,
+      "n_features_all": 88,
+      "n_features_sel": 20,
+      "n_pairs": 8,
+      "n_neutral": 4,
+      "selected": [
+        "home_x_elo",
+        "elo_diff",
+        "market_value_diff_scaled",
+        "home_elo",
+        "home_avg_possession_last5",
+        "away_avg_possession_last5",
+        "home_avg_points_last5",
+        "away_avg_points_last5",
+        "home_avg_shots_on_target_last5",
+        "away_avg_shots_on_target_last5",
+        "home_avg_goals_last5",
+        "away_avg_goals_last5",
+        "home_avg_shots_last5",
+        "away_avg_shots_last5",
+        "home_avg_expected_goals_last5",
+        "away_avg_expected_goals_last5",
+        "home_avg_passes_total_last5",
+        "away_avg_passes_total_last5",
+        "home_avg_shots_conceded_last5",
+        "away_avg_shots_conceded_last5"
+      ],
+      "baseline": 0.431,
+      "voting": {
+        "accuracy": 0.4984,
+        "f1": 0.4383,
+        "draw_thr": 0.33,
+        "folds": [
+          {
+            "fold": 1,
+            "train": 510,
+            "test": 508,
+            "accuracy": 0.52,
+            "f1": 0.463
+          },
+          {
+            "fold": 2,
+            "train": 1018,
+            "test": 508,
+            "accuracy": 0.53,
+            "f1": 0.471
+          },
+          {
+            "fold": 3,
+            "train": 1526,
+            "test": 508,
+            "accuracy": 0.49,
+            "f1": 0.431
+          },
+          {
+            "fold": 4,
+            "train": 2034,
+            "test": 508,
+            "accuracy": 0.494,
+            "f1": 0.429
+          },
+          {
+            "fold": 5,
+            "train": 2542,
+            "test": 508,
+            "accuracy": 0.459,
+            "f1": 0.396
+          }
+        ],
+        "per_class_recall": {
+          "away": "55%",
+          "draw": "13%",
+          "home": "67%"
+        }
+      },
+      "xgboost": {
+        "accuracy": 0.4642,
+        "f1": 0.4257,
+        "draw_thr": 0.39,
+        "folds": [
+          {
+            "fold": 1,
+            "train": 510,
+            "test": 508,
+            "accuracy": 0.486,
+            "f1": 0.441
+          },
+          {
+            "fold": 2,
+            "train": 1018,
+            "test": 508,
+            "accuracy": 0.478,
+            "f1": 0.436
+          },
+          {
+            "fold": 3,
+            "train": 1526,
+            "test": 508,
+            "accuracy": 0.447,
+            "f1": 0.408
+          },
+          {
+            "fold": 4,
+            "train": 2034,
+            "test": 508,
+            "accuracy": 0.476,
+            "f1": 0.445
+          },
+          {
+            "fold": 5,
+            "train": 2542,
+            "test": 508,
+            "accuracy": 0.433,
+            "f1": 0.398
+          }
+        ],
+        "per_class_recall": {
+          "away": "51%",
+          "draw": "20%",
+          "home": "59%"
+        }
+      },
+      "best_classifier": "Voting",
+      "draw_threshold": 0.33,
+      "regressors": {
+        "poisson_h": 0.968,
+        "poisson_a": 0.877,
+        "xgb_h": 0.996,
+        "xgb_a": 0.9
+      },
+      "best_regressor": "Poisson"
+    }
+  },
+  {
+    "timestamp": "2026-06-04T09:20:02.453888",
+    "version": "v4_symmetric",
+    "results": {
+      "n_samples": 3056,
+      "n_features_all": 88,
+      "n_features_sel": 20,
+      "n_pairs": 8,
+      "n_neutral": 4,
+      "selected": [
+        "home_x_elo",
+        "elo_diff",
+        "market_value_diff_scaled",
+        "home_elo",
+        "home_avg_possession_last5",
+        "away_avg_possession_last5",
+        "home_avg_points_last5",
+        "away_avg_points_last5",
+        "home_avg_goals_last5",
+        "away_avg_goals_last5",
+        "home_avg_shots_on_target_last5",
+        "away_avg_shots_on_target_last5",
+        "home_avg_shots_last5",
+        "away_avg_shots_last5",
+        "home_avg_expected_goals_last5",
+        "away_avg_expected_goals_last5",
+        "home_avg_passes_total_last5",
+        "away_avg_passes_total_last5",
+        "home_avg_shots_conceded_last5",
+        "away_avg_shots_conceded_last5"
+      ],
+      "baseline": 0.431,
+      "voting": {
+        "accuracy": 0.4935,
+        "f1": 0.4314,
+        "draw_thr": 0.33,
+        "folds": [
+          {
+            "fold": 1,
+            "train": 511,
+            "test": 509,
+            "accuracy": 0.511,
+            "f1": 0.457
+          },
+          {
+            "fold": 2,
+            "train": 1020,
+            "test": 509,
+            "accuracy": 0.519,
+            "f1": 0.454
+          },
+          {
+            "fold": 3,
+            "train": 1529,
+            "test": 509,
+            "accuracy": 0.497,
+            "f1": 0.436
+          },
+          {
+            "fold": 4,
+            "train": 2038,
+            "test": 509,
+            "accuracy": 0.487,
+            "f1": 0.422
+          },
+          {
+            "fold": 5,
+            "train": 2547,
+            "test": 509,
+            "accuracy": 0.454,
+            "f1": 0.389
+          }
+        ],
+        "per_class_recall": {
+          "away": "55%",
+          "draw": "12%",
+          "home": "67%"
+        }
+      },
+      "xgboost": {
+        "accuracy": 0.4621,
+        "f1": 0.427,
+        "draw_thr": 0.39,
+        "folds": [
+          {
+            "fold": 1,
+            "train": 511,
+            "test": 509,
+            "accuracy": 0.481,
+            "f1": 0.443
+          },
+          {
+            "fold": 2,
+            "train": 1020,
+            "test": 509,
+            "accuracy": 0.477,
+            "f1": 0.433
+          },
+          {
+            "fold": 3,
+            "train": 1529,
+            "test": 509,
+            "accuracy": 0.43,
+            "f1": 0.39
+          },
+          {
+            "fold": 4,
+            "train": 2038,
+            "test": 509,
+            "accuracy": 0.47,
+            "f1": 0.443
+          },
+          {
+            "fold": 5,
+            "train": 2547,
+            "test": 509,
+            "accuracy": 0.452,
+            "f1": 0.425
+          }
+        ],
+        "per_class_recall": {
+          "away": "52%",
+          "draw": "20%",
+          "home": "57%"
+        }
+      },
+      "best_classifier": "Voting",
+      "draw_threshold": 0.33,
+      "regressors": {
+        "poisson_h": 0.968,
+        "poisson_a": 0.879,
+        "xgb_h": 0.998,
+        "xgb_a": 0.902
+      },
+      "best_regressor": "Poisson"
+    }
+  },
+  {
+    "timestamp": "2026-07-29T08:26:29.435580",
+    "version": "v4_symmetric",
+    "results": {
+      "n_samples": 3064,
+      "n_features_all": 88,
+      "n_features_sel": 20,
+      "n_pairs": 8,
+      "n_neutral": 4,
+      "selected": [
+        "elo_diff",
+        "home_x_elo",
+        "market_value_diff_scaled",
+        "home_elo",
+        "home_avg_possession_last5",
+        "away_avg_possession_last5",
+        "home_avg_points_last5",
+        "away_avg_points_last5",
+        "home_avg_shots_on_target_last5",
+        "away_avg_shots_on_target_last5",
+        "home_avg_goals_last5",
+        "away_avg_goals_last5",
+        "home_avg_shots_last5",
+        "away_avg_shots_last5",
+        "home_avg_shots_conceded_last5",
+        "away_avg_shots_conceded_last5",
+        "home_avg_passes_total_last5",
+        "away_avg_passes_total_last5",
+        "home_avg_expected_goals_last5",
+        "away_avg_expected_goals_last5"
+      ],
+      "baseline": 0.431,
+      "voting": {
+        "accuracy": 0.5024,
+        "f1": 0.4409,
+        "draw_thr": 0.31,
+        "folds": [
+          {
+            "fold": 1,
+            "train": 514,
+            "test": 510,
+            "accuracy": 0.516,
+            "f1": 0.464
+          },
+          {
+            "fold": 2,
+            "train": 1024,
+            "test": 510,
+            "accuracy": 0.531,
+            "f1": 0.469
+          },
+          {
+            "fold": 3,
+            "train": 1534,
+            "test": 510,
+            "accuracy": 0.492,
+            "f1": 0.425
+          },
+          {
+            "fold": 4,
+            "train": 2044,
+            "test": 510,
+            "accuracy": 0.506,
+            "f1": 0.45
+          },
+          {
+            "fold": 5,
+            "train": 2554,
+            "test": 510,
+            "accuracy": 0.467,
+            "f1": 0.397
+          }
+        ],
+        "per_class_recall": {
+          "away": "56%",
+          "draw": "14%",
+          "home": "68%"
+        }
+      },
+      "xgboost": {
+        "accuracy": 0.4655,
+        "f1": 0.4279,
+        "draw_thr": 0.35,
+        "folds": [
+          {
+            "fold": 1,
+            "train": 514,
+            "test": 510,
+            "accuracy": 0.469,
+            "f1": 0.424
+          },
+          {
+            "fold": 2,
+            "train": 1024,
+            "test": 510,
+            "accuracy": 0.475,
+            "f1": 0.428
+          },
+          {
+            "fold": 3,
+            "train": 1534,
+            "test": 510,
+            "accuracy": 0.441,
+            "f1": 0.404
+          },
+          {
+            "fold": 4,
+            "train": 2044,
+            "test": 510,
+            "accuracy": 0.475,
+            "f1": 0.441
+          },
+          {
+            "fold": 5,
+            "train": 2554,
+            "test": 510,
+            "accuracy": 0.469,
+            "f1": 0.443
+          }
+        ],
+        "per_class_recall": {
+          "away": "52%",
+          "draw": "20%",
+          "home": "58%"
+        }
+      },
+      "best_classifier": "Voting",
+      "draw_threshold": 0.31,
+      "regressors": {
+        "poisson_h": 0.968,
+        "poisson_a": 0.88,
+        "xgb_h": 0.996,
+        "xgb_a": 0.901
+      },
+      "best_regressor": "Poisson"
+    }
+  },
+  {
+    "timestamp": "2026-08-10T09:48:26.436146",
+    "version": "v4_symmetric",
+    "results": {
+      "n_samples": 3080,
+      "n_features_all": 88,
+      "n_features_sel": 20,
+      "n_pairs": 8,
+      "n_neutral": 4,
+      "selected": [
+        "home_x_elo",
+        "elo_diff",
+        "market_value_diff_scaled",
+        "home_elo",
+        "home_avg_possession_last5",
+        "away_avg_possession_last5",
+        "home_avg_points_last5",
+        "away_avg_points_last5",
+        "home_avg_shots_on_target_last5",
+        "away_avg_shots_on_target_last5",
+        "home_avg_goals_last5",
+        "away_avg_goals_last5",
+        "home_avg_shots_last5",
+        "away_avg_shots_last5",
+        "home_avg_passes_total_last5",
+        "away_avg_passes_total_last5",
+        "home_avg_corners_last5",
+        "away_avg_corners_last5",
+        "home_avg_box_touches_last5",
+        "away_avg_box_touches_last5"
+      ],
+      "baseline": 0.431,
+      "voting": {
+        "accuracy": 0.4873,
+        "f1": 0.4301,
+        "draw_thr": 0.31,
+        "folds": [
+          {
+            "fold": 1,
+            "train": 515,
+            "test": 513,
+            "accuracy": 0.509,
+            "f1": 0.459
+          },
+          {
+            "fold": 2,
+            "train": 1028,
+            "test": 513,
+            "accuracy": 0.495,
+            "f1": 0.446
+          },
+          {
+            "fold": 3,
+            "train": 1541,
+            "test": 513,
+            "accuracy": 0.483,
+            "f1": 0.416
+          },
+          {
+            "fold": 4,
+            "train": 2054,
+            "test": 513,
+            "accuracy": 0.501,
+            "f1": 0.439
+          },
+          {
+            "fold": 5,
+            "train": 2567,
+            "test": 513,
+            "accuracy": 0.448,
+            "f1": 0.39
+          }
+        ],
+        "per_class_recall": {
+          "away": "55%",
+          "draw": "14%",
+          "home": "65%"
+        }
+      },
+      "xgboost": {
+        "accuracy": 0.4558,
+        "f1": 0.4194,
+        "draw_thr": 0.35,
+        "folds": [
+          {
+            "fold": 1,
+            "train": 515,
+            "test": 513,
+            "accuracy": 0.487,
+            "f1": 0.449
+          },
+          {
+            "fold": 2,
+            "train": 1028,
+            "test": 513,
+            "accuracy": 0.474,
+            "f1": 0.439
+          },
+          {
+            "fold": 3,
+            "train": 1541,
+            "test": 513,
+            "accuracy": 0.425,
+            "f1": 0.378
+          },
+          {
+            "fold": 4,
+            "train": 2054,
+            "test": 513,
+            "accuracy": 0.47,
+            "f1": 0.439
+          },
+          {
+            "fold": 5,
+            "train": 2567,
+            "test": 513,
+            "accuracy": 0.423,
+            "f1": 0.391
+          }
+        ],
+        "per_class_recall": {
+          "away": "50%",
+          "draw": "20%",
+          "home": "58%"
+        }
+      },
+      "best_classifier": "Voting",
+      "draw_threshold": 0.31,
+      "regressors": {
+        "poisson_h": 0.967,
+        "poisson_a": 0.883,
+        "xgb_h": 0.999,
+        "xgb_a": 0.904
+      },
+      "best_regressor": "Poisson"
+    }
+  },
+  {
+    "timestamp": "2026-08-19T10:22:56.683558",
+    "version": "v4_symmetric",
+    "results": {
+      "n_samples": 3094,
+      "n_features_all": 88,
+      "n_features_sel": 20,
+      "n_pairs": 8,
+      "n_neutral": 4,
+      "selected": [
+        "home_x_elo",
+        "elo_diff",
+        "market_value_diff_scaled",
+        "home_elo",
+        "home_avg_possession_last5",
+        "away_avg_possession_last5",
+        "home_avg_points_last5",
+        "away_avg_points_last5",
+        "home_avg_shots_on_target_last5",
+        "away_avg_shots_on_target_last5",
+        "home_avg_goals_last5",
+        "away_avg_goals_last5",
+        "home_avg_shots_last5",
+        "away_avg_shots_last5",
+        "home_avg_passes_total_last5",
+        "away_avg_passes_total_last5",
+        "home_avg_expected_goals_last5",
+        "away_avg_expected_goals_last5",
+        "home_avg_saves_last5",
+        "away_avg_saves_last5"
+      ],
+      "baseline": 0.431,
+      "voting": {
+        "accuracy": 0.4924,
+        "f1": 0.4329,
+        "draw_thr": 0.33,
+        "folds": [
+          {
+            "fold": 1,
+            "train": 519,
+            "test": 515,
+            "accuracy": 0.495,
+            "f1": 0.442
+          },
+          {
+            "fold": 2,
+            "train": 1034,
+            "test": 515,
+            "accuracy": 0.499,
+            "f1": 0.453
+          },
+          {
+            "fold": 3,
+            "train": 1549,
+            "test": 515,
+            "accuracy": 0.505,
+            "f1": 0.429
+          },
+          {
+            "fold": 4,
+            "train": 2064,
+            "test": 515,
+            "accuracy": 0.493,
+            "f1": 0.43
+          },
+          {
+            "fold": 5,
+            "train": 2579,
+            "test": 515,
+            "accuracy": 0.47,
+            "f1": 0.41
+          }
+        ],
+        "per_class_recall": {
+          "away": "56%",
+          "draw": "13%",
+          "home": "66%"
+        }
+      },
+      "xgboost": {
+        "accuracy": 0.4633,
+        "f1": 0.4244,
+        "draw_thr": 0.39,
+        "folds": [
+          {
+            "fold": 1,
+            "train": 519,
+            "test": 515,
+            "accuracy": 0.472,
+            "f1": 0.428
+          },
+          {
+            "fold": 2,
+            "train": 1034,
+            "test": 515,
+            "accuracy": 0.468,
+            "f1": 0.433
+          },
+          {
+            "fold": 3,
+            "train": 1549,
+            "test": 515,
+            "accuracy": 0.464,
+            "f1": 0.42
+          },
+          {
+            "fold": 4,
+            "train": 2064,
+            "test": 515,
+            "accuracy": 0.487,
+            "f1": 0.444
+          },
+          {
+            "fold": 5,
+            "train": 2579,
+            "test": 515,
+            "accuracy": 0.425,
+            "f1": 0.397
+          }
+        ],
+        "per_class_recall": {
+          "away": "50%",
+          "draw": "19%",
+          "home": "60%"
+        }
+      },
+      "best_classifier": "Voting",
+      "draw_threshold": 0.33,
+      "regressors": {
+        "poisson_h": 0.968,
+        "poisson_a": 0.878,
+        "xgb_h": 0.994,
+        "xgb_a": 0.894
+      },
+      "best_regressor": "Poisson"
+    }
   }
 ]

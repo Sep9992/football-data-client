@@ -10,6 +10,7 @@ ZMĚNY v6 (KRITICKÁ OPRAVA):
 """
 
 import os
+import pickle
 import pandas as pd
 import numpy as np
 import joblib
@@ -49,7 +50,8 @@ def main():
         trained_features = joblib.load(os.path.join(MODEL_DIR, "feature_cols.pkl"))
 
         thr_path       = os.path.join(MODEL_DIR, "draw_threshold.pkl")
-        draw_threshold = 0.33  # Voting threshold — vždy pevný, nezávisle na best_classifier
+        with open('../models/draw_threshold.pkl', 'rb') as f:
+            draw_threshold = pickle.load(f)
 
         print(f"✅ Modely načteny. Očekávají {len(trained_features)} features.")
         print(f"   Draw threshold: {draw_threshold:.2f}")

@@ -4,53 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5be190c3-e2de-4cd4-998b-04133b9cf4b1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/etl/diagnose_match_statistics.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/etl/step0b_harvest_future_fixtures.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ml/step6_fetch_odds.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ml/step6b_manual_odds.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ml/step7_show_console_tips.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/backtest_sniper_v5.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/backtest_sniper_v5.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/links_premier-league.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/links_premier-league.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/etl/step0_harvest_links.py" beforeDir="false" afterPath="$PROJECT_DIR$/etl/step0_harvest_links.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/etl/step1_match_stats_from_livesport.py" beforeDir="false" afterPath="$PROJECT_DIR$/etl/step1_match_stats_from_livesport.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/etl/step2_prepare_dataset.py" beforeDir="false" afterPath="$PROJECT_DIR$/etl/step2_prepare_dataset.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ml/step3_train_models.py" beforeDir="false" afterPath="$PROJECT_DIR$/ml/step3_train_models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ml/step4_final_prediction.py" beforeDir="false" afterPath="$PROJECT_DIR$/ml/step4_final_prediction.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ml/step5_analyze_features.py" beforeDir="false" afterPath="$PROJECT_DIR$/ml/step5_analyze_features.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ml/step6_show_console_tips.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ml/step7_backtest_strategy.py" beforeDir="false" afterPath="$PROJECT_DIR$/ml/step8_backtest_strategy.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/best_classifier.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/models/best_classifier.pkl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/draw_threshold.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/models/draw_threshold.pkl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/feature_cols.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/models/feature_cols.pkl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/market_value_scaler.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/models/market_value_scaler.pkl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/poisson_away_goals.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/models/poisson_away_goals.pkl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/poisson_home_goals.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/models/poisson_home_goals.pkl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/shap_reports/shap_100.png" beforeDir="false" afterPath="$PROJECT_DIR$/models/shap_reports/shap_100.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/shap_reports/shap_93.png" beforeDir="false" afterPath="$PROJECT_DIR$/models/shap_reports/shap_93.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/shap_reports/shap_95.png" beforeDir="false" afterPath="$PROJECT_DIR$/models/shap_reports/shap_95.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/shap_reports/shap_98.png" beforeDir="false" afterPath="$PROJECT_DIR$/models/shap_reports/shap_98.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/shap_reports/shap_99.png" beforeDir="false" afterPath="$PROJECT_DIR$/models/shap_reports/shap_99.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/shap_reports/shap_global_summary.png" beforeDir="false" afterPath="$PROJECT_DIR$/models/shap_reports/shap_global_summary.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/training_log.json" beforeDir="false" afterPath="$PROJECT_DIR$/models/training_log.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/voting_classifier.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/models/voting_classifier.pkl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/xgb_away_goals.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/models/xgb_away_goals.pkl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/xgb_classifier.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/models/xgb_classifier.pkl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/xgb_home_goals.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/models/xgb_home_goals.pkl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/odtFiles/PL2025-26/Arsenal_vs_Manchester Utd.odt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/odtFiles/PL2025-26/Bournemouth_vs_Liverpool.odt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/odtFiles/PL2025-26/Brentford_vs_Nottingham.odt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/odtFiles/PL2025-26/Burnley_vs_Tottenham.odt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/odtFiles/PL2025-26/Crystal Palace_vs_Chelsea.odt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/odtFiles/PL2025-26/Everton_vs_Leeds.odt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/odtFiles/PL2025-26/Fulham_vs_Brighton.odt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/odtFiles/PL2025-26/Manchester City_vs_Wolves.odt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/odtFiles/PL2025-26/Newcastle_vs_Aston Villa.odt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/odtFiles/PL2025-26/West Ham_vs_Sunderland.odt" beforeDir="false" />
-    </list>
+    <list default="true" id="5be190c3-e2de-4cd4-998b-04133b9cf4b1" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -70,6 +24,65 @@
   <component name="McpProjectServerCommands">
     <commands />
     <urls />
+  </component>
+  <component name="NextEditCompletionFeaturesState">
+    <decayedCancelled>
+      <entry key="MS100" value="1.0" />
+      <entry key="MS500" value="1.0" />
+      <entry key="S2" value="1.0" />
+      <entry key="S5" value="1.0" />
+      <entry key="S10" value="1.0000000000111713" />
+      <entry key="S30" value="1.0002235471541794" />
+      <entry key="S60" value="1.0149560468803192" />
+      <entry key="M2" value="1.1244352744982147" />
+      <entry key="M5" value="1.595718425079561" />
+      <entry key="M10" value="3.1206226059354503" />
+      <entry key="M15" value="5.239089933462679" />
+      <entry key="M30" value="13.428026414856214" />
+      <entry key="H1" value="31.922093409555355" />
+      <entry key="H2" value="56.26879810001656" />
+      <entry key="H4" value="76.94989522582672" />
+      <entry key="D1" value="101.1731027626742" />
+      <entry key="W1" value="106.14489571296949" />
+    </decayedCancelled>
+    <decayedSelected>
+      <entry key="MS100" value="0.6198538499746025" />
+      <entry key="MS500" value="0.914294735215648" />
+      <entry key="S2" value="1.248902550474174" />
+      <entry key="S5" value="1.585001305782414" />
+      <entry key="S10" value="1.7662806690283686" />
+      <entry key="S30" value="1.915389889941823" />
+      <entry key="S60" value="1.9568613764192229" />
+      <entry key="M2" value="1.989652657217537" />
+      <entry key="M5" value="2.245108639322327" />
+      <entry key="M10" value="2.7082481129138456" />
+      <entry key="M15" value="3.0037103997924244" />
+      <entry key="M30" value="3.4548824706222416" />
+      <entry key="H1" value="3.8794156492987617" />
+      <entry key="H2" value="4.27775574047045" />
+      <entry key="H4" value="4.581172240917187" />
+      <entry key="D1" value="4.920077477619926" />
+      <entry key="W1" value="4.988301441681763" />
+    </decayedSelected>
+    <decayedShown>
+      <entry key="MS100" value="0.6198540739691721" />
+      <entry key="MS500" value="0.9555752065478273" />
+      <entry key="S2" value="1.5067913619553912" />
+      <entry key="S5" value="2.062524954648308" />
+      <entry key="S10" value="2.4327665120514212" />
+      <entry key="S30" value="2.782583521160003" />
+      <entry key="S60" value="2.9018376887498567" />
+      <entry key="M2" value="3.0770988900777696" />
+      <entry key="M5" value="3.822838005693412" />
+      <entry key="M10" value="5.817449158877906" />
+      <entry key="M15" value="8.23414373493325" />
+      <entry key="M30" value="16.877692625696096" />
+      <entry key="H1" value="35.798354797465045" />
+      <entry key="H2" value="60.54467348668285" />
+      <entry key="H4" value="81.53000399061087" />
+      <entry key="D1" value="106.09297930794979" />
+      <entry key="W1" value="111.13316775954242" />
+    </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
@@ -159,6 +172,7 @@
     &quot;Python.step6_3_show_console_tips.executor&quot;: &quot;Run&quot;,
     &quot;Python.step6_analyze_features.executor&quot;: &quot;Run&quot;,
     &quot;Python.step6_fetch_odds (1).executor&quot;: &quot;Run&quot;,
+    &quot;Python.step6_fetch_odds.executor&quot;: &quot;Run&quot;,
     &quot;Python.step6_predictions_report.executor&quot;: &quot;Run&quot;,
     &quot;Python.step6_show_console_tips.executor&quot;: &quot;Run&quot;,
     &quot;Python.step6b_manual_odds.executor&quot;: &quot;Run&quot;,
@@ -172,6 +186,7 @@
     &quot;Python.step7_evulate_predictions.executor&quot;: &quot;Run&quot;,
     &quot;Python.step7_fetch_odds.executor&quot;: &quot;Run&quot;,
     &quot;Python.step7_show_console_tips (1).executor&quot;: &quot;Run&quot;,
+    &quot;Python.step7_show_console_tips.executor&quot;: &quot;Run&quot;,
     &quot;Python.step8_backtest_strategy.executor&quot;: &quot;Run&quot;,
     &quot;Python.update_cards_fauls_form_processed.executor&quot;: &quot;Run&quot;,
     &quot;Python.update_corners_form_processed.executor&quot;: &quot;Run&quot;,
@@ -183,6 +198,7 @@
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
     &quot;ai.playground.ignore.import.keys.banner.in.settings&quot;: &quot;true&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -198,8 +214,8 @@
       <recent name="C:\Users\Jiri\Documents\python\football-data-client\etl" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.step8_backtest_strategy">
-    <configuration name="step6_fetch_odds (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.step7_show_console_tips">
+    <configuration name="step5_analyze_features" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="football-data-client" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -212,6 +228,31 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="DEBUG_JUST_MY_CODE" value="false" />
+      <option name="RUN_TOOL" value="" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ml/step5_analyze_features.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="step6_fetch_odds" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="football-data-client" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ml" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="DEBUG_JUST_MY_CODE" value="false" />
       <option name="RUN_TOOL" value="" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ml/step6_fetch_odds.py" />
       <option name="PARAMETERS" value="" />
@@ -235,31 +276,9 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="DEBUG_JUST_MY_CODE" value="false" />
       <option name="RUN_TOOL" value="" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ml/step6b_manual_odds.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="step7_show_console_tips (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="football-data-client" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ml" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="RUN_TOOL" value="" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ml/step7_show_console_tips.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -281,8 +300,9 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="DEBUG_JUST_MY_CODE" value="false" />
       <option name="RUN_TOOL" value="" />
-      <option name="SCRIPT_NAME" value="C:\Users\Jiri\Documents\python\football-data-client\ml\step7_show_console_tips.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ml/step7_show_console_tips.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -304,6 +324,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="DEBUG_JUST_MY_CODE" value="false" />
       <option name="RUN_TOOL" value="" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ml/step8_backtest_strategy.py" />
       <option name="PARAMETERS" value="" />
@@ -317,17 +338,17 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.step8_backtest_strategy" />
-        <item itemvalue="Python.step7_show_console_tips (1)" />
-        <item itemvalue="Python.step6b_manual_odds" />
-        <item itemvalue="Python.step6_fetch_odds (1)" />
         <item itemvalue="Python.step7_show_console_tips" />
+        <item itemvalue="Python.step6b_manual_odds" />
+        <item itemvalue="Python.step6_fetch_odds" />
+        <item itemvalue="Python.step5_analyze_features" />
       </list>
     </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-2653e85de345-6d6dccd035ac-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-253.31033.139" />
+        <option value="bundled-python-sdk-821f704e66d9-5bd6d13a2a75-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-262.9437.214" />
       </set>
     </attachedChunks>
   </component>

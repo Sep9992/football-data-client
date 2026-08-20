@@ -20,6 +20,7 @@ ZMĚNY oproti v1:
 """
 
 import os
+import pickle
 import pandas as pd
 import numpy as np
 import joblib
@@ -47,45 +48,97 @@ os.makedirs(SHAP_DIR, exist_ok=True)
 
 # Tržní hodnoty (záloha pokud market_value_diff_scaled chybí v DB)
 MARKET_VALUES = {
-    # --- PREMIER LEAGUE ---
-    "Manchester City": 1290.0, "Arsenal FC": 1270.0, "Chelsea FC": 1160.0,
-    "Liverpool FC": 1040.0, "Manchester United": 719.0, "Tottenham Hotspur": 877.0,
-    "Newcastle United": 710.0, "Aston Villa": 532.0, "Brighton & Hove Albion": 510.0,
-    "West Ham United": 339.0, "Nottingham Forest": 592.0, "Brentford": 434.0,
-    "Crystal Palace": 536.0, "Wolverhampton Wanderers": 278.0, "Everton FC": 424.0,
-    "Fulham FC": 373.0, "AFC Bournemouth": 447.0,
-    "Leeds United": 321.0, "Burnley FC": 252.0, "AFC Sunderland": 327.0,
-    "Ipswich Town": 220.0, "Leicester City": 290.0,
-    # --- CHANCE LIGA ---
-    "Sparta Praha": 82.0, "Slavia Praha": 75.0, "Viktoria Plzeň": 38.0,
-    "Baník Ostrava": 22.0, "Mladá Boleslav": 18.0, "Bohemians": 14.0,
-    "Slovácko": 13.0, "Sigma Olomouc": 14.0, "Hradec Králové": 12.0,
-    "Slovan Liberec": 16.0, "Teplice": 11.0, "Jablonec": 12.0,
-    "Pardubice": 15.0, "Zlín": 9.0, "Karviná": 10.0,
-    "České Budějovice": 10.0, "Dukla Praha": 8.0, "Zbrojovka Brno": 9.0,
-    # --- BUNDESLIGA (české názvy z Livesportu) ---
-    "Bayern": 937.0, "Leverkusen": 639.0, "Dortmund": 489.0,
-    "Frankfurt": 362.0, "Stuttgart": 348.0, "RB Lipsko": 340.0,
-    "Mönchengladbach": 180.0, "Hoffenheim": 175.0, "Freiburg": 170.0,
-    "Wolfsburg": 165.0, "Augsburg": 148.0, "Mohuč": 148.0,
-    "Union Berlín": 136.0, "Brémy": 197.0, "St. Pauli": 120.0,
-    "Heidenheim": 85.0, "Hamburk": 110.0, "Kolín n. R.": 120.0,
-    # --- LA LIGA (české názvy z Livesportu) ---
-    "Real Madrid": 1540.0, "Barcelona": 1180.0, "Atl. Madrid": 820.0,
-    "Ath. Bilbao": 390.0, "Real Sociedad": 320.0, "Villarreal": 280.0,
-    "Betis": 250.0, "Sevilla": 230.0, "Valencia": 190.0,
-    "Celta Vigo": 170.0, "Girona": 210.0, "Osasuna": 130.0,
-    "Mallorca": 120.0, "Vallecano": 105.0, "Getafe": 100.0,
-    "Espanyol": 115.0, "Alavés": 85.0, "Levante": 90.0,
-    "Elche": 70.0, "Oviedo": 75.0,
-    # --- SERIE A (české názvy z Livesportu) ---
-    "Inter": 720.0, "Juventus": 620.0, "Neapol": 570.0,
-    "AC Milán": 540.0, "Atalanta": 490.0, "AS Řím": 390.0,
-    "Lazio": 320.0, "Fiorentina": 290.0, "Bologna": 260.0,
-    "Turín FC": 175.0, "Udinese": 130.0, "FC Janov": 115.0,
-    "Cagliari": 110.0, "Parma": 105.0, "Como": 150.0,
-    "Verona": 95.0, "Lecce": 85.0, "Sassuolo": 120.0,
-    "Cremonese": 80.0, "Pisa": 75.0,
+    # --- PREMIER LEAGUE (mil. EUR) ---
+    "Manchester City": 1410.0, "Arsenal FC": 1410.0, "Chelsea FC": 1360.0,
+    "Liverpool FC": 999.5, "Manchester United": 874.0, "Tottenham Hotspur": 795.0,
+    "Newcastle United": 586.0, "Aston Villa": 499.0, "Brighton & Hove Albion": 637.0,
+    "West Ham United": 299.0, "Nottingham Forest": 553.0, "Brentford": 562.0,
+    "Crystal Palace": 545.0, "Wolverhampton Wanderers": 265.0, "Everton FC": 471.0,
+    "Fulham FC": 344.0, "AFC Bournemouth": 566.0,
+    "Leeds United": 413.0, "Burnley FC": 127.0, "AFC Sunderland": 381.0,
+    "Coventry": 273, "Ipswich Town": 318, "Hull": 144,
+
+    # --- CHANCE LIGA (přibližné hodnoty dle Transfermarkt, mil. EUR) ---
+    "Sparta Praha": 85.0, "Slavia Praha": 120.0, "Viktoria Plzeň": 57.0,
+    "Baník Ostrava": 19.0, "Mladá Boleslav": 10.0, "Bohemians": 6.0,
+    "Slovácko": 8.0, "Sigma Olomouc": 30.0, "Hradec Králové": 14.0,
+    "Slovan Liberec": 27.0, "Teplice": 8.0, "Jablonec": 14.0,
+    "Pardubice": 14.0, "Zlín": 7.0, "Karviná": 7.0,
+    "České Budějovice": 1.0, "Dukla Praha": 7.0,
+    "Zbrojovka Brno": 9.0, "Artis Brno": 7,
+
+    # --- BUNDESLIGA (české názvy z Livesportu, mil. EUR Transfermarkt 2025) ---
+    "Bayern": 1080.0,
+    "Leverkusen": 517.0,
+    "Dortmund": 529.0,
+    "RB Lipsko": 514.0,
+    "Stuttgart": 430.0,
+    "Frankfurt": 346.0,
+    "Brémy": 144.0,
+    "Wolfsburg": 154.0,
+    "Hoffenheim": 295.0,
+    "Mohuč": 175.0,
+    "Union Berlín": 120.0,
+    "Augsburg": 160.0,
+    "Kolín n. R.": 133.0,
+    "Freiburg": 237.0,
+    "Mönchengladbach": 129.0,
+    "Heidenheim": 33.0,
+    "St. Pauli": 47.0,
+    "Hamburk": 101.0,
+    "Elversberg": 59.0,
+    "Paderborn": 43.0,
+    "Schalke": 67.0,
+
+    # --- LA LIGA (české názvy z Livesportu, mil. EUR Transfermarkt 2025) ---
+    "Real Madrid": 1450.0,
+    "Barcelona": 1280.0,
+    "Atl. Madrid": 681.0,
+    "Ath. Bilbao": 241.0,
+    "Real Sociedad": 247.0,
+    "Villarreal": 325.0,
+    "Betis": 235.0,
+    "Sevilla": 130.0,
+    "Girona": 119.0,
+    "Valencia": 120.0,
+    "Celta Vigo": 165.0,
+    "Osasuna": 71.0,
+    "Mallorca": 44.0,
+    "Vallecano": 76.0,
+    "Getafe": 92.0,
+    "Espanyol": 120.0,
+    "Alavés": 70.0,
+    "Levante": 86.0,
+    "Elche": 79.0,
+    "Oviedo": 31.0,
+    "Malaga": 39.0,
+    "Racing Santander": 84.0,
+    "A Coruňa": 84.0,
+
+    # --- SERIE A (české názvy z Livesportu, mil. EUR Transfermarkt 2025) ---
+    "Inter": 712.0,
+    "Juventus": 583.0,
+    "Neapol": 442.0,
+    "AC Milán": 562.0,
+    "Atalanta": 429.0,
+    "AS Řím": 487.0,
+    "Lazio": 228.0,
+    "Fiorentina": 340.0,
+    "Bologna": 218.0,
+    "Turín FC": 135.0,
+    "Udinese": 163.0,
+    "FC Janov": 179.0,
+    "Cagliari": 132.0,
+    "Parma": 192.0,
+    "Como": 493.0,
+    "Verona": 61.0,
+    "Lecce": 75.0,
+    "Sassuolo": 193.0,
+    "Cremonese": 51.0,
+    "Pisa": 78.0,
+    "Monza": 64.0,
+    "Frosinone": 85.0,
+    "Venezia": 117.0
 }
 
 
@@ -262,7 +315,8 @@ def run_analysis():
         feature_cols = joblib.load(os.path.join(MODEL_DIR, "feature_cols.pkl"))
 
         thr_path       = os.path.join(MODEL_DIR, "draw_threshold.pkl")
-        draw_threshold = 0.33
+        with open('../models/draw_threshold.pkl', 'rb') as f:
+            draw_threshold = pickle.load(f)
 
         mv_path   = os.path.join(MODEL_DIR, "market_value_scaler.pkl")
         mv_scaler = joblib.load(mv_path) if os.path.exists(mv_path) else None

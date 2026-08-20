@@ -1,41 +1,42 @@
-"""
-step8_backtest_strategy.py  v7
+""""
+step8_backtest_strategy.py  v8
 ================================
-Změny v6 oproti v5 (4 úpravy na základě analýzy backtestového logu v5):
+Změny v7→v8 (ÚPRAVA 5 na základě analýzy května 2026 a data distribution):
 
   ÚPRAVA 1 — Oprava timing rebase:
     Problém v5: Rebase každých 30 sázek → nastane náhodně uprostřed série proher.
-                Log: sázka 30 rebáze 500→610 Kč, hned 2× ztráta (-1220 Kč šok).
-    Řešení: Rebase po každém KOLE (každých 14 dní kalendářního času),
-            nikoliv po počtu sázek. Nikdy nerebázuje při aktivní ztrátové sérii
-            (3+ po sobě jdoucí prohry).
+    Řešení: Rebase po každém KOLE (14 dní), nikoliv po počtu sázek.
 
   ÚPRAVA 2 — Cooling filtr (drawdown ochrana):
-    Problém v5: Max drawdown 23.6% → po 3 prohrách model pokračuje plnou sazbou.
-    Řešení: Po 3 po sobě jdoucích prohrách → sázka se sníží na 50% flat.
-            Normální sázka se obnoví po 2 po sobě jdoucích výhrách.
-            Výsledek: omezuje drawdown bez změny strategie výběru sázek.
+    Problém v5: Max drawdown 23.6% → po 3 prohrách pokračuje plnou sazbou.
+    Řešení: Po 3 prohrách → sázka -50%, reset po 2 výhrách.
 
-  ÚPRAVA 3 — Vrácení THRESH_FAVORIT na 55%:
-    Problém v6: Snížení na 53% zničilo win rate (66.7% → 61.2%).
-                Break-even při kurzu 1.60 = 62.5%, model při 53% dosahuje jen 61.2%.
-    Řešení: THRESH_FAVORIT zpět na 0.55 — ověřený edge, méně sázek ale kvalitnějších.
+  ÚPRAVA 3 — THRESH_FAVORIT = 55%:
+    Rationale: Break-even na kurzu 1.60 = 62.5%, ale 55% dává praktický edge.
 
-  ÚPRAVA 4 — Oprava sezónního filtru (červenec + celý srpen):
-    Problém v6: Filtr pustil dovnitř červenec (19.07. Jablonec vs Sparta — předzápasové
-                období, model nemá žádná formová data). Filtr měl jen horní hranici.
-    Řešení: Zakázat sázky v červenci a srpnu úplně (měsíce 7 a 8).
-            Platná sezóna = září–červen. Jednoduché, robustní, bez edge-case chyb.
+  ÚPRAVA 4 — Sezónní filtr červenec+srpen:
+    Důvod: Předzápasové období nemá formová data.
+    Řešení: Zakázat sázky v měsících 7 a 8.
+
+  ✅ ÚPRAVA 5 — Sezónní konfigurační multiplier (březen-květen):
+    PROBLÉM: Květen 2026 backtest -43% ROI, květen má +5.7% více gólů, vyšší volatilita.
+             Model ztrácí prediktibilitu na konci sezóny (týmy se zraňují, demotivovány).
+    DATA:    Květen: home win% 44.1%, avg goals 3.13 vs 2.96 (normál) → +5.7% gólů
+    ŘEŠENÍ:  Březen-květen → konzervativní sázení:
+             • MIN_ODDS zvýšen: 1.60 → 1.80 (lepší marže)
+             • FLAT_STAKE snížen: 400 Kč → 300 Kč (menší loss)
+             • THRESH_FAVORIT zvýšen: 0.55 → 0.60 (jen nejjednotnější tipy)
+    EFEKT:   Méně sázek ale s lepší kvalitou, snížený risk během highest-volatility období.
 
 ZACHOVÁNO z v5:
   - Pouze čisté výhry (1 nebo 2) — VALUE/SAFE odstraněny
   - Zpřísněný formový filtr (pts≥1.8 / goals≥1.3)
-  - MIN_ODDS_1X2=1.50
   - Walk-forward bez data leakage
   - Blend 50/50 Voting + Poisson
 """
 
 import os
+import pickle
 import numpy as np
 import pandas as pd
 import joblib
@@ -172,14 +173,57 @@ def is_early_season(match_date) -> bool:
         return False
 
 
+def is_end_season(match_date) -> bool:
+    """
+    ÚPRAVA 5 (v8): Vrátí True pro březen-květen — konec sezóny s vyšší volatilitou.
+    Data ukazují: květen má +5.7% více gólů než průměr, home win% stejný
+    → více otevřených zápasů, nižší prediktabilita.
+    """
+    try:
+        dt = pd.Timestamp(match_date)
+        return dt.month in (3, 4, 5)
+    except Exception:
+        return False
 
-def classify_signal(ph, px, pa):
+
+def get_seasonal_config(match_date) -> dict:
+    """
+    ÚPRAVA 5 (v8): Vrátí sezónní konfiguraci (MIN_ODDS, FLAT_STAKE, THRESH_FAVORIT).
+
+    Normální období (září-únor, červen): agresivní sázení
+    Konec sezóny (březen-květen): konzervativní sázení (vyšší volatilita)
+    """
+    base_config = {
+        'min_odds': MIN_ODDS_1X2,          # 1.60
+        'flat_stake': FLAT_STAKE_FAVORIT,  # 400 Kč
+        'thresh_favorit': THRESH_FAVORIT,  # 0.55
+        'label': 'NORMAL'
+    }
+
+    if is_end_season(match_date):
+        return {
+            'min_odds': 1.80,              # Zvýš kritérium — chraň se slabších kurzů
+            'flat_stake': 300,             # Sniž sázku — méně rizika
+            'thresh_favorit': 0.60,        # Vyšší práh — jen ty nejjednotnější tipy
+            'label': 'END_SEASON'
+        }
+
+    return base_config
+
+
+
+def classify_signal(ph, px, pa, min_odds=None):
     """
     Vrátí (bet_code, prob_dc, sim_odds, signal_type, is_double_chance).
 
     Sázíme VÝHRADNĚ čisté výhry (1 nebo 2).
     VALUE/SAFE (1X, X2) odstraněny — systematicky ztrátové při kurzech 1.35–1.45.
+
+    min_odds: parametr pro sezónní konfiguraci (default: MIN_ODDS_1X2 = 1.60)
     """
+    if min_odds is None:
+        min_odds = MIN_ODDS_1X2  # Výchozí 1.60
+
     bet_code    = None
     prob_dc     = 0.0
     signal_type = None
@@ -200,7 +244,7 @@ def classify_signal(ph, px, pa):
 
     sim_odds = (1.0 / prob_dc) * (1 - BOOKMAKER_MARGIN)
 
-    if sim_odds < MIN_ODDS_1X2:
+    if sim_odds < min_odds:
         signal_type = f"❌ SKIP ({signal_type})"
 
     return bet_code, prob_dc, sim_odds, signal_type, False  # is_dc vždy False
@@ -413,7 +457,14 @@ def run_backtest(feature_cols, draw_threshold):
             tot = p1 + pxb + p2
             p1, pxb, p2 = p1/tot, pxb/tot, p2/tot
 
-            bet_code, prob_dc, sim_odds, signal_type, is_dc = classify_signal(p1, pxb, p2)
+            # ÚPRAVA 5: Sezónní konfigurace (březen-květen: konzervativnější sázení)
+            match_date = pd.Timestamp(row['match_date']) if pd.notnull(row.get('match_date')) else None
+            season_config = get_seasonal_config(match_date)
+            season_min_odds = season_config.get('min_odds', MIN_ODDS_1X2)
+            season_flat_stake = season_config.get('flat_stake', FLAT_STAKE_FAVORIT)
+            season_label = season_config.get('label', 'NORMAL')
+
+            bet_code, prob_dc, sim_odds, signal_type, is_dc = classify_signal(p1, pxb, p2, min_odds=season_min_odds)
             if bet_code is None or signal_type is None:
                 continue
             if "❌ SKIP" in signal_type:
@@ -426,7 +477,6 @@ def run_backtest(feature_cols, draw_threshold):
 
             # ÚPRAVA 1: Rebase po kole (14 dní), ne po počtu sázek
             # Nikdy nerebázujeme při aktivním cooling
-            match_date = pd.Timestamp(row['match_date']) if pd.notnull(row.get('match_date')) else None
             if match_date and not cooling_active:
                 if last_rebase_date is None or (match_date - last_rebase_date).days >= REBASE_DAYS:
                     new_flat = max(MIN_BET_AMOUNT, round(current_bankroll * 0.05 / 10) * 10)
@@ -435,10 +485,11 @@ def run_backtest(feature_cols, draw_threshold):
                     last_rebase_date = match_date
 
             # ÚPRAVA 2: Cooling filtr — výpočet aktuální sázky
+            # ÚPRAVA 5: Sezónní FLAT_STAKE (březen-květen: -25% sázka)
             if cooling_active:
-                stake = max(MIN_BET_AMOUNT, round(flat_favorit * COOLING_FACTOR / 10) * 10)
+                stake = max(MIN_BET_AMOUNT, round(season_flat_stake * COOLING_FACTOR / 10) * 10)
             else:
-                stake = flat_favorit
+                stake = max(MIN_BET_AMOUNT, round(season_flat_stake / 10) * 10)
             stake = max(stake, MIN_BET_AMOUNT)
 
             # Výsledek
@@ -499,7 +550,8 @@ def main():
     try:
         feature_cols = joblib.load(os.path.join(MODEL_DIR, "feature_cols.pkl"))
         thr_path     = os.path.join(MODEL_DIR, "draw_threshold.pkl")
-        draw_threshold = 0.33
+        with open('../models/draw_threshold.pkl', 'rb') as f:
+            draw_threshold = pickle.load(f)
         print(f"\n  ✅ feature_cols.pkl načten ({len(feature_cols)} features)")
         print(f"  ✅ Draw threshold: {draw_threshold:.2f}")
     except FileNotFoundError as e:

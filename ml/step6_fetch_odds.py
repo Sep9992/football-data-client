@@ -80,6 +80,8 @@ TEAM_NAME_MAP = {
     "Tottenham":                        "Tottenham Hotspur",
     "West Ham United":                  "West Ham United",
     "Wolverhampton Wanderers":          "Wolverhampton Wanderers",
+    "Hull City":                        "Hull",
+    "Coventry City":                    "Coventry",
     # --- Chance Liga ---
     "AC Sparta Prague":                 "Sparta Praha",
     "Sparta Prague":                    "Sparta Praha",
@@ -115,6 +117,7 @@ TEAM_NAME_MAP = {
     "Slovacko":                         "Slovácko",
     "FC Zbrojovka Brno":                "Zbrojovka Brno",
     "SK Dynamo Ceske Budejovice":       "České Budějovice",
+    "Artis Brno":                       "Artis Brno",
     # --- Bundesliga (API → česky v DB) ---
     "Bayern Munich":                    "Bayern",
     "FC Bayern Munich":                 "Bayern",
@@ -150,6 +153,8 @@ TEAM_NAME_MAP = {
     "HSV":                              "Hamburk",
     "1. FC Koln":                       "Kolín n. R.",
     "1. FC Köln":                       "Kolín n. R.",
+    "SC Paderborn":                     "Paderborn",
+    "FC Schalke 04":                    "Schalke",
     # --- La Liga (API → česky v DB) ---
     "Real Madrid":                      "Real Madrid",
     "Barcelona":                        "Barcelona",
@@ -189,6 +194,9 @@ TEAM_NAME_MAP = {
     "Elche CF":                         "Elche",
     "Real Oviedo":                      "Oviedo",
     "Oviedo":                           "Oviedo",
+    "Málaga":                           "Malaga",
+    "Real Racing Club de Santander":    "Racing Santander",
+    "Deportivo La Coruña":              "A Coruňa",
     # --- Serie A (API → česky v DB) ---
     "Inter Milan":                      "Inter",
     "Internazionale":                   "Inter",

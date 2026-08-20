@@ -25,23 +25,23 @@ engine = create_engine(DATABASE_URL) if DATABASE_URL else None
 LEAGUES = {
     "premier-league": (
         "https://www.livesport.cz/fotbal/anglie/premier-league/vysledky/",
-        "2025/26", 8, "PL"
+        "2026/27", 8, "PL"
     ),
     "chance-liga": (
         "https://www.livesport.cz/fotbal/cesko/chance-liga/vysledky/",
-        "2025/26", 7, "FL"
+        "2026/27", 7, "FL"
     ),
     "bundesliga": (
         "https://www.livesport.cz/fotbal/nemecko/bundesliga/vysledky/",
-        "2025/26", 8, "BL"
+        "2026/27", 8, "BL"
     ),
     "serie-a": (
         "https://www.livesport.cz/fotbal/italie/serie-a/vysledky/",
-        "2025/26", 8, "SA"
+        "2026/27", 8, "SA"
     ),
     "laliga": (
         "https://www.livesport.cz/fotbal/spanelsko/laliga/vysledky/",
-        "2025/26", 8, "LL"
+        "2026/27", 8, "LL"
     ),
 }
 
@@ -300,7 +300,7 @@ def get_current_season():
     month = now.month
 
     # Pokud jsme v měsících srpen-prosinec, sezóna začala tento rok
-    if month >= 8:
+    if month >= 7:
         season_start = year
         season_end = year + 1
     else:
