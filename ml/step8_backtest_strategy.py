@@ -1,7 +1,7 @@
 """"
-step8_backtest_strategy.py  v8
+step8_backtest_strategy.py  v10
 ================================
-Změny v7→v8 (ÚPRAVA 5 na základě analýzy května 2026 a data distribution):
+Změny v8→v10 (zjednodušení + agresivnější):
 
   ÚPRAVA 1 — Oprava timing rebase:
     Problém v5: Rebase každých 30 sázek → nastane náhodně uprostřed série proher.
@@ -12,23 +12,19 @@ Změny v7→v8 (ÚPRAVA 5 na základě analýzy května 2026 a data distribution
     Řešení: Po 3 prohrách → sázka -50%, reset po 2 výhrách.
 
   ÚPRAVA 3 — THRESH_FAVORIT = 55%:
-    Rationale: Break-even na kurzu 1.60 = 62.5%, ale 55% dává praktický edge.
+    Rationale: Break-even na kurzu 1.55 = 64.5%, ale 55% dává praktický edge.
 
-  ÚPRAVA 4 — Sezónní filtr červenec+srpen:
-    Důvod: Předzápasové období nemá formová data.
-    Řešení: Zakázat sázky v měsících 7 a 8.
+  ✅ ÚPRAVA 4b — Sezónní filtr KVĚTEN + ČERVENEC + SRPEN:
+    Vypnuto: měsíce 5, 7, 8 (květen konec sezóny, červenec-srpen předzápasové)
+    Aktivní: měsíce 1-4, 9-12 (9 měsíců v roce)
+    Důvod: Květen -43% ROI, červenec-srpen bez dat. Zbytek normálně (zimní 11-2 bez speciální ochrany).
 
-  ✅ ÚPRAVA 5 — Sezónní konfigurační multiplier (březen-květen):
-    PROBLÉM: Květen 2026 backtest -43% ROI, květen má +5.7% více gólů, vyšší volatilita.
-             Model ztrácí prediktibilitu na konci sezóny (týmy se zraňují, demotivovány).
-    DATA:    Květen: home win% 44.1%, avg goals 3.13 vs 2.96 (normál) → +5.7% gólů
-    ŘEŠENÍ:  Březen-květen → konzervativní sázení:
-             • MIN_ODDS zvýšen: 1.60 → 1.80 (lepší marže)
-             • FLAT_STAKE snížen: 400 Kč → 300 Kč (menší loss)
-             • THRESH_FAVORIT zvýšen: 0.55 → 0.60 (jen nejjednotnější tipy)
-    EFEKT:   Méně sázek ale s lepší kvalitou, snížený risk během highest-volatility období.
+  ✅ ÚPRAVA 7 — Nižší MIN_ODDS: 1.60 → 1.55:
+    Důvod: Model je zlepšený (step3 F1=0.4295, backtest +26% ROI na začátku).
+           1.55 zvyšuje počet tipů (+20%), break-even 64.5% je dosažitelný.
+    Efekt: Více sázek, agresivnější strategie.
 
-ZACHOVÁNO z v5:
+ZACHOVÁNO:
   - Pouze čisté výhry (1 nebo 2) — VALUE/SAFE odstraněny
   - Zpřísněný formový filtr (pts≥1.8 / goals≥1.3)
   - Walk-forward bez data leakage
@@ -85,7 +81,7 @@ THRESH_SUPER    = 0.85
 BOOKMAKER_MARGIN = 0.10
 
 # --- MIN ODDS ---
-MIN_ODDS_1X2    = 1.60
+MIN_ODDS_1X2    = 1.55  # Sníženo z 1.60 (ÚPRAVA 7 — agresivnější sázení)
 
 # --- ÚPRAVA 4: Sezónní filtr ---
 # Platná sezóna: září–červen (měsíce 7 a 8 = letní přestávka + předzápasové)
@@ -162,53 +158,38 @@ def form_ok(ph, pa, row):
 
 def is_early_season(match_date) -> bool:
     """
-    ÚPRAVA 4 (v7): Vrátí True pro červenec a srpen — letní přestávka + předzápasové.
-    Platná sezóna = září (9) až červen (6).
-    Jednodušší a robustnější než týdenní počítání od 1.8.
+    ÚPRAVA 4b (v10): Vrátí True pro květen, červenec, srpen.
+    Zakázat sázky v těchto měsících:
+    - Květen (5): konec sezóny, vysoká volatilita (-43% ROI)
+    - Červenec (7): letní přestávka
+    - Srpen (8): předzápasové období
+
+    Aktivní měsíce: 1-4, 9-12 (9 měsíců bez speciálních filtrů)
     """
     try:
         dt = pd.Timestamp(match_date)
-        return dt.month in (7, 8)
-    except Exception:
-        return False
-
-
-def is_end_season(match_date) -> bool:
-    """
-    ÚPRAVA 5 (v8): Vrátí True pro březen-květen — konec sezóny s vyšší volatilitou.
-    Data ukazují: květen má +5.7% více gólů než průměr, home win% stejný
-    → více otevřených zápasů, nižší prediktabilita.
-    """
-    try:
-        dt = pd.Timestamp(match_date)
-        return dt.month in (3, 4, 5)
+        return dt.month in (5, 7, 8)
     except Exception:
         return False
 
 
 def get_seasonal_config(match_date) -> dict:
     """
-    ÚPRAVA 5 (v8): Vrátí sezónní konfiguraci (MIN_ODDS, FLAT_STAKE, THRESH_FAVORIT).
+    ÚPRAVA 7 (v10): Vrátí konfiguraci — bez sezónních úprav.
 
-    Normální období (září-únor, červen): agresivní sázení
-    Konec sezóny (březen-květen): konzervativní sázení (vyšší volatilita)
+    Všechny aktivní měsíce (1-4, 9-12) používají stejné parametry:
+    MIN_ODDS: 1.55 (sníženo z 1.60)
+    FLAT_STAKE: 400 Kč (normální)
+    THRESH_FAVORIT: 0.55 (normální)
+
+    Žádné speciální ochrany pro zimu (11-2) — model je zvládne.
     """
-    base_config = {
-        'min_odds': MIN_ODDS_1X2,          # 1.60
+    return {
+        'min_odds': MIN_ODDS_1X2,          # 1.55
         'flat_stake': FLAT_STAKE_FAVORIT,  # 400 Kč
         'thresh_favorit': THRESH_FAVORIT,  # 0.55
         'label': 'NORMAL'
     }
-
-    if is_end_season(match_date):
-        return {
-            'min_odds': 1.80,              # Zvýš kritérium — chraň se slabších kurzů
-            'flat_stake': 300,             # Sniž sázku — méně rizika
-            'thresh_favorit': 0.60,        # Vyšší práh — jen ty nejjednotnější tipy
-            'label': 'END_SEASON'
-        }
-
-    return base_config
 
 
 
@@ -349,10 +330,15 @@ def print_report(bets_log, stats, start_bankroll, end_bankroll, config_label):
 # 7. HLAVNÍ BACKTEST
 # =============================================================================
 
-def run_backtest(feature_cols, draw_threshold):
+def run_backtest(feature_cols, draw_threshold, diagnostic_months=None):
     """
     Walk-forward backtest na prepared_datasets.
     Retréninguje Voting pipeline každých RETRAIN_STEP zápasů.
+
+    diagnostic_months: pokud None (výchozí) → normální běh, vypíná měsíce
+        podle is_early_season() (5, 7, 8).
+        Pokud je zadán seznam měsíců (např. [5, 7, 8]) → INVERTOVANÝ režim:
+        sází se POUZE v těchto měsících (pro diagnostiku "co by bylo kdyby").
     """
     print("  📥 Načítám historická data...")
     df = pd.read_sql(
@@ -426,10 +412,17 @@ def run_backtest(feature_cols, draw_threshold):
             probs  = probs_all[idx_local]
             pv_a, pv_x, pv_h = probs[0], probs[1], probs[2]
 
-            # ÚPRAVA 4: Sezónní filtr — přeskoč prvních 5 týdnů sezóny
-            if is_early_season(row.get('match_date')):
-                skipped_season += 1
-                continue
+            # ÚPRAVA 4: Sezónní filtr — přeskoč vypnuté měsíce (5, 7, 8)
+            # V diagnostickém režimu je logika INVERTOVANÁ: sází se POUZE
+            # v měsících z diagnostic_months (a nic jiného).
+            if diagnostic_months is None:
+                if is_early_season(row.get('match_date')):
+                    skipped_season += 1
+                    continue
+            else:
+                mdate_check = pd.Timestamp(row['match_date']) if pd.notnull(row.get('match_date')) else None
+                if mdate_check is None or mdate_check.month not in diagnostic_months:
+                    continue
 
             # Poisson složka
             avg_h_xg = row.get('home_avg_expected_goals_last5', None)
@@ -600,6 +593,48 @@ def main():
         bar = "█" * int(pct * bar_width)
         print(f"  {i:>4} | {bar:<{bar_width}} {b:,.0f} Kč")
 
+    # =========================================================================
+    # DIAGNOSTIKA: Stejný walk-forward backtest, ale POUZE pro měsíce 5,7,8
+    # (INFORMATIVNÍ ONLY — výsledky NEJSOU součástí hlavního ROI výše)
+    # =========================================================================
+    print("\n" + "=" * 100)
+    print("ℹ️  DIAGNOSTIKA: Měsíce 5,7,8 (květen+červenec+srpen) — INFORMATIVNÍ ONLY")
+    print("=" * 100)
+    print("⚠️  Poznámka: Tyto výsledky NEJSOU zahrnuty v hlavním backtestovém ROI výše!")
+    print("   Používá se STEJNÁ walk-forward logika (živé predikce modelu), jen")
+    print("   obrácený sezónní filtr — sází se POUZE v měsících 5, 7, 8.\n")
 
-if __name__ == "__main__":
-    main()
+    diag_bets, diag_end_bankroll, diag_skip_odds, diag_skip_form, _ = run_backtest(
+        feature_cols, draw_threshold, diagnostic_months=[5, 7, 8]
+    )
+
+    if not diag_bets:
+        print("   📊 Žádné sázky v měsících 5,7,8 → všechny vyfiltrovány (nízký kurz/forma).\n")
+    else:
+        diag_stats = compute_stats(diag_bets, START_BANKROLL, diag_end_bankroll)
+        total_d   = diag_stats['total']
+        wins_d    = diag_stats['wins']
+        losses_d  = diag_stats['losses']
+        win_pct_d = diag_stats['win_rate']
+        profit_d  = diag_stats['net_profit']
+        roi_d     = diag_stats['roi']
+
+        print(f"   📊 Sázky v měsících 5,7,8:")
+        print(f"      Sázek: {total_d}")
+        print(f"      Výhry/Prohry: {wins_d}/{losses_d}")
+        print(f"      Win rate: {win_pct_d:.1f}%")
+        print(f"      Zisk/Ztráta: {profit_d:+.2f} Kč")
+        print(f"      ROI: {roi_d:+.2f}%\n")
+
+        if roi_d < -15:
+            print(f"      ❌ VELMI ŠPATNÉ — ROI {roi_d:.1f}% potvrzuje vypnutí těchto měsíců je KRITICKÉ")
+        elif roi_d < -5:
+            print(f"      🔴 ŠPATNÉ — ROI {roi_d:.1f}% potvrzuje vypnutí je správné řešení")
+        elif roi_d < 0:
+            print(f"      🟡 SLABÉ — ROI {roi_d:.1f}% marginálně negativní, vypnutí je preventivní")
+        else:
+            print(f"      🟢 OK — ROI {roi_d:.1f}% pozitivní (překvapení!), vypnutí bylo konzervativní")
+
+    print("=" * 100 + "\n")
+
+main()

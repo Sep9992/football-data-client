@@ -518,8 +518,36 @@ def create_enhanced_features(df):
     # Obě source features jsou již v datasetu → pouze přidává multikolinearitu
     # a v feature selection bere slot neutral features místo market_value_diff_scaled
 
-    # 6. HOME ADVANTAGE
-    df['home_advantage'] = 1.0
+    # 6. HOME ADVANTAGE (OPRAVENO — bylo hardcoded 1.0 pro všechny zápasy!)
+    # Nyní: skutečná home win rate per liga, počítaná JEN z odehraných zápasů
+    # (žádný data leakage do budoucích zápasů — používá se historický průměr).
+    if 'league' in df.columns and 'home_win' in df.columns:
+        played_mask = df['home_win'].notna()
+
+        # Průměrná home win rate za celou historii, per liga
+        league_home_rate = (
+            df.loc[played_mask]
+              .groupby('league')['home_win']
+              .mean()
+        )
+        global_home_rate = df.loc[played_mask, 'home_win'].mean()
+        if pd.isna(global_home_rate):
+            global_home_rate = 0.45  # fallback, pokud nejsou žádné odehrané zápasy
+
+        # Normalizace: 1.0 = průměrná home výhoda napříč ligami,
+        # >1.0 = liga s vyšší home výhodou než průměr, <1.0 = nižší.
+        # Tím home_x_elo zůstává ve srovnatelném měřítku jako předtím (bylo vždy 1.0 × elo_diff).
+        league_multiplier = (league_home_rate / global_home_rate).to_dict()
+
+        df['home_advantage'] = df['league'].map(league_multiplier).fillna(1.0)
+
+        print(f"  🏠 Home advantage (per liga, multiplier vs průměr {global_home_rate:.1%}):")
+        for lg, rate in league_home_rate.sort_values(ascending=False).items():
+            mult = league_multiplier.get(lg, 1.0)
+            print(f"     {lg:6s}: home win rate={rate:.1%}  →  multiplier={mult:.3f}")
+    else:
+        # Fallback, kdyby league/home_win chyběly (nemělo by nastat)
+        df['home_advantage'] = 1.0
 
     # 7. ELO DIFFERENCE
     if 'home_elo' in df.columns and 'away_elo' in df.columns:
