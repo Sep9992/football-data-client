@@ -312,6 +312,7 @@ TEAM_NAME_MAP = {
     "Levante":           "Levante",
     "Elche":             "Elche",
     "Oviedo":            "Oviedo",
+    "Málaga":            "Malaga",
 
     # --- Serie A (české názvy z Livesportu) ---
     "Inter":             "Inter",

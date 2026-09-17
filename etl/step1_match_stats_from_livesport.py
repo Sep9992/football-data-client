@@ -124,7 +124,8 @@ LEAGUE_CONFIG = {
     "LL": {
         "name": "La Liga",
         "country": "Španělsko",
-        "aliases": {}  # La Liga: používají se názvy přímo z Livesport
+        "aliases": {"Málaga": "Malaga",
+        }  # La Liga: používají se názvy přímo z Livesport
     },
     "SA": {
         "name": "Serie A",

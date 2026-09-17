@@ -1,8 +1,8 @@
 <class 'pandas.core.frame.DataFrame'>
-RangeIndex: 3080 entries, 0 to 3079
+RangeIndex: 3297 entries, 0 to 3296
 Columns: 170 entries, fixture_id to is_premier_league
 dtypes: datetime64[ns](1), float64(164), int64(1), object(4)
-memory usage: 4.0+ MB
+memory usage: 4.3+ MB
 
 
 --- NULL VALUES ---

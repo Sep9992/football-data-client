@@ -7,9 +7,15 @@
     <list default="true" id="5be190c3-e2de-4cd4-998b-04133b9cf4b1" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/links_premier-league.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/links_premier-league.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/etl/step0b_harvest_future_fixtures.py" beforeDir="false" afterPath="$PROJECT_DIR$/etl/step0b_harvest_future_fixtures.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/etl/step1_match_stats_from_livesport.py" beforeDir="false" afterPath="$PROJECT_DIR$/etl/step1_match_stats_from_livesport.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/etl/step2_prepare_dataset.py" beforeDir="false" afterPath="$PROJECT_DIR$/etl/step2_prepare_dataset.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ml/step8_backtest_strategy.py" beforeDir="false" afterPath="$PROJECT_DIR$/ml/step8_backtest_strategy.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ml/data_info.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ml/data_info.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ml/debug_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/ml/debug_data.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ml/step5_analyze_features.py" beforeDir="false" afterPath="$PROJECT_DIR$/ml/step5_analyze_features.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ml/step7_show_console_tips.py" beforeDir="false" afterPath="$PROJECT_DIR$/ml/step7_show_console_tips.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/best_classifier.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/models/best_classifier.pkl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/draw_threshold.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/models/draw_threshold.pkl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/feature_cols.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/models/feature_cols.pkl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/market_value_scaler.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/models/market_value_scaler.pkl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/poisson_away_goals.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/models/poisson_away_goals.pkl" afterDir="false" />
@@ -220,6 +226,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;python.packages.toolwindow.project.migrated.to.right.top.v2&quot;: &quot;true&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
@@ -363,7 +370,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-821f704e66d9-5bd6d13a2a75-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-262.9437.214" />
+        <option value="bundled-python-sdk-eff1e8def5f5-5bd6d13a2a75-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-262.10315.174" />
       </set>
     </attachedChunks>
   </component>
