@@ -137,6 +137,11 @@ LEAGUE_CONFIG = {
         "country": "Česká republika",
         "aliases": {}  # Fortuna liga: používají se názvy přímo z Livesport
     },
+    "ED": {
+            "name": "Eredivisie",
+            "country": "Nizozemsko",
+            "aliases": {}  # Nizozemsko: používají se názvy přímo z Livesport
+        },
 }
 
 
@@ -147,12 +152,13 @@ LEAGUE_CONFIG = {
 STATS_TO_FIND = [
     "Očekávané góly (xG)", "xGOT", "Držení míče", "Střely celkem", "Střely na branku",
     "Střely mimo branku", "Zblokované střely", "Střely uvnitř vápna", "Střely mimo vápno",
-    "Střely do tyče/břevna", "Velké šance", "Rohové kopy", "Doteky ve vápně soupeře",
+    "Tyč/břevno", "Velké šance", "Rohové kopy", "Doteky ve vápně soupeře",
     "Přesné průnikové přihrávky", "Ofsajdy", "Přímé kopy", "Přihrávky", "Dlouhé přihrávky",
     "Přihrávky v útočné třetině", "Centry", "Očekávané asistence (xA)", "Vhazování",
     "Fauly", "Žluté karty", "Červené karty", "Obranné zákroky", "Vyhrané souboje",
     "Obranné odkopy", "Přerušení přihrávek", "Chyby vedoucí ke střele",
-    "Chyby vedoucí ke gólu", "Brankářské zákroky", "xGOT proti", "Zabráněné góly"
+    "Chyby vedoucí ke gólu", "Brankářské zákroky", "xGOT proti", "Zabráněné góly",
+    "Neproměněné velké šance", "Zachycené přihrávky"
 ]
 
 STATS_DB_MAP = {
@@ -189,6 +195,9 @@ STATS_DB_MAP = {
     "Obranné zákroky":              "tackles",
     "Chyby vedoucí ke střele":      "errors_shot",
     "Chyby vedoucí ke gólu":        "errors_goal",
+    "Neproměněné velké šance":      "big_chances_missed",
+    "Zachycené přihrávky":          "interceptions",
+
 }
 
 

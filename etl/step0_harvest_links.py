@@ -23,26 +23,30 @@ engine = create_engine(DATABASE_URL) if DATABASE_URL else None
 # league_code: kód ligy v DB — slouží k dotazu na nejnovější datum v DB
 
 LEAGUES = {
-    "premier-league": (
-        "https://www.livesport.cz/fotbal/anglie/premier-league/vysledky/",
-        "2026/27", 8, "PL"
-    ),
-    "chance-liga": (
-        "https://www.livesport.cz/fotbal/cesko/chance-liga/vysledky/",
-        "2026/27", 7, "FL"
-    ),
-    "bundesliga": (
-        "https://www.livesport.cz/fotbal/nemecko/bundesliga/vysledky/",
-        "2026/27", 8, "BL"
-    ),
-    "serie-a": (
-        "https://www.livesport.cz/fotbal/italie/serie-a/vysledky/",
-        "2026/27", 8, "SA"
-    ),
-    "laliga": (
-        "https://www.livesport.cz/fotbal/spanelsko/laliga/vysledky/",
-        "2026/27", 8, "LL"
-    ),
+    # "premier-league": (
+    #     "https://www.livesport.cz/fotbal/anglie/premier-league/vysledky/",
+    #     "2026/27", 8, "PL"
+    # ),
+    # "chance-liga": (
+    #     "https://www.livesport.cz/fotbal/cesko/chance-liga/vysledky/",
+    #     "2026/27", 7, "FL"
+    # ),
+    # "bundesliga": (
+    #     "https://www.livesport.cz/fotbal/nemecko/bundesliga/vysledky/",
+    #     "2026/27", 8, "BL"
+    # ),
+    # "serie-a": (
+    #     "https://www.livesport.cz/fotbal/italie/serie-a/vysledky/",
+    #     "2026/27", 8, "SA"
+    # ),
+    # "laliga": (
+    #     "https://www.livesport.cz/fotbal/spanelsko/laliga/vysledky/",
+    #     "2026/27", 8, "LL"
+    # ),
+    "eredivisie": (
+            "https://www.livesport.cz/fotbal/nizozemsko/eredivisie/vysledky/",
+            "2026/27", 8, "ED"
+        ),
 }
 
 BASE_DIR = os.path.dirname(__file__)
