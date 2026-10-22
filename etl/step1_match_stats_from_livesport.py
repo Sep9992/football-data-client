@@ -138,10 +138,20 @@ LEAGUE_CONFIG = {
         "aliases": {}  # Fortuna liga: používají se názvy přímo z Livesport
     },
     "ED": {
-            "name": "Eredivisie",
-            "country": "Nizozemsko",
-            "aliases": {}  # Nizozemsko: používají se názvy přímo z Livesport
-        },
+        "name": "Eredivisie",
+        "country": "Nizozemsko",
+        "aliases": {}  # Nizozemsko: používají se názvy přímo z Livesport
+    },
+    "LP": {
+        "name": "Liga Portugal",
+        "country": "Portugalsko",
+        "aliases": {}  # Portugalsko: používají se názvy přímo z Livesport
+    },
+    "JL": {
+        "name": "Jupiler Pro league",
+        "country": "Belgie",
+        "aliases": {}  # Portugalsko: používají se názvy přímo z Livesport
+    },
 }
 
 

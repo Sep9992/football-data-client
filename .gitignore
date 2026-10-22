@@ -1,120 +1,21 @@
-# =============================================================================
-# PYTHON
-# =============================================================================
-__pycache__/
-*.py[cod]
-*.pyo
-*.pyd
-.Python
-*.egg
-*.egg-info/
-dist/
-build/
-eggs/
-parts/
-var/
-sdist/
-develop-eggs/
-.installed.cfg
-lib/
-lib64/
+# 1. Citlivé údaje (NIKDY neukládat do Gitu!)
+.env
 
-# =============================================================================
-# VIRTUAL ENVIRONMENT
-# =============================================================================
+# 2. Virtuální prostředí a mezipaměť Pythonu
 .venv/
 venv/
-env/
-ENV/
-.env/
+__pycache__/
+*.py[cod]
+*$py.class
 
-# =============================================================================
-# SECRETS & KONFIGURACE
-# =============================================================================
-.env
-.env.*
-!.env.example          # výjimka: šablona .env je ok commitovat
-
-# =============================================================================
-# DATA SOUBORY (velké / generované / citlivé)
-# =============================================================================
-data/
-*.csv
-*.json
-*.parquet
-*.xlsx
-*.xls
-
-# =============================================================================
-# ML MODELY (velké binární soubory — nepatří do gitu)
-# =============================================================================
-models/
-*.pkl
-*.joblib
-*.h5
-*.pt
-*.pth
-
-# =============================================================================
-# LOGY & VÝSTUPY
-# =============================================================================
-logs/
-*.log
-backtest_*.csv
-
-# =============================================================================
-# PYCHARM / JETBRAINS IDE
-# =============================================================================
-.idea/**/workspace.xml
-.idea/**/tasks.xml
-.idea/**/usage.statistics.xml
-.idea/**/dictionaries
-.idea/**/shelf
-.idea/**/aws.xml
-.idea/**/contentModel.xml
-.idea/**/dataSources/
-.idea/**/dataSources.ids
-.idea/**/dataSources.local.xml
-.idea/**/sqlDataSources.xml
-.idea/**/dynamic.xml
-.idea/**/uiDesigner.xml
-.idea/**/dbnavigator.xml
-.idea/**/gradle.xml
-.idea/**/libraries
-.idea/**/mongoSettings.xml
-.idea/**/sonarlint/
-.idea/**/sonarIssues.xml
-.idea/**/markdown-navigator.xml
-.idea/**/markdown-navigator-enh.xml
-.idea/**/markdown-navigator/
-.idea/$CACHE_FILE$
-.idea/codestream.xml
-.idea/**/azureSettings.xml
-.idea/replstate.xml
-.idea/httpRequests
-.idea/caches/build_file_checksums.ser
-.idea/**/sonarlint/
-*.iws
-*.iml
-*.ipr
-.idea_modules/
-out/
-cmake-build-*/
-atlassian-ide-plugin.xml
-com_crashlytics_export_strings.xml
-crashlytics.properties
-crashlytics-build.properties
-fabric.properties
-
-# =============================================================================
-# VS CODE
-# =============================================================================
-.vscode/
-*.code-workspace
-
-# =============================================================================
-# OS SOUBORY
-# =============================================================================
+# 3. Nastavení PyCharmu a OS
+.idea/
 .DS_Store
 Thumbs.db
-desktop.ini
+
+# 4. Dočasné SHAP grafy (generují se znovu při každé analýze)
+models/shap_reports/*.png
+
+# POZNÁMKA K MODELŮM:
+# Pokud CHCEŠ do Gitu ukládat natrénované modely (.pkl),
+# ujisti se, že pod tímto řádkem NENÍ napsáno 'models/' ani '*.pkl'!

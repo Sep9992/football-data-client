@@ -43,10 +43,18 @@ LEAGUES = {
     #     "https://www.livesport.cz/fotbal/spanelsko/laliga/vysledky/",
     #     "2026/27", 8, "LL"
     # ),
-    "eredivisie": (
-            "https://www.livesport.cz/fotbal/nizozemsko/eredivisie/vysledky/",
-            "2026/27", 8, "ED"
-        ),
+    #"eredivisie": (
+    #        "https://www.livesport.cz/fotbal/nizozemsko/eredivisie/vysledky/",
+    #        "2026/27", 8, "ED"
+    #    ),
+    # "liga-portugal": (
+    #         "https://www.livesport.cz/fotbal/portugalsko/liga-portugal/vysledky/",
+    #         "2026/27", 8, "LP"
+    #     ),
+    "jupiler-league": (
+                "https://www.livesport.cz/fotbal/belgie/jupiler-pro-league/vysledky/",
+                "2026/27", 8, "JL"
+            ),
 }
 
 BASE_DIR = os.path.dirname(__file__)
