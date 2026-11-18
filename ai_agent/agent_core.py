@@ -349,7 +349,7 @@ if __name__ == "__main__":
 
         # 2. Vyčistí případné duplicity po stahování a stáhne čerstvé kurzy
         # agent.auto_fix_database()
-        agent.fetch_live_odds()
+        # agent.fetch_live_odds()
 
         # 3. Přepočítá formu týmů, obranné metriky a Ligovou DNA
         # agent.prepare_datasets()
@@ -371,7 +371,7 @@ if __name__ == "__main__":
 
         # --- FÁZE 4: FINÁLNÍ VÝSTUP (Peníze) ---
         # 8. Výpočet a zobrazení finálních predikcí (Value Singles + AKO)
-        # agent.predict_upcoming_matches()
+        agent.predict_upcoming_matches()
 
     finally:
         print("\n[ÚKLID] Zavírám všechny prohlížeče...")

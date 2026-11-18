@@ -5,27 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5be190c3-e2de-4cd4-998b-04133b9cf4b1" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ai_agent/__init__.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/ai_agent/agent_core.py" beforeDir="false" afterPath="$PROJECT_DIR$/ai_agent/agent_core.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ai_agent/config/market_values.py" beforeDir="false" afterPath="$PROJECT_DIR$/ai_agent/config/market_values.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ai_agent/download/download_france.py" beforeDir="false" afterPath="$PROJECT_DIR$/ai_agent/download/download_france.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ai_agent/fix/fix_l1_dates.py" beforeDir="false" afterPath="$PROJECT_DIR$/ai_agent/fix/fix_l1_dates.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ai_agent/fix/update_db_schema.py" beforeDir="false" afterPath="$PROJECT_DIR$/ai_agent/fix/update_db_schema.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ai_agent/tools/data_debugger.py" beforeDir="false" afterPath="$PROJECT_DIR$/ai_agent/tools/data_debugger.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ai_agent/tools/dataset_builder.py" beforeDir="false" afterPath="$PROJECT_DIR$/ai_agent/tools/dataset_builder.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ai_agent/tools/db_auto_fixer.py" beforeDir="false" afterPath="$PROJECT_DIR$/ai_agent/tools/db_auto_fixer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ai_agent/tools/feature_analyzer.py" beforeDir="false" afterPath="$PROJECT_DIR$/ai_agent/tools/feature_analyzer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ai_agent/tools/livesport_harvester.py" beforeDir="false" afterPath="$PROJECT_DIR$/ai_agent/tools/livesport_harvester.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ai_agent/tools/livesport_odds_scraper.py" beforeDir="false" afterPath="$PROJECT_DIR$/ai_agent/tools/livesport_odds_scraper.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ai_agent/tools/match_statistics_scraper.py" beforeDir="false" afterPath="$PROJECT_DIR$/ai_agent/tools/match_statistics_scraper.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ai_agent/tools/model_trainer.py" beforeDir="false" afterPath="$PROJECT_DIR$/ai_agent/tools/model_trainer.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ai_agent/tools/prediction_generator.py" beforeDir="false" afterPath="$PROJECT_DIR$/ai_agent/tools/prediction_generator.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ai_agent/tools/strategy_backtester.py" beforeDir="false" afterPath="$PROJECT_DIR$/ai_agent/tools/strategy_backtester.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ai_agent/tools/system_debugger.py" beforeDir="false" afterPath="$PROJECT_DIR$/ai_agent/tools/system_debugger.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/links_premier-league.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/links_premier-league.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/etl/step0_harvest_links.py" beforeDir="false" afterPath="$PROJECT_DIR$/etl/step0_harvest_links.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/etl/step1_match_stats_from_livesport.py" beforeDir="false" afterPath="$PROJECT_DIR$/etl/step1_match_stats_from_livesport.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/best_classifier.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/models/best_classifier.pkl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/draw_threshold.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/models/draw_threshold.pkl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/feature_cols.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/models/feature_cols.pkl" afterDir="false" />
@@ -61,60 +47,60 @@
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
       <entry key="MS100" value="1.0" />
-      <entry key="MS500" value="1.0" />
-      <entry key="S2" value="1.0" />
-      <entry key="S5" value="1.0" />
-      <entry key="S10" value="1.0000000000111713" />
-      <entry key="S30" value="1.0002235471541794" />
-      <entry key="S60" value="1.0149560468803192" />
-      <entry key="M2" value="1.1244352744982147" />
-      <entry key="M5" value="1.595718425079561" />
-      <entry key="M10" value="3.1206226059354503" />
-      <entry key="M15" value="5.239089933462679" />
-      <entry key="M30" value="13.428026414856214" />
-      <entry key="H1" value="31.922093409555355" />
-      <entry key="H2" value="56.26879810001656" />
-      <entry key="H4" value="76.94989522582672" />
-      <entry key="D1" value="101.1731027626742" />
-      <entry key="W1" value="106.14489571296949" />
+      <entry key="MS500" value="1.0000000054920808" />
+      <entry key="S2" value="1.008608633717786" />
+      <entry key="S5" value="1.1492703983843238" />
+      <entry key="S10" value="1.38635527482831" />
+      <entry key="S30" value="1.728494073634377" />
+      <entry key="S60" value="1.8661870962311315" />
+      <entry key="M2" value="2.038763541823056" />
+      <entry key="M5" value="2.545927613106726" />
+      <entry key="M10" value="4.0715507660090235" />
+      <entry key="M15" value="6.1840217919926115" />
+      <entry key="M30" value="14.357268911513243" />
+      <entry key="H1" value="32.837877346978885" />
+      <entry key="H2" value="57.194525618972804" />
+      <entry key="H4" value="77.89909312013306" />
+      <entry key="D1" value="102.16196733252475" />
+      <entry key="W1" value="107.14322668547835" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="0.6198538499746025" />
-      <entry key="MS500" value="0.914294735215648" />
-      <entry key="S2" value="1.248902550474174" />
-      <entry key="S5" value="1.585001305782414" />
-      <entry key="S10" value="1.7662806690283686" />
-      <entry key="S30" value="1.915389889941823" />
-      <entry key="S60" value="1.9568613764192229" />
-      <entry key="M2" value="1.989652657217537" />
-      <entry key="M5" value="2.245108639322327" />
-      <entry key="M10" value="2.7082481129138456" />
-      <entry key="M15" value="3.0037103997924244" />
-      <entry key="M30" value="3.4548824706222416" />
-      <entry key="H1" value="3.8794156492987617" />
-      <entry key="H2" value="4.27775574047045" />
-      <entry key="H4" value="4.581172240917187" />
-      <entry key="D1" value="4.920077477619926" />
-      <entry key="W1" value="4.988301441681763" />
+      <entry key="MS100" value="3.0972331427473134E-42" />
+      <entry key="MS500" value="5.021380572243578E-9" />
+      <entry key="S2" value="0.010751344606240927" />
+      <entry key="S5" value="0.2365937763538142" />
+      <entry key="S10" value="0.6824118532987629" />
+      <entry key="S30" value="1.3950383266739206" />
+      <entry key="S60" value="1.6700310112712622" />
+      <entry key="M2" value="1.8380592356738856" />
+      <entry key="M5" value="2.175055063226336" />
+      <entry key="M10" value="2.6656608684244985" />
+      <entry key="M15" value="2.972138361264436" />
+      <entry key="M30" value="3.436677348706919" />
+      <entry key="H1" value="3.8691810726721645" />
+      <entry key="H2" value="4.272109280214107" />
+      <entry key="H4" value="4.578147763811651" />
+      <entry key="D1" value="4.919535958405966" />
+      <entry key="W1" value="4.988223005387824" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.6198540739691721" />
-      <entry key="MS500" value="0.9555752065478273" />
-      <entry key="S2" value="1.5067913619553912" />
-      <entry key="S5" value="2.062524954648308" />
-      <entry key="S10" value="2.4327665120514212" />
-      <entry key="S30" value="2.782583521160003" />
-      <entry key="S60" value="2.9018376887498567" />
-      <entry key="M2" value="3.0770988900777696" />
-      <entry key="M5" value="3.822838005693412" />
-      <entry key="M10" value="5.817449158877906" />
-      <entry key="M15" value="8.23414373493325" />
-      <entry key="M30" value="16.877692625696096" />
-      <entry key="H1" value="35.798354797465045" />
-      <entry key="H2" value="60.54467348668285" />
-      <entry key="H4" value="81.53000399061087" />
-      <entry key="D1" value="106.09297930794979" />
-      <entry key="W1" value="111.13316775954242" />
+      <entry key="MS100" value="8.093949443916732E-42" />
+      <entry key="MS500" value="1.0740177069273383E-8" />
+      <entry key="S2" value="0.021580048641983915" />
+      <entry key="S5" value="0.4571443200422859" />
+      <entry key="S10" value="1.3262674491702293" />
+      <entry key="S30" value="2.754973811636686" />
+      <entry key="S60" value="3.329919032426786" />
+      <entry key="M2" value="3.7664610666985614" />
+      <entry key="M5" value="4.672352170258534" />
+      <entry key="M10" value="6.710244662828078" />
+      <entry key="M15" value="9.137083531728425" />
+      <entry key="M30" value="17.783488097298104" />
+      <entry key="H1" value="36.70127430494926" />
+      <entry key="H2" value="61.46343706882372" />
+      <entry key="H4" value="82.47551791271141" />
+      <entry key="D1" value="107.08119231755396" />
+      <entry key="W1" value="112.13140457217102" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -272,8 +258,8 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="DEBUG_JUST_MY_CODE" value="false" />
       <option name="RUN_TOOL" value="" />
+      <option name="RUN_AS_SCRIPT" value="" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ai_agent/agent_core.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -296,8 +282,8 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="DEBUG_JUST_MY_CODE" value="false" />
       <option name="RUN_TOOL" value="" />
+      <option name="RUN_AS_SCRIPT" value="" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ai_agent/fix/fix_l1_dates.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -320,8 +306,8 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="DEBUG_JUST_MY_CODE" value="false" />
       <option name="RUN_TOOL" value="" />
+      <option name="RUN_AS_SCRIPT" value="" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/etl/step0_harvest_links.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -344,8 +330,8 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="DEBUG_JUST_MY_CODE" value="false" />
       <option name="RUN_TOOL" value="" />
+      <option name="RUN_AS_SCRIPT" value="" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/etl/step1_match_stats_from_livesport.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -368,8 +354,8 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="DEBUG_JUST_MY_CODE" value="false" />
       <option name="RUN_TOOL" value="" />
+      <option name="RUN_AS_SCRIPT" value="" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ai_agent/fix/update_db_schema.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -383,8 +369,8 @@
       <list>
         <item itemvalue="Python.agent_core" />
         <item itemvalue="Python.update_db_schema" />
-        <item itemvalue="Python.step0_harvest_links" />
         <item itemvalue="Python.step1_match_stats_from_livesport" />
+        <item itemvalue="Python.step0_harvest_links" />
         <item itemvalue="Python.fix_l1_dates" />
       </list>
     </recent_temporary>
@@ -392,7 +378,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-73a66231627c-5bd6d13a2a75-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-262.10968.92" />
+        <option value="bundled-python-sdk-34611be1ca5a-e0583fc556d1-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-263.7307.206" />
       </set>
     </attachedChunks>
   </component>

@@ -4138,5 +4138,57 @@
       "voting_acc": 0.495,
       "xgb_acc": 0.4717
     }
+  },
+  {
+    "timestamp": "2026-10-22T08:44:30.124865",
+    "results": {
+      "n_samples": 4860,
+      "n_features_sel": 24,
+      "baseline": 0.4329,
+      "best_classifier": "XGBoost",
+      "best_f1_score": 0.4459,
+      "draw_threshold": 0.39,
+      "voting_acc": 0.4906,
+      "xgb_acc": 0.476
+    }
+  },
+  {
+    "timestamp": "2026-10-30T08:16:05.778917",
+    "results": {
+      "n_samples": 4950,
+      "n_features_sel": 24,
+      "baseline": 0.4323,
+      "best_classifier": "XGBoost",
+      "best_f1_score": 0.4398,
+      "draw_threshold": 0.39,
+      "voting_acc": 0.4972,
+      "xgb_acc": 0.4727
+    }
+  },
+  {
+    "timestamp": "2026-11-05T09:05:33.325221",
+    "results": {
+      "n_samples": 5035,
+      "n_features_sel": 24,
+      "baseline": 0.4342,
+      "best_classifier": "XGBoost",
+      "best_f1_score": 0.4404,
+      "draw_threshold": 0.39,
+      "voting_acc": 0.4975,
+      "xgb_acc": 0.4765
+    }
+  },
+  {
+    "timestamp": "2026-11-18T08:40:25.429315",
+    "results": {
+      "n_samples": 5118,
+      "n_features_sel": 24,
+      "baseline": 0.434,
+      "best_classifier": "XGBoost",
+      "best_f1_score": 0.4442,
+      "draw_threshold": 0.39,
+      "voting_acc": 0.4921,
+      "xgb_acc": 0.4748
+    }
   }
 ]

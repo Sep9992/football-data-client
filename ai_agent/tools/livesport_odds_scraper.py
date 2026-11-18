@@ -1,10 +1,10 @@
 """
 livesport_odds_scraper.py
 Stahuje vždy NEJAKTUÁLNĚJŠÍ kurzy přes undetected_chromedriver z Livesportu.
-OPRAVA:
-  - Automatický překlad krátkých URL (/zapas/ID/) na plné SEO URL (/zapas/fotbal/tym1/tym2/)
-  - Uložení plné URL zpět do tabulky fixtures pro okamžité příští načtení
-  - Obnovena původní spolehlivá metoda _parse_odds
+UPGRADE (LINE SHOPPING):
+  - Načte všechny sázkové kanceláře na stránce (Tipsport, Fortuna, Betano, Chance)
+  - Pro každý jednotlivý trh (1, X, 2, 1X, 12, X2, Over 2.5, Under 2.5, BTTS) vybere NEJVYŠŠÍ kurz
+  - Uloží nejvyšší kurz + přesný název sázkovky (book_1, book_x, book_2, ...) do DB
 """
 
 import os
@@ -25,6 +25,18 @@ uc.Chrome.__del__ = lambda self: None
 
 
 class LivesportOddsScraper:
+    KNOWN_BOOKMAKERS = [
+        ("tipsport", "Tipsport"),
+        ("fortuna", "Fortuna"),
+        ("ifortuna", "Fortuna"),
+        ("betano", "Betano"),
+        ("chance", "Chance"),
+        ("sazkabet", "Sazkabet"),
+        ("kingsbet", "Kingsbet"),
+        ("merkur", "MerkurXtip"),
+        ("synottip", "SynotTip"),
+    ]
+
     def __init__(self, headless=False):
         load_dotenv()
         db_url = os.getenv("DATABASE_URL")
@@ -33,6 +45,17 @@ class LivesportOddsScraper:
         self.engine = create_engine(db_url)
         self.headless = headless
         self.driver = None
+        self._db_cols_cache = None
+
+    def _get_bookmaker_odds_columns(self) -> set:
+        if self._db_cols_cache is not None:
+            return self._db_cols_cache
+        with self.engine.connect() as conn:
+            rows = conn.execute(text(
+                "SELECT column_name FROM information_schema.columns WHERE table_name = 'bookmaker_odds'"
+            )).fetchall()
+        self._db_cols_cache = {r[0] for r in rows}
+        return self._db_cols_cache
 
     def _get_chrome_version(self) -> int:
         """Automaticky zjistí hlavní verzi nainstalovaného Chrome (např. 155)."""
@@ -89,20 +112,16 @@ class LivesportOddsScraper:
 
     def _resolve_full_base_url(self, raw_url: str, match_id: str, fid: int) -> str:
         """
-        Zajistí, že máme plnou adresu ve tvaru:
-        https://www.livesport.cz/zapas/fotbal/tym1-ID1/tym2-ID2/
-        Pokud je v DB jen krátká adresa (/zapas/ID/), otevře ji, nechá Chrome přesměrovat
-        a plnou adresu uloží zpět do DB.
+        Zajistí plnou adresu ve tvaru https://www.livesport.cz/zapas/fotbal/tym1/tym2/
+        a uloží ji do tabulky fixtures.
         """
         clean_url = str(raw_url).split('#')[0].split('?')[0].rstrip('/') + '/'
         if not clean_url.startswith('http'):
             clean_url = f"https://www.livesport.cz{clean_url}"
 
-        # Pokud už URL obsahuje '/fotbal/' (plný tvar s týmy), můžeme ji rovnou použít
         if "/fotbal/" in clean_url:
             return clean_url
 
-        # Jinak otevřeme krátkou URL a necháme Livesport přesměrovat na plnou adresu
         short_url = f"https://www.livesport.cz/zapas/{match_id}/"
         self.driver.get(short_url)
         time.sleep(2.0)
@@ -118,7 +137,6 @@ class LivesportOddsScraper:
         current = self.driver.current_url
         resolved_base = current.split('#')[0].split('?')[0].rstrip('/') + '/'
 
-        # Uložíme plnou URL do tabulky fixtures, abychom příště nemuseli přesměrovávat
         if "/fotbal/" in resolved_base:
             full_canonical_url = f"{resolved_base}?mid={match_id}"
             try:
@@ -132,43 +150,100 @@ class LivesportOddsScraper:
 
         return resolved_base
 
-    def _parse_odds(self, page_source, expected_count, is_over_under=False):
-        """Původní osvědčený parser s ochranou proti sebrání hranice 0.5/1.5 místo 2.5."""
+    def _detect_bookmaker_in_row(self, row_el) -> str:
+        """Rozpozná název sázkové kanceláře (Tipsport, Fortuna, Betano, Chance) z HTML řádku."""
+        attributes_to_check = []
+
+        # 1. Prohledáme obrázky loga (alt, title) a odkazy (title, href) uvnitř řádku
+        for tag in row_el.find_all(['img', 'a', 'span', 'div']):
+            for attr in ('title', 'alt', 'href', 'aria-label'):
+                val = tag.get(attr)
+                if val:
+                    attributes_to_check.append(str(val).lower())
+
+        attributes_to_check.append(row_el.get_text(separator=' ').lower())
+        combined_haystack = " ".join(attributes_to_check)
+
+        for key, clean_name in self.KNOWN_BOOKMAKERS:
+            if key in combined_haystack:
+                return clean_name
+
+        return ""
+
+    def _parse_best_odds(self, page_source, expected_count, is_over_under=False):
+        """
+        Projde VŠECHNY řádky sázkových kanceláří na stránce a pro každý sloupec
+        vrátí dvojici (nejvyšší_kurz, název_sázkovky).
+        """
         soup = BeautifulSoup(page_source, 'html.parser')
         if not soup.body:
-            return []
+            return [(None, None)] * expected_count
 
-        rows = soup.find_all(
-            ['div', 'a'],
-            class_=lambda c: c and ('row' in c.lower() or 'cell' in c.lower() or 'odds' in c.lower() or 'bookmaker' in c.lower())
-        )
+        rows = soup.find_all('div', class_=lambda c: c and 'ui-table__row' in c)
         if not rows:
-            rows = [soup.body]
+            rows = soup.find_all(
+                ['div', 'a'],
+                class_=lambda c: c and ('row' in c.lower() or 'bookmaker' in c.lower())
+            )
+
+        collected_rows = []
 
         for row in rows:
-            text_content = row.get_text(separator=' ')
+            if row.find('div', class_=lambda c: c and 'ui-table__row' in c):
+                continue
+
+            text_content = row.get_text(separator=' ').strip()
+
             if is_over_under:
                 if '2.5' not in text_content and '2,5' not in text_content:
                     continue
-                # Přeskočíme obří nadřazený kontejner celé stránky, který obsahuje i 0.5, 1.5, 3.5
                 if ('1.5' in text_content or '1,5' in text_content) and ('3.5' in text_content or '3,5' in text_content):
                     continue
 
             matches = re.findall(r'\b\d{1,3}[.,]\d{2}\b', text_content)
-            if len(matches) >= expected_count:
-                vals = [float(m.replace(',', '.')) for m in matches]
-                if is_over_under:
-                    vals = [v for v in vals if v not in (0.5, 1.5, 2.5, 3.5, 4.5, 5.5)]
-                    if len(vals) >= 2:
-                        return vals[:2]
-                else:
-                    if all(v > 1.0 for v in vals[:expected_count]):
-                        return vals[:expected_count]
-        return []
+            if len(matches) < expected_count:
+                continue
+
+            vals = [float(m.replace(',', '.')) for m in matches]
+            if is_over_under:
+                vals = [v for v in vals if v not in (0.5, 1.5, 2.5, 3.5, 4.5, 5.5) and 1.12 <= v <= 50.0]
+            else:
+                vals = [v for v in vals if 1.01 < v <= 100.0]
+
+            if len(vals) >= expected_count:
+                bookie = self._detect_bookmaker_in_row(row) or "Livesport"
+                collected_rows.append((bookie, vals[:expected_count]))
+
+        if not collected_rows:
+            return [(None, None)] * expected_count
+
+        named_rows = [r for r in collected_rows if r[0] != "Livesport"]
+        active_rows = named_rows if named_rows else collected_rows
+
+        best_results = []
+        for i in range(expected_count):
+            max_odd = -1.0
+            best_bookies = []
+
+            for bookie, odds_list in active_rows:
+                val = odds_list[i]
+                if val > max_odd:
+                    max_odd = val
+                    best_bookies = [bookie]
+                elif val == max_odd and bookie not in best_bookies:
+                    best_bookies.append(bookie)
+
+            if max_odd > 1.0:
+                bookie_str = "/".join(best_bookies[:2])
+                best_results.append((max_odd, bookie_str))
+            else:
+                best_results.append((None, None))
+
+        return best_results
 
     def scrape_odds(self, days_ahead=7):
         days_ahead = min(days_ahead, 7)
-        print(f"\n🌍 Stahuji NEJAKTUÁLNĚJŠÍ kurzy z Livesportu pro dalších {days_ahead} dnů...")
+        print(f"\n🌍 Stahuji NEJVYŠŠÍ kurzy (Tipsport, Fortuna, Betano, Chance) pro dalších {days_ahead} dnů...")
 
         with self.engine.begin() as conn:
             query = text(f"""
@@ -186,6 +261,7 @@ class LivesportOddsScraper:
             return {"status": "success", "matched": 0, "updated": 0, "count": 0, "new_odds": 0, "inserted": 0, "added": 0}
 
         print(f"  🔍 Nalezeno {len(df_upcoming)} zápasů pro kompletní aktualizaci kurzů.")
+        db_cols = self._get_bookmaker_odds_columns()
         self.start_browser()
         saved_count = 0
 
@@ -197,7 +273,6 @@ class LivesportOddsScraper:
                     match_id = self._extract_match_id(raw_url)
                     print(f"    ⏳ Stahuji kurzy [{idx+1}/{len(df_upcoming)}]: {row.get('home_team')} vs {row.get('away_team')} ({match_id})")
 
-                    # Získáme plnou adresu včetně '/fotbal/tym1/tym2/'
                     full_base = self._resolve_full_base_url(raw_url, match_id, fid)
 
                     url_1x2 = f"{full_base}kurzy/kurzy-1x2/zakladni-doba/?mid={match_id}"
@@ -216,67 +291,74 @@ class LivesportOddsScraper:
                         pass
                     time.sleep(2.5)
 
-                    o_1x2 = self._parse_odds(self.driver.page_source, expected_count=3)
-                    if not o_1x2:
+                    res_1x2 = self._parse_best_odds(self.driver.page_source, expected_count=3)
+                    if not res_1x2 or res_1x2[0][0] is None:
                         print("      ❌ Kurzy nejsou aktuálně sázkovkami vypsány.")
                         continue
 
                     # 2. Dvojitá šance (1X, 12, X2)
                     self.driver.get(url_dc)
                     time.sleep(1.5)
-                    o_dc = self._parse_odds(self.driver.page_source, expected_count=3)
+                    res_dc = self._parse_best_odds(self.driver.page_source, expected_count=3)
 
                     # 3. Over / Under 2.5 gólu
                     self.driver.get(url_ou)
                     time.sleep(1.5)
-                    o_ou = self._parse_odds(self.driver.page_source, expected_count=2, is_over_under=True)
+                    res_ou = self._parse_best_odds(self.driver.page_source, expected_count=2, is_over_under=True)
 
                     # 4. Oba týmy dají gól (BTTS)
                     self.driver.get(url_bts)
                     time.sleep(1.5)
-                    o_bts = self._parse_odds(self.driver.page_source, expected_count=2, is_over_under=False)
+                    res_bts = self._parse_best_odds(self.driver.page_source, expected_count=2, is_over_under=False)
 
-                    odd_1 = o_1x2[0] if (isinstance(o_1x2, list) and len(o_1x2) >= 3) else None
-                    odd_x = o_1x2[1] if (isinstance(o_1x2, list) and len(o_1x2) >= 3) else None
-                    odd_2 = o_1x2[2] if (isinstance(o_1x2, list) and len(o_1x2) >= 3) else None
-
-                    odd_1x = o_dc[0] if (isinstance(o_dc, list) and len(o_dc) >= 2) else None
-                    odd_12 = o_dc[1] if (isinstance(o_dc, list) and len(o_dc) >= 2) else None
-                    odd_x2 = o_dc[2] if (isinstance(o_dc, list) and len(o_dc) >= 3) else (o_dc[1] if (isinstance(o_dc, list) and len(o_dc) == 2) else None)
-
-                    odd_o25 = o_ou[0] if (isinstance(o_ou, list) and len(o_ou) >= 2) else None
-                    odd_u25 = o_ou[1] if (isinstance(o_ou, list) and len(o_ou) >= 2) else None
-
-                    odd_bts_y = o_bts[0] if (isinstance(o_bts, list) and len(o_bts) >= 2) else None
-                    odd_bts_n = o_bts[1] if (isinstance(o_bts, list) and len(o_bts) >= 2) else None
+                    (odd_1, book_1), (odd_x, book_x), (odd_2, book_2) = res_1x2
+                    (odd_1x, book_1x), (odd_12, book_12), (odd_x2, book_x2) = res_dc
+                    (odd_o25, book_o25), (odd_u25, book_u25) = res_ou
+                    (odd_bts_y, book_bts_y), (odd_bts_n, book_bts_n) = res_bts
 
                     if odd_1 is not None and odd_2 is not None:
+                        record_data = {
+                            "fixture_id": fid,
+                            "home_team": row.get('home_team'),
+                            "away_team": row.get('away_team'),
+                            "league": row.get('league'),
+                            "match_date": row.get('match_date'),
+                            "odd_1": odd_1, "odd_x": odd_x, "odd_2": odd_2,
+                            "odd_1x": odd_1x, "odd_12": odd_12, "odd_x2": odd_x2,
+                            "odd_over_25": odd_o25, "odd_under_25": odd_u25,
+                            "odd_btts_yes": odd_bts_y, "odd_btts_no": odd_bts_n,
+                            "book_1": book_1 or "Livesport",
+                            "book_x": book_x,
+                            "book_2": book_2,
+                            "book_1x": book_1x,
+                            "book_12": book_12,
+                            "book_x2": book_x2,
+                            "book_over_25": book_o25,
+                            "book_under_25": book_u25,
+                            "book_btts_yes": book_bts_y,
+                            "book_btts_no": book_bts_n,
+                        }
+
+                        valid_cols = [c for c in record_data.keys() if c in db_cols]
+                        cols_sql = ", ".join(valid_cols + ["fetched_at"])
+                        vals_sql = ", ".join([f":{c}" for c in valid_cols] + ["NOW()"])
+
                         with self.engine.begin() as conn:
                             conn.execute(text("DELETE FROM bookmaker_odds WHERE fixture_id = :fid"), {"fid": fid})
-                            conn.execute(text("""
-                                INSERT INTO bookmaker_odds (
-                                    fixture_id, home_team, away_team, league, match_date,
-                                    odd_1, odd_x, odd_2, odd_1x, odd_12, odd_x2, 
-                                    odd_over_25, odd_under_25, odd_btts_yes, odd_btts_no, book_1, fetched_at
-                                ) VALUES (
-                                    :fid, :home, :away, :league, :mdate,
-                                    :o1, :ox, :o2, :o1x, :o12, :ox2, :oo25, :ou25, :obtsy, :obtsn, 'Livesport', NOW()
-                                )
-                            """), {
-                                "fid": fid,
-                                "home": row.get('home_team'), "away": row.get('away_team'),
-                                "league": row.get('league'), "mdate": row.get('match_date'),
-                                "o1": odd_1, "ox": odd_x, "o2": odd_2,
-                                "o1x": odd_1x, "o12": odd_12, "ox2": odd_x2,
-                                "oo25": odd_o25, "ou25": odd_u25,
-                                "obtsy": odd_bts_y, "obtsn": odd_bts_n
-                            })
+                            conn.execute(
+                                text(f"INSERT INTO bookmaker_odds ({cols_sql}) VALUES ({vals_sql})"),
+                                {k: record_data[k] for k in valid_cols}
+                            )
+
                         saved_count += 1
-                        saved_markets = [f"1X2 ({odd_1}/{odd_x}/{odd_2})"]
-                        if odd_1x: saved_markets.append(f"DC ({odd_1x}/{odd_12}/{odd_x2})")
-                        if odd_o25: saved_markets.append(f"O/U2.5 ({odd_o25}/{odd_u25})")
-                        if odd_bts_y: saved_markets.append(f"BTTS ({odd_bts_y}/{odd_bts_n})")
-                        print(f"      ✅ Uloženo: {' | '.join(saved_markets)}")
+                        saved_markets = [f"1X2 ({odd_1} {book_1} / {odd_x} {book_x} / {odd_2} {book_2})"]
+                        if odd_1x:
+                            saved_markets.append(f"DC ({odd_1x} {book_1x} / {odd_x2} {book_x2})")
+                        if odd_o25:
+                            saved_markets.append(f"O/U2.5 ({odd_o25} {book_o25} / {odd_u25} {book_u25})")
+                        if odd_bts_y:
+                            saved_markets.append(f"BTTS ({odd_bts_y} {book_bts_y} / {odd_bts_n} {book_bts_n})")
+                        print(f"      ✅ MAX kurzy: {' | '.join(saved_markets)}")
 
                     time.sleep(random.uniform(1.0, 2.0))
 
